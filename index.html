@@ -57,7 +57,6 @@
       <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
         <a href="#servers" class="hover:text-frost-400 transition" data-i18n="navServer">Server</a>
         <a href="#rewards" class="hover:text-frost-400 transition" data-i18n="navRewards">Rewards</a>
-        <!-- Smooth Scroll Trigger -->
         <a href="#codes" class="hover:text-frost-400 transition" data-i18n="navCodes">Gift Codes</a>
       </div>
 
@@ -146,7 +145,7 @@
     </div>
 
     <!-- CODE GRID -->
-    <div id="codeGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="codeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <!-- Generated via JS -->
     </div>
   </section>
@@ -157,7 +156,47 @@
     <span id="toastMsg">Code copied to clipboard!</span>
   </div>
 
-  <!-- SCRIPT -->
+  <!-- AUTH MODAL -->
+  <div id="authModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-darkcard border border-frost-500/30 rounded-2xl p-6 w-full max-w-md shadow-2xl relative">
+      <button id="closeAuthBtn" type="button" class="absolute top-4 right-4 text-gray-400 hover:text-white font-bold cursor-pointer">✕</button>
+
+      <div class="flex border-b border-white/10 mb-6">
+        <button id="tabLogin" type="button" class="flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400 cursor-pointer" data-i18n="tabLogin">LOGIN</button>
+        <button id="tabRegister" type="button" class="flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer" data-i18n="tabRegister">REGISTER</button>
+      </div>
+
+      <!-- FORM LOGIN -->
+      <form id="formLogin" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblUsername">USERNAME</label>
+          <input type="text" id="loginUsername" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Username">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblPassword">PASSWORD</label>
+          <input type="password" id="loginPassword" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="••••••••">
+        </div>
+        <button type="submit" class="w-full bg-frost-600 hover:bg-frost-500 text-white font-bold py-2.5 rounded-lg text-sm transition cursor-pointer" data-i18n="btnSubmitLogin">MASUK GAME</button>
+      </form>
+
+      <!-- FORM REGISTER -->
+      <form id="formRegister" class="space-y-4 hidden">
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblUsername">USERNAME</label>
+          <input type="text" id="regUsername" required minlength="3" maxlength="30" class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Username (misal: selszzz99)">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblPassword">PASSWORD</label>
+          <input type="password" id="regPassword" minlength="6" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Minimal 6 karakter">
+        </div>
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-lg text-sm transition cursor-pointer" data-i18n="btnSubmitRegister">BUAT AKUN BARU</button>
+      </form>
+
+      <div id="authMessage" class="mt-4 text-xs text-center hidden p-2 rounded"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPT ENGINE -->
   <script type="module">
     import { supabase } from './supabase.js';
 
@@ -174,6 +213,7 @@
       "N5CS4D9C", "HWWKPGF6", "EUC6GDSQ"
     ];
 
+    // KAMUS TERJEMAHAN 8 BAHASA LENGKAP
     const translations = {
       en: {
         topBarState: "❄ STATE 92 — OPENING SOON",
@@ -196,7 +236,15 @@
         citySub: "State 92 Open — Prepare Your Alliance",
         codesBadge: "ACTIVE CODES",
         codesTitle: "CLAIM YOUR FREE REWARDS",
-        codesSub: "Copy a code, open your profile in game and redeem it from Settings → Gift Code."
+        codesSub: "Copy a code, open your profile in game and redeem it from Settings → Gift Code.",
+        cardSub: "Active reward code",
+        btnCopy: "COPY",
+        tabLogin: "LOGIN",
+        tabRegister: "REGISTER",
+        lblUsername: "USERNAME",
+        lblPassword: "PASSWORD",
+        btnSubmitLogin: "MASUK GAME",
+        btnSubmitRegister: "BUAT AKUN BARU"
       },
       id: {
         topBarState: "❄ STATE 92 — SEGERA DIBUKA",
@@ -219,7 +267,201 @@
         citySub: "State 92 Terbuka — Siapkan Aliansimu",
         codesBadge: "KODE AKTIF",
         codesTitle: "KLAIM HADIAH GRATIS KAMU",
-        codesSub: "Salin kode, buka profil di game dan tukarkan dari Pengaturan → Kode Hadiah."
+        codesSub: "Salin kode, buka profil di game dan tukarkan dari Pengaturan → Kode Hadiah.",
+        cardSub: "Kode hadiah aktif",
+        btnCopy: "SALIN",
+        tabLogin: "MASUK",
+        tabRegister: "DAFTAR",
+        lblUsername: "NAMA PENGGUNA",
+        lblPassword: "KATA SANDI",
+        btnSubmitLogin: "MASUK GAME",
+        btnSubmitRegister: "BUAT AKUN BARU"
+      },
+      zh: {
+        topBarState: "❄ STATE 92 — 即将开放",
+        topBarTimer: "下一个 State 倒计时 01天 : 02时 : 59分",
+        navServer: "服务器",
+        navRewards: "奖励",
+        navCodes: "礼包码",
+        dlRegBtn: "下载 / 注册",
+        heroBadge: "⚡ 无尽冬日 私服",
+        heroTitle1: "加速生存。",
+        heroTitle2: "主宰冰雪。",
+        heroDesc: "加入 Selszzz 无尽冬日私服，体验极速升级、每日豪礼、最新兑换码，每2天开启全新 State。",
+        btnDownload: "▶ 下载 / 注册",
+        btnDiscord: "◉ 加入 DISCORD",
+        statCurrentState: "当前 STATE",
+        statOnline: "在线玩家",
+        statInterval: "更新间隔",
+        statIntervalVal: "48 小时",
+        cityTitle: "冰封熔炉城",
+        citySub: "State 92 已开启 — 集结你的联盟",
+        codesBadge: "有效礼包码",
+        codesTitle: "领取免费奖励",
+        codesSub: "复制礼包码，在游戏中打开个人资料，通过设置 → 礼包码兑换。",
+        cardSub: "有效奖励兑换码",
+        btnCopy: "复制",
+        tabLogin: "登录",
+        tabRegister: "注册",
+        lblUsername: "用户名",
+        lblPassword: "密码",
+        btnSubmitLogin: "进入游戏",
+        btnSubmitRegister: "创建新账号"
+      },
+      th: {
+        topBarState: "❄ STATE 92 — เปิดเร็วๆ นี้",
+        topBarTimer: "STATE ถัดไปใน 01วัน : 02ชม. : 59นาที",
+        navServer: "เซิร์ฟเวอร์",
+        navRewards: "รางวัล",
+        navCodes: "โค้ดของขวัญ",
+        dlRegBtn: "ดาวน์โหลด / ลงทะเบียน",
+        heroBadge: "⚡ เซิร์ฟเวอร์ส่วนตัว Whiteout Survival",
+        heroTitle1: "รอดชีวิตเร็วขึ้น.",
+        heroTitle2: "ครองหิมะ.",
+        heroDesc: "เข้าร่วมเซิร์ฟเวอร์ส่วนตัว Selszzz Whiteout Survival เพื่อการพัฒนาที่เร็วขึ้น รับของขวัญรายวันมากมาย และ State ใหม่ทุก 2 วัน",
+        btnDownload: "▶ ดาวน์โหลด / ลงทะเบียน",
+        btnDiscord: "◉ เข้าร่วม DISCORD",
+        statCurrentState: "STATE ปัจจุบัน",
+        statOnline: "ออนไลน์ขณะนี้",
+        statInterval: "ระยะเวลา",
+        statIntervalVal: "48 ชั่วโมง",
+        cityTitle: "เมืองเตาเผาแช่แข็ง",
+        citySub: "State 92 เปิดแล้ว — เตรียมพันธมิตรของคุณ",
+        codesBadge: "โค้ดที่ใช้งานได้",
+        codesTitle: "รับรางวัลฟรีของคุณ",
+        codesSub: "คัดลอกโค้ด เปิดโปรไฟล์ในเกม และรับรางวัลได้ที่ การตั้งค่า → โค้ดของขวัญ",
+        cardSub: "โค้ดรางวัลใช้งานได้",
+        btnCopy: "คัดลอก",
+        tabLogin: "เข้าสู่ระบบ",
+        tabRegister: "ลงทะเบียน",
+        lblUsername: "ชื่อผู้ใช้",
+        lblPassword: "รหัสผ่าน",
+        btnSubmitLogin: "เข้าสู่เกม",
+        btnSubmitRegister: "สร้างบัญชีใหม่"
+      },
+      ar: {
+        topBarState: "❄ STATE 92 — يفتح قريبًا",
+        topBarTimer: "المرحلة القادمة خلال 01 يوم : 02 ساعة : 59 دقيقة",
+        navServer: "السيرفر",
+        navRewards: "المكافآت",
+        navCodes: "أكواد الهدية",
+        dlRegBtn: "تحميل / تسجيل",
+        heroBadge: "⚡ سيرفر خاص Whiteout Survival",
+        heroTitle1: "البقاء بشكل أسرع.",
+        heroTitle2: "احكم الجليد.",
+        heroDesc: "انضم إلى سيرفر Selszzz الخاص لتطوير أسرع ومكافآت يومية ومراحل جديدة كل يومين.",
+        btnDownload: "▶ تحميل / تسجيل",
+        btnDiscord: "◉ الانضمام لـ DISCORD",
+        statCurrentState: "المرحلة الحالية",
+        statOnline: "المتواجدون الآن",
+        statInterval: "الفترة",
+        statIntervalVal: "48 ساعة",
+        cityTitle: "مدينة الفرن المتجمدة",
+        citySub: "State 92 مفتوحة — جهز تحالفك",
+        codesBadge: "الأكواد النشطة",
+        codesTitle: "احصل على مكافآتك المجانية",
+        codesSub: "انسخ الكود، افتح ملفك الشخصي في اللعبة واستبدله من الإعدادات ← كود الهدية.",
+        cardSub: "كود مكافأة نشط",
+        btnCopy: "نسخ",
+        tabLogin: "دخول",
+        tabRegister: "تسجيل",
+        lblUsername: "اسم المستخدم",
+        lblPassword: "كلمة المرور",
+        btnSubmitLogin: "دخول اللعبة",
+        btnSubmitRegister: "إنشاء حساب"
+      },
+      ru: {
+        topBarState: "❄ STATE 92 — СКОРО ОТКРЫТИЕ",
+        topBarTimer: "СЛЕДУЮЩИЙ STATE ЧЕРЕЗ 01Д : 02Ч : 59М",
+        navServer: "Сервер",
+        navRewards: "Награды",
+        navCodes: "Промокоды",
+        dlRegBtn: "СКАЧАТЬ / РЕГИСТРАЦИЯ",
+        heroBadge: "⚡ Приватный сервер Whiteout Survival",
+        heroTitle1: "ВЫЖИВАЙ БЫСТРЕЕ.",
+        heroTitle2: "ПРАВЬ СНЕГАМИ.",
+        heroDesc: "Присоединяйтесь к приватному серверу Selszzz Whiteout Survival для быстрого прогресса, огромных наград и новых State каждые 2 дня.",
+        btnDownload: "▶ СКАЧАТЬ / РЕГИСТРАЦИЯ",
+        btnDiscord: "◉ DISCORD СЕРВЕР",
+        statCurrentState: "ТЕКУЩИЙ STATE",
+        statOnline: "ОНЛАЙН СЕЙЧАС",
+        statInterval: "ИНТЕРВАЛ",
+        statIntervalVal: "48 ЧАСОВ",
+        cityTitle: "ГОРОД ЗАМОРОЖЕННОЙ ПЕЧИ",
+        citySub: "State 92 Открыт — Готовьте ваш альянс",
+        codesBadge: "АКТИВНЫЕ КОДЫ",
+        codesTitle: "ПОЛУЧИТЕ БЕСПЛАТНЫЕ НАГРАДЫ",
+        codesSub: "Скопируйте код, откройте профиль в игре и активируйте в Настройки → Подарочный код.",
+        cardSub: "Активный промокод",
+        btnCopy: "КОПИРОВАТЬ",
+        tabLogin: "ВХОД",
+        tabRegister: "РЕГИСТРАЦИЯ",
+        lblUsername: "ИМЯ ПОЛЬЗОВАТЕЛЯ",
+        lblPassword: "ПАРОЛЬ",
+        btnSubmitLogin: "ВОЙТИ В ИГРУ",
+        btnSubmitRegister: "СОЗДАТЬ АККАУНТ"
+      },
+      ko: {
+        topBarState: "❄ STATE 92 — 오픈 예정",
+        topBarTimer: "다음 STATE까지 01일 : 02시간 : 59분",
+        navServer: "서버",
+        navRewards: "보상",
+        navCodes: "기프트 코드",
+        dlRegBtn: "다운로드 / 회원가입",
+        heroBadge: "⚡ 화이트아웃 서바이버 프라이빗 서버",
+        heroTitle1: "더 빠른 생존.",
+        heroTitle2: "설원을 지배하라.",
+        heroDesc: "Selszzz 프라이빗 서버에서 빠르고 강력한 성장과 일일 보상, 2일마다 열리는 신규 State를 경험하세요.",
+        btnDownload: "▶ 다운로드 / 회원가입",
+        btnDiscord: "◉ 디스코드 참여",
+        statCurrentState: "현재 STATE",
+        statOnline: "동시 접속자",
+        statInterval: "주기",
+        statIntervalVal: "48시간",
+        cityTitle: "얼어붙은 용광로 도시",
+        citySub: "State 92 오픈 — 동맹을 준비하세요",
+        codesBadge: "활성 코드",
+        codesTitle: "무료 보상 수령하기",
+        codesSub: "코드를 복사한 후 게임 내 프로필 > 설정 > 기프트 코드에서 입력하세요.",
+        cardSub: "사용 가능한 보상 코드",
+        btnCopy: "복사",
+        tabLogin: "로그인",
+        tabRegister: "회원가입",
+        lblUsername: "사용자 이름",
+        lblPassword: "비밀번호",
+        btnSubmitLogin: "게임 시작",
+        btnSubmitRegister: "계정 생성"
+      },
+      ja: {
+        topBarState: "❄ STATE 92 — まもなくオープン",
+        topBarTimer: "次の STATE まで 01日 : 02時間 : 59分",
+        navServer: "サーバー",
+        navRewards: "報酬",
+        navCodes: "ギフトコード",
+        dlRegBtn: "ダウンロード / 登録",
+        heroBadge: "⚡ ホワイトアウト・サバイバル プライベートサーバー",
+        heroTitle1: "より速く生き残れ。",
+        heroTitle2: "雪原を支配せよ。",
+        heroDesc: "Selszzzプライベートサーバーで高速育成、豪華な daily 報酬、2日ごとの新Stateオープンを楽しもう。",
+        btnDownload: "▶ ダウンロード / 登録",
+        btnDiscord: "◉ DISCORD に参加",
+        statCurrentState: "現在の STATE",
+        statOnline: "オンライン人数",
+        statInterval: "更新間隔",
+        statIntervalVal: "48時間",
+        cityTitle: "凍てつく大溶鉱炉の街",
+        citySub: "State 92 オープン — 同盟の準備をせよ",
+        codesBadge: "利用可能なコード",
+        codesTitle: "無料報酬を受け取る",
+        codesSub: "コードをコピーし、ゲーム内の profile > 設定 > ギフトコードから引き換えてください。",
+        cardSub: "有効な特典コード",
+        btnCopy: "コピー",
+        tabLogin: "ログイン",
+        tabRegister: "新規登録",
+        lblUsername: "ユーザー名",
+        lblPassword: "パスワード",
+        btnSubmitLogin: "ゲームを始める",
+        btnSubmitRegister: "アカウント作成"
       }
     };
 
@@ -235,25 +477,29 @@
         }
       });
       document.getElementById('langSelector').value = selected;
+      renderCodes(selected);
     }
 
     // RENDER ZNOWZ STYLE CARDS
-    function renderCodes() {
+    function renderCodes(lang = 'en') {
       const grid = document.getElementById('codeGrid');
       grid.innerHTML = '';
+
+      const subText = translations[lang]?.cardSub || "Active reward code";
+      const copyBtnText = translations[lang]?.btnCopy || "COPY";
 
       giftCodes.forEach(code => {
         const card = document.createElement('div');
         card.className = "bg-white/95 hover:bg-white text-gray-900 rounded-2xl overflow-hidden shadow-xl flex justify-between items-center transition transform hover:-translate-y-1 cursor-pointer border border-white/20";
         card.onclick = () => copyCode(code);
         card.innerHTML = `
-          <div class="p-4 pl-5">
-            <span class="text-[10px] uppercase font-semibold text-gray-400 tracking-wider block mb-0.5">GIFT CODE</span>
-            <span class="font-bold text-lg text-gray-900 tracking-wide block">${code}</span>
-            <span class="text-xs text-gray-500 font-medium">Active reward code</span>
+          <div class="p-3.5 pl-4 overflow-hidden">
+            <span class="text-[9px] uppercase font-semibold text-gray-400 tracking-wider block mb-0.5">GIFT CODE</span>
+            <span class="font-bold text-base text-gray-900 tracking-wide block truncate">${code}</span>
+            <span class="text-[11px] text-gray-500 font-medium block truncate">${subText}</span>
           </div>
-          <button class="bg-frost-400/20 hover:bg-frost-400 text-frost-600 hover:text-white font-bold text-xs uppercase px-5 py-8 border-l border-frost-400/20 transition flex items-center justify-center">
-            COPY
+          <button class="bg-frost-400/20 hover:bg-frost-400 text-frost-600 hover:text-white font-bold text-xs uppercase px-4 py-7 border-l border-frost-400/20 transition flex items-center justify-center shrink-0">
+            ${copyBtnText}
           </button>
         `;
         grid.appendChild(card);
@@ -274,7 +520,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('user_lang') || 'en';
       setLanguage(savedLang);
-      renderCodes();
 
       document.getElementById('langSelector').addEventListener('change', (e) => {
         setLanguage(e.target.value);
