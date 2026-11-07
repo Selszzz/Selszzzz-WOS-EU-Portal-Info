@@ -64,7 +64,7 @@
 
       <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
         <a href="#servers" class="hover:text-frost-400 transition" data-i18n="navServer">Server</a>
-        <a href="#rewards" class="hover:text-frost-400 transition" data-i18n="navRewards">Rewards</a>
+        <a href="#rewards" class="hover:text-frost-400 font-bold transition" data-i18n="navRewards">Rewards</a>
         <a href="#recharge" class="hover:text-amber-400 text-amber-400 font-bold transition" data-i18n="navRecharge">Recharge</a>
         <a href="#codes" class="hover:text-frost-400 transition" data-i18n="navCodes">Gift Codes</a>
       </div>
@@ -139,7 +139,37 @@
     </div>
   </section>
 
-  <!-- RECHARGE SECTION (FROST STARS PACKS) -->
+  <!-- 1. ACCUMULATED FROST STAR REWARDS SECTION (DARK FROST CARD STYLE LIKE PACKS) -->
+  <section id="rewards" class="max-w-7xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-frost-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="rewardsBadge">PUBLIC BETA RECHARGE</span>
+      <h2 class="text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-wide mb-3" data-i18n="rewardsTitle">
+        ACCUMULATED FROST STAR REWARDS
+      </h2>
+      <p class="text-gray-400 text-sm sm:text-base" data-i18n="rewardsSub">
+        Reach each accumulated recharge milestone during public beta to receive the listed Frost Star reward.
+      </p>
+    </div>
+
+    <!-- REWARDS CARDS GRID -->
+    <div id="rewardsGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
+      <!-- Generated via JS -->
+    </div>
+
+    <!-- SUMMARY BANNER -->
+    <div class="bg-gradient-to-r from-frost-950 via-darkcard to-frost-950 border border-frost-500/30 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <span class="text-amber-400 text-[10px] font-extrabold uppercase tracking-widest block mb-1" data-i18n="summaryTag">ACCUMULATED MILESTONES</span>
+        <h4 class="text-xl sm:text-2xl font-bold font-heading text-white" data-i18n="summaryTitle">TOTAL CUMULATIVE REWARDS</h4>
+      </div>
+      <div class="text-right">
+        <span class="text-3xl sm:text-4xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-frost-400">1,720,000</span>
+        <span class="text-xs font-bold text-frost-300 block uppercase tracking-wider">FROST STARS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. RECHARGE SECTION (FROST STARS PACKS) -->
   <section id="recharge" class="max-w-7xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-10">
       <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="rechargeBadge">RECHARGE STORE</span>
@@ -155,36 +185,6 @@
     <!-- RECHARGE PACKS GRID -->
     <div id="rechargeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <!-- Generated via JS -->
-    </div>
-  </section>
-
-  <!-- ACCUMULATED FROST STAR REWARDS SECTION (ZNOWZ WHITE CARD UI) -->
-  <section id="rewards" class="max-w-6xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 relative z-10">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <span class="text-frost-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="rewardsBadge">PUBLIC BETA RECHARGE</span>
-      <h2 class="text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-wide mb-3" data-i18n="rewardsTitle">
-        ACCUMULATED FROST STAR REWARDS
-      </h2>
-      <p class="text-gray-400 text-sm" data-i18n="rewardsSub">
-        Reach each accumulated recharge milestone during public beta to receive the listed Frost Star reward.
-      </p>
-    </div>
-
-    <!-- REWARDS CARDS GRID -->
-    <div id="rewardsGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-8">
-      <!-- Generated via JS -->
-    </div>
-
-    <!-- SUMMARY BANNER -->
-    <div class="bg-darkcard border border-frost-500/30 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row justify-between items-center gap-4">
-      <div>
-        <span class="text-amber-400 text-[10px] font-extrabold uppercase tracking-widest block mb-1" data-i18n="summaryTag">ACCUMULATED MILESTONES</span>
-        <h4 class="text-xl sm:text-2xl font-bold font-heading text-white" data-i18n="summaryTitle">TOTAL CUMULATIVE REWARDS</h4>
-      </div>
-      <div class="text-right">
-        <span class="text-3xl sm:text-4xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-frost-400">1,720,000</span>
-        <span class="text-xs font-bold text-frost-300 block uppercase tracking-wider">FROST STARS</span>
-      </div>
     </div>
   </section>
 
@@ -324,6 +324,7 @@
         rewardsTitle: "ACCUMULATED FROST STAR REWARDS",
         rewardsSub: "Reach each accumulated recharge milestone during public beta to receive the listed Frost Star reward.",
         msLabel: "RECHARGE MILESTONE",
+        btnClaimMs: "CLAIM MILESTONE",
         summaryTag: "ACCUMULATED MILESTONES",
         summaryTitle: "TOTAL CUMULATIVE REWARDS",
         codesBadge: "ACTIVE CODES",
@@ -335,8 +336,8 @@
         tabRegister: "REGISTER",
         lblUsername: "USERNAME",
         lblPassword: "PASSWORD",
-        btnSubmitLogin: "LOGIN",
-        btnSubmitRegister: "REGISTER"
+        btnSubmitLogin: "MASUK GAME",
+        btnSubmitRegister: "BUAT AKUN BARU"
       },
       id: {
         navServer: "Server",
@@ -345,7 +346,7 @@
         navCodes: "Kode Hadiah",
         dlRegBtn: "▶ UNDUH",
         heroBadge: "⚡ Server Privat Whiteout Survival",
-        heroTitle1: "BERTAHAN LEBIH CEPAT.",
+        heroTitle1: "BERTAHAN LEBIH CEPT.",
         heroTitle2: "KUASAI SALJU.",
         heroDesc: "Bergabunglah di server privat Selszzz Whiteout Survival untuk progres lebih cepat, klaim hadiah harian melimpah, dan State baru tiap 2 hari.",
         btnDownload: "▶ UNDUH / DAFTAR",
@@ -362,6 +363,7 @@
         rewardsTitle: "AKUMULASI HADIAH FROST STAR",
         rewardsSub: "Capai tiap milestone akumulasi recharge selama beta untuk menerima hadiah Frost Star berikut.",
         msLabel: "MILESTONE RECHARGE",
+        btnClaimMs: "KLAIM MILESTONE",
         summaryTag: "AKUMULASI MILESTONE",
         summaryTitle: "TOTAL HADIAH AKUMULATIF",
         codesBadge: "KODE AKTIF",
@@ -400,6 +402,7 @@
         rewardsTitle: "FROST STAR 累计充值奖励",
         rewardsSub: "在公测期间达到指定的累计充值目标，即可领取相对应的 Frost Star 奖励。",
         msLabel: "充值目标",
+        btnClaimMs: "领取目标奖励",
         summaryTag: "累计目标",
         summaryTitle: "累计总奖励",
         codesBadge: "有效礼包码",
@@ -438,6 +441,7 @@
         rewardsTitle: "รางวัลสะสม FROST STAR",
         rewardsSub: "สะสมยอดเติมเงินในช่วง Beta ถึงเป้าหมายที่กำหนดเพื่อรับรางวัล Frost Star",
         msLabel: "เป้าหมายการเติมเงิน",
+        btnClaimMs: "รับรางวัลเป้าหมาย",
         summaryTag: "เป้าหมายสะสม",
         summaryTitle: "รางวัลสะสมทั้งหมด",
         codesBadge: "โค้ดที่ใช้งานได้",
@@ -476,6 +480,7 @@
         rewardsTitle: "مكافآت FROST STAR التراكمية",
         rewardsSub: "وصل إلى كل مرحلة شحن تراكمية خلال الفترة التجريبية للحصول على مكافآت Frost Star المدرجة.",
         msLabel: "مرحلة الشحن",
+        btnClaimMs: "طالب بالمرحلة",
         summaryTag: "المراحل التراكمية",
         summaryTitle: "إجمالي المكافآت التراكمية",
         codesBadge: "الأكواد النشطة",
@@ -514,6 +519,7 @@
         rewardsTitle: "НАКОПИТЕЛЬНЫЕ НАГРАДЫ FROST STAR",
         rewardsSub: "Достигайте этапов накопительного пополнения в бета-тесте для получения указанных наград Frost Star.",
         msLabel: "ЭТАП ПОПОЛНЕНИЯ",
+        btnClaimMs: "ПОЛУЧИТЬ ЭТАП",
         summaryTag: "НАКОПИТЕЛЬНЫЕ ЭТАПЫ",
         summaryTitle: "ОБЩИЕ НАКОПИТЕЛЬНЫЕ НАГРАДЫ",
         codesBadge: "АКТИВНЫЕ КОДЫ",
@@ -552,6 +558,7 @@
         rewardsTitle: "FROST STAR 누적 충전 보상",
         rewardsSub: "베타 테스트 기간 동안 누적 충전 목표를 달성하고 보상 Frost Star를 받으세요.",
         msLabel: "충전 마일스톤",
+        btnClaimMs: "마일스톤 수령",
         summaryTag: "누적 마일스톤",
         summaryTitle: "총 누적 보상",
         codesBadge: "활성 코드",
@@ -590,6 +597,7 @@
         rewardsTitle: "FROST STAR 累計チャージ報酬",
         rewardsSub: "ベータテスト期間中に各累計チャージ目標を達成し、対象の Frost Star 報酬を受け取りましょう。",
         msLabel: "チャージ目標",
+        btnClaimMs: "目標報酬を獲得",
         summaryTag: "累計目標",
         summaryTitle: "累計獲得報酬合計",
         codesBadge: "利用可能なコード",
@@ -618,9 +626,43 @@
         }
       });
       document.getElementById('langSelector').value = selected;
-      renderRecharge(selected);
       renderRewards(selected);
+      renderRecharge(selected);
       renderCodes(selected);
+    }
+
+    // RENDER ACCUMULATED REWARDS CARDS (MATCHING FROST STAR PACKS DARK STYLE)
+    function renderRewards(lang = 'en') {
+      const grid = document.getElementById('rewardsGrid');
+      grid.innerHTML = '';
+      const msLabelText = translations[lang]?.msLabel || "RECHARGE MILESTONE";
+      const claimText = translations[lang]?.btnClaimMs || "CLAIM MILESTONE";
+
+      cumulativeRewards.forEach(item => {
+        const card = document.createElement('a');
+        card.href = STRIPE_LINK;
+        card.target = "_blank";
+        card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-amber-400 p-6 rounded-2xl transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between relative group cursor-pointer text-center";
+
+        card.innerHTML = `
+          <div>
+            <span class="text-4xl block mb-2">❄️</span>
+            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">${msLabelText}</span>
+            <div class="text-3xl font-extrabold font-heading text-amber-400 mb-4">${item.milestone}</div>
+            
+            <div class="bg-darkbg/60 rounded-xl p-3 mb-5 border border-white/5 text-center">
+              <span class="text-xs text-gray-400 block mb-0.5 uppercase font-semibold">REWARD</span>
+              <div class="text-2xl font-extrabold text-frost-400 tracking-wide">${item.reward}</div>
+              <span class="text-[10px] text-gray-400 font-bold block uppercase tracking-wider">FROST STARS</span>
+            </div>
+          </div>
+
+          <button class="w-full bg-gradient-to-r from-frost-600 to-frost-500 group-hover:from-amber-500 group-hover:to-amber-600 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-frost-600/20">
+            ${claimText}
+          </button>
+        `;
+        grid.appendChild(card);
+      });
     }
 
     // RENDER RECHARGE PACK CARDS
@@ -666,25 +708,6 @@
           <button class="w-full bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-400 group-hover:to-amber-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20">
             ${buyText}
           </button>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    // RENDER ACCUMULATED REWARDS CARDS (WHITE CARD ZNOWZ STYLE)
-    function renderRewards(lang = 'en') {
-      const grid = document.getElementById('rewardsGrid');
-      grid.innerHTML = '';
-      const msLabelText = translations[lang]?.msLabel || "RECHARGE MILESTONE";
-
-      cumulativeRewards.forEach(item => {
-        const card = document.createElement('div');
-        card.className = "bg-white/95 hover:bg-white text-gray-900 rounded-2xl p-5 shadow-xl transition transform hover:-translate-y-1 border border-white/20";
-        card.innerHTML = `
-          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">${msLabelText}</span>
-          <div class="text-2xl font-extrabold font-heading text-gray-900 mb-3">${item.milestone}</div>
-          <div class="text-xl font-extrabold text-frost-600 tracking-wide mb-0.5">${item.reward}</div>
-          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">FROST STARS</span>
         `;
         grid.appendChild(card);
       });
