@@ -56,7 +56,7 @@
       <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
         <a href="#servers" class="hover:text-frost-400 transition" data-i18n="navServer">Server</a>
         <a href="#rewards" class="hover:text-frost-400 transition" data-i18n="navRewards">Rewards</a>
-        <a href="#codes" class="hover:text-frost-400 transition" data-i18n="navCodes">Gift Codes</a>
+        <a href="#codes" class="text-frost-400 font-bold border-b border-frost-400 pb-0.5" data-i18n="navCodes">Gift Codes</a>
       </div>
 
       <div class="flex items-center gap-3">
@@ -72,7 +72,6 @@
           <option value="ja">日本語</option>
         </select>
 
-        <!-- DOWNLOAD / REGISTER BUTTON NAVBAR -->
         <button id="authBtn" type="button" class="bg-frost-600 hover:bg-frost-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg shadow-frost-600/30 cursor-pointer" data-i18n="dlRegBtn">
           DOWNLOAD / REGISTER
         </button>
@@ -81,7 +80,7 @@
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24">
+  <section class="max-w-7xl mx-auto px-4 lg:px-8 py-12 lg:py-16">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div>
         <div class="inline-flex items-center gap-2 bg-frost-500/10 text-frost-400 border border-frost-500/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
@@ -96,7 +95,6 @@
         </p>
 
         <div class="flex flex-wrap gap-4 mb-10">
-          <!-- DIRECT LINK TO GAME SERVER -->
           <a href="https://europa.176.9.65.91.nip.io/" target="_blank" class="bg-gradient-to-r from-frost-500 to-frost-600 hover:from-frost-400 hover:to-frost-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2" data-i18n="btnDownload">
             ▶ DOWNLOAD / REGISTER
           </a>
@@ -132,6 +130,39 @@
       </div>
     </div>
   </section>
+
+  <!-- GIFT CODES SECTION -->
+  <section id="codes" class="max-w-7xl mx-auto px-4 lg:px-8 py-12 border-t border-white/10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
+          <span data-i18n="codesBadge">🎁 ACTIVE REWARDS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading text-white" data-i18n="codesTitle">
+          OFFICIAL GIFT CODES
+        </h2>
+        <p class="text-gray-400 text-sm mt-1" data-i18n="codesSub">
+          Click any code below to instantly copy it to your clipboard.
+        </p>
+      </div>
+
+      <!-- Quick Search / Filter Input -->
+      <div class="relative w-full md:w-64">
+        <input type="text" id="codeSearch" placeholder="Search code..." class="w-full bg-darkcard border border-frost-500/30 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-frost-400">
+      </div>
+    </div>
+
+    <!-- CODE GRID CONTAINER -->
+    <div id="codeGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <!-- Codes generated via JS below -->
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="copyToast" class="fixed bottom-6 right-6 z-50 hidden bg-emerald-600 text-white font-bold px-5 py-3 rounded-xl shadow-2xl border border-emerald-400 flex items-center gap-3 transition">
+    <span>✅</span>
+    <span id="toastMsg">Code copied to clipboard!</span>
+  </div>
 
   <!-- AUTH MODAL -->
   <div id="authModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
@@ -177,6 +208,19 @@
   <script type="module">
     import { supabase } from './supabase.js';
 
+    // LIST 44 GIFT CODES
+    const giftCodes = [
+      "VWYTWXWM", "CVVJXKWU", "EAWEGKHDSY", "KDQXZYTTXE", "VRXGWQPJKF", 
+      "XHCBPWFAUN", "WWUHZSYM", "37D7652B5C", "KEUNULFW", "EJGFULXG", 
+      "LIONQUEEN", "DVXQDREBUS", "EUZYMLTD", "DMGNDZEXMV", "GAMQQLPQ", 
+      "HWRGTWZE", "SERPENT10", "WLZBJLPX", "WCAHNEXZ", "JLSHYTCA", 
+      "LKELPEVD", "ZTUJTNFX", "NQYBSZRU", "VALJNWRC", "CFXWMGZX", 
+      "QMJHTWCQ", "2WLQSRT7", "NQVVBPDK", "5CMG6L4C", "FROST200K", 
+      "JZHDQ3LD", "5NVXR8X6", "438ZBHYA", "11120172", "HAPPYDAY15", 
+      "NEWVERSIONEV1", "FROST1MXD", "FROST500K", "HEROGEAR1000", "BigChiefKeys", 
+      "N5CS4D9C", "HWWKPGF6", "EUC6GDSQ"
+    ];
+
     const translations = {
       en: {
         topBarState: "❄ STATE 92 — OPENING SOON",
@@ -197,6 +241,9 @@
         statIntervalVal: "48 HOURS",
         cityTitle: "FROZEN FURNACE CITY",
         citySub: "State 92 Open — Prepare Your Alliance",
+        codesBadge: "🎁 ACTIVE REWARDS",
+        codesTitle: "OFFICIAL GIFT CODES",
+        codesSub: "Click any code below to instantly copy it to your clipboard.",
         tabLogin: "LOGIN",
         tabRegister: "REGISTER",
         lblUsername: "USERNAME",
@@ -206,7 +253,7 @@
       },
       id: {
         topBarState: "❄ STATE 92 — SEGERA DIBUKA",
-        topBarTimer: "STATE CORAK BARU DALAM 01H : 02J : 59M",
+        topBarTimer: "STATE BARU DALAM 01H : 02J : 59M",
         navServer: "Server",
         navRewards: "Hadiah",
         navCodes: "Kode Hadiah",
@@ -223,168 +270,15 @@
         statIntervalVal: "48 JAM",
         cityTitle: "KOTA TUNGKU BEKU",
         citySub: "State 92 Terbuka — Siapkan Aliansimu",
+        codesBadge: "🎁 HADIAH AKTIF",
+        codesTitle: "KODE HADIAH RESMI",
+        codesSub: "Klik kode di bawah untuk menyalin langsung ke clipboard kamu.",
         tabLogin: "MASUK",
         tabRegister: "DAFTAR",
         lblUsername: "NAMA PENGGUNA",
         lblPassword: "KATA SANDI",
         btnSubmitLogin: "MASUK GAME",
         btnSubmitRegister: "BUAT AKUN BARU"
-      },
-      zh: {
-        topBarState: "❄ STATE 92 — 即将开放",
-        topBarTimer: "下一个 State 倒计时 01天 : 02时 : 59分",
-        navServer: "服务器",
-        navRewards: "奖励",
-        navCodes: "礼包码",
-        dlRegBtn: "下载 / 注册",
-        heroBadge: "⚡ 无尽冬日 私服",
-        heroTitle1: "加速生存。",
-        heroTitle2: "主宰冰雪。",
-        heroDesc: "加入 Selszzz 无尽冬日私服，体验极速升级、每日豪礼、最新兑换码，每2天开启全新 State。",
-        btnDownload: "▶ 下载 / 注册",
-        btnDiscord: "◉ 加入 DISCORD",
-        statCurrentState: "当前 STATE",
-        statOnline: "在线玩家",
-        statInterval: "更新间隔",
-        statIntervalVal: "48 小时",
-        cityTitle: "冰封熔炉城",
-        citySub: "State 92 已开启 — 集结你的联盟",
-        tabLogin: "登录",
-        tabRegister: "注册",
-        lblUsername: "用户名",
-        lblPassword: "密码",
-        btnSubmitLogin: "进入游戏",
-        btnSubmitRegister: "创建新账号"
-      },
-      th: {
-        topBarState: "❄ STATE 92 — เปิดเร็วๆ นี้",
-        topBarTimer: "STATE ถัดไปใน 01วัน : 02ชม. : 59นาที",
-        navServer: "เซิร์ฟเวอร์",
-        navRewards: "รางวัล",
-        navCodes: "โค้ดของขวัญ",
-        dlRegBtn: "ดาวน์โหลด / ลงทะเบียน",
-        heroBadge: "⚡ เซิร์ฟเวอร์ส่วนตัว Whiteout Survival",
-        heroTitle1: "รอดชีวิตเร็วขึ้น.",
-        heroTitle2: "ครองหิมะ.",
-        heroDesc: "เข้าร่วมเซิร์ฟเวอร์ส่วนตัว Selszzz Whiteout Survival เพื่อการพัฒนาที่เร็วขึ้น รับของขวัญรายวันมากมาย และ State ใหม่ทุก 2 วัน",
-        btnDownload: "▶ ดาวน์โหลด / ลงทะเบียน",
-        btnDiscord: "◉ เข้าร่วม DISCORD",
-        statCurrentState: "STATE ปัจจุบัน",
-        statOnline: "ออนไลน์ขณะนี้",
-        statInterval: "ระยะเวลา",
-        statIntervalVal: "48 ชั่วโมง",
-        cityTitle: "เมืองเตาเผาแช่แข็ง",
-        citySub: "State 92 เปิดแล้ว — เตรียมพันธมิตรของคุณ",
-        tabLogin: "เข้าสู่ระบบ",
-        tabRegister: "ลงทะเบียน",
-        lblUsername: "ชื่อผู้ใช้",
-        lblPassword: "รหัสผ่าน",
-        btnSubmitLogin: "เข้าสู่เกม",
-        btnSubmitRegister: "สร้างบัญชีใหม่"
-      },
-      ar: {
-        topBarState: "❄ STATE 92 — يفتح قريبًا",
-        topBarTimer: "المرحلة القادمة خلال 01 يوم : 02 ساعة : 59 دقيقة",
-        navServer: "السيرفر",
-        navRewards: "المكافآت",
-        navCodes: "أكواد الهدية",
-        dlRegBtn: "تحميل / تسجيل",
-        heroBadge: "⚡ سيرفر خاص Whiteout Survival",
-        heroTitle1: "البقاء بشكل أسرع.",
-        heroTitle2: "احكم الجليد.",
-        heroDesc: "انضم إلى سيرفر Selszzz الخاص لتطوير أسرع ومكافآت يومية ومراحل جديدة كل يومين.",
-        btnDownload: "▶ تحميل / تسجيل",
-        btnDiscord: "◉ الانضمام لـ DISCORD",
-        statCurrentState: "المرحلة الحالية",
-        statOnline: "المتواجدون الآن",
-        statInterval: "الفترة",
-        statIntervalVal: "48 ساعة",
-        cityTitle: "مدينة الفرن المتجمدة",
-        citySub: "State 92 مفتوحة — جهز تحالفك",
-        tabLogin: "دخول",
-        tabRegister: "تسجيل",
-        lblUsername: "اسم المستخدم",
-        lblPassword: "كلمة المرور",
-        btnSubmitLogin: "دخول اللعبة",
-        btnSubmitRegister: "إنشاء حساب"
-      },
-      ru: {
-        topBarState: "❄ STATE 92 — СКОРО ОТКРЫТИЕ",
-        topBarTimer: "СЛЕДУЮЩИЙ STATE ЧЕРЕЗ 01Д : 02Ч : 59М",
-        navServer: "Сервер",
-        navRewards: "Награды",
-        navCodes: "Промокоды",
-        dlRegBtn: "СКАЧАТЬ / РЕГИСТРАЦИЯ",
-        heroBadge: "⚡ Приватный сервер Whiteout Survival",
-        heroTitle1: "ВЫЖИВАЙ БЫСТРЕЕ.",
-        heroTitle2: "ПРАВЬ СНЕГАМИ.",
-        heroDesc: "Присоединяйтесь к приватному серверу Selszzz Whiteout Survival для быстрого прогресса, огромных наград и новых State каждые 2 дня.",
-        btnDownload: "▶ СКАЧАТЬ / РЕГИСТРАЦИЯ",
-        btnDiscord: "◉ DISCORD СЕРВЕР",
-        statCurrentState: "ТЕКУЩИЙ STATE",
-        statOnline: "ОНЛАЙН СЕЙЧАС",
-        statInterval: "ИНТЕРВАЛ",
-        statIntervalVal: "48 ЧАСОВ",
-        cityTitle: "ГОРОД ЗАМОРОЖЕННОЙ ПЕЧИ",
-        citySub: "State 92 Открыт — Готовьте ваш альянс",
-        tabLogin: "ВХОД",
-        tabRegister: "РЕГИСТРАЦИЯ",
-        lblUsername: "ИМЯ ПОЛЬЗОВАТЕЛЯ",
-        lblPassword: "ПАРОЛЬ",
-        btnSubmitLogin: "ВОЙТИ В ИГРУ",
-        btnSubmitRegister: "СОЗДАТЬ АККАУНТ"
-      },
-      ko: {
-        topBarState: "❄ STATE 92 — 오픈 예정",
-        topBarTimer: "다음 STATE까지 01일 : 02시간 : 59분",
-        navServer: "서버",
-        navRewards: "보상",
-        navCodes: "기프트 코드",
-        dlRegBtn: "다운로드 / 회원가입",
-        heroBadge: "⚡ 화이트아웃 서바이버 프라이빗 서버",
-        heroTitle1: "더 빠른 생존.",
-        heroTitle2: "설원을 지배하라.",
-        heroDesc: "Selszzz 프라이빗 서버에서 빠르고 강력한 성장과 일일 보상, 2일마다 열리는 신규 State를 경험하세요.",
-        btnDownload: "▶ 다운로드 / 회원가입",
-        btnDiscord: "◉ 디스코드 참여",
-        statCurrentState: "현재 STATE",
-        statOnline: "동시 접속자",
-        statInterval: "주기",
-        statIntervalVal: "48시간",
-        cityTitle: "얼어붙은 용광로 도시",
-        citySub: "State 92 오픈 — 동맹을 준비하세요",
-        tabLogin: "로그인",
-        tabRegister: "회원가입",
-        lblUsername: "사용자 이름",
-        lblPassword: "비밀번호",
-        btnSubmitLogin: "게임 시작",
-        btnSubmitRegister: "계정 생성"
-      },
-      ja: {
-        topBarState: "❄ STATE 92 — まもなくオープン",
-        topBarTimer: "次の STATE まで 01日 : 02時間 : 59分",
-        navServer: "サーバー",
-        navRewards: "報酬",
-        navCodes: "ギフトコード",
-        dlRegBtn: "ダウンロード / 登録",
-        heroBadge: "⚡ ホワイトアウト・サバイバル プライベートサーバー",
-        heroTitle1: "より速く生き残れ。",
-        heroTitle2: "雪原を支配せよ。",
-        heroDesc: "Selszzzプライベートサーバーで高速育成、豪華な daily 報酬、2日ごとの新Stateオープンを楽しもう。",
-        btnDownload: "▶ ダウンロード / 登録",
-        btnDiscord: "◉ DISCORD に参加",
-        statCurrentState: "現在の STATE",
-        statOnline: "オンライン人数",
-        statInterval: "更新間隔",
-        statIntervalVal: "48時間",
-        cityTitle: "凍てつく大溶鉱炉の街",
-        citySub: "State 92 オープン — 同盟の準備をせよ",
-        tabLogin: "ログイン",
-        tabRegister: "新規登録",
-        lblUsername: "ユーザー名",
-        lblPassword: "パスワード",
-        btnSubmitLogin: "ゲームを始める",
-        btnSubmitRegister: "アカウント作成"
       }
     };
 
@@ -402,115 +296,67 @@
       document.getElementById('langSelector').value = selected;
     }
 
+    // RENDER GIFT CODES GRID
+    function renderCodes(filterText = '') {
+      const grid = document.getElementById('codeGrid');
+      grid.innerHTML = '';
+
+      const filtered = giftCodes.filter(c => c.toLowerCase().includes(filterText.toLowerCase()));
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-8">No code found matching "${filterText}"</p>`;
+        return;
+      }
+
+      filtered.forEach(code => {
+        const card = document.createElement('div');
+        card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-frost-400 p-4 rounded-xl transition cursor-pointer flex items-center justify-between group shadow-lg";
+        card.onclick = () => copyCode(code);
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-500/30">ACTIVE</span>
+              <span class="text-xs text-gray-400 font-medium">Free Rewards</span>
+            </div>
+            <span class="font-mono font-bold text-lg text-white group-hover:text-frost-400 transition tracking-wider">${code}</span>
+          </div>
+          <button class="bg-frost-500/10 group-hover:bg-frost-500 text-frost-400 group-hover:text-white p-2.5 rounded-lg transition border border-frost-500/30">
+            📋
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // COPY TO CLIPBOARD + TOAST
+    function copyCode(code) {
+      navigator.clipboard.writeText(code);
+      const toast = document.getElementById('copyToast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = `Code '${code}' copied!`;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2500);
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('user_lang') || 'en';
       setLanguage(savedLang);
+      renderCodes();
 
       document.getElementById('langSelector').addEventListener('change', (e) => {
         setLanguage(e.target.value);
       });
 
-      const authModal = document.getElementById('authModal');
-      const authBtn = document.getElementById('authBtn');
-      const closeAuthBtn = document.getElementById('closeAuthBtn');
-      const tabLogin = document.getElementById('tabLogin');
-      const tabRegister = document.getElementById('tabRegister');
-      const formLogin = document.getElementById('formLogin');
-      const formRegister = document.getElementById('formRegister');
-      const authMessage = document.getElementById('authMessage');
+      document.getElementById('codeSearch').addEventListener('input', (e) => {
+        renderCodes(e.target.value);
+      });
 
-      // Tombol navbar redirect ke link server game langsung
+      const authBtn = document.getElementById('authBtn');
       authBtn.addEventListener('click', () => {
         window.open("https://europa.176.9.65.91.nip.io/", "_blank");
       });
-
-      closeAuthBtn.addEventListener('click', () => {
-        authModal.classList.add('hidden');
-      });
-
-      tabLogin.addEventListener('click', () => {
-        tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400 cursor-pointer";
-        tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
-        formLogin.classList.remove('hidden');
-        formRegister.classList.add('hidden');
-      });
-
-      tabRegister.addEventListener('click', () => {
-        tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-emerald-400 text-emerald-400 cursor-pointer";
-        tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
-        formRegister.classList.remove('hidden');
-        formLogin.classList.add('hidden');
-      });
-
-      function showMsg(text, isError = false) {
-        authMessage.classList.remove('hidden', 'bg-red-500/20', 'text-red-300', 'bg-emerald-500/20', 'text-emerald-300');
-        authMessage.classList.add(isError ? 'bg-red-500/20' : 'bg-emerald-500/20', isError ? 'text-red-300' : 'text-emerald-300');
-        authMessage.innerText = text;
-      }
-
-      const formatEmail = (username) => `${username.trim().toLowerCase()}@wosgame.com`;
-
-      formRegister.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const rawUsername = document.getElementById('regUsername').value;
-        const password = document.getElementById('regPassword').value;
-
-        if (!/^[a-z0-9._-]{3,30}$/i.test(rawUsername)) {
-          showMsg("Username 3-30 karakter.", true);
-          return;
-        }
-
-        const email = formatEmail(rawUsername);
-        showMsg("Registering...");
-
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { data: { username: rawUsername } }
-        });
-
-        if (error) {
-          showMsg(error.message, true);
-        } else {
-          showMsg(`Registrasi '${rawUsername}' berhasil! Silakan Login.`);
-        }
-      });
-
-      formLogin.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const rawUsername = document.getElementById('loginUsername').value;
-        const password = document.getElementById('loginPassword').value;
-
-        const email = formatEmail(rawUsername);
-        showMsg("Authenticating...");
-
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-
-        if (error) {
-          showMsg("Username / Password salah.", true);
-        } else {
-          showMsg("Login sukses!");
-          setTimeout(() => {
-            authModal.classList.add('hidden');
-            checkUserSession();
-          }, 1000);
-        }
-      });
-
-      async function checkUserSession() {
-        const { data: { session } } = await supabase.auth.getSession();
-        if (session?.user) {
-          const displayUsername = session.user.user_metadata?.username || session.user.email.split('@')[0];
-          authBtn.innerText = `PLAYER (${displayUsername.toUpperCase()})`;
-          authBtn.onclick = async () => {
-            if (confirm("Logout dari akun?")) {
-              await supabase.auth.signOut();
-              window.location.reload();
-            }
-          };
-        }
-      }
-      checkUserSession();
     });
   </script>
 </body>
