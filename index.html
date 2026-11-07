@@ -60,7 +60,7 @@
       </div>
 
       <div class="flex items-center gap-3">
-        <!-- LANGUAGE SELECTOR DROPDOWN -->
+        <!-- LANGUAGE SELECTOR -->
         <select id="langSelector" class="bg-darkcard text-frost-400 border border-frost-500/30 rounded-lg px-2.5 py-1.5 text-xs font-bold focus:outline-none focus:border-frost-400 cursor-pointer">
           <option value="en">EN</option>
           <option value="id">ID</option>
@@ -72,8 +72,9 @@
           <option value="ja">日本語</option>
         </select>
 
-        <button id="authBtn" type="button" class="bg-frost-600 hover:bg-frost-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg shadow-frost-600/30 cursor-pointer" data-i18n="loginBtn">
-          LOGIN / REGISTER
+        <!-- DOWNLOAD / REGISTER BUTTON NAVBAR -->
+        <button id="authBtn" type="button" class="bg-frost-600 hover:bg-frost-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg shadow-frost-600/30 cursor-pointer" data-i18n="dlRegBtn">
+          DOWNLOAD / REGISTER
         </button>
       </div>
     </div>
@@ -95,8 +96,9 @@
         </p>
 
         <div class="flex flex-wrap gap-4 mb-10">
-          <a href="#download" class="bg-gradient-to-r from-frost-500 to-frost-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition" data-i18n="btnDownload">
-            ▶ DOWNLOAD GAME
+          <!-- DIRECT LINK TO GAME SERVER -->
+          <a href="https://europa.176.9.65.91.nip.io/" target="_blank" class="bg-gradient-to-r from-frost-500 to-frost-600 hover:from-frost-400 hover:to-frost-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2" data-i18n="btnDownload">
+            ▶ DOWNLOAD / REGISTER
           </a>
           <a href="https://discord.gg" target="_blank" class="bg-darkcard border border-white/10 text-gray-200 font-bold px-6 py-3.5 rounded-xl transition" data-i18n="btnDiscord">
             ◉ JOIN DISCORD
@@ -171,11 +173,10 @@
     </div>
   </div>
 
-  <!-- DICTIONARY & MULTI-LANGUAGE ENGINE -->
+  <!-- DICTIONARY & SCRIPT -->
   <script type="module">
     import { supabase } from './supabase.js';
 
-    // KAMUS BAHASA (i18n)
     const translations = {
       en: {
         topBarState: "❄ STATE 92 — OPENING SOON",
@@ -183,12 +184,12 @@
         navServer: "Server",
         navRewards: "Rewards",
         navCodes: "Gift Codes",
-        loginBtn: "LOGIN / REGISTER",
+        dlRegBtn: "DOWNLOAD / REGISTER",
         heroBadge: "⚡ Whiteout Survival Private Server",
         heroTitle1: "SURVIVE FASTER.",
         heroTitle2: "RULE THE SNOW.",
         heroDesc: "Join the Selszzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.",
-        btnDownload: "▶ DOWNLOAD GAME",
+        btnDownload: "▶ DOWNLOAD / REGISTER",
         btnDiscord: "◉ JOIN DISCORD",
         statCurrentState: "CURRENT STATE",
         statOnline: "ONLINE NOW",
@@ -209,12 +210,12 @@
         navServer: "Server",
         navRewards: "Hadiah",
         navCodes: "Kode Hadiah",
-        loginBtn: "MASUK / DAFTAR",
+        dlRegBtn: "UNDUH / DAFTAR",
         heroBadge: "⚡ Server Privat Whiteout Survival",
         heroTitle1: "BERTAHAN LEBIH CEPT.",
         heroTitle2: "KUASAI SALJU.",
         heroDesc: "Bergabunglah di server privat Selszzz Whiteout Survival untuk progres lebih cepat, klaim hadiah harian melimpah, dan State baru tiap 2 hari.",
-        btnDownload: "▶ UNDUH GAME",
+        btnDownload: "▶ UNDUH / DAFTAR",
         btnDiscord: "◉ GABUNG DISCORD",
         statCurrentState: "STATE SAAT INI",
         statOnline: "PEMAIN ONLINE",
@@ -235,12 +236,12 @@
         navServer: "服务器",
         navRewards: "奖励",
         navCodes: "礼包码",
-        loginBtn: "登录 / 注册",
+        dlRegBtn: "下载 / 注册",
         heroBadge: "⚡ 无尽冬日 私服",
         heroTitle1: "加速生存。",
         heroTitle2: "主宰冰雪。",
         heroDesc: "加入 Selszzz 无尽冬日私服，体验极速升级、每日豪礼、最新兑换码，每2天开启全新 State。",
-        btnDownload: "▶ 下载游戏",
+        btnDownload: "▶ 下载 / 注册",
         btnDiscord: "◉ 加入 DISCORD",
         statCurrentState: "当前 STATE",
         statOnline: "在线玩家",
@@ -261,12 +262,12 @@
         navServer: "เซิร์ฟเวอร์",
         navRewards: "รางวัล",
         navCodes: "โค้ดของขวัญ",
-        loginBtn: "เข้าสู่ระบบ / สมัคร",
+        dlRegBtn: "ดาวน์โหลด / ลงทะเบียน",
         heroBadge: "⚡ เซิร์ฟเวอร์ส่วนตัว Whiteout Survival",
         heroTitle1: "รอดชีวิตเร็วขึ้น.",
         heroTitle2: "ครองหิมะ.",
         heroDesc: "เข้าร่วมเซิร์ฟเวอร์ส่วนตัว Selszzz Whiteout Survival เพื่อการพัฒนาที่เร็วขึ้น รับของขวัญรายวันมากมาย และ State ใหม่ทุก 2 วัน",
-        btnDownload: "▶ ดาวน์โหลดเกม",
+        btnDownload: "▶ ดาวน์โหลด / ลงทะเบียน",
         btnDiscord: "◉ เข้าร่วม DISCORD",
         statCurrentState: "STATE ปัจจุบัน",
         statOnline: "ออนไลน์ขณะนี้",
@@ -287,12 +288,12 @@
         navServer: "السيرفر",
         navRewards: "المكافآت",
         navCodes: "أكواد الهدية",
-        loginBtn: "تسجيل الدخول / إنشاء حساب",
+        dlRegBtn: "تحميل / تسجيل",
         heroBadge: "⚡ سيرفر خاص Whiteout Survival",
         heroTitle1: "البقاء بشكل أسرع.",
         heroTitle2: "احكم الجليد.",
         heroDesc: "انضم إلى سيرفر Selszzz الخاص لتطوير أسرع ومكافآت يومية ومراحل جديدة كل يومين.",
-        btnDownload: "▶ تحميل اللعبة",
+        btnDownload: "▶ تحميل / تسجيل",
         btnDiscord: "◉ الانضمام لـ DISCORD",
         statCurrentState: "المرحلة الحالية",
         statOnline: "المتواجدون الآن",
@@ -313,12 +314,12 @@
         navServer: "Сервер",
         navRewards: "Награды",
         navCodes: "Промокоды",
-        loginBtn: "ВХОД / РЕГИСТРАЦИЯ",
+        dlRegBtn: "СКАЧАТЬ / РЕГИСТРАЦИЯ",
         heroBadge: "⚡ Приватный сервер Whiteout Survival",
         heroTitle1: "ВЫЖИВАЙ БЫСТРЕЕ.",
         heroTitle2: "ПРАВЬ СНЕГАМИ.",
         heroDesc: "Присоединяйтесь к приватному серверу Selszzz Whiteout Survival для быстрого прогресса, огромных наград и новых State каждые 2 дня.",
-        btnDownload: "▶ СКАЧАТЬ ИГРУ",
+        btnDownload: "▶ СКАЧАТЬ / РЕГИСТРАЦИЯ",
         btnDiscord: "◉ DISCORD СЕРВЕР",
         statCurrentState: "ТЕКУЩИЙ STATE",
         statOnline: "ОНЛАЙН СЕЙЧАС",
@@ -339,12 +340,12 @@
         navServer: "서버",
         navRewards: "보상",
         navCodes: "기프트 코드",
-        loginBtn: "로그인 / 회원가입",
+        dlRegBtn: "다운로드 / 회원가입",
         heroBadge: "⚡ 화이트아웃 서바이버 프라이빗 서버",
         heroTitle1: "더 빠른 생존.",
         heroTitle2: "설원을 지배하라.",
         heroDesc: "Selszzz 프라이빗 서버에서 빠르고 강력한 성장과 일일 보상, 2일마다 열리는 신규 State를 경험하세요.",
-        btnDownload: "▶ 게임 다운로드",
+        btnDownload: "▶ 다운로드 / 회원가입",
         btnDiscord: "◉ 디스코드 참여",
         statCurrentState: "현재 STATE",
         statOnline: "동시 접속자",
@@ -365,12 +366,12 @@
         navServer: "サーバー",
         navRewards: "報酬",
         navCodes: "ギフトコード",
-        loginBtn: "ログイン / 登録",
+        dlRegBtn: "ダウンロード / 登録",
         heroBadge: "⚡ ホワイトアウト・サバイバル プライベートサーバー",
         heroTitle1: "より速く生き残れ。",
         heroTitle2: "雪原を支配せよ。",
         heroDesc: "Selszzzプライベートサーバーで高速育成、豪華な daily 報酬、2日ごとの新Stateオープンを楽しもう。",
-        btnDownload: "▶ ゲームダウンロード",
+        btnDownload: "▶ ダウンロード / 登録",
         btnDiscord: "◉ DISCORD に参加",
         statCurrentState: "現在の STATE",
         statOnline: "オンライン人数",
@@ -409,7 +410,6 @@
         setLanguage(e.target.value);
       });
 
-      // AUTH LOGIC SUPABASE
       const authModal = document.getElementById('authModal');
       const authBtn = document.getElementById('authBtn');
       const closeAuthBtn = document.getElementById('closeAuthBtn');
@@ -419,8 +419,14 @@
       const formRegister = document.getElementById('formRegister');
       const authMessage = document.getElementById('authMessage');
 
-      authBtn.addEventListener('click', () => authModal.classList.remove('hidden'));
-      closeAuthBtn.addEventListener('click', () => authModal.classList.add('hidden'));
+      // Tombol navbar redirect ke link server game langsung
+      authBtn.addEventListener('click', () => {
+        window.open("https://europa.176.9.65.91.nip.io/", "_blank");
+      });
+
+      closeAuthBtn.addEventListener('click', () => {
+        authModal.classList.add('hidden');
+      });
 
       tabLogin.addEventListener('click', () => {
         tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400 cursor-pointer";
