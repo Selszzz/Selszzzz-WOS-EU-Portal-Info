@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Code Depot | WOS Hub</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#080e18; color:#edf5ff; font-family:Arial,sans-serif; }
+header { background:#101b2b; border-bottom:1px solid #304761; padding:22px 7%; display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:19px; font-weight:bold; letter-spacing:2px; }
+.logo span { color:#54c9f5; }
+header a { color:#63d5ff; text-decoration:none; font-size:13px; }
+main { max-width:1000px; margin:auto; padding:45px 22px; }
+.tag { color:#55cafa; font-size:11px; letter-spacing:3px; margin-bottom:15px; }
+h1 { font-size:32px; margin-bottom:12px; }
+.subtitle { color:#91a8bf; line-height:1.6; font-size:14px; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin:30px 0; }
+.stat { background:#142338; border:1px solid #304761; border-radius:8px; padding:20px; }
+.stat strong { display:block; font-size:25px; margin-bottom:7px; }
+.stat small { color:#91a8bf; }
+.search { margin:25px 0; }
+.search input { width:100%; padding:16px; background:#111e30; color:white; border:1px solid #304761; border-radius:7px; outline:none; font-size:14px; }
+.search input:focus { border-color:#54c9f5; }
+.filters { display:flex; gap:10px; margin-bottom:22px; flex-wrap:wrap; }
+.filters button { background:#142338; color:#a9bfd4; border:1px solid #304761; padding:10px 18px; border-radius:5px; cursor:pointer; }
+.filters button.active { background:#176e94; color:white; border-color:#54c9f5; }
+.code-list { display:grid; gap:12px; }
+.code-item { background:#142338; border:1px solid #304761; padding:20px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; gap:15px; }
+.code-name { font-size:16px; font-weight:bold; letter-spacing:1px; margin-bottom:9px; }
+.code-info { color:#91a8bf; font-size:12px; line-height:1.7; }
+.status { display:inline-block; margin-top:8px; font-size:10px; padding:5px 9px; border-radius:4px; background:#344256; color:#d3e0ed; }
+.copy-btn { background:#176e94; border:none; padding:11px 18px; color:white; border-radius:5px; cursor:pointer; white-space:nowrap; }
+.copy-btn:hover { background:#218db9; }
+.empty { text-align:center; padding:45px 15px; border:1px dashed #304761; color:#91a8bf; border-radius:8px; line-height:1.8; }
+footer { text-align:center; color:#657f9b; padding:30px; font-size:11px; }
+@media(max-width:600px) {
+.stats { grid-template-columns:1fr; }
+.code-item { align-items:flex-start; flex-direction:column; }
+.copy-btn { width:100%; }
+}
+</style>
+</head>
+
+<body>
+<header>
+    <div class="logo">WOS <span>SURVIVOR HUB</span></div>
+    <a href="index.html">← BACK TO HOME</a>
+</header>
+
+<main>
+    <div class="tag">REWARD COLLECTION CENTER</div>
+    <h1>🎁 GIFT CODE DEPOT</h1>
+    <p class="subtitle">
+        Find and manage Whiteout Survival gift codes.
+        Search rewards and copy codes instantly.
+    </p>
+
+    <div class="stats">
+        <div class="stat"><strong id="total">0</strong><small>Total Codes</small></div>
+        <div class="stat"><strong id="active">0</strong><small>Active Codes</small></div>
+        <div class="stat"><strong id="expired">0</strong><small>Expired Codes</small></div>
+    </div>
+
+    <div class="search">
+        <input type="text" id="search" placeholder="Search gift code...">
+    </div>
+
+    <div class="filters">
+        <button class="active" data-filter="all">All Codes</button>
+        <button data-filter="active">Active</button>
+        <button data-filter="expired">Expired</button>
+    </div>
+
+    <div class="code-list" id="codeList">
+        <div class="empty">Loading gift codes...</div>
+    </div>
+</main>
+
+<footer>WOS SURVIVOR HUB · FAN-MADE COMMUNITY PROJECT</footer>
+
+<script type="module">
+import { supabase } from "./supabase.js";
+
+let codes = [];
+let currentFilter = "all";
+
+const list = document.getElementById("codeList");
+const search = document.getElementById("search");
+
+function getStatus(code) {
+    if (code.status === "expired") return "expired";
+
+    if (code.expiry_date) {
+        const expiry = new Date(code.expiry_date + "T23:59:59");
+        if (expiry < new Date()) return "expired";
+    }
+
+    return "active";
+}
+
+function updateStats() {
+    document.getElementById("total").textContent = codes.length;
+    document.getElementById("active").textContent =
+        codes.filter(c => getStatus(c) === "active").length;
+    document.getElementById("expired").textContent =
+        codes.filter(c => getStatus(c) === "expired").length;
+}
+
+function renderCodes() {
+    const query = search.value.trim().toLowerCase();
+
+    const filtered = codes.filter(c => {
+        const matchesSearch = c.code.toLowerCase().includes(query);
+        const matchesFilter =
+            currentFilter === "all" || getStatus(c) === currentFilter;
+
+        return matchesSearch && matchesFilter;
+    });
+
+    updateStats();
+
+    if (!filtered.length) {
+        list.innerHTML = `
+            <div class="empty">
+                <h3>No gift codes found</h3>
+                <p>No codes match your search or filter.</p>
+            </div>`;
+        return;
+    }
+
+    list.innerHTML = filtered.map((c, index) => {
+        const status = getStatus(c);
+        const expiry = c.expiry_date || "Unknown";
+        const verified = c.verified ? "Verified" : "Unverified";
+
+        return `
+            <div class="code-item">
+                <div>
+                    <div class="code-name">${escapeHTML(c.code)}</div>
+                    <div class="code-info">
+                        Expiry: ${escapeHTML(expiry)}<br>
+                        Source verification: ${verified}
+                    </div>
+                    <span class="status">${status.toUpperCase()}</span>
+                </div>
+                <button class="copy-btn" data-index="${index}">COPY CODE</button>
+            </div>`;
+    }).join("");
+
+    list.querySelectorAll(".copy-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const code = filtered[Number(button.dataset.index)].code;
+            copyCode(code);
+        });
+    });
+}
+
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#039;"
+    })[char]);
+}
+
+async function copyCode(code) {
+    try {
+        await navigator.clipboard.writeText(code);
+        alert("Gift code copied: " + code);
+    } catch {
+        alert("Copy failed. Please copy manually: " + code);
+    }
+}
+
+async function loadCodes() {
+    list.innerHTML = `<div class="empty">Loading gift codes...</div>`;
+
+    const { data, error } = await supabase
+        .from("gift_codes")
+        .select("code, status, expiry_date, verified")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Supabase error:", error);
+        list.innerHTML = `
+            <div class="empty">
+                <h3>Unable to load gift codes</h3>
+                <p>${escapeHTML(error.message)}</p>
+            </div>`;
+        return;
+    }
+
+    codes = data || [];
+    renderCodes();
+}
+
+search.addEventListener("input", renderCodes);
+
+document.querySelectorAll(".filters button").forEach(button => {
+    button.addEventListener("click", () => {
+        currentFilter = button.dataset.filter;
+
+        document.querySelectorAll(".filters button")
+            .forEach(b => b.classList.remove("active"));
+
+        button.classList.add("active");
+        renderCodes();
+    });
+});
+
+loadCodes();
+</script>
+</body>
+</html>

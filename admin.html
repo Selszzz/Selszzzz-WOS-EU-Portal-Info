@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOS Admin Center</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080e18;color:#edf5ff;font-family:Arial,sans-serif;min-height:100vh}
+header{background:#101b2b;border-bottom:1px solid #304761;padding:22px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:bold;letter-spacing:2px}
+.logo span{color:#54c9f5}
+header a{color:#62d8ff;text-decoration:none;font-size:13px}
+.container{max-width:950px;margin:50px auto;padding:20px}
+.panel{background:#111e30;border:1px solid #304761;border-radius:10px;padding:30px;margin-bottom:20px}
+h1,h2{margin-bottom:10px}
+h3{margin-bottom:12px}
+.subtitle{color:#91a8bf;font-size:13px;margin-bottom:25px}
+input,select{width:100%;padding:13px;margin:8px 0 15px;background:#0b1523;color:white;border:1px solid #304761;border-radius:5px}
+label{font-size:12px;color:#a9bfd4}
+button{border:none;padding:12px 18px;border-radius:5px;cursor:pointer;background:#176e94;color:white}
+button:hover{background:#218db9}
+button:disabled{opacity:.5;cursor:not-allowed}
+.logout,.danger{background:#963b46}
+.hidden{display:none!important}
+.message{margin-top:15px;font-size:13px;color:#62d8ff;overflow-wrap:anywhere}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.code-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:16px 0;border-bottom:1px solid #304761}
+.code-row strong{overflow-wrap:anywhere}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
+hr{border:0;border-top:1px solid #304761;margin:25px 0}
+.status-active{color:#61d69b}
+.status-inactive{color:#ff9b9b}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.code-row{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">WOS <span>ADMIN CENTER</span></div>
+    <a href="index.html">BACK TO PORTAL</a>
+</header>
+
+<div class="container">
+    <section class="panel" id="loginPanel">
+        <h1>Admin Login</h1>
+        <p class="subtitle">Sign in to manage WOS Survivor Hub.</p>
+        <form id="loginForm">
+            <label>Username / Owner Email</label>
+            <input type="text" id="email" placeholder="Username atau email Owner" required>
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Your password" required>
+            <button type="submit" id="loginBtn">LOGIN</button>
+        </form>
+        <div class="message" id="loginMessage"></div>
+    </section>
+
+    <section class="hidden" id="dashboard">
+        <div class="panel">
+            <h1>Dashboard</h1>
+            <p class="subtitle" id="adminInfo"></p>
+            <button class="logout" id="logoutBtn">LOGOUT</button>
+        </div>
+
+        <div class="panel hidden" id="adminManagement">
+            <h2>Manage Admins</h2>
+            <p class="subtitle">Create, view, and manage administrator accounts.</p>
+            <form id="createAdminForm">
+                <label>Admin Username</label>
+                <input type="text" id="newAdminUsername" placeholder="contoh: operator01"
+                    minlength="3" maxlength="30" required>
+                <label>Temporary Password</label>
+                <input type="password" id="newAdminPassword" placeholder="Minimum 8 characters"
+                    minlength="8" required>
+                <button type="submit" id="createAdminBtn">CREATE ADMIN ACCOUNT</button>
+            </form>
+            <div class="message" id="adminMessage"></div>
+            <hr>
+            <h3>Registered Admins</h3>
+            <div id="adminList" style="margin-top:15px">Loading...</div>
+        </div>
+
+        <div class="panel">
+            <h2>Add New Gift Code</h2>
+            <p class="subtitle">Add a code to the online database.</p>
+            <form id="codeForm">
+                <label>Gift Code</label>
+                <input id="code" required placeholder="ENTER_GIFT_CODE">
+                <div class="grid">
+                    <div>
+                        <label>Status</label>
+                        <select id="status">
+                            <option value="active">Active</option>
+                            <option value="expired">Expired</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Expiry Date</label>
+                        <input type="date" id="expiry">
+                    </div>
+                </div>
+                <label>Source URL (optional)</label>
+                <input type="url" id="source" placeholder="https://example.com">
+                <label>
+                    <input type="checkbox" id="verified" style="width:auto;margin:0 5px 15px 0">
+                    Verified code
+                </label>
+                <button type="submit">SAVE GIFT CODE</button>
+            </form>
+            <div class="message" id="formMessage"></div>
+        </div>
+
+        <div class="panel">
+            <h2>Gift Code Database</h2>
+            <p class="subtitle">Manage existing codes.</p>
+            <div id="codeList">Loading...</div>
+        </div>
+    </section>
+</div>
+
+<script type="module">
+import { supabase } from './supabase.js';
+
+const loginPanel = document.getElementById('loginPanel');
+const dashboard = document.getElementById('dashboard');
+const loginMessage = document.getElementById('loginMessage');
+const formMessage = document.getElementById('formMessage');
+const adminMessage = document.getElementById('adminMessage');
+
+let currentUser = null;
+let currentRole = null;
+
+function showLogin() {
+    dashboard.classList.add('hidden');
+    loginPanel.classList.remove('hidden');
+}
+
+async function checkAdmin() {
+    const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+
+    if (sessionError) {
+        showLogin();
+        loginMessage.textContent = sessionError.message;
+        return;
+    }
+
+    const session = sessionData.session;
+    if (!session) {
+        showLogin();
+        return;
+    }
+
+    const { data: admin, error } = await supabase
+        .from('admin_users')
+        .select('role, is_active, username')
+        .eq('user_id', session.user.id)
+        .maybeSingle();
+
+    if (error || !admin || !admin.is_active) {
+        await supabase.auth.signOut();
+        currentUser = null;
+        currentRole = null;
+        showLogin();
+        loginMessage.textContent = error
+            ? 'Could not verify admin access: ' + error.message
+            : 'Access denied: This account is not an active admin.';
+        return;
+    }
+
+    currentUser = session.user;
+    currentRole = admin.role;
+
+    loginPanel.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+
+    const displayName = admin.username || currentUser.email || 'Admin';
+    document.getElementById('adminInfo').textContent =
+        displayName + ' | Role: ' + currentRole.toUpperCase();
+
+    const adminManagement = document.getElementById('adminManagement');
+    if (currentRole === 'owner') {
+        adminManagement.classList.remove('hidden');
+        await loadAdmins();
+    } else {
+        adminManagement.classList.add('hidden');
+    }
+
+    await loadCodes();
+}
+
+// LOGIN
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.disabled = true;
+    loginMessage.textContent = 'Signing in...';
+
+    try {
+        const loginValue = document.getElementById('email').value.trim().toLowerCase();
+        const password = document.getElementById('password').value;
+        const loginEmail = loginValue.includes('@') ? loginValue : `${loginValue}@wos.local`;
+
+        const { error } = await supabase.auth.signInWithPassword({
+            email: loginEmail,
+            password
+        });
+
+        if (error) {
+            loginMessage.textContent = error.message;
+            return;
+        }
+
+        loginMessage.textContent = '';
+        await checkAdmin();
+    } catch (error) {
+        loginMessage.textContent = error.message || 'Login failed.';
+    } finally {
+        loginBtn.disabled = false;
+    }
+});
+
+// LOGOUT
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+    const { error } = await supabase.auth.signOut();
+    currentUser = null;
+    currentRole = null;
+    showLogin();
+    loginMessage.textContent = error ? error.message : '';
+});
+
+// CREATE ADMIN
+document.getElementById('createAdminForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (currentRole !== 'owner') {
+        adminMessage.textContent = 'Owner access required.';
+        return;
+    }
+
+    const button = document.getElementById('createAdminBtn');
+    button.disabled = true;
+    adminMessage.textContent = 'Creating admin account...';
+
+    const username = document.getElementById('newAdminUsername').value.trim().toLowerCase();
+    const password = document.getElementById('newAdminPassword').value;
+
+    try {
+        const { data, error } = await supabase.functions.invoke('Manage-Admin', {
+            body: { username, password }
+        });
+
+        if (error) {
+            adminMessage.textContent = 'Error: ' + error.message;
+            return;
+        }
+        if (!data || !data.success) {
+            adminMessage.textContent = 'Error: ' + (data?.error || 'Unknown error');
+            return;
+        }
+
+        adminMessage.textContent = 'Admin "' + username + '" berhasil dibuat!';
+        document.getElementById('createAdminForm').reset();
+        await loadAdmins();
+    } catch (error) {
+        adminMessage.textContent = 'Error: ' + (error.message || 'Request failed.');
+    } finally {
+        button.disabled = false;
+    }
+});
+
+
+async function loadAdmins() {
+    if (currentRole !== 'owner') return;
+
+    const list = document.getElementById('adminList');
+    list.textContent = 'Loading admins...';
+
+    const { data, error } = await supabase
+        .from('admin_users')
+        .select('user_id, username, role, is_active, created_at')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        list.textContent = error.message;
+        return;
+    }
+
+    list.replaceChildren();
+
+    if (!data || data.length === 0) {
+        list.textContent = 'No administrators found.';
+        return;
+    }
+
+    data.forEach((admin) => {
+        const row = document.createElement('div');
+        row.className = 'code-row';
+
+        const info = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = (admin.username || 'Owner account') + ' — ' + admin.role.toUpperCase();
+
+        const details = document.createElement('p');
+        details.style.color = '#91a8bf';
+        details.style.fontSize = '12px';
+        details.style.marginTop = '8px';
+        details.textContent = 'Status: ' + (admin.is_active ? 'ACTIVE' : 'INACTIVE');
+
+        info.append(title, details);
+        row.append(info);
+
+        if (admin.role === 'admin') {
+            const actions = document.createElement('div');
+            actions.className = 'actions';
+
+            const toggle = document.createElement('button');
+            toggle.textContent = admin.is_active ? 'DEACTIVATE' : 'ACTIVATE';
+            toggle.className = admin.is_active ? 'danger' : '';
+
+            toggle.addEventListener('click', async () => {
+                const nextStatus = !admin.is_active;
+                const actionName = nextStatus ? 'activate' : 'deactivate';
+
+                if (!confirm(`Are you sure you want to ${actionName} ${admin.username || 'this admin'}?`)) return;
+
+                toggle.disabled = true;
+                toggle.textContent = 'PLEASE WAIT...';
+
+                const { data: success, error: rpcError } = await supabase.rpc(
+                    'owner_manage_admin',
+                    {
+                        target_user_id: admin.user_id,
+                        new_active_status: nextStatus
+                    }
+                );
+
+                if (rpcError) {
+                    alert('Failed: ' + rpcError.message);
+                    toggle.disabled = false;
+                    toggle.textContent = admin.is_active ? 'DEACTIVATE' : 'ACTIVATE';
+                    return;
+                }
+
+                if (!success) {
+                    alert('Admin tidak ditemukan atau status tidak berubah.');
+                }
+
+                await loadAdmins();
+            });
+
+            const remove = document.createElement('button');
+            remove.textContent = 'REMOVE ACCESS';
+            remove.className = 'danger';
+
+            remove.addEventListener('click', async () => {
+                if (!confirm(
+                    `HAPUS AKSES ADMIN?\n\nUsername: ${admin.username}\n\nAkun Auth tetap tersimpan, tetapi akses dashboard dicabut.`
+                )) return;
+
+                remove.disabled = true;
+                remove.textContent = 'REMOVING...';
+
+                const { data: success, error: rpcError } = await supabase.rpc(
+                    'owner_remove_admin',
+                    {
+                        target_user_id: admin.user_id
+                    }
+                );
+
+                if (rpcError) {
+                    alert('Gagal menghapus akses: ' + rpcError.message);
+                    remove.disabled = false;
+                    remove.textContent = 'REMOVE ACCESS';
+                    return;
+                }
+
+                if (!success) {
+                    alert('Admin tidak ditemukan atau akses sudah dicabut.');
+                } else {
+                    alert('Akses admin berhasil dicabut.');
+                }
+
+                await loadAdmins();
+            });
+
+            actions.append(toggle, remove);
+            row.append(actions);
+        }
+
+        list.append(row);
+    });
+}
+
+// ADD GIFT CODE
+document.getElementById('codeForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!currentUser) return;
+
+    const saveButton = document.querySelector('#codeForm button[type="submit"]');
+    saveButton.disabled = true;
+    formMessage.textContent = 'Saving...';
+
+    const payload = {
+        code: document.getElementById('code').value.trim().toUpperCase(),
+        status: document.getElementById('status').value,
+        expiry_date: document.getElementById('expiry').value || null,
+        source_url: document.getElementById('source').value || null,
+        verified: document.getElementById('verified').checked,
+        created_by: currentUser.id
+    };
+
+    try {
+        const { error } = await supabase.from('gift_codes').insert(payload);
+        if (error) {
+            formMessage.textContent = error.message;
+            return;
+        }
+
+        formMessage.textContent = 'Gift code saved successfully!';
+        document.getElementById('codeForm').reset();
+        await loadCodes();
+    } catch (error) {
+        formMessage.textContent = error.message || 'Failed to save gift code.';
+    } finally {
+        saveButton.disabled = false;
+    }
+});
+
+// LOAD GIFT CODES
+async function loadCodes() {
+    const list = document.getElementById('codeList');
+    list.textContent = 'Loading...';
+
+    const { data, error } = await supabase
+        .from('gift_codes')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        list.textContent = error.message;
+        return;
+    }
+
+    list.replaceChildren();
+
+    if (!data || data.length === 0) {
+        list.textContent = 'No gift codes available.';
+        return;
+    }
+
+    data.forEach((item) => {
+        const row = document.createElement('div');
+        row.className = 'code-row';
+
+        const info = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = item.code;
+
+        const details = document.createElement('p');
+        details.style.color = '#91a8bf';
+        details.style.fontSize = '12px';
+        details.style.marginTop = '8px';
+        details.textContent =
+            item.status.toUpperCase() +
+            ' | Expiry: ' + (item.expiry_date || 'Unknown') +
+            ' | ' + (item.verified ? 'Verified' : 'Unverified');
+
+        info.append(title, details);
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
+        const edit = document.createElement('button');
+        edit.textContent = 'EDIT';
+        edit.addEventListener('click', () => editCode(item));
+
+        const remove = document.createElement('button');
+        remove.textContent = 'DELETE';
+        remove.className = 'danger';
+        remove.addEventListener('click', () => deleteCode(item.id));
+
+        actions.append(edit, remove);
+        row.append(info, actions);
+        list.append(row);
+    });
+}
+
+// EDIT GIFT CODE
+async function editCode(item) {
+    const newCode = prompt('Gift code:', item.code);
+    if (newCode === null || !newCode.trim()) return;
+
+    const newStatus = prompt('Status: active or expired', item.status);
+    if (newStatus === null) return;
+
+    if (!['active', 'expired'].includes(newStatus.trim().toLowerCase())) {
+        alert('Invalid status.');
+        return;
+    }
+
+    const newExpiry = prompt(
+        'Expiry date (YYYY-MM-DD), leave blank if unknown:',
+        item.expiry_date || ''
+    );
+    if (newExpiry === null) return;
+
+    const { error } = await supabase
+        .from('gift_codes')
+        .update({
+            code: newCode.trim().toUpperCase(),
+            status: newStatus.trim().toLowerCase(),
+            expiry_date: newExpiry.trim() || null
+        })
+        .eq('id', item.id);
+
+    if (error) {
+        alert(error.message);
+        return;
+    }
+    await loadCodes();
+}
+
+// DELETE GIFT CODE
+async function deleteCode(id) {
+    if (!confirm('Delete this gift code?')) return;
+
+    const { error } = await supabase.from('gift_codes').delete().eq('id', id);
+    if (error) {
+        alert(error.message);
+        return;
+    }
+    await loadCodes();
+}
+
+// INITIALIZE
+try {
+    await checkAdmin();
+} catch (error) {
+    showLogin();
+    loginMessage.textContent = error.message || 'Failed to initialize admin dashboard.';
+}
+</script>
+</body>
+</html>

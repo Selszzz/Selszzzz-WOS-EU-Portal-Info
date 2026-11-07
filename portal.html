@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOS Survivor Hub</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080e18;
+    color: #edf5ff;
+}
+
+header {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #101b2b;
+    border-bottom: 1px solid #263a52;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #54c9f5;
+}
+
+.header-right {
+    font-size: 12px;
+    color: #72dca7;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 20px 55px;
+    background:
+    radial-gradient(ellipse at top, #214968 0%, #101d30 48%, #080e18 100%);
+    border-bottom: 1px solid #263a52;
+}
+
+.hero-label {
+    color: #64d6ff;
+    letter-spacing: 4px;
+    font-size: 11px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #a9bfd4;
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+}
+
+.main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 45px 25px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+.section-heading p {
+    color: #8299b2;
+    font-size: 13px;
+    margin-top: 9px;
+}
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 17px;
+}
+
+.tool {
+    position: relative;
+    padding: 25px;
+    min-height: 175px;
+    background: linear-gradient(135deg, #15263b, #101b2b);
+    border: 1px solid #304761;
+    border-radius: 9px;
+    transition: .2s;
+}
+
+.tool:hover {
+    border-color: #59cafa;
+    background: #192f48;
+    transform: translateY(-3px);
+}
+
+.tool-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.tool-icon {
+    font-size: 27px;
+}
+
+.tool-status {
+    color: #68d9a1;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.tool h3 {
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.tool p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #9aafc5;
+    margin-bottom: 17px;
+}
+
+.tool a {
+    display: inline-block;
+    text-decoration: none;
+    color: #70d8ff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tool a:hover {
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 28px 15px;
+    color: #657f9b;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-top: 1px solid #20344a;
+}
+
+@media(max-width: 650px) {
+    header {
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .tools {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 55px 20px;
+    }
+
+    .main {
+        padding: 35px 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        WOS <span>SURVIVOR HUB</span>
+    </div>
+    <div class="header-right">● COMMUNITY TOOLKIT</div>
+</header>
+
+<section class="hero">
+    <div class="hero-label">WHITEOUT SURVIVAL COMMUNITY</div>
+
+    <h1>COMMAND PORTAL</h1>
+
+    <p>
+        Your central destination for Whiteout Survival.
+        Access guides, gift codes, calculators and useful
+        survival tools in one place.
+    </p>
+</section>
+
+<main class="main">
+
+    <div class="section-heading">
+        <h2>EXPLORE THE PORTAL</h2>
+        <p>Select a tool to continue your journey.</p>
+    </div>
+
+    <div class="tools">
+
+        <div class="tool">
+            <div class="tool-top">
+                <span class="tool-icon">📜</span>
+                <span class="tool-status">● GUIDE</span>
+            </div>
+            <h3>Getting Started</h3>
+            <p>Game tutorials, beginner guides, tips and useful information.</p>
+            <a href="#" onclick="openTool('Guide');return false;">Open Guide →</a>
+        </div>
+
+        <div class="tool">
+            <div class="tool-top">
+                <span class="tool-icon">🎁</span>
+                <span class="tool-status">● GIFT CODES</span>
+            </div>
+            <h3>Gift Code Depot</h3>
+            <p>Find gift codes, search rewards and copy codes instantly.</p>
+<a href="giftcode.html">Launch Depot →</a>
+        </div>
+
+        <div class="tool">
+            <div class="tool-top">
+                <span class="tool-icon">❓</span>
+                <span class="tool-status">● SUPPORT</span>
+            </div>
+            <h3>FAQ & Support</h3>
+            <p>Frequently asked questions and useful community information.</p>
+            <a href="#" onclick="openTool('FAQ & Support');return false;">Visit FAQ →</a>
+        </div>
+
+        <div class="tool">
+            <div class="tool-top">
+                <span class="tool-icon">💬</span>
+                <span class="tool-status">● COMMUNITY</span>
+            </div>
+            <h3>Discord Community</h3>
+            <p>Connect with other survivors and share game strategies.</p>
+            <a href="#" onclick="openTool('Discord Community');return false;">Join Community →</a>
+        </div>
+
+        <div class="tool">
+            <div class="tool-top">
+                <span class="tool-icon">💎</span>
+                <span class="tool-status">● INFORMATION</span>
+            </div>
+            <h3>Frost Star Center</h3>
+            <p>Information and resources about Frost Star purchases.</p>
+            <a href="#" onclick="openTool('Frost Star Center');return false;">Explore →</a>
+        </div>
+
+        <div class="tool">
+            <div class="tool-top">
+                <span class="tool-icon">🧮</span>
+                <span class="tool-status">● CALCULATOR</span>
+            </div>
+            <h3>WOS Calculator Suite</h3>
+            <p>Fire Crystals, Chief Gear, Hero Gear, troops and resource planners.</p>
+            <a href="#" onclick="openTool('WOS Calculator Suite');return false;">Launch Suite →</a>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    WOS SURVIVOR HUB · FAN-MADE COMMUNITY PROJECT
+</footer>
+
+<script>
+function openTool(name) {
+    alert(name + " is coming soon!");
+}
+</script>
+
+</body>
+</html>
