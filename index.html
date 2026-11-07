@@ -116,7 +116,7 @@
     </div>
   </section>
 
-  <!-- AUTH MODAL -->
+ <!-- AUTH MODAL -->
   <div id="authModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
     <div class="bg-darkcard border border-frost-500/30 rounded-2xl p-6 w-full max-w-md shadow-2xl relative">
       <button id="closeAuthBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white font-bold">✕</button>
@@ -126,26 +126,28 @@
         <button id="tabRegister" class="flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white">REGISTER</button>
       </div>
 
+      <!-- FORM LOGIN -->
       <form id="formLogin" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-gray-400 mb-1">EMAIL</label>
-          <input type="email" id="loginEmail" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="player@email.com">
+          <label class="block text-xs font-semibold text-gray-400 mb-1">USERNAME</label>
+          <input type="text" id="loginUsername" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Masukkan username">
         </div>
         <div>
           <label class="block text-xs font-semibold text-gray-400 mb-1">PASSWORD</label>
-          <input type="password" id="loginPassword" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="••••••••">
+          <input type="password" id="loginPassword" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="••••••••">
         </div>
         <button type="submit" class="w-full bg-frost-600 hover:bg-frost-500 text-white font-bold py-2.5 rounded-lg text-sm transition">MASUK GAME</button>
       </form>
 
+      <!-- FORM REGISTER -->
       <form id="formRegister" class="space-y-4 hidden">
         <div>
-          <label class="block text-xs font-semibold text-gray-400 mb-1">EMAIL</label>
-          <input type="email" id="regEmail" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="player@email.com">
+          <label class="block text-xs font-semibold text-gray-400 mb-1">USERNAME</label>
+          <input type="text" id="regUsername" required minlength="3" maxlength="30" class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Username (misal: selszzz99)">
         </div>
         <div>
           <label class="block text-xs font-semibold text-gray-400 mb-1">PASSWORD</label>
-          <input type="password" id="regPassword" minlength="6" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="Minimal 6 karakter">
+          <input type="password" id="regPassword" minlength="6" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Minimal 6 karakter">
         </div>
         <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-lg text-sm transition">BUAT AKUN BARU</button>
       </form>
@@ -189,9 +191,77 @@
       authMessage.innerText = text;
     }
 
+    // Helper konversi username jadi format email internal
+    const formatEmail = (username) => `${username.trim().toLowerCase()}@wos.local`;
+
+    // Handle Register
     formRegister.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('regEmail').value;
+      const rawUsername = document.getElementById('regUsername').value;
       const password = document.getElementById('regPassword').value;
+
+      // Validasi simpel karakter username
+      if (!/^[a-z0-9._-]{3,30}$/i.test(rawUsername)) {
+        showMsg("Username 3-30 karakter (hanya huruf, angka, titik, strip, underscore).", true);
+        return;
+      }
+
+      const email = formatEmail(rawUsername);
       showMsg("Registering...");
-      const { data, error } = await supabase.auth.signUp
+
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { username: rawUsername } // Simpan nama aslinya di metadata
+        }
+      });
+
+      if (error) {
+        showMsg(error.message, true);
+      } else {
+        showMsg(`Registrasi akun '${rawUsername}' berhasil! Silakan Login.`);
+      }
+    });
+
+    // Handle Login
+    formLogin.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const rawUsername = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const email = formatEmail(rawUsername);
+      showMsg("Authenticating...");
+
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        showMsg("Username atau password salah.", true);
+      } else {
+        showMsg("Login sukses!");
+        setTimeout(() => {
+          authModal.classList.add('hidden');
+          checkUserSession();
+        }, 1000);
+      }
+    });
+
+    // Cek Sesi Aktif
+    async function checkUserSession() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) {
+        // Ambil nama dari metadata atau bersihkan string email
+        const displayUsername = session.user.user_metadata?.username || session.user.email.split('@')[0];
+        authBtn.innerText = `PLAYER (${displayUsername.toUpperCase()})`;
+        authBtn.onclick = async () => {
+          if (confirm("Logout dari akun?")) {
+            await supabase.auth.signOut();
+            window.location.reload();
+          }
+        };
+      }
+    }
+    checkUserSession();
+  </script>
+</body>
+</html>
