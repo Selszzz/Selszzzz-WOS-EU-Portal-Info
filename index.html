@@ -37,11 +37,11 @@
     body { background-color: #070c14; color: #e2e8f0; font-family: 'Inter', sans-serif; }
     .frost-glass { background: rgba(7, 12, 20, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(56, 189, 248, 0.15); }
     
-    /* Hero Image Background Styling */
+    /* Hero Image Layout Ala Znowz */
     .hero-bg-wrapper {
-      background-image: linear-gradient(to bottom, rgba(7, 12, 20, 0.45), rgba(7, 12, 20, 0.95)), url('./hero-bg.png');
+      background-image: linear-gradient(to right, rgba(7, 12, 20, 0.9) 20%, rgba(7, 12, 20, 0.3) 60%, rgba(7, 12, 20, 0.7) 100%), url('./hero-bg.png');
       background-size: cover;
-      background-position: center top;
+      background-position: right 35% center; /* Digeser agak ke kanan biar karakter & bola emas kelihatan penuh */
       background-repeat: no-repeat;
     }
   </style>
@@ -91,10 +91,12 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION WITH FULL IMAGE BG -->
-  <section class="hero-bg-wrapper relative min-h-[85vh] flex items-center max-w-full px-4 lg:px-8 py-20 overflow-hidden border-b border-frost-500/20">
-    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
-      <div class="bg-darkbg/70 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-amber-500/20 shadow-2xl">
+  <!-- HERO SECTION ALA ZNOWZ -->
+  <section class="hero-bg-wrapper relative min-h-[88vh] flex items-center max-w-full px-4 lg:px-12 py-16 overflow-hidden border-b border-frost-500/20">
+    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-8 items-center relative z-10">
+      
+      <!-- BOX TEKS DI SEBELAH KIRI (MEMAKAI 6-7 KOLOM) -->
+      <div class="lg:col-span-6 bg-darkbg/80 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-amber-500/20 shadow-2xl">
         <div class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
           <span data-i18n="heroBadge">⚡ Whiteout Survival Private Server</span>
         </div>
@@ -106,7 +108,7 @@
           Join the Selszzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.
         </p>
 
-        <div class="flex flex-wrap gap-4 mb-10">
+        <div class="flex flex-wrap gap-4 mb-8">
           <a href="https://europa.176.9.65.91.nip.io/" target="_blank" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold px-7 py-4 rounded-xl shadow-xl shadow-amber-600/30 transition flex items-center gap-2 text-sm tracking-wide" data-i18n="btnDownload">
             ▶ DOWNLOAD / REGISTER
           </a>
@@ -130,6 +132,10 @@
           </div>
         </div>
       </div>
+
+      <!-- KANAN DIBIARKAN KOSONG SUPAYA GAMBAR KARAKTER DAN BOLA EMAS TERLIHAT JELAS -->
+      <div class="hidden lg:block lg:col-span-6"></div>
+
     </div>
   </section>
 
