@@ -41,8 +41,8 @@
 
   <!-- TOP BAR -->
   <div class="bg-gradient-to-r from-frost-950 via-frost-900 to-frost-950 text-frost-100 text-xs sm:text-sm py-2 px-4 text-center border-b border-frost-500/20 font-semibold flex justify-center items-center gap-3">
-    <span>❄ STATE 92 — OPENING SOON</span>
-    <span class="bg-frost-500/20 text-frost-400 px-2 py-0.5 rounded border border-frost-400/30">NEXT STATE IN 01D : 02H : 59M</span>
+    <span data-i18n="topBarState">❄ STATE 92 — OPENING SOON</span>
+    <span class="bg-frost-500/20 text-frost-400 px-2 py-0.5 rounded border border-frost-400/30" data-i18n="topBarTimer">NEXT STATE IN 01D : 02H : 59M</span>
   </div>
 
   <!-- NAVBAR -->
@@ -54,14 +54,28 @@
       </a>
 
       <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
-        <a href="#servers" class="hover:text-frost-400 transition">Server</a>
-        <a href="#rewards" class="hover:text-frost-400 transition">Rewards</a>
-        <a href="#codes" class="hover:text-frost-400 transition">Gift Codes</a>
+        <a href="#servers" class="hover:text-frost-400 transition" data-i18n="navServer">Server</a>
+        <a href="#rewards" class="hover:text-frost-400 transition" data-i18n="navRewards">Rewards</a>
+        <a href="#codes" class="hover:text-frost-400 transition" data-i18n="navCodes">Gift Codes</a>
       </div>
 
-      <button id="authBtn" type="button" class="bg-frost-600 hover:bg-frost-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg shadow-frost-600/30 cursor-pointer">
-        LOGIN / REGISTER
-      </button>
+      <div class="flex items-center gap-3">
+        <!-- LANGUAGE SELECTOR DROPDOWN -->
+        <select id="langSelector" class="bg-darkcard text-frost-400 border border-frost-500/30 rounded-lg px-2.5 py-1.5 text-xs font-bold focus:outline-none focus:border-frost-400 cursor-pointer">
+          <option value="en">EN</option>
+          <option value="id">ID</option>
+          <option value="zh">中文</option>
+          <option value="th">TH</option>
+          <option value="ar">العربية</option>
+          <option value="ru">Русский</option>
+          <option value="ko">한국어</option>
+          <option value="ja">日本語</option>
+        </select>
+
+        <button id="authBtn" type="button" class="bg-frost-600 hover:bg-frost-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg shadow-frost-600/30 cursor-pointer" data-i18n="loginBtn">
+          LOGIN / REGISTER
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -70,36 +84,37 @@
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div>
         <div class="inline-flex items-center gap-2 bg-frost-500/10 text-frost-400 border border-frost-500/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-          <span>⚡ Whiteout Survival Private Server</span>
+          <span data-i18n="heroBadge">⚡ Whiteout Survival Private Server</span>
         </div>
         <h1 class="text-4xl sm:text-6xl font-extrabold font-heading text-white leading-tight mb-6">
-          SURVIVE FASTER.<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-frost-400 to-blue-500">RULE THE SNOW.</span>
+          <span data-i18n="heroTitle1">SURVIVE FASTER.</span><br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-frost-400 to-blue-500" data-i18n="heroTitle2">RULE THE SNOW.</span>
         </h1>
-        <p class="text-gray-400 text-base sm:text-lg mb-8">
+        <p class="text-gray-400 text-base sm:text-lg mb-8" data-i18n="heroDesc">
           Join the Selszzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.
         </p>
 
         <div class="flex flex-wrap gap-4 mb-10">
-          <a href="#download" class="bg-gradient-to-r from-frost-500 to-frost-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition">
+          <a href="#download" class="bg-gradient-to-r from-frost-500 to-frost-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition" data-i18n="btnDownload">
             ▶ DOWNLOAD GAME
           </a>
-          <a href="https://discord.gg" target="_blank" class="bg-darkcard border border-white/10 text-gray-200 font-bold px-6 py-3.5 rounded-xl transition">
+          <a href="https://discord.gg" target="_blank" class="bg-darkcard border border-white/10 text-gray-200 font-bold px-6 py-3.5 rounded-xl transition" data-i18n="btnDiscord">
             ◉ JOIN DISCORD
           </a>
         </div>
 
         <div class="grid grid-cols-3 gap-3 border-t border-white/10 pt-6">
           <div class="bg-darkcard/60 p-3 rounded-lg border border-white/5">
-            <span class="text-xs text-gray-400 block font-semibold">CURRENT STATE</span>
+            <span class="text-xs text-gray-400 block font-semibold" data-i18n="statCurrentState">CURRENT STATE</span>
             <span class="text-lg font-bold font-heading text-frost-400">STATE 92 LIVE</span>
           </div>
           <div class="bg-darkcard/60 p-3 rounded-lg border border-white/5">
-            <span class="text-xs text-gray-400 block font-semibold">ONLINE NOW</span>
+            <span class="text-xs text-gray-400 block font-semibold" data-i18n="statOnline">ONLINE NOW</span>
             <span class="text-lg font-bold font-heading text-emerald-400">245,570</span>
           </div>
           <div class="bg-darkcard/60 p-3 rounded-lg border border-white/5">
-            <span class="text-xs text-gray-400 block font-semibold">INTERVAL</span>
-            <span class="text-lg font-bold font-heading text-white">48 HOURS</span>
+            <span class="text-xs text-gray-400 block font-semibold" data-i18n="statInterval">INTERVAL</span>
+            <span class="text-lg font-bold font-heading text-white" data-i18n="statIntervalVal">48 HOURS</span>
           </div>
         </div>
       </div>
@@ -108,8 +123,8 @@
         <div class="aspect-video bg-frost-950 rounded-xl overflow-hidden relative flex items-center justify-center border border-white/10">
           <div class="text-center p-6">
             <span class="text-6xl mb-2 block">❄️</span>
-            <h3 class="text-xl font-bold font-heading text-white">FROZEN FURNACE CITY</h3>
-            <p class="text-xs text-frost-300">State 92 Open — Prepare Your Alliance</p>
+            <h3 class="text-xl font-bold font-heading text-white" data-i18n="cityTitle">FROZEN FURNACE CITY</h3>
+            <p class="text-xs text-frost-300" data-i18n="citySub">State 92 Open — Prepare Your Alliance</p>
           </div>
         </div>
       </div>
@@ -122,45 +137,279 @@
       <button id="closeAuthBtn" type="button" class="absolute top-4 right-4 text-gray-400 hover:text-white font-bold cursor-pointer">✕</button>
 
       <div class="flex border-b border-white/10 mb-6">
-        <button id="tabLogin" type="button" class="flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400 cursor-pointer">LOGIN</button>
-        <button id="tabRegister" type="button" class="flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer">REGISTER</button>
+        <button id="tabLogin" type="button" class="flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400 cursor-pointer" data-i18n="tabLogin">LOGIN</button>
+        <button id="tabRegister" type="button" class="flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer" data-i18n="tabRegister">REGISTER</button>
       </div>
 
       <!-- FORM LOGIN -->
       <form id="formLogin" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-gray-400 mb-1">USERNAME</label>
-          <input type="text" id="loginUsername" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Masukkan username">
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblUsername">USERNAME</label>
+          <input type="text" id="loginUsername" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Username">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-gray-400 mb-1">PASSWORD</label>
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblPassword">PASSWORD</label>
           <input type="password" id="loginPassword" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="••••••••">
         </div>
-        <button type="submit" class="w-full bg-frost-600 hover:bg-frost-500 text-white font-bold py-2.5 rounded-lg text-sm transition cursor-pointer">MASUK GAME</button>
+        <button type="submit" class="w-full bg-frost-600 hover:bg-frost-500 text-white font-bold py-2.5 rounded-lg text-sm transition cursor-pointer" data-i18n="btnSubmitLogin">MASUK GAME</button>
       </form>
 
       <!-- FORM REGISTER -->
       <form id="formRegister" class="space-y-4 hidden">
         <div>
-          <label class="block text-xs font-semibold text-gray-400 mb-1">USERNAME</label>
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblUsername">USERNAME</label>
           <input type="text" id="regUsername" required minlength="3" maxlength="30" class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Username (misal: selszzz99)">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-gray-400 mb-1">PASSWORD</label>
+          <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblPassword">PASSWORD</label>
           <input type="password" id="regPassword" minlength="6" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-frost-400" placeholder="Minimal 6 karakter">
         </div>
-        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-lg text-sm transition cursor-pointer">BUAT AKUN BARU</button>
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-lg text-sm transition cursor-pointer" data-i18n="btnSubmitRegister">BUAT AKUN BARU</button>
       </form>
 
       <div id="authMessage" class="mt-4 text-xs text-center hidden p-2 rounded"></div>
     </div>
   </div>
 
-  <!-- SCRIPT -->
+  <!-- DICTIONARY & MULTI-LANGUAGE ENGINE -->
   <script type="module">
     import { supabase } from './supabase.js';
 
+    // KAMUS BAHASA (i18n)
+    const translations = {
+      en: {
+        topBarState: "❄ STATE 92 — OPENING SOON",
+        topBarTimer: "NEXT STATE IN 01D : 02H : 59M",
+        navServer: "Server",
+        navRewards: "Rewards",
+        navCodes: "Gift Codes",
+        loginBtn: "LOGIN / REGISTER",
+        heroBadge: "⚡ Whiteout Survival Private Server",
+        heroTitle1: "SURVIVE FASTER.",
+        heroTitle2: "RULE THE SNOW.",
+        heroDesc: "Join the Selszzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.",
+        btnDownload: "▶ DOWNLOAD GAME",
+        btnDiscord: "◉ JOIN DISCORD",
+        statCurrentState: "CURRENT STATE",
+        statOnline: "ONLINE NOW",
+        statInterval: "INTERVAL",
+        statIntervalVal: "48 HOURS",
+        cityTitle: "FROZEN FURNACE CITY",
+        citySub: "State 92 Open — Prepare Your Alliance",
+        tabLogin: "LOGIN",
+        tabRegister: "REGISTER",
+        lblUsername: "USERNAME",
+        lblPassword: "PASSWORD",
+        btnSubmitLogin: "MASUK GAME",
+        btnSubmitRegister: "BUAT AKUN BARU"
+      },
+      id: {
+        topBarState: "❄ STATE 92 — SEGERA DIBUKA",
+        topBarTimer: "STATE CORAK BARU DALAM 01H : 02J : 59M",
+        navServer: "Server",
+        navRewards: "Hadiah",
+        navCodes: "Kode Hadiah",
+        loginBtn: "MASUK / DAFTAR",
+        heroBadge: "⚡ Server Privat Whiteout Survival",
+        heroTitle1: "BERTAHAN LEBIH CEPT.",
+        heroTitle2: "KUASAI SALJU.",
+        heroDesc: "Bergabunglah di server privat Selszzz Whiteout Survival untuk progres lebih cepat, klaim hadiah harian melimpah, dan State baru tiap 2 hari.",
+        btnDownload: "▶ UNDUH GAME",
+        btnDiscord: "◉ GABUNG DISCORD",
+        statCurrentState: "STATE SAAT INI",
+        statOnline: "PEMAIN ONLINE",
+        statInterval: "INTERVAL",
+        statIntervalVal: "48 JAM",
+        cityTitle: "KOTA TUNGKU BEKU",
+        citySub: "State 92 Terbuka — Siapkan Aliansimu",
+        tabLogin: "MASUK",
+        tabRegister: "DAFTAR",
+        lblUsername: "NAMA PENGGUNA",
+        lblPassword: "KATA SANDI",
+        btnSubmitLogin: "MASUK GAME",
+        btnSubmitRegister: "BUAT AKUN BARU"
+      },
+      zh: {
+        topBarState: "❄ STATE 92 — 即将开放",
+        topBarTimer: "下一个 State 倒计时 01天 : 02时 : 59分",
+        navServer: "服务器",
+        navRewards: "奖励",
+        navCodes: "礼包码",
+        loginBtn: "登录 / 注册",
+        heroBadge: "⚡ 无尽冬日 私服",
+        heroTitle1: "加速生存。",
+        heroTitle2: "主宰冰雪。",
+        heroDesc: "加入 Selszzz 无尽冬日私服，体验极速升级、每日豪礼、最新兑换码，每2天开启全新 State。",
+        btnDownload: "▶ 下载游戏",
+        btnDiscord: "◉ 加入 DISCORD",
+        statCurrentState: "当前 STATE",
+        statOnline: "在线玩家",
+        statInterval: "更新间隔",
+        statIntervalVal: "48 小时",
+        cityTitle: "冰封熔炉城",
+        citySub: "State 92 已开启 — 集结你的联盟",
+        tabLogin: "登录",
+        tabRegister: "注册",
+        lblUsername: "用户名",
+        lblPassword: "密码",
+        btnSubmitLogin: "进入游戏",
+        btnSubmitRegister: "创建新账号"
+      },
+      th: {
+        topBarState: "❄ STATE 92 — เปิดเร็วๆ นี้",
+        topBarTimer: "STATE ถัดไปใน 01วัน : 02ชม. : 59นาที",
+        navServer: "เซิร์ฟเวอร์",
+        navRewards: "รางวัล",
+        navCodes: "โค้ดของขวัญ",
+        loginBtn: "เข้าสู่ระบบ / สมัคร",
+        heroBadge: "⚡ เซิร์ฟเวอร์ส่วนตัว Whiteout Survival",
+        heroTitle1: "รอดชีวิตเร็วขึ้น.",
+        heroTitle2: "ครองหิมะ.",
+        heroDesc: "เข้าร่วมเซิร์ฟเวอร์ส่วนตัว Selszzz Whiteout Survival เพื่อการพัฒนาที่เร็วขึ้น รับของขวัญรายวันมากมาย และ State ใหม่ทุก 2 วัน",
+        btnDownload: "▶ ดาวน์โหลดเกม",
+        btnDiscord: "◉ เข้าร่วม DISCORD",
+        statCurrentState: "STATE ปัจจุบัน",
+        statOnline: "ออนไลน์ขณะนี้",
+        statInterval: "ระยะเวลา",
+        statIntervalVal: "48 ชั่วโมง",
+        cityTitle: "เมืองเตาเผาแช่แข็ง",
+        citySub: "State 92 เปิดแล้ว — เตรียมพันธมิตรของคุณ",
+        tabLogin: "เข้าสู่ระบบ",
+        tabRegister: "ลงทะเบียน",
+        lblUsername: "ชื่อผู้ใช้",
+        lblPassword: "รหัสผ่าน",
+        btnSubmitLogin: "เข้าสู่เกม",
+        btnSubmitRegister: "สร้างบัญชีใหม่"
+      },
+      ar: {
+        topBarState: "❄ STATE 92 — يفتح قريبًا",
+        topBarTimer: "المرحلة القادمة خلال 01 يوم : 02 ساعة : 59 دقيقة",
+        navServer: "السيرفر",
+        navRewards: "المكافآت",
+        navCodes: "أكواد الهدية",
+        loginBtn: "تسجيل الدخول / إنشاء حساب",
+        heroBadge: "⚡ سيرفر خاص Whiteout Survival",
+        heroTitle1: "البقاء بشكل أسرع.",
+        heroTitle2: "احكم الجليد.",
+        heroDesc: "انضم إلى سيرفر Selszzz الخاص لتطوير أسرع ومكافآت يومية ومراحل جديدة كل يومين.",
+        btnDownload: "▶ تحميل اللعبة",
+        btnDiscord: "◉ الانضمام لـ DISCORD",
+        statCurrentState: "المرحلة الحالية",
+        statOnline: "المتواجدون الآن",
+        statInterval: "الفترة",
+        statIntervalVal: "48 ساعة",
+        cityTitle: "مدينة الفرن المتجمدة",
+        citySub: "State 92 مفتوحة — جهز تحالفك",
+        tabLogin: "دخول",
+        tabRegister: "تسجيل",
+        lblUsername: "اسم المستخدم",
+        lblPassword: "كلمة المرور",
+        btnSubmitLogin: "دخول اللعبة",
+        btnSubmitRegister: "إنشاء حساب"
+      },
+      ru: {
+        topBarState: "❄ STATE 92 — СКОРО ОТКРЫТИЕ",
+        topBarTimer: "СЛЕДУЮЩИЙ STATE ЧЕРЕЗ 01Д : 02Ч : 59М",
+        navServer: "Сервер",
+        navRewards: "Награды",
+        navCodes: "Промокоды",
+        loginBtn: "ВХОД / РЕГИСТРАЦИЯ",
+        heroBadge: "⚡ Приватный сервер Whiteout Survival",
+        heroTitle1: "ВЫЖИВАЙ БЫСТРЕЕ.",
+        heroTitle2: "ПРАВЬ СНЕГАМИ.",
+        heroDesc: "Присоединяйтесь к приватному серверу Selszzz Whiteout Survival для быстрого прогресса, огромных наград и новых State каждые 2 дня.",
+        btnDownload: "▶ СКАЧАТЬ ИГРУ",
+        btnDiscord: "◉ DISCORD СЕРВЕР",
+        statCurrentState: "ТЕКУЩИЙ STATE",
+        statOnline: "ОНЛАЙН СЕЙЧАС",
+        statInterval: "ИНТЕРВАЛ",
+        statIntervalVal: "48 ЧАСОВ",
+        cityTitle: "ГОРОД ЗАМОРОЖЕННОЙ ПЕЧИ",
+        citySub: "State 92 Открыт — Готовьте ваш альянс",
+        tabLogin: "ВХОД",
+        tabRegister: "РЕГИСТРАЦИЯ",
+        lblUsername: "ИМЯ ПОЛЬЗОВАТЕЛЯ",
+        lblPassword: "ПАРОЛЬ",
+        btnSubmitLogin: "ВОЙТИ В ИГРУ",
+        btnSubmitRegister: "СОЗДАТЬ АККАУНТ"
+      },
+      ko: {
+        topBarState: "❄ STATE 92 — 오픈 예정",
+        topBarTimer: "다음 STATE까지 01일 : 02시간 : 59분",
+        navServer: "서버",
+        navRewards: "보상",
+        navCodes: "기프트 코드",
+        loginBtn: "로그인 / 회원가입",
+        heroBadge: "⚡ 화이트아웃 서바이버 프라이빗 서버",
+        heroTitle1: "더 빠른 생존.",
+        heroTitle2: "설원을 지배하라.",
+        heroDesc: "Selszzz 프라이빗 서버에서 빠르고 강력한 성장과 일일 보상, 2일마다 열리는 신규 State를 경험하세요.",
+        btnDownload: "▶ 게임 다운로드",
+        btnDiscord: "◉ 디스코드 참여",
+        statCurrentState: "현재 STATE",
+        statOnline: "동시 접속자",
+        statInterval: "주기",
+        statIntervalVal: "48시간",
+        cityTitle: "얼어붙은 용광로 도시",
+        citySub: "State 92 오픈 — 동맹을 준비하세요",
+        tabLogin: "로그인",
+        tabRegister: "회원가입",
+        lblUsername: "사용자 이름",
+        lblPassword: "비밀번호",
+        btnSubmitLogin: "게임 시작",
+        btnSubmitRegister: "계정 생성"
+      },
+      ja: {
+        topBarState: "❄ STATE 92 — まもなくオープン",
+        topBarTimer: "次の STATE まで 01日 : 02時間 : 59分",
+        navServer: "サーバー",
+        navRewards: "報酬",
+        navCodes: "ギフトコード",
+        loginBtn: "ログイン / 登録",
+        heroBadge: "⚡ ホワイトアウト・サバイバル プライベートサーバー",
+        heroTitle1: "より速く生き残れ。",
+        heroTitle2: "雪原を支配せよ。",
+        heroDesc: "Selszzzプライベートサーバーで高速育成、豪華な daily 報酬、2日ごとの新Stateオープンを楽しもう。",
+        btnDownload: "▶ ゲームダウンロード",
+        btnDiscord: "◉ DISCORD に参加",
+        statCurrentState: "現在の STATE",
+        statOnline: "オンライン人数",
+        statInterval: "更新間隔",
+        statIntervalVal: "48時間",
+        cityTitle: "凍てつく大溶鉱炉の街",
+        citySub: "State 92 オープン — 同盟の準備をせよ",
+        tabLogin: "ログイン",
+        tabRegister: "新規登録",
+        lblUsername: "ユーザー名",
+        lblPassword: "パスワード",
+        btnSubmitLogin: "ゲームを始める",
+        btnSubmitRegister: "アカウント作成"
+      }
+    };
+
+    function setLanguage(lang) {
+      const selected = translations[lang] ? lang : 'en';
+      localStorage.setItem('user_lang', selected);
+      
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[selected] && translations[selected][key]) {
+          el.innerText = translations[selected][key];
+        }
+      });
+      document.getElementById('langSelector').value = selected;
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('user_lang') || 'en';
+      setLanguage(savedLang);
+
+      document.getElementById('langSelector').addEventListener('change', (e) => {
+        setLanguage(e.target.value);
+      });
+
+      // AUTH LOGIC SUPABASE
       const authModal = document.getElementById('authModal');
       const authBtn = document.getElementById('authBtn');
       const closeAuthBtn = document.getElementById('closeAuthBtn');
@@ -170,16 +419,9 @@
       const formRegister = document.getElementById('formRegister');
       const authMessage = document.getElementById('authMessage');
 
-      // Modal Trigger
-      authBtn.addEventListener('click', () => {
-        authModal.classList.remove('hidden');
-      });
+      authBtn.addEventListener('click', () => authModal.classList.remove('hidden'));
+      closeAuthBtn.addEventListener('click', () => authModal.classList.add('hidden'));
 
-      closeAuthBtn.addEventListener('click', () => {
-        authModal.classList.add('hidden');
-      });
-
-      // Switch Tab
       tabLogin.addEventListener('click', () => {
         tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400 cursor-pointer";
         tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
@@ -202,14 +444,13 @@
 
       const formatEmail = (username) => `${username.trim().toLowerCase()}@wosgame.com`;
 
-      // Handle Register
       formRegister.addEventListener('submit', async (e) => {
         e.preventDefault();
         const rawUsername = document.getElementById('regUsername').value;
         const password = document.getElementById('regPassword').value;
 
         if (!/^[a-z0-9._-]{3,30}$/i.test(rawUsername)) {
-          showMsg("Username 3-30 karakter (hanya huruf, angka, titik, strip, underscore).", true);
+          showMsg("Username 3-30 karakter.", true);
           return;
         }
 
@@ -225,11 +466,10 @@
         if (error) {
           showMsg(error.message, true);
         } else {
-          showMsg(`Registrasi akun '${rawUsername}' berhasil! Silakan Login.`);
+          showMsg(`Registrasi '${rawUsername}' berhasil! Silakan Login.`);
         }
       });
 
-      // Handle Login
       formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
         const rawUsername = document.getElementById('loginUsername').value;
@@ -241,7 +481,7 @@
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
         if (error) {
-          showMsg("Username atau password salah.", true);
+          showMsg("Username / Password salah.", true);
         } else {
           showMsg("Login sukses!");
           setTimeout(() => {
