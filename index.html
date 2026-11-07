@@ -44,6 +44,11 @@
       background-position: 70% center;
       background-repeat: no-repeat;
     }
+
+    /* DEPTH EFFECT DISCORD CARD SHADOW */
+    .discord-depth-card {
+      box-shadow: 15px 18px 40px rgba(0, 0, 0, 0.65), 0 0 30px rgba(59, 130, 246, 0.25);
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-frost-500 selection:text-white relative">
@@ -67,6 +72,7 @@
         <a href="#rewards" class="hover:text-frost-400 font-bold transition" data-i18n="navRewards">Rewards</a>
         <a href="#recharge" class="hover:text-amber-400 text-amber-400 font-bold transition" data-i18n="navRecharge">Recharge</a>
         <a href="#codes" class="hover:text-frost-400 transition" data-i18n="navCodes">Gift Codes</a>
+        <a href="#support" class="hover:text-frost-400 transition" data-i18n="navSupport">Support</a>
       </div>
 
       <div class="flex items-center gap-3">
@@ -139,7 +145,7 @@
     </div>
   </section>
 
-  <!-- 1. ACCUMULATED FROST STAR REWARDS SECTION (DARK FROST CARD STYLE LIKE PACKS) -->
+  <!-- 1. ACCUMULATED FROST STAR REWARDS SECTION -->
   <section id="rewards" class="max-w-7xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-12">
       <span class="text-frost-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="rewardsBadge">PUBLIC BETA RECHARGE</span>
@@ -188,7 +194,7 @@
     </div>
   </section>
 
-  <!-- GIFT CODES SECTION -->
+  <!-- 3. GIFT CODES SECTION -->
   <section id="codes" class="max-w-6xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 pt-24 relative z-10">
     <div class="text-center max-w-2xl mx-auto mb-12">
       <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="codesBadge">ACTIVE CODES</span>
@@ -203,6 +209,51 @@
     <!-- CODE GRID -->
     <div id="codeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <!-- Generated via JS -->
+    </div>
+  </section>
+
+  <!-- 4. SUPPORT / COMMUNITY SECTION (ZNOWZ UI WITH DEPTH EFFECT) -->
+  <section id="support" class="w-full bg-gradient-to-r from-blue-950 via-indigo-950 to-blue-950 py-24 border-t border-blue-500/20 relative z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- LEFT TEXT & BUTTON -->
+      <div class="lg:col-span-7 space-y-6">
+        <span class="text-blue-400 font-extrabold text-xs uppercase tracking-widest block" data-i18n="supportBadge">◉ COMMUNITY</span>
+        <h2 class="text-4xl sm:text-6xl font-extrabold font-heading text-white tracking-wide leading-tight" data-i18n="supportTitle">
+          NEVER SURVIVE ALONE
+        </h2>
+        <p class="text-blue-200/80 text-sm sm:text-base leading-relaxed max-w-xl" data-i18n="supportDesc">
+          Join announcements, find an alliance, report a bug or get direct help from the Selszzzz support team.
+        </p>
+        <div class="pt-2">
+          <a href="https://discord.gg/z6gdwmrUsr" target="_blank" class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-950 font-extrabold px-7 py-3.5 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 text-xs uppercase tracking-wider cursor-pointer" data-i18n="btnJoinSupport">
+            ◉ JOIN DISCORD
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT DISCORD FLOATING CARD (DEPTH EFFECT) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end">
+        <div class="w-full max-w-md bg-blue-900/60 backdrop-blur-xl border border-blue-400/30 rounded-3xl p-8 text-center text-white discord-depth-card relative transform lg:rotate-1 hover:rotate-0 transition duration-300">
+          
+          <!-- DISCORD LOGO ICON -->
+          <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 shadow-inner">
+            <svg class="w-9 h-9 text-white fill-current" viewBox="0 0 127.14 96.36">
+              <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a73.51,73.51,0,0,0,64.32,0c.87.68,1.75,1.36,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77.0,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c3.09-27.7-5.16-51.45-18.9-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.92,53.86,53,48.79,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.06-12.74,11.44-12.74S96.2,45.92,96.07,53,91,65.69,84.69,65.69Z"/>
+            </svg>
+          </div>
+
+          <h3 class="text-2xl font-extrabold font-heading tracking-wide mb-1 text-white">discord.gg/selszzzz</h3>
+          <p class="text-xs text-blue-200 font-medium mb-6" data-i18n="supportSubTopics">Announcements · Codes · Events · Alliances</p>
+          
+          <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span data-i18n="supportStatus">COMMUNITY ONLINE</span>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -270,7 +321,7 @@
       { price: "$389.99", base: "600,000", always: "+150,000", beta: "+187,500", total: "937,500 TOTAL (BETA)", tag: "BEST VALUE" }
     ];
 
-    // CUMULATIVE TOP-UP REWARDS DATA (FROM PHOTO 2)
+    // CUMULATIVE TOP-UP REWARDS DATA
     const cumulativeRewards = [
       { milestone: "$5", reward: "+50,000" },
       { milestone: "$15", reward: "+70,000" },
@@ -305,6 +356,7 @@
         navRewards: "Rewards",
         navRecharge: "Recharge",
         navCodes: "Gift Codes",
+        navSupport: "Support",
         dlRegBtn: "▶ DOWNLOAD",
         heroBadge: "⚡ Whiteout Survival Private Server",
         heroTitle1: "SURVIVE FASTER.",
@@ -332,6 +384,12 @@
         codesSub: "Copy a code, open your profile in game and redeem it from Settings → Gift Code.",
         cardSub: "Active reward code",
         btnCopy: "COPY",
+        supportBadge: "◉ COMMUNITY",
+        supportTitle: "NEVER SURVIVE ALONE",
+        supportDesc: "Join announcements, find an alliance, report a bug or get direct help from the Selszzzz support team.",
+        btnJoinSupport: "◉ JOIN DISCORD",
+        supportSubTopics: "Announcements · Codes · Events · Alliances",
+        supportStatus: "COMMUNITY ONLINE",
         tabLogin: "LOGIN",
         tabRegister: "REGISTER",
         lblUsername: "USERNAME",
@@ -344,9 +402,10 @@
         navRewards: "Hadiah",
         navRecharge: "Top Up",
         navCodes: "Kode Hadiah",
+        navSupport: "Dukungan",
         dlRegBtn: "▶ UNDUH",
         heroBadge: "⚡ Server Privat Whiteout Survival",
-        heroTitle1: "BERTAHAN LEBIH CEPT.",
+        heroTitle1: "BERTAHAN LEBIH CEPAT.",
         heroTitle2: "KUASAI SALJU.",
         heroDesc: "Bergabunglah di server privat Selszzz Whiteout Survival untuk progres lebih cepat, klaim hadiah harian melimpah, dan State baru tiap 2 hari.",
         btnDownload: "▶ UNDUH / DAFTAR",
@@ -371,6 +430,12 @@
         codesSub: "Salin kode, buka profil di game dan tukarkan dari Pengaturan → Kode Hadiah.",
         cardSub: "Kode hadiah aktif",
         btnCopy: "SALIN",
+        supportBadge: "◉ KOMUNITAS",
+        supportTitle: "TIDAK BERJUANG SENDIRIAN",
+        supportDesc: "Bergabunglah untuk pengumuman, cari aliansi, laporkan bug, atau dapatkan bantuan langsung dari tim Selszzzz.",
+        btnJoinSupport: "◉ GABUNG DISCORD",
+        supportSubTopics: "Pengumuman · Kode · Event · Aliansi",
+        supportStatus: "KOMUNITAS ONLINE",
         tabLogin: "MASUK",
         tabRegister: "DAFTAR",
         lblUsername: "NAMA PENGGUNA",
@@ -383,6 +448,7 @@
         navRewards: "奖励",
         navRecharge: "充值",
         navCodes: "礼包码",
+        navSupport: "支持",
         dlRegBtn: "▶ 下载",
         heroBadge: "⚡ 无尽冬日 私服",
         heroTitle1: "加速生存。",
@@ -410,6 +476,12 @@
         codesSub: "复制礼包码，在游戏中打开个人资料，通过设置 → 礼包码兑换。",
         cardSub: "有效奖励兑换码",
         btnCopy: "复制",
+        supportBadge: "◉ 社区",
+        supportTitle: "绝不孤军奋战",
+        supportDesc: "获取最新公告、寻找联盟、反馈 Bug 或直接联系 Selszzzz 团队。",
+        btnJoinSupport: "◉ 加入 DISCORD",
+        supportSubTopics: "公告 · 兑换码 · 活动 · 联盟",
+        supportStatus: "社区在线",
         tabLogin: "登录",
         tabRegister: "注册",
         lblUsername: "用户名",
@@ -422,6 +494,7 @@
         navRewards: "รางวัล",
         navRecharge: "เติมเงิน",
         navCodes: "โค้ดของขวัญ",
+        navSupport: "ช่วยเหลือ",
         dlRegBtn: "▶ ดาวน์โหลด",
         heroBadge: "⚡ เซิร์ฟเวอร์ส่วนตัว Whiteout Survival",
         heroTitle1: "รอดชีวิตเร็วขึ้น.",
@@ -449,6 +522,12 @@
         codesSub: "คัดลอกโค้ด เปิดโปรไฟล์ในเกม และรับรางวัลได้ที่ การตั้งค่า → โค้ดของขวัญ",
         cardSub: "โค้ดรางวัลใช้งานได้",
         btnCopy: "คัดลอก",
+        supportBadge: "◉ ชุมชน",
+        supportTitle: "ไม่ต้องเอาชีวิตรอดคนเดียว",
+        supportDesc: "รับข่าวสาร ค้นหากิลด์ รายงานบั๊ก หรือขอความช่วยเหลือจากทีมงาน Selszzzz",
+        btnJoinSupport: "◉ เข้าร่วม DISCORD",
+        supportSubTopics: "ประกาศ · โค้ด · กิจกรรม · พันธมิตร",
+        supportStatus: "ชุมชนออนไลน์",
         tabLogin: "เข้าสู่ระบบ",
         tabRegister: "ลงทะเบียน",
         lblUsername: "ชื่อผู้ใช้",
@@ -461,6 +540,7 @@
         navRewards: "المكافآت",
         navRecharge: "الشحن",
         navCodes: "أكواد الهدية",
+        navSupport: "الدعم",
         dlRegBtn: "▶ تحميل",
         heroBadge: "⚡ سيرفر خاص Whiteout Survival",
         heroTitle1: "البقاء بشكل أسرع.",
@@ -488,6 +568,12 @@
         codesSub: "انسخ الكود، افتح ملفك الشخصي في اللعبة واستبدله من الإعدادات ← كود الهدية.",
         cardSub: "كود مكافأة نشط",
         btnCopy: "نسخ",
+        supportBadge: "◉ المجتمع",
+        supportTitle: "لا تقاتل بمفردك أبداً",
+        supportDesc: "انضم للإعلانات، اعثر على تحالف، أبلغ عن مشكلة أو احصل على مساعدة مباشرة من فريق Selszzzz.",
+        btnJoinSupport: "◉ الانضمام لـ DISCORD",
+        supportSubTopics: "إعلانات · أكواد · فعاليات · تحالفات",
+        supportStatus: "المجتمع متصل",
         tabLogin: "دخول",
         tabRegister: "تسجيل",
         lblUsername: "اسم المستخدم",
@@ -500,6 +586,7 @@
         navRewards: "Награды",
         navRecharge: "Пополнение",
         navCodes: "Промокоды",
+        navSupport: "Поддержка",
         dlRegBtn: "▶ СКАЧАТЬ",
         heroBadge: "⚡ Приватный сервер Whiteout Survival",
         heroTitle1: "ВЫЖИВАЙ БЫСТРЕЕ.",
@@ -527,6 +614,12 @@
         codesSub: "Скопируйте код, откройте профиль в игре и активируйте в Настройки → Подарочный код.",
         cardSub: "Активный промокод",
         btnCopy: "КОПИРОВАТЬ",
+        supportBadge: "◉ СООБЩЕСТВО",
+        supportTitle: "ВЫЖИВАЙТЕ ВМЕСТЕ",
+        supportDesc: "Следите за анонсами, находите альянсы, сообщайте об ошибках и получайте помощь от команды Selszzzz.",
+        btnJoinSupport: "◉ DISCORD СЕРВЕР",
+        supportSubTopics: "Анонсы · Коды · Ивенты · Альянсы",
+        supportStatus: "СООБЩЕСТВО В СЕТИ",
         tabLogin: "ВХОД",
         tabRegister: "РЕГИСТРАЦИЯ",
         lblUsername: "ИМЯ ПОЛЬЗОВАТЕЛЯ",
@@ -539,6 +632,7 @@
         navRewards: "보상",
         navRecharge: "충전",
         navCodes: "기프트 코드",
+        navSupport: "지원",
         dlRegBtn: "▶ 다운로드",
         heroBadge: "⚡ 화이트아웃 서바이버 프라이빗 서버",
         heroTitle1: "더 빠른 생존.",
@@ -566,6 +660,12 @@
         codesSub: "코드를 복사한 후 게임 내 프로필 > 설정 > 기프트 코드에서 입력하세요.",
         cardSub: "사용 가능한 보상 코드",
         btnCopy: "복사",
+        supportBadge: "◉ 커뮤니티",
+        supportTitle: "함께 생존하세요",
+        supportDesc: "공지사항 확인, 연맹 찾기, 버그 제보 및 Selszzzz 팀의 실시간 지원을 받아보세요.",
+        btnJoinSupport: "◉ 디스코드 참여",
+        supportSubTopics: "공지사항 · 코드 · 이벤트 · 연맹",
+        supportStatus: "커뮤니티 온라인",
         tabLogin: "로그인",
         tabRegister: "회원가입",
         lblUsername: "사용자 이름",
@@ -578,6 +678,7 @@
         navRewards: "報酬",
         navRecharge: "チャージ",
         navCodes: "ギフトコード",
+        navSupport: "サポート",
         dlRegBtn: "▶ ダウンロード",
         heroBadge: "⚡ ホワイトアウト・サバイバル プライベートサーバー",
         heroTitle1: "より速く生き残れ。",
@@ -605,6 +706,12 @@
         codesSub: "コードをコピーし、ゲーム内の profile > 設定 > ギフトコードから引き換えてください。",
         cardSub: "有効な特典コード",
         btnCopy: "コピー",
+        supportBadge: "◉ コミュニティ",
+        supportTitle: "共に生き残ろう",
+        supportDesc: "お知らせ、同盟検索、バグ報告、Selszzzz サポートチームからの直接サポートを受けられます。",
+        btnJoinSupport: "◉ DISCORD に参加",
+        supportSubTopics: "お知らせ · コード · イベント · 同盟",
+        supportStatus: "コミュニティ オンライン",
         tabLogin: "ログイン",
         tabRegister: "新規登録",
         lblUsername: "ユーザー名",
@@ -631,7 +738,7 @@
       renderCodes(selected);
     }
 
-    // RENDER ACCUMULATED REWARDS CARDS (MATCHING FROST STAR PACKS DARK STYLE)
+    // RENDER ACCUMULATED REWARDS CARDS
     function renderRewards(lang = 'en') {
       const grid = document.getElementById('rewardsGrid');
       grid.innerHTML = '';
