@@ -194,37 +194,4 @@
       const email = document.getElementById('regEmail').value;
       const password = document.getElementById('regPassword').value;
       showMsg("Registering...");
-      const { data, error } = await supabase.auth.signUp({ email, password });
-      if (error) showMsg(error.message, true);
-      else showMsg("Registrasi berhasil! Cek email / langsung login.");
-    });
-
-    formLogin.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
-      showMsg("Authenticating...");
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) showMsg(error.message, true);
-      else {
-        showMsg("Login sukses!");
-        setTimeout(() => { authModal.classList.add('hidden'); checkUserSession(); }, 1000);
-      }
-    });
-
-    async function checkUserSession() {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user) {
-        authBtn.innerText = `ACCOUNT (${session.user.email.split('@')[0]})`;
-        authBtn.onclick = async () => {
-          if (confirm("Logout dari akun?")) {
-            await supabase.auth.signOut();
-            window.location.reload();
-          }
-        };
-      }
-    }
-    checkUserSession();
-  </script>
-</body>
-</html>
+      const { data, error } = await supabase.auth.signUp
