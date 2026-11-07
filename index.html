@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WOS EU Portal — Whiteout Survival Private Server</title>
-  <link rel="icon" type="image/png" href="./logo-lg.png">
+  <link rel="icon" type="image/png" href="./logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
@@ -55,16 +55,17 @@
   <nav class="sticky top-0 z-40 frost-glass px-4 lg:px-8 py-3">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <a href="#" class="flex items-center gap-2.5">
-  <img src="./logo-lg.png" alt="WOS EU Logo" class="w-9 h-9 rounded-full object-cover border border-amber-400/50 shadow-md shadow-amber-500/20">
-  <div class="flex flex-col">
-    <span class="text-xl font-bold font-heading text-white tracking-wider leading-none">WOS <span class="text-frost-400">EU PORTAL</span></span>
-    <span class="text-[9px] text-amber-400 font-semibold tracking-widest uppercase">Private Server</span>
-  </div>
-</a>
+        <img src="./logo.png" alt="WOS EU Logo" class="w-9 h-9 rounded-full object-cover border border-amber-400/50 shadow-md shadow-amber-500/20">
+        <div class="flex flex-col">
+          <span class="text-xl font-bold font-heading text-white tracking-wider leading-none">WOS <span class="text-frost-400">EU PORTAL</span></span>
+          <span class="text-[9px] text-amber-400 font-semibold tracking-widest uppercase">Private Server</span>
+        </div>
+      </a>
 
       <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
         <a href="#servers" class="hover:text-frost-400 transition" data-i18n="navServer">Server</a>
         <a href="#rewards" class="hover:text-frost-400 transition" data-i18n="navRewards">Rewards</a>
+        <a href="#recharge" class="hover:text-amber-400 text-amber-400 font-bold transition" data-i18n="navRecharge">Recharge</a>
         <a href="#codes" class="hover:text-frost-400 transition" data-i18n="navCodes">Gift Codes</a>
       </div>
 
@@ -138,6 +139,25 @@
     </div>
   </section>
 
+  <!-- RECHARGE SECTION (FROST STARS PACKS) -->
+  <section id="recharge" class="max-w-7xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="rechargeBadge">RECHARGE STORE</span>
+      <h2 class="text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-wide mb-4" data-i18n="rechargeTitle">
+        FROST STARS PACKS
+      </h2>
+      <p class="text-gray-300 text-sm sm:text-base leading-relaxed bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl text-amber-200" data-i18n="rechargeNotice">
+        ⭐ <strong>IMPORTANT: ALL BETA PURCHASES CREDITED AGAIN!</strong><br/>
+        All Frost Stars purchased during this beta testing period—including the full 25% extra bonus—will be credited a second time to your account when the official version of WOS Europe launches!
+      </p>
+    </div>
+
+    <!-- RECHARGE PACKS GRID -->
+    <div id="rechargeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Generated via JS -->
+    </div>
+  </section>
+
   <!-- GIFT CODES SECTION -->
   <section id="codes" class="max-w-6xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 pt-24 relative z-10">
     <div class="text-center max-w-2xl mx-auto mb-12">
@@ -206,6 +226,20 @@
   <script type="module">
     import { supabase } from './supabase.js';
 
+    const STRIPE_LINK = "https://buy.stripe.com/3cI4gAeaJbL1aRt5kS24000";
+
+    // RECHARGE PACKS DATA FROM PHOTO 3
+    const rechargePacks = [
+      { price: "$0.79", base: "1,000", always: "+250", beta: "+312", total: "1,875 TOTAL (BETA)", tag: "" },
+      { price: "$3.99", base: "5,000", always: "+1,250", beta: "+1,562", total: "9,375 TOTAL (BETA)", tag: "" },
+      { price: "$8.99", base: "10,000", always: "+2,500", beta: "+3,125", total: "21,250 TOTAL (BETA)", tag: "" },
+      { price: "$16.99", base: "20,000", always: "+5,000", beta: "+6,250", total: "40,000 TOTAL (BETA)", tag: "" },
+      { price: "$42.99", base: "40,000", always: "+10,000", beta: "+12,500", total: "102,500 TOTAL (BETA)", tag: "" },
+      { price: "$84.99", base: "129,600", always: "+32,400", beta: "+40,500", total: "202,500 TOTAL (BETA)", tag: "MOST POPULAR" },
+      { price: "$259.99", base: "400,000", always: "+100,000", beta: "+125,000", total: "625,000 TOTAL (BETA)", tag: "" },
+      { price: "$389.99", base: "600,000", always: "+150,000", beta: "+187,500", total: "937,500 TOTAL (BETA)", tag: "BEST VALUE" }
+    ];
+
     // 44 GIFT CODES
     const giftCodes = [
       "VWYTWXWM", "CVVJXKWU", "EAWEGKHDSY", "KDQXZYTTXE", "VRXGWQPJKF", 
@@ -224,6 +258,7 @@
       en: {
         navServer: "Server",
         navRewards: "Rewards",
+        navRecharge: "Recharge",
         navCodes: "Gift Codes",
         dlRegBtn: "▶ DOWNLOAD",
         heroBadge: "⚡ Whiteout Survival Private Server",
@@ -236,6 +271,10 @@
         statOnline: "ONLINE NOW",
         statInterval: "INTERVAL",
         statIntervalVal: "48 HOURS",
+        rechargeBadge: "RECHARGE STORE",
+        rechargeTitle: "FROST STARS PACKS",
+        rechargeNotice: "⭐ IMPORTANT: ALL BETA PURCHASES CREDITED AGAIN!\nAll Frost Stars purchased during this beta testing period—including the full 25% extra bonus—will be credited a second time to your account when the official version of WOS Europe launches!",
+        btnBuy: "BUY NOW",
         codesBadge: "ACTIVE CODES",
         codesTitle: "CLAIM YOUR FREE REWARDS",
         codesSub: "Copy a code, open your profile in game and redeem it from Settings → Gift Code.",
@@ -245,16 +284,17 @@
         tabRegister: "REGISTER",
         lblUsername: "USERNAME",
         lblPassword: "PASSWORD",
-        btnSubmitLogin: "MASUK GAME",
-        btnSubmitRegister: "BUAT AKUN BARU"
+        btnSubmitLogin: "LOGIN",
+        btnSubmitRegister: "REGISTER ACCOUNT"
       },
       id: {
         navServer: "Server",
         navRewards: "Hadiah",
+        navRecharge: "Top Up",
         navCodes: "Kode Hadiah",
         dlRegBtn: "▶ UNDUH",
         heroBadge: "⚡ Server Privat Whiteout Survival",
-        heroTitle1: "BERTAHAN LEBIH CEPT.",
+        heroTitle1: "BERTAHAN LEBIH CEPAT.",
         heroTitle2: "KUASAI SALJU.",
         heroDesc: "Bergabunglah di server privat Selszzz Whiteout Survival untuk progres lebih cepat, klaim hadiah harian melimpah, dan State baru tiap 2 hari.",
         btnDownload: "▶ UNDUH / DAFTAR",
@@ -263,6 +303,10 @@
         statOnline: "PEMAIN ONLINE",
         statInterval: "INTERVAL",
         statIntervalVal: "48 JAM",
+        rechargeBadge: "TOKO TOP UP",
+        rechargeTitle: "PAKET FROST STARS",
+        rechargeNotice: "⭐ PENTING: SEMUA PEMBELIAN BETA DIKREDITKAN KEMBALI!\nSemua Frost Stars yang dibeli selama masa beta test ini—termasuk total bonus ekstra 25%—akan dikreditkan ulang ke akun kamu saat versi resmi WOS Europe dirilis!",
+        btnBuy: "BELI SEKARANG",
         codesBadge: "KODE AKTIF",
         codesTitle: "KLAIM HADIAH GRATIS KAMU",
         codesSub: "Salin kode, buka profil di game dan tukarkan dari Pengaturan → Kode Hadiah.",
@@ -278,6 +322,7 @@
       zh: {
         navServer: "服务器",
         navRewards: "奖励",
+        navRecharge: "充值",
         navCodes: "礼包码",
         dlRegBtn: "▶ 下载",
         heroBadge: "⚡ 无尽冬日 私服",
@@ -290,6 +335,10 @@
         statOnline: "在线玩家",
         statInterval: "更新间隔",
         statIntervalVal: "48 小时",
+        rechargeBadge: "充值商城",
+        rechargeTitle: "FROST STARS 礼包",
+        rechargeNotice: "⭐ 重要说明：所有 Beta 测试充值将双倍返还！\n在 Beta 测试期间购买的所有 Frost Stars（包括 25% 的额外赠送）将在 WOS Europe 正式服上线时再次发放至您的账号！",
+        btnBuy: "立即购买",
         codesBadge: "有效礼包码",
         codesTitle: "领取免费奖励",
         codesSub: "复制礼包码，在游戏中打开个人资料，通过设置 → 礼包码兑换。",
@@ -305,6 +354,7 @@
       th: {
         navServer: "เซิร์ฟเวอร์",
         navRewards: "รางวัล",
+        navRecharge: "เติมเงิน",
         navCodes: "โค้ดของขวัญ",
         dlRegBtn: "▶ ดาวน์โหลด",
         heroBadge: "⚡ เซิร์ฟเวอร์ส่วนตัว Whiteout Survival",
@@ -317,6 +367,10 @@
         statOnline: "ออนไลน์ขณะนี้",
         statInterval: "ระยะเวลา",
         statIntervalVal: "48 ชั่วโมง",
+        rechargeBadge: "ร้านค้าเติมเงิน",
+        rechargeTitle: "แพ็กเกจ FROST STARS",
+        rechargeNotice: "⭐ สำคัญ: การซื้อช่วง BETA จะได้รับคืนอีกครั้ง!\nFrost Stars ทั้งหมดที่ซื้อในช่วงทดสอบ Beta รวมถึงโบนัสพิเศษ 25% จะถูกส่งเข้าบัญชีของคุณอีกครั้งเมื่อ WOS Europe เปิดตัวอย่างเป็นทางการ!",
+        btnBuy: "ซื้อเลย",
         codesBadge: "โค้ดที่ใช้งานได้",
         codesTitle: "รับรางวัลฟรีของคุณ",
         codesSub: "คัดลอกโค้ด เปิดโปรไฟล์ในเกม และรับรางวัลได้ที่ การตั้งค่า → โค้ดของขวัญ",
@@ -332,6 +386,7 @@
       ar: {
         navServer: "السيرفر",
         navRewards: "المكافآت",
+        navRecharge: "الشحن",
         navCodes: "أكواد الهدية",
         dlRegBtn: "▶ تحميل",
         heroBadge: "⚡ سيرفر خاص Whiteout Survival",
@@ -344,6 +399,10 @@
         statOnline: "المتواجدون الآن",
         statInterval: "الفترة",
         statIntervalVal: "48 ساعة",
+        rechargeBadge: "متجر الشحن",
+        rechargeTitle: "حزم FROST STARS",
+        rechargeNotice: "⭐ هام: سيتم إعادة إضافة جميع مشتريات النسخة التجريبية!\nجميع Frost Stars المشتراة خلال فترة الاختبار التجريبي—بما في ذلك مكافأة 25% الإضافية—ستضاف مرة ثانية إلى حسابك عند إطلاق WOS Europe الرسمي!",
+        btnBuy: "اشتر الآن",
         codesBadge: "الأكواد النشطة",
         codesTitle: "احصل على مكافآتك المجانية",
         codesSub: "انسخ الكود، افتح ملفك الشخصي في اللعبة واستبدله من الإعدادات ← كود الهدية.",
@@ -359,6 +418,7 @@
       ru: {
         navServer: "Сервер",
         navRewards: "Награды",
+        navRecharge: "Пополнение",
         navCodes: "Промокоды",
         dlRegBtn: "▶ СКАЧАТЬ",
         heroBadge: "⚡ Приватный сервер Whiteout Survival",
@@ -371,6 +431,10 @@
         statOnline: "ОНЛАЙН СЕЙЧАС",
         statInterval: "ИНТЕРВАЛ",
         statIntervalVal: "48 ЧАСОВ",
+        rechargeBadge: "МАГАЗИН ПОПОЛНЕНИЯ",
+        rechargeTitle: "НАБОРЫ FROST STARS",
+        rechargeNotice: "⭐ ВАЖНО: ВСЕ ПОКУПКИ В БЕТА-ТЕСТЕ БУДУТ НАЧИСЛЕНЫ ПОВТОРНО!\nВсе Frost Stars, купленные во время бета-теста (включая 25% бонус), будут повторно начислены на ваш аккаунт при официальном запуске WOS Europe!",
+        btnBuy: "КУПИТЬ",
         codesBadge: "АКТИВНЫЕ КОДЫ",
         codesTitle: "ПОЛУЧИТЕ БЕСПЛАТНЫЕ НАГРАДЫ",
         codesSub: "Скопируйте код, откройте профиль в игре и активируйте в Настройки → Подарочный код.",
@@ -386,6 +450,7 @@
       ko: {
         navServer: "서버",
         navRewards: "보상",
+        navRecharge: "충전",
         navCodes: "기프트 코드",
         dlRegBtn: "▶ 다운로드",
         heroBadge: "⚡ 화이트아웃 서바이버 프라이빗 서버",
@@ -398,6 +463,10 @@
         statOnline: "동시 접속자",
         statInterval: "주기",
         statIntervalVal: "48시간",
+        rechargeBadge: "충전 상점",
+        rechargeTitle: "FROST STARS 패키지",
+        rechargeNotice: "⭐ 중요: 베타 기간 구매 내역 재지급 안내!\n베타 테스트 기간 동안 구매한 모든 Frost Stars(25% 보너스 포함)는 WOS Europe 정식 오픈 시 계정으로 다시 지급됩니다!",
+        btnBuy: "구매하기",
         codesBadge: "활성 코드",
         codesTitle: "무료 보상 수령하기",
         codesSub: "코드를 복사한 후 게임 내 프로필 > 설정 > 기프트 코드에서 입력하세요.",
@@ -413,6 +482,7 @@
       ja: {
         navServer: "サーバー",
         navRewards: "報酬",
+        navRecharge: "チャージ",
         navCodes: "ギフトコード",
         dlRegBtn: "▶ ダウンロード",
         heroBadge: "⚡ ホワイトアウト・サバイバル プライベートサーバー",
@@ -425,6 +495,10 @@
         statOnline: "オンライン人数",
         statInterval: "更新間隔",
         statIntervalVal: "48時間",
+        rechargeBadge: "チャージショップ",
+        rechargeTitle: "FROST STARS パック",
+        rechargeNotice: "⭐ 重要：ベータテスト購入分の再付与について\nベータテスト期間中に購入されたすべての Frost Stars（25%のボーナス分を含む）は、WOS Europe の正式サービス開始時に再度アカウントへ付与されます！",
+        btnBuy: "購入する",
         codesBadge: "利用可能なコード",
         codesTitle: "無料報酬を受け取る",
         codesSub: "コードをコピーし、ゲーム内の profile > 設定 > ギフトコードから引き換えてください。",
@@ -451,9 +525,59 @@
         }
       });
       document.getElementById('langSelector').value = selected;
+      renderRecharge(selected);
       renderCodes(selected);
     }
 
+    // RENDER RECHARGE PACK CARDS
+    function renderRecharge(lang = 'en') {
+      const grid = document.getElementById('rechargeGrid');
+      grid.innerHTML = '';
+      const buyText = translations[lang]?.btnBuy || "BUY NOW";
+
+      rechargePacks.forEach(pack => {
+        const card = document.createElement('a');
+        card.href = STRIPE_LINK;
+        card.target = "_blank";
+        card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-amber-400 p-6 rounded-2xl transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between relative group cursor-pointer";
+        
+        let tagHtml = '';
+        if (pack.tag) {
+          tagHtml = `<span class="absolute top-3 right-3 bg-amber-500 text-black text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">${pack.tag}</span>`;
+        }
+
+        card.innerHTML = `
+          ${tagHtml}
+          <div class="text-center mb-4">
+            <span class="text-4xl block mb-2">❄️</span>
+            <div class="text-3xl font-extrabold text-amber-400 font-heading tracking-wide mb-1">${pack.price}</div>
+            <div class="text-xl font-bold text-white tracking-wider">${pack.base} <span class="text-xs text-gray-400">Stars</span></div>
+          </div>
+          
+          <div class="bg-darkbg/60 rounded-xl p-3 mb-5 border border-white/5 space-y-1 text-xs">
+            <div class="flex justify-between text-amber-300">
+              <span>Always Bonus:</span>
+              <span class="font-bold">${pack.always}</span>
+            </div>
+            <div class="flex justify-between text-frost-400">
+              <span>Beta Extra:</span>
+              <span class="font-bold">${pack.beta}</span>
+            </div>
+            <div class="border-t border-white/10 pt-1.5 flex justify-between font-bold text-emerald-400 text-[11px]">
+              <span>TOTAL (BETA):</span>
+              <span>${pack.total.split(' ')[0]}</span>
+            </div>
+          </div>
+
+          <button class="w-full bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-400 group-hover:to-amber-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20">
+            ${buyText}
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // RENDER ZNOWZ STYLE GIFT CODE CARDS
     function renderCodes(lang = 'en') {
       const grid = document.getElementById('codeGrid');
       grid.innerHTML = '';
