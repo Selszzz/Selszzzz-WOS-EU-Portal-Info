@@ -1,146 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080d14">
-<meta name="description" content="WOS EU Portal — Whiteout Survival guides, gift codes and community resources.">
-<title>WOS EU Portal — The Frozen Frontier</title>
-<style>
-:root{--bg:#080d14;--ink:#eef7fc;--muted:#9bb0bf;--ice:#72d9ff;--line:rgba(177,220,242,.19);--panel:#101b27;--gold:#e5bd79}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.55}
-a{color:inherit;text-decoration:none}
-img{display:block;width:100%;height:100%;object-fit:cover}
-.topline{height:3px;background:linear-gradient(90deg,#3b829e,#a9eaff,#3b829e)}
-header{height:72px;position:sticky;top:0;z-index:30;background:rgba(7,13,20,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:100%;max-width:1320px;margin:auto;padding:0 34px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:16px;font-weight:900;letter-spacing:.14em;display:flex;align-items:center;gap:11px}
-.brand-mark{color:var(--ice);font-size:25px;text-shadow:0 0 18px #55cfff}
-.brand em{font-style:normal;color:var(--ice)}
-nav{display:flex;align-items:center;gap:29px}
-nav a{font-size:10px;letter-spacing:.17em;color:#b7c8d4;font-weight:800}
-nav a:hover{color:var(--ice)}
-.nav-action{border:1px solid #6099b3;padding:10px 15px;color:#c8f1ff}
-.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:7px 11px;border-radius:4px;font-size:20px}
-.hero{min-height:570px;position:relative;isolation:isolate;display:flex;align-items:end;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-bg{position:absolute;inset:0;z-index:-2}
-.hero-bg img{object-position:center 43%;filter:brightness(.63) saturate(.82)}
-.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,11,17,.96) 0%,rgba(5,11,17,.77) 39%,rgba(5,11,17,.12) 100%),linear-gradient(0deg,#080d14 0%,transparent 52%)}
-.hero-content{width:100%;max-width:1320px;margin:0 auto;padding:100px 34px 65px}
-.kicker{font-size:10px;letter-spacing:.28em;color:var(--ice);font-weight:900;display:flex;align-items:center;gap:10px}
-.kicker:before{content:"";height:1px;width:30px;background:var(--ice)}
-.hero h1{font-size:clamp(44px,7vw,88px);line-height:.94;letter-spacing:-.055em;text-transform:uppercase;max-width:760px;margin:22px 0}
-.hero h1 span{color:#a8eaff}
-.hero-copy{max-width:510px;color:#c1d0da;font-size:14px;line-height:1.8}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;font-size:10px;letter-spacing:.16em;font-weight:900;border:1px solid #b3eaff;background:#a6e8ff;color:#07121a}
-.btn.alt{background:rgba(8,18,27,.42);color:#e5f7ff;border-color:rgba(205,237,250,.55)}
-.hero-index{position:absolute;right:34px;bottom:45px;color:#d5edf8;font-size:10px;letter-spacing:.22em}
-.ticker{border-bottom:1px solid var(--line);background:#0c1722;overflow:hidden}
-.ticker-inner{max-width:1320px;margin:auto;padding:13px 34px;display:flex;gap:28px;align-items:center;white-space:nowrap;font-size:9px;letter-spacing:.18em;color:#9db2c1}
-.ticker strong{color:var(--ice)}
-.ticker span{color:#526e80}
-.wrap{max-width:1320px;margin:auto;padding:72px 34px}
-.section-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:26px}
-.overline{font-size:9px;letter-spacing:.25em;color:var(--ice);font-weight:900}
-h2{font-size:clamp(26px,3.3vw,39px);line-height:1.1;letter-spacing:-.035em;margin-top:8px}
-.section-desc{max-width:370px;color:var(--muted);font-size:12px}
-.story-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
-.story-main{position:relative;min-height:370px;overflow:hidden;border:1px solid var(--line);background:#132332}
-.story-main img{position:absolute;inset:0;transition:transform .5s;filter:brightness(.72)}
-.story-main:hover img,.story-card:hover img{transform:scale(1.04)}
-.story-main:after,.story-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,10,16,.96),transparent 75%)}
-.story-text{position:absolute;z-index:2;left:29px;right:29px;bottom:27px}
-.story-tag{font-size:9px;color:var(--ice);letter-spacing:.2em;font-weight:900}
-.story-text h3{font-size:27px;line-height:1.1;margin:8px 0}
-.story-text p{font-size:12px;color:#bdcbd4;max-width:480px}
-.story-side{display:grid;grid-template-rows:1fr 1fr;gap:16px}
-.story-card{position:relative;min-height:177px;overflow:hidden;border:1px solid var(--line);background:#132332}
-.story-card img{position:absolute;inset:0;filter:brightness(.68);transition:transform .5s}
-.story-card .story-text{left:20px;bottom:18px;right:18px}
-.story-card h3{font-size:19px;margin-top:5px}
-.story-card p{font-size:11px;color:#c0ced8}
-.portal-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.portal-tile{min-height:190px;position:relative;overflow:hidden;border:1px solid var(--line);background:#101d29;display:flex;align-items:end;padding:22px;isolation:isolate}
-.portal-tile:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(4,10,16,.97),rgba(5,12,19,.2) 90%)}
-.portal-tile img{position:absolute;inset:0;z-index:-2;opacity:.58;transition:transform .45s}
-.portal-tile:hover{border-color:#83dfff}
-.portal-tile:hover img{transform:scale(1.05)}
-.portal-tile:nth-child(1),.portal-tile:nth-child(4){grid-column:span 7}
-.portal-tile:nth-child(2),.portal-tile:nth-child(3){grid-column:span 5}
-.portal-tile:nth-child(n+5){grid-column:span 4}
-.tile-content small{font-size:9px;color:var(--ice);letter-spacing:.2em;font-weight:900}
-.tile-content h3{font-size:23px;margin:4px 0}
-.tile-content p{font-size:11px;color:#b4c5d0;max-width:360px}
-.tile-link{display:inline-block;margin-top:12px;color:#c3edff;font-size:9px;letter-spacing:.16em;font-weight:900}
-.tile-link.disabled{color:#8499a8}
-.reward-band{display:grid;grid-template-columns:1fr auto;align-items:center;gap:25px;padding:34px 38px;border:1px solid #3c687f;background:linear-gradient(105deg,#142f40,#101a26 70%);position:relative;overflow:hidden}
-.reward-band:after{content:"❄";position:absolute;right:22%;top:-65px;font-size:210px;color:rgba(151,223,250,.055);pointer-events:none}
-.reward-band h2{font-size:clamp(24px,3vw,34px)}
-.reward-band p{color:#a9bdca;font-size:12px;margin-top:9px}
-.reward-band .btn{position:relative;z-index:2}
-.updates{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.download-panel{border:1px solid #3c6177;background:linear-gradient(115deg,#142c3d,#0c1722 78%);padding:32px;display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:center}.download-panel h2{font-size:clamp(25px,3vw,35px)}.download-panel p{font-size:12px;color:#a9bdca;margin-top:10px;max-width:420px}.download-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.download-option{min-height:112px;border:1px solid rgba(174,222,243,.25);background:rgba(4,12,19,.45);padding:17px 13px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}.download-option:hover{border-color:var(--ice);background:rgba(37,86,111,.3);transform:translateY(-3px)}.download-option small{font-size:9px;color:var(--ice);letter-spacing:.16em;font-weight:900}.download-option strong{font-size:14px}.download-option span{font-size:9px;color:#9fb4c2;letter-spacing:.1em}.download-note{grid-column:1/-1;font-size:10px;color:#839aaa;margin-top:-15px}@media(max-width:760px){.download-panel{grid-template-columns:1fr;padding:25px 20px}.download-options{grid-template-columns:1fr}.download-option{min-height:85px}}
-.update{border-top:1px solid #52768b;padding:18px 3px 0}
-.update small{font-size:9px;color:var(--ice);letter-spacing:.18em;font-weight:900}
-.update h3{font-size:17px;margin:8px 0}
-.update p{font-size:11px;color:var(--muted)}
-footer{border-top:1px solid var(--line);padding:25px 34px;color:#748b9b;font-size:9px;letter-spacing:.13em}
-.footer-inner{max-width:1320px;margin:auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:760px){.nav{padding:0 18px}nav{display:none;position:absolute;top:71px;left:0;right:0;background:#09121c;border-bottom:1px solid var(--line);padding:14px 20px 20px;flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.06)}.menu{display:block}.hero{min-height:540px}.hero-bg img{object-position:58% center}.hero:before{background:linear-gradient(90deg,rgba(5,11,17,.91),rgba(5,11,17,.48)),linear-gradient(0deg,#080d14,transparent 75%)}.hero-content{padding:90px 20px 55px}.hero-index{display:none}.ticker-inner{padding:12px 20px;gap:16px;font-size:8px}.wrap{padding:55px 20px}.section-top{display:block}.section-desc{margin-top:10px}.story-grid{grid-template-columns:1fr}.story-main{min-height:310px}.story-side{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.story-card{min-height:190px}.portal-tile:nth-child(n){grid-column:span 6;min-height:180px}.portal-tile:nth-child(1){grid-column:span 12}.reward-band{grid-template-columns:1fr;padding:26px}.reward-band .btn{justify-self:start}.updates{grid-template-columns:1fr;gap:22px}footer{padding:22px 20px}}
-@media(max-width:430px){.brand{font-size:13px}.hero h1{font-size:43px}.hero-copy{font-size:12px}.story-side{grid-template-columns:1fr}.story-card{min-height:170px}.portal-tile:nth-child(n){grid-column:span 12;min-height:155px}.story-text h3{font-size:23px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WOS EU Portal — Whiteout Survival Private Server</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Rajdhani', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            frost: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              900: '#0c4a6e',
+              950: '#031f38',
+            },
+            darkbg: '#070c14',
+            darkcard: '#0d1527',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #070c14; color: #e2e8f0; font-family: 'Inter', sans-serif; }
+    .frost-glass { background: rgba(13, 21, 39, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(56, 189, 248, 0.15); }
+  </style>
 </head>
-<body>
-<div class="topline"></div>
-<header><div class="nav">
-<a class="brand" href="./"><span class="brand-mark">❄</span> WOS <em>EU PORTAL</em></a>
-<nav id="mainNav"><a href="./">HOME</a><a href="#world">DOWNLOAD</a><a href="#portal">SERVER</a><a href="giftcode.html">GIFT CODES</a><a href="#updates">RECHARGE</a></nav>
-<button class="menu" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
-</div></header>
-<main>
-<section class="hero">
-<div class="hero-bg"><img src="https://cdn.prod.website-files.com/65956e2711516206d2d1258f/69a05d5c21192065c093ca7d_wos-tg-en.jpg" alt="Whiteout Survival snowy settlement and furnace"></div>
-<div class="hero-content"><div class="kicker">WHITEOUT SURVIVAL PRIVATE SERVER</div><h1>THE WORLD<br>IS <span>FROZEN.</span><br>YOUR STORY<br>IS NOT.</h1><p class="hero-copy">Join the Selzzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.</p><div class="hero-buttons"><a class="btn" href="https://europa.176.9.65.91.nip.io/download/wos-europe.apk">DOWNLOAD GAME&nbsp; ↓</a><a class="btn alt" href="giftcode.html">🎁 &nbsp;CLAIM REWARDS</a></div></div>
-<div class="hero-index">FIELD REPORT&nbsp; / &nbsp;WOS-EU&nbsp; / &nbsp;001</div>
-</section>
-<div class="ticker"><div class="ticker-inner"><strong>WHITEOUT SURVIVAL</strong><span>✦</span> COMMUNITY INTELLIGENCE <span>✦</span> HEROES · EVENTS · RESOURCES <span>✦</span> <strong>STAY WARM. STAY READY.</strong></div></div>
-<section class="wrap" id="world">
-<div class="section-top"><div><div class="overline">INSIDE THE FROZEN FRONTIER</div><h2>THE WORLD YOU FIGHT FOR</h2></div><p class="section-desc">From the warmth of your furnace to the edge of the icefield, every part of the world has a story — and a strategy.</p></div>
-<div class="story-grid">
-<a class="story-main" href="#portal"><img src="https://cdn.prod.website-files.com/65956e2711516206d2d1258f/69a05d5c21192065c093ca7d_wos-tg-en.jpg" alt="Whiteout Survival city surrounding the furnace"><div class="story-text"><div class="story-tag">01 / BUILD YOUR LEGACY</div><h3>ONE FURNACE. A THOUSAND SURVIVORS.</h3><p>Keep the fire alive, grow your city, and lead your people through the endless winter.</p></div></a>
-<div class="story-side">
-<a class="story-card" href="#portal"><img src="https://cdn-www.bluestacks.com/bs-images/hefw3.jpg" alt="Whiteout Survival heroes"><div class="story-text"><div class="story-tag">02 / HEROES</div><h3>ASSEMBLE YOUR LINEUP</h3><p>Know your heroes. Know your advantage.</p></div></a>
-<a class="story-card" href="#portal"><img src="https://mumuglobal-res.fp.ps.easebar.com/file/69f319cbe92f85d3551e7c8f7EtQIzum03" alt="Whiteout Survival furnace upgrade"><div class="story-text"><div class="story-tag">03 / PROGRESSION</div><h3>EVERY UPGRADE MATTERS</h3><p>Plan ahead. Spend resources wisely.</p></div></a>
-</div></div>
-</section>
-<section class="wrap" id="portal">
-<div class="section-top"><div><div class="overline">THE COMMAND CENTER</div><h2>TOOLS FOR THE CHIEF</h2></div><p class="section-desc">Explore the knowledge base and utilities built to support your next move.</p></div>
-<div class="portal-grid">
-<a class="portal-tile" href="giftcode.html"><img src="https://media.pocketgamer.com/artwork/ra-96030-1699887321/firecrystals_jpg_820.jpg" alt="Glowing furnace fire crystal"><div class="tile-content"><small>REWARDS / 01</small><h3>GIFT CODE DEPOT</h3><p>Check listed codes, verify their status, and collect your rewards.</p><span class="tile-link">OPEN REWARD CENTER&nbsp; ↗</span></div></a>
-<div class="portal-tile"><img src="https://cdn-www.bluestacks.com/bs-images/hefw3.jpg" alt="Whiteout Survival hero lineup"><div class="tile-content"><small>INTELLIGENCE / 02</small><h3>HERO DATABASE</h3><p>Hero generations, skills, and lineup research.</p><span class="tile-link disabled">DATABASE IN DEVELOPMENT</span></div></div>
-<div class="portal-tile"><img src="https://mumuglobal-res.fp.ps.easebar.com/file/69f319cbe92f85d3551e7c8f7EtQIzum03" alt="Furnace city upgrade"><div class="tile-content"><small>PROGRESSION / 03</small><h3>GUIDES & PLANNERS</h3><p>Upgrade priorities, resource planning, and practical guides.</p><span class="tile-link disabled">MORE INTEL COMING SOON</span></div></div>
-<div class="portal-tile"><img src="https://assets.dearplayers.com/gplay-data/events/foundry-battle-6503928789-1280x720sr.jpg" alt="Whiteout Survival foundry battle"><div class="tile-content"><small>OPERATIONS / 04</small><h3>EVENTS & BATTLE PREP</h3><p>Prepare for alliance operations, events, and cross-state competition.</p><span class="tile-link disabled">EVENT CENTER IN DEVELOPMENT</span></div></div>
-<div class="portal-tile"><img src="https://wos.h5joy-games.com/images/og.png" alt="Frozen frontier landscape"><div class="tile-content"><small>FIELD NOTES / 05</small><h3>SURVIVAL FAQ</h3><p>Answers to common questions from the frozen frontier.</p><span class="tile-link disabled">FIELD NOTES COMING SOON</span></div></div>
-<div class="portal-tile"><img src="https://youre.outof.games/media/v2/uploads/09/f0/09f0631bc3734cb5b327f1e8a5c187e1/whiteout-survival-hero-rework-thumb.webp" alt="Whiteout Survival heroes"><div class="tile-content"><small>COMMUNITY / 06</small><h3>COMMUNITY HQ</h3><p>Connect with other chiefs and share your knowledge.</p><span class="tile-link disabled">COMMUNITY HUB COMING SOON</span></div></div>
-</div>
-</section>
-<section class="wrap" id="updates">
-<div class="reward-band"><div><div class="overline">DON'T LEAVE REWARDS BEHIND</div><h2>YOUR NEXT GIFT IS WAITING.</h2><p>Head to the Gift Code Depot and check the codes currently listed in the portal.</p></div><a class="btn" href="giftcode.html">OPEN GIFT CODE DEPOT&nbsp; ↗</a></div>
-</section>
-<section class="wrap">
-<div class="section-top"><div><div class="overline">PORTAL DEVELOPMENT</div><h2>WHAT'S ON THE HORIZON</h2></div><p class="section-desc">The portal will grow into a complete Whiteout Survival reference hub, one system at a time.</p></div>
-<div class="updates">
-<div class="update"><small>PHASE 01 / LIVE</small><h3>Gift Code Depot</h3><p>Code listing and reward lookup connected to the existing portal backend.</p></div>
-<div class="update"><small>PHASE 02 / IN DEVELOPMENT</small><h3>Heroes & Game Database</h3><p>A structured reference for heroes, generations, buildings, and progression.</p></div>
-<div class="update"><small>PHASE 03 / PLANNED</small><h3>Guides, Events & Tools</h3><p>Practical resources for chiefs and alliance leadership.</p></div>
-</div>
-</section>
-</main>
-<footer><div class="footer-inner"><span>WOS EU PORTAL · UNOFFICIAL COMMUNITY PROJECT</span><span>NOT AFFILIATED WITH OR ENDORSED BY CENTURY GAMES</span></div></footer>
-<script>
-(function(){const b=document.getElementById('menuBtn'),n=document.getElementById('mainNav');if(!b||!n)return;b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o));b.textContent=o?'✕':'☰'});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='☰'}))})();
-</script>
+<body class="antialiased selection:bg-frost-500 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-gradient-to-r from-frost-950 via-frost-900 to-frost-950 text-frost-100 text-xs sm:text-sm py-2 px-4 text-center border-b border-frost-500/20 font-semibold flex justify-center items-center gap-3">
+    <span>❄ STATE 92 — OPENING SOON</span>
+    <span class="bg-frost-500/20 text-frost-400 px-2 py-0.5 rounded border border-frost-400/30">NEXT STATE IN 01D : 02H : 59M</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-40 frost-glass px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2">
+        <span class="text-2xl font-bold font-heading text-white tracking-wider">WOS <span class="text-frost-400">EU PORTAL</span></span>
+        <span class="text-[10px] bg-frost-500/20 text-frost-300 font-bold px-1.5 py-0.5 rounded border border-frost-400/30 uppercase">Private</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
+        <a href="#servers" class="hover:text-frost-400 transition">Server</a>
+        <a href="#rewards" class="hover:text-frost-400 transition">Rewards</a>
+        <a href="#codes" class="hover:text-frost-400 transition">Gift Codes</a>
+      </div>
+
+      <button id="authBtn" class="bg-frost-600 hover:bg-frost-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg shadow-frost-600/30">
+        LOGIN / REGISTER
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-frost-500/10 text-frost-400 border border-frost-500/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+          <span>⚡ Whiteout Survival Private Server</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold font-heading text-white leading-tight mb-6">
+          SURVIVE FASTER.<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-frost-400 to-blue-500">RULE THE SNOW.</span>
+        </h1>
+        <p class="text-gray-400 text-base sm:text-lg mb-8">
+          Join the Selszzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#download" class="bg-gradient-to-r from-frost-500 to-frost-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition">
+            ▶ DOWNLOAD GAME
+          </a>
+          <a href="https://discord.gg" target="_blank" class="bg-darkcard border border-white/10 text-gray-200 font-bold px-6 py-3.5 rounded-xl transition">
+            ◉ JOIN DISCORD
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 border-t border-white/10 pt-6">
+          <div class="bg-darkcard/60 p-3 rounded-lg border border-white/5">
+            <span class="text-xs text-gray-400 block font-semibold">CURRENT STATE</span>
+            <span class="text-lg font-bold font-heading text-frost-400">STATE 92 LIVE</span>
+          </div>
+          <div class="bg-darkcard/60 p-3 rounded-lg border border-white/5">
+            <span class="text-xs text-gray-400 block font-semibold">ONLINE NOW</span>
+            <span class="text-lg font-bold font-heading text-emerald-400">245,570</span>
+          </div>
+          <div class="bg-darkcard/60 p-3 rounded-lg border border-white/5">
+            <span class="text-xs text-gray-400 block font-semibold">INTERVAL</span>
+            <span class="text-lg font-bold font-heading text-white">48 HOURS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative bg-darkcard border border-frost-500/20 rounded-2xl p-6 shadow-2xl">
+        <div class="aspect-video bg-frost-950 rounded-xl overflow-hidden relative flex items-center justify-center border border-white/10">
+          <div class="text-center p-6">
+            <span class="text-6xl mb-2 block">❄️</span>
+            <h3 class="text-xl font-bold font-heading text-white">FROZEN FURNACE CITY</h3>
+            <p class="text-xs text-frost-300">State 92 Open — Prepare Your Alliance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTH MODAL -->
+  <div id="authModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-darkcard border border-frost-500/30 rounded-2xl p-6 w-full max-w-md shadow-2xl relative">
+      <button id="closeAuthBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white font-bold">✕</button>
+
+      <div class="flex border-b border-white/10 mb-6">
+        <button id="tabLogin" class="flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400">LOGIN</button>
+        <button id="tabRegister" class="flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white">REGISTER</button>
+      </div>
+
+      <form id="formLogin" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1">EMAIL</label>
+          <input type="email" id="loginEmail" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="player@email.com">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1">PASSWORD</label>
+          <input type="password" id="loginPassword" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="••••••••">
+        </div>
+        <button type="submit" class="w-full bg-frost-600 hover:bg-frost-500 text-white font-bold py-2.5 rounded-lg text-sm transition">MASUK GAME</button>
+      </form>
+
+      <form id="formRegister" class="space-y-4 hidden">
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1">EMAIL</label>
+          <input type="email" id="regEmail" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="player@email.com">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1">PASSWORD</label>
+          <input type="password" id="regPassword" minlength="6" required class="w-full bg-darkbg border border-white/10 rounded-lg px-3 py-2 text-white text-sm" placeholder="Minimal 6 karakter">
+        </div>
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-lg text-sm transition">BUAT AKUN BARU</button>
+      </form>
+
+      <div id="authMessage" class="mt-4 text-xs text-center hidden p-2 rounded"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { supabase } from './supabase.js';
+
+    const authModal = document.getElementById('authModal');
+    const authBtn = document.getElementById('authBtn');
+    const closeAuthBtn = document.getElementById('closeAuthBtn');
+    const tabLogin = document.getElementById('tabLogin');
+    const tabRegister = document.getElementById('tabRegister');
+    const formLogin = document.getElementById('formLogin');
+    const formRegister = document.getElementById('formRegister');
+    const authMessage = document.getElementById('authMessage');
+
+    authBtn.addEventListener('click', () => authModal.classList.remove('hidden'));
+    closeAuthBtn.addEventListener('click', () => authModal.classList.add('hidden'));
+
+    tabLogin.addEventListener('click', () => {
+      tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-frost-400 text-frost-400";
+      tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white";
+      formLogin.classList.remove('hidden');
+      formRegister.classList.add('hidden');
+    });
+
+    tabRegister.addEventListener('click', () => {
+      tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-emerald-400 text-emerald-400";
+      tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white";
+      formRegister.classList.remove('hidden');
+      formLogin.classList.add('hidden');
+    });
+
+    function showMsg(text, isError = false) {
+      authMessage.classList.remove('hidden', 'bg-red-500/20', 'text-red-300', 'bg-emerald-500/20', 'text-emerald-300');
+      authMessage.classList.add(isError ? 'bg-red-500/20' : 'bg-emerald-500/20', isError ? 'text-red-300' : 'text-emerald-300');
+      authMessage.innerText = text;
+    }
+
+    formRegister.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      showMsg("Registering...");
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if (error) showMsg(error.message, true);
+      else showMsg("Registrasi berhasil! Cek email / langsung login.");
+    });
+
+    formLogin.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      showMsg("Authenticating...");
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) showMsg(error.message, true);
+      else {
+        showMsg("Login sukses!");
+        setTimeout(() => { authModal.classList.add('hidden'); checkUserSession(); }, 1000);
+      }
+    });
+
+    async function checkUserSession() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) {
+        authBtn.innerText = `ACCOUNT (${session.user.email.split('@')[0]})`;
+        authBtn.onclick = async () => {
+          if (confirm("Logout dari akun?")) {
+            await supabase.auth.signOut();
+            window.location.reload();
+          }
+        };
+      }
+    }
+    checkUserSession();
+  </script>
 </body>
 </html>
