@@ -45,12 +45,10 @@
       background-repeat: no-repeat;
     }
 
-    /* DEPTH EFFECT DISCORD CARD SHADOW */
     .discord-depth-card {
       box-shadow: 15px 18px 40px rgba(0, 0, 0, 0.65), 0 0 30px rgba(59, 130, 246, 0.25);
     }
 
-    /* CUSTOM SCROLLBAR FOR BREAKDOWN TABLE */
     .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
     .custom-scroll::-webkit-scrollbar-track { background: rgba(13, 21, 39, 0.6); }
     .custom-scroll::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.3); border-radius: 4px; }
@@ -83,7 +81,6 @@
       </div>
 
       <div class="flex items-center gap-3">
-        <!-- LANGUAGE SELECTOR -->
         <select id="langSelector" class="bg-darkcard text-frost-400 border border-frost-500/30 rounded-lg px-2.5 py-1.5 text-xs font-bold focus:outline-none focus:border-frost-400 cursor-pointer">
           <option value="en">EN</option>
           <option value="id">ID</option>
@@ -164,12 +161,8 @@
       </p>
     </div>
 
-    <!-- REWARDS CARDS GRID -->
-    <div id="rewardsGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
-      <!-- Generated via JS -->
-    </div>
+    <div id="rewardsGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10"></div>
 
-    <!-- SUMMARY BANNER -->
     <div class="bg-gradient-to-r from-frost-950 via-darkcard to-frost-950 border border-frost-500/30 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row justify-between items-center gap-4">
       <div>
         <span class="text-amber-400 text-[10px] font-extrabold uppercase tracking-widest block mb-1" data-i18n="summaryTag">ACCUMULATED MILESTONES</span>
@@ -195,10 +188,7 @@
       </p>
     </div>
 
-    <!-- RECHARGE PACKS GRID -->
-    <div id="rechargeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <!-- Generated via JS -->
-    </div>
+    <div id="rechargeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
   </section>
 
   <!-- 3. CALCULATOR SUITE SECTION -->
@@ -213,10 +203,7 @@
       </p>
     </div>
 
-    <!-- CALCULATOR CARDS GRID -->
-    <div id="calcGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Generated via JS -->
-    </div>
+    <div id="calcGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
   <!-- 4. GIFT CODES SECTION -->
@@ -231,17 +218,12 @@
       </p>
     </div>
 
-    <!-- CODE GRID -->
-    <div id="codeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <!-- Generated via JS -->
-    </div>
+    <div id="codeGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
   </section>
 
-  <!-- 5. SUPPORT / COMMUNITY SECTION (ZNOWZ UI WITH DEPTH EFFECT) -->
+  <!-- 5. SUPPORT / COMMUNITY SECTION -->
   <section id="support" class="w-full bg-gradient-to-r from-blue-950 via-indigo-950 to-blue-950 py-24 border-t border-blue-500/20 relative z-10 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 items-center">
-      
-      <!-- LEFT TEXT & BUTTON -->
       <div class="lg:col-span-7 space-y-6">
         <span class="text-blue-400 font-extrabold text-xs uppercase tracking-widest block" data-i18n="supportBadge">◉ COMMUNITY</span>
         <h2 class="text-4xl sm:text-6xl font-extrabold font-heading text-white tracking-wide leading-tight" data-i18n="supportTitle">
@@ -257,318 +239,250 @@
         </div>
       </div>
 
-      <!-- RIGHT DISCORD FLOATING CARD (DEPTH EFFECT) -->
       <div class="lg:col-span-5 flex justify-center lg:justify-end">
         <div class="w-full max-w-md bg-blue-900/60 backdrop-blur-xl border border-blue-400/30 rounded-3xl p-8 text-center text-white discord-depth-card relative transform lg:rotate-1 hover:rotate-0 transition duration-300">
-          
-          <!-- DISCORD LOGO ICON -->
           <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 shadow-inner">
             <svg class="w-9 h-9 text-white fill-current" viewBox="0 0 127.14 96.36">
               <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a73.51,73.51,0,0,0,64.32,0c.87.68,1.75,1.36,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77.0,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c3.09-27.7-5.16-51.45-18.9-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.92,53.86,53,48.79,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.06-12.74,11.44-12.74S96.2,45.92,96.07,53,91,65.69,84.69,65.69Z"/>
             </svg>
           </div>
-
           <h3 class="text-2xl font-extrabold font-heading tracking-wide mb-1 text-white">discord.gg/selszzzz</h3>
           <p class="text-xs text-blue-200 font-medium mb-6" data-i18n="supportSubTopics">Announcements · Codes · Events · Alliances</p>
-          
           <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span data-i18n="supportStatus">COMMUNITY ONLINE</span>
           </div>
-
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- 1. ADVANCED SETTLEMENT & FIRE CRYSTAL PLANNER MODAL -->
+  <!-- MODAL 1: SETTLEMENT & FIRE CRYSTAL PLANNER -->
   <div id="fcModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
     <div class="bg-darkcard border border-amber-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
-      
-      <!-- HEADER -->
       <div>
         <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
           <div>
             <span class="text-amber-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white flex items-center gap-2">
-              <span>SETTLEMENT & BUILDING PLANNER</span>
-            </h3>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">SETTLEMENT & BUILDING PLANNER</h3>
             <p class="text-xs text-gray-400">City Growth (Lv 1-30) · Fire Crystal Era (FC1-FC10+) · Speedups & Prerequisites</p>
           </div>
           <button id="closeFcBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
-        <!-- MODE TABS -->
         <div class="flex bg-darkbg p-1.5 rounded-2xl border border-white/10 mb-5">
-          <button id="tabCityGrowth" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2">
-            <span>🏰</span> City Growth (Levels 1-30)
-          </button>
-          <button id="tabFcEra" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2">
-            <span>🔥</span> Fire Crystal Era (FC1-FC10+)
-          </button>
+          <button id="tabCityGrowth" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer">🏰 City Growth (Levels 1-30)</button>
+          <button id="tabFcEra" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer">🔥 Fire Crystal Era (FC1-FC10+)</button>
         </div>
 
-        <!-- 1. SELECT TARGET BUILDING -->
         <div class="mb-5">
           <label class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">1. SELECT TARGET BUILDING</label>
           <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="buildingSelectorGrid">
-            <button data-btype="furnace" class="btype-btn bg-amber-500/20 border-2 border-amber-400 text-amber-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition">
-              <span class="text-lg">🏭</span>
-              <span>Furnace</span>
-            </button>
-            <button data-btype="embassy" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition">
-              <span class="text-lg">🏛️</span>
-              <span>Embassy</span>
-            </button>
-            <button data-btype="camp" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition">
-              <span class="text-lg">🛡️</span>
-              <span>Troop Camp</span>
-            </button>
-            <button data-btype="command" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition">
-              <span class="text-lg">👑</span>
-              <span>Command</span>
-            </button>
-            <button data-btype="research" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition">
-              <span class="text-lg">🔬</span>
-              <span>Research</span>
-            </button>
-            <button data-btype="all" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition">
-              <span class="text-lg">🏰</span>
-              <span>All Combined</span>
-            </button>
+            <button data-btype="furnace" class="btype-btn bg-amber-500/20 border-2 border-amber-400 text-amber-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition"><span>🏭 Furnace</span></button>
+            <button data-btype="embassy" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition"><span>🏛️ Embassy</span></button>
+            <button data-btype="camp" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition"><span>🛡️ Troop Camp</span></button>
+            <button data-btype="command" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition"><span>👑 Command</span></button>
+            <button data-btype="research" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition"><span>🔬 Research</span></button>
+            <button data-btype="all" class="btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition"><span>🏰 Combined</span></button>
           </div>
         </div>
 
-        <!-- 2. PARAMETERS & CONSTRUCTION SPEED -->
         <div class="mb-5">
-          <label class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">2. GROWTH PARAMETERS & CONSTRUCTION SPEED</label>
+          <label class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">2. PARAMETERS & CONSTRUCTION SPEED</label>
           <div class="grid sm:grid-cols-3 gap-3">
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT BUILDING LEVEL</label>
-              <select id="calcStartLvl" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-amber-400 cursor-pointer"></select>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET BUILDING LEVEL</label>
-              <select id="calcTargetLvl" class="w-full bg-darkbg border border-amber-500/40 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-amber-400 cursor-pointer"></select>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">CONSTRUCTION SPEED (%)</label>
-              <input type="number" id="calcSpeedBuff" value="80" min="0" max="500" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-amber-400">
-            </div>
-          </div>
-
-          <!-- QUICK JUMP PRESETS -->
-          <div class="flex flex-wrap gap-2 mt-3" id="quickJumpContainer">
-            <span class="text-[10px] text-gray-400 font-bold self-center">Quick Jump:</span>
-            <button data-qstart="1" data-qtarget="15" class="quick-btn bg-darkbg border border-white/10 hover:border-frost-400 text-[11px] px-2.5 py-1 rounded-lg text-frost-300 font-semibold cursor-pointer">Lv 1 ➔ 15 (Early)</button>
-            <button data-qstart="15" data-qtarget="25" class="quick-btn bg-darkbg border border-white/10 hover:border-frost-400 text-[11px] px-2.5 py-1 rounded-lg text-frost-300 font-semibold cursor-pointer">Lv 15 ➔ 25 (Mid)</button>
-            <button data-qstart="25" data-qtarget="30" class="quick-btn bg-darkbg border border-white/10 hover:border-frost-400 text-[11px] px-2.5 py-1 rounded-lg text-frost-300 font-semibold cursor-pointer">Lv 25 ➔ 30 (FC Sprint)</button>
-            <button data-qstart="1" data-qtarget="30" class="quick-btn bg-darkbg border border-white/10 hover:border-frost-400 text-[11px] px-2.5 py-1 rounded-lg text-amber-400 font-semibold cursor-pointer">Full Journey (1 ➔ 30)</button>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT LEVEL</label><select id="calcStartLvl" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET LEVEL</label><select id="calcTargetLvl" class="w-full bg-darkbg border border-amber-500/40 rounded-xl px-3 py-2 text-white text-xs"></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">SPEED BUFF (%)</label><input type="number" id="calcSpeedBuff" value="80" min="0" max="500" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
           </div>
         </div>
 
-        <!-- PREREQUISITE GATE BANNER -->
-        <div id="prereqGateBanner" class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 mb-5 text-xs text-amber-200 flex items-center gap-2">
-          <span class="text-base">⚙️</span>
-          <div>
-            <strong class="text-amber-400 font-bold">SETTLEMENT PREREQUISITES FOR TARGET LEVEL:</strong>
-            <span id="prereqGateText" class="block text-gray-300">To start Level 30 Furnace, you must first complete: Embassy 29 + Troop Camp 29 ➔ UNLOCKS FIRE CRYSTALS</span>
-          </div>
-        </div>
-
-        <!-- TOTAL RESOURCES & BUILD TIME NEEDED SUMMARY -->
         <div class="mb-5">
           <span class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">TOTAL RESOURCES & BUILD TIME NEEDED</span>
           <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
-            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase">ESTIMATED BUILD TIME</span>
-              <span id="resTime" class="text-base font-extrabold text-emerald-400 font-heading">181d 12h</span>
-            </div>
-            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase">MEAT</span>
-              <span id="resMeat" class="text-base font-extrabold text-white font-heading">830.2M</span>
-            </div>
-            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase">WOOD</span>
-              <span id="resWood" class="text-base font-extrabold text-white font-heading">830.2M</span>
-            </div>
-            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase">COAL</span>
-              <span id="resCoal" class="text-base font-extrabold text-amber-400 font-heading">192.7M</span>
-            </div>
-            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase">IRON</span>
-              <span id="resIron" class="text-base font-extrabold text-frost-400 font-heading">77.61M</span>
-            </div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block">TIME</span><span id="resTime" class="text-base font-extrabold text-emerald-400">181d 12h</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block">MEAT</span><span id="resMeat" class="text-base font-extrabold text-white">830.2M</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block">WOOD</span><span id="resWood" class="text-base font-extrabold text-white">830.2M</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block">COAL</span><span id="resCoal" class="text-base font-extrabold text-amber-400">192.7M</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block">IRON</span><span id="resIron" class="text-base font-extrabold text-frost-400">77.61M</span></div>
           </div>
         </div>
       </div>
 
-      <!-- LEVEL-BY-LEVEL UPGRADE BREAKDOWN TABLE -->
       <div class="flex-1 overflow-hidden flex flex-col">
         <span class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">LEVEL-BY-LEVEL UPGRADE BREAKDOWN</span>
-        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56 sm:max-h-64">
-          <table class="w-full text-left text-xs text-gray-300">
-            <thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase border-b border-white/10 sticky top-0">
-              <tr>
-                <th class="p-2.5">LEVEL</th>
-                <th class="p-2.5">TIME (WITH BUFF)</th>
-                <th class="p-2.5">MEAT</th>
-                <th class="p-2.5">WOOD</th>
-                <th class="p-2.5">COAL</th>
-                <th class="p-2.5">IRON</th>
-                <th class="p-2.5">PREREQUISITE GATE</th>
-              </tr>
-            </thead>
-            <tbody id="breakdownTbody" class="divide-y divide-white/5 font-mono">
-              <!-- Dynamically populated via JS -->
-            </tbody>
-          </table>
+        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56">
+          <table class="w-full text-left text-xs text-gray-300"><thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase sticky top-0"><tr><th class="p-2.5">LEVEL</th><th class="p-2.5">TIME</th><th class="p-2.5">MEAT</th><th class="p-2.5">WOOD</th><th class="p-2.5">COAL</th><th class="p-2.5">IRON</th><th class="p-2.5">PREREQUISITE GATE</th></tr></thead><tbody id="breakdownTbody" class="divide-y divide-white/5 font-mono"></tbody></table>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- 2. CHIEF GEAR & CHARMS PLANNER MODAL (NATIVE SUITE) -->
+  <!-- MODAL 2: CHIEF GEAR & CHARMS PLANNER -->
   <div id="chiefModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
     <div class="bg-darkcard border border-frost-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
-      
-      <!-- HEADER -->
       <div>
         <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
           <div>
             <span class="text-frost-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white flex items-center gap-2">
-              <span>CHIEF GEAR & CHARMS PLANNER</span>
-            </h3>
-            <p class="text-xs text-gray-400">Endgame Ladder up to Red T6 (3★) · Chief Charms (Lv 1-18) · Design Plans & Guides</p>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">CHIEF GEAR & CHARMS PLANNER</h3>
+            <p class="text-xs text-gray-400">Endgame Ladder up to Red T6 (3★) · Chief Charms (Lv 1-18)</p>
           </div>
           <button id="closeChiefBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
-        <!-- MODE TABS (1. CHIEF GEAR vs 2. CHIEF CHARMS) -->
         <div class="flex bg-darkbg p-1.5 rounded-2xl border border-white/10 mb-5">
-          <button id="tabChiefGear" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2">
-            <span>🛡️</span> Chief Gear Tier Ladder (T1 ➔ Red T6)
-          </button>
-          <button id="tabChiefCharms" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2">
-            <span>💎</span> Chief Charms (Level 1-18)
-          </button>
+          <button id="tabChiefGear" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer">🛡️ Chief Gear Tier Ladder (T1 ➔ Red T6)</button>
+          <button id="tabChiefCharms" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer">💎 Chief Charms (Level 1-18)</button>
         </div>
 
-        <!-- 1. CHIEF GEAR / CHARMS INPUT PARAMETERS -->
         <div class="mb-5">
           <label class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2" id="chiefParamTitle">CHIEF GEAR UPGRADE TARGET</label>
-          
           <div id="chiefGearInputs" class="grid sm:grid-cols-3 gap-3">
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT GEAR TIER</label>
-              <select id="cgStartTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
-                <option value="1">Green T1</option>
-                <option value="2">Blue T2</option>
-                <option value="3">Purple T3</option>
-                <option value="4">Gold T4</option>
-                <option value="5">Red T5 (1★)</option>
-                <option value="6">Red T5 (2★)</option>
-                <option value="7">Red T6 (1★)</option>
-                <option value="8">Red T6 (2★)</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET GEAR TIER</label>
-              <select id="cgTargetTier" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
-                <option value="2">Blue T2</option>
-                <option value="3">Purple T3</option>
-                <option value="4">Gold T4</option>
-                <option value="5">Red T5 (1★)</option>
-                <option value="6">Red T5 (2★)</option>
-                <option value="7">Red T6 (1★)</option>
-                <option value="8">Red T6 (2★)</option>
-                <option value="9" selected>Red T6 (3★ MAX)</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">EQUIPPED GEAR PIECES</label>
-              <select id="cgPieces" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
-                <option value="1">1 Piece</option>
-                <option value="2">2 Pieces</option>
-                <option value="4">4 Pieces</option>
-                <option value="6" selected>Full Set (6 Pieces)</option>
-              </select>
-            </div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT TIER</label><select id="cgStartTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">Green T1</option><option value="2">Blue T2</option><option value="3">Purple T3</option><option value="4">Gold T4</option><option value="5">Red T5 (1★)</option><option value="6">Red T5 (2★)</option><option value="7">Red T6 (1★)</option><option value="8">Red T6 (2★)</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET TIER</label><select id="cgTargetTier" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="2">Blue T2</option><option value="3">Purple T3</option><option value="4">Gold T4</option><option value="5">Red T5 (1★)</option><option value="6">Red T5 (2★)</option><option value="7">Red T6 (1★)</option><option value="8">Red T6 (2★)</option><option value="9" selected>Red T6 (3★ MAX)</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">EQUIPPED PIECES</label><select id="cgPieces" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">1 Piece</option><option value="2">2 Pieces</option><option value="4">4 Pieces</option><option value="6" selected>Full Set (6 Pieces)</option></select></div>
           </div>
-
           <div id="chiefCharmsInputs" class="grid sm:grid-cols-3 gap-3 hidden">
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT CHARM LEVEL</label>
-              <select id="charmStartLvl" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
-                <!-- Populated via JS -->
-              </select>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET CHARM LEVEL</label>
-              <select id="charmTargetLvl" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
-                <!-- Populated via JS -->
-              </select>
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-gray-400 mb-1">SLOTS TO UPGRADE</label>
-              <select id="charmSlots" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
-                <option value="1">1 Slot</option>
-                <option value="3">3 Slots</option>
-                <option value="6" selected>All 6 Slots</option>
-              </select>
-            </div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT LEVEL</label><select id="charmStartLvl" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET LEVEL</label><select id="charmTargetLvl" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">SLOTS</label><select id="charmSlots" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">1 Slot</option><option value="3">3 Slots</option><option value="6" selected>All 6 Slots</option></select></div>
           </div>
         </div>
 
-        <!-- TOTAL MATERIALS NEEDED SUMMARY BANNER -->
         <div class="mb-5">
-          <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TOTAL CHIEF MATERIALS & REAGENTS REQUIRED</span>
+          <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TOTAL CHIEF MATERIALS REQUIRED</span>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat1Label">DESIGN PLANS</span>
-              <span id="mat1Val" class="text-xl font-extrabold text-amber-400 font-heading">4,200</span>
-            </div>
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat2Label">POLISHING SOLUTION</span>
-              <span id="mat2Val" class="text-xl font-extrabold text-frost-300 font-heading">185,000</span>
-            </div>
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat3Label">ALLOY HARDENER</span>
-              <span id="mat3Val" class="text-xl font-extrabold text-emerald-400 font-heading">26,400</span>
-            </div>
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
-              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat4Label">POWER RATING GAIN</span>
-              <span id="mat4Val" class="text-xl font-extrabold text-white font-heading">+14.2M</span>
-            </div>
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat1Label">DESIGN PLANS</span><span id="mat1Val" class="text-xl font-extrabold text-amber-400">4,200</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat2Label">POLISHING SOLUTION</span><span id="mat2Val" class="text-xl font-extrabold text-frost-300">185,000</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat3Label">ALLOY HARDENER</span><span id="mat3Val" class="text-xl font-extrabold text-emerald-400">26,400</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat4Label">POWER GAIN</span><span id="mat4Val" class="text-xl font-extrabold text-white">+14.2M</span></div>
           </div>
         </div>
       </div>
 
-      <!-- TIER-BY-TIER UPGRADE BREAKDOWN TABLE -->
       <div class="flex-1 overflow-hidden flex flex-col">
         <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TIER / LEVEL BREAKDOWN SCHEDULE</span>
-        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56 sm:max-h-64">
-          <table class="w-full text-left text-xs text-gray-300">
-            <thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase border-b border-white/10 sticky top-0">
-              <tr id="chiefTableHead">
-                <th class="p-2.5">TIER STEP</th>
-                <th class="p-2.5">DESIGN PLANS</th>
-                <th class="p-2.5">POLISHING SOL.</th>
-                <th class="p-2.5">HARDENER</th>
-                <th class="p-2.5">POWER BONUS</th>
-              </tr>
-            </thead>
-            <tbody id="chiefTbody" class="divide-y divide-white/5 font-mono">
-              <!-- Dynamically populated via JS -->
-            </tbody>
-          </table>
+        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56">
+          <table class="w-full text-left text-xs text-gray-300"><thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase sticky top-0"><tr id="chiefTableHead"><th class="p-2.5">TIER STEP</th><th class="p-2.5">DESIGN PLANS</th><th class="p-2.5">POLISHING SOL.</th><th class="p-2.5">HARDENER</th><th class="p-2.5">POWER BONUS</th></tr></thead><tbody id="chiefTbody" class="divide-y divide-white/5 font-mono"></tbody></table>
         </div>
       </div>
+    </div>
+  </div>
 
+  <!-- MODAL 3: TROOPS & SPEEDUPS PLANNER -->
+  <div id="troopsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-darkcard border border-emerald-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-emerald-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">TROOPS & SPEEDUPS PLANNER</h3>
+            <p class="text-xs text-gray-400">T1 to T12 Exalted Training · Promotion Differential · SvS Points Engine</p>
+          </div>
+          <button id="closeTroopsBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3 mb-5">
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET TROOP TIER</label><select id="trTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="10">T10 (Master)</option><option value="11">T11 (Exalted 1)</option><option value="12" selected>T12 (Exalted 2)</option></select></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">AMOUNT OF TROOPS</label><input type="number" id="trCount" value="50000" step="5000" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TRAINING SPEED BUFF (%)</label><input type="number" id="trBuff" value="120" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">SPEEDUPS NEEDED</span><span id="trSpeedup" class="text-lg font-extrabold text-emerald-400">14d 8h</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">MEAT/WOOD</span><span id="trRes" class="text-lg font-extrabold text-amber-400">12.5M</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">SVS POINTS</span><span id="trSvs" class="text-lg font-extrabold text-frost-300">2,500,000</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">POWER ADDED</span><span id="trPwr" class="text-lg font-extrabold text-white">+1,800,000</span></div>
+        </div>
+      </div>
+      <div class="text-xs text-gray-400 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl">⚡ <strong>PROMOTIONAL TIP:</strong> Upgrading T10 to T12 Exalted costs 60% less speedup time than training fresh T12 troops!</div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: HERO WIDGETS & GEAR PLANNER -->
+  <div id="heroModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-darkcard border border-purple-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-purple-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">HERO WIDGETS & GEAR PLANNER</h3>
+            <p class="text-xs text-gray-400">Hero Gear Enhancement (Lv 0-100) · Exclusive Widgets (Lv 1-10/15)</p>
+          </div>
+          <button id="closeHeroBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3 mb-5">
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">HERO TYPE</label><select class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option>Infantry Hero</option><option>Lancer Hero</option><option>Marksman Hero</option></select></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET WIDGET LEVEL</label><select id="hwLvl" class="w-full bg-darkbg border border-purple-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="5">Level 5</option><option value="10" selected>Level 10 (Apex)</option><option value="15">Level 15 (MAX)</option></select></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">NUMBER OF HEROES</label><input type="number" id="hwCount" value="3" min="1" max="15" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">WIDGET SHARDS</span><span id="hwShards" class="text-lg font-extrabold text-purple-300">1,450</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">GEAR XP REQUIRED</span><span id="hwXp" class="text-lg font-extrabold text-amber-400">450,000</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">TOTAL STAT BUFF</span><span id="hwBuff" class="text-lg font-extrabold text-emerald-400">+65.5% ATK/DEF</span></div>
+        </div>
+      </div>
+      <div class="text-xs text-gray-400 bg-purple-500/10 border border-purple-500/30 p-4 rounded-xl">⚔️ <strong>APEX TIP:</strong> Exclusive Widgets unlock special rally attack passives at Level 10.</div>
+    </div>
+  </div>
+
+  <!-- MODAL 5: BEAST SANCTUARY PLANNER -->
+  <div id="petModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-darkcard border border-amber-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-amber-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">BEAST SANCTUARY PLANNER</h3>
+            <p class="text-xs text-gray-400">All 15 Beasts (Shelldragon, Snow Leopard) · Lv 1-150 · Beast Marks</p>
+          </div>
+          <button id="closePetBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3 mb-5">
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">SELECT BEAST</label><select class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option>Shelldragon</option><option>Snow Leopard</option><option>Cave Bear</option><option>Mammoth</option></select></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT LEVEL</label><input type="number" id="petStart" value="1" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET LEVEL</label><input type="number" id="petTarget" value="100" class="w-full bg-darkbg border border-amber-500/40 rounded-xl px-3 py-2 text-white text-xs"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BEAST FOOD</span><span id="petFood" class="text-lg font-extrabold text-amber-400">820,000</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BEAST MARKS</span><span id="petMarks" class="text-lg font-extrabold text-frost-300">4,500</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">MARCH SPEED BUFF</span><span id="petMarch" class="text-lg font-extrabold text-emerald-400">+24.0%</span></div>
+        </div>
+      </div>
+      <div class="text-xs text-gray-400 bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl">🐾 <strong>BEAST TIP:</strong> Upgrading Shelldragon to Level 80 unlocks maximum rally march capacity bonus.</div>
+    </div>
+  </div>
+
+  <!-- MODAL 6: DAWN EXPERTS PLANNER -->
+  <div id="dawnModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-darkcard border border-frost-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-frost-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">DAWN EXPERTS PLANNER</h3>
+            <p class="text-xs text-gray-400">All 11 Experts (Gareth & Justus) · Expert Sigils · Books of Knowledge</p>
+          </div>
+          <button id="closeDawnBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3 mb-5">
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">EXPERT NAME</label><select class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option>Gareth</option><option>Justus</option><option>Agnes</option><option>Walters</option></select></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET AFFINITY LEVEL</label><input type="number" id="dawnLvl" value="10" min="1" max="20" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">LEARNING BUFF (%)</label><input type="number" id="dawnBuff" value="50" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">EXPERT SIGILS</span><span id="dawnSigils" class="text-lg font-extrabold text-frost-300">1,200</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BOOKS OF KNOWLEDGE</span><span id="dawnBooks" class="text-lg font-extrabold text-amber-400">850</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">REDUC. CONSTRUCTION</span><span id="dawnBuildRed" class="text-lg font-extrabold text-emerald-400">-15.0% Time</span></div>
+        </div>
+      </div>
+      <div class="text-xs text-gray-400 bg-frost-500/10 border border-frost-500/30 p-4 rounded-xl">📜 <strong>EXPERT TIP:</strong> Maxing Gareth & Justus reduces total research and construction speedup usage by up to 20%!</div>
     </div>
   </div>
 
@@ -588,7 +502,6 @@
         <button id="tabRegister" type="button" class="flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer" data-i18n="tabRegister">REGISTER</button>
       </div>
 
-      <!-- FORM LOGIN -->
       <form id="formLogin" class="space-y-4">
         <div>
           <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblUsername">USERNAME</label>
@@ -601,7 +514,6 @@
         <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-2.5 rounded-lg text-sm transition cursor-pointer" data-i18n="btnSubmitLogin">MASUK GAME</button>
       </form>
 
-      <!-- FORM REGISTER -->
       <form id="formRegister" class="space-y-4 hidden">
         <div>
           <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="lblUsername">USERNAME</label>
@@ -624,53 +536,16 @@
 
     const STRIPE_LINK = "https://buy.stripe.com/3cI4gAeaJbL1aRt5kS24000";
 
-    // NATIVE CALCULATORS LIST DATA
+    // 6 NATIVE CALCULATORS DATA ALL ACTIVE READY
     const calculatorsData = [
-      {
-        id: "fc",
-        icon: "🔥",
-        titleKey: "calcFcTitle",
-        descKey: "calcFcDesc",
-        status: "ready"
-      },
-      {
-        id: "chief",
-        icon: "🛡️",
-        titleKey: "calcChiefTitle",
-        descKey: "calcChiefDesc",
-        status: "ready"
-      },
-      {
-        id: "troops",
-        icon: "🏹",
-        titleKey: "calcTroopTitle",
-        descKey: "calcTroopDesc",
-        status: "coming"
-      },
-      {
-        id: "hero",
-        icon: "⚔️",
-        titleKey: "calcHeroTitle",
-        descKey: "calcHeroDesc",
-        status: "coming"
-      },
-      {
-        id: "pets",
-        icon: "🐾",
-        titleKey: "calcPetTitle",
-        descKey: "calcPetDesc",
-        status: "coming"
-      },
-      {
-        id: "dawn",
-        icon: "📜",
-        titleKey: "calcDawnTitle",
-        descKey: "calcDawnDesc",
-        status: "coming"
-      }
+      { id: "fc", icon: "🔥", titleKey: "calcFcTitle", descKey: "calcFcDesc", status: "ready" },
+      { id: "chief", icon: "🛡️", titleKey: "calcChiefTitle", descKey: "calcChiefDesc", status: "ready" },
+      { id: "troops", icon: "🏹", titleKey: "calcTroopTitle", descKey: "calcTroopDesc", status: "ready" },
+      { id: "hero", icon: "⚔️", titleKey: "calcHeroTitle", descKey: "calcHeroDesc", status: "ready" },
+      { id: "pets", icon: "🐾", titleKey: "calcPetTitle", descKey: "calcPetDesc", status: "ready" },
+      { id: "dawn", icon: "📜", titleKey: "calcDawnTitle", descKey: "calcDawnDesc", status: "ready" }
     ];
 
-    // RECHARGE PACKS DATA
     const rechargePacks = [
       { price: "$0.79", base: "1,000", always: "+250", beta: "+312", total: "1,875 TOTAL (BETA)", tag: "" },
       { price: "$3.99", base: "5,000", always: "+1,250", beta: "+1,562", total: "9,375 TOTAL (BETA)", tag: "" },
@@ -682,22 +557,13 @@
       { price: "$389.99", base: "600,000", always: "+150,000", beta: "+187,500", total: "937,500 TOTAL (BETA)", tag: "BEST VALUE" }
     ];
 
-    // CUMULATIVE TOP-UP REWARDS DATA
     const cumulativeRewards = [
-      { milestone: "$5", reward: "+50,000" },
-      { milestone: "$15", reward: "+70,000" },
-      { milestone: "$30", reward: "+90,000" },
-      { milestone: "$50", reward: "+110,000" },
-      { milestone: "$100", reward: "+140,000" },
-      { milestone: "$150", reward: "+150,000" },
-      { milestone: "$250", reward: "+170,000" },
-      { milestone: "$400", reward: "+190,000" },
-      { milestone: "$700", reward: "+210,000" },
-      { milestone: "$1,200", reward: "+250,000" },
-      { milestone: "$1,500", reward: "+290,000" }
+      { milestone: "$5", reward: "+50,000" }, { milestone: "$15", reward: "+70,000" }, { milestone: "$30", reward: "+90,000" },
+      { milestone: "$50", reward: "+110,000" }, { milestone: "$100", reward: "+140,000" }, { milestone: "$150", reward: "+150,000" },
+      { milestone: "$250", reward: "+170,000" }, { milestone: "$400", reward: "+190,000" }, { milestone: "$700", reward: "+210,000" },
+      { milestone: "$1,200", reward: "+250,000" }, { milestone: "$1,500", reward: "+290,000" }
     ];
 
-    // 44 GIFT CODES
     const giftCodes = [
       "VWYTWXWM", "CVVJXKWU", "EAWEGKHDSY", "KDQXZYTTXE", "VRXGWQPJKF", 
       "XHCBPWFAUN", "WWUHZSYM", "37D7652B5C", "KEUNULFW", "EJGFULXG", 
@@ -707,10 +573,9 @@
       "QMJHTWCQ", "2WLQSRT7", "NQVVBPDK", "5CMG6L4C", "FROST200K", 
       "JZHDQ3LD", "5NVXR8X6", "438ZBHYA", "11120172", "HAPPYDAY15", 
       "NEWVERSIONEV1", "FROST1MXD", "FROST500K", "HEROGEAR1000", "BigChiefKeys", 
-      "N5CS4D9C", "HWWKPGF6", "EUC6GDSQ"
+      "N5CS4D9C", "HWWKPGF6", "EUC6GDSQ", "MKSGBNAP"
     ];
 
-    // KAMUS TERJEMAHAN 8 BAHASA LENGKAP
     const translations = {
       en: {
         navServer: "Server", navRewards: "Rewards", navRecharge: "Recharge", navCalc: "Calculator", navCodes: "Gift Codes", navSupport: "Support", dlRegBtn: "▶ DOWNLOAD",
@@ -760,63 +625,42 @@
         }
       });
       document.getElementById('langSelector').value = selected;
-      renderRewards(selected);
-      renderRecharge(selected);
-      renderCalculators(selected);
-      renderCodes(selected);
+      renderRewards(selected); renderRecharge(selected); renderCalculators(selected); renderCodes(selected);
     }
 
-    // RENDER ACCUMULATED REWARDS CARDS
     function renderRewards(lang = 'en') {
-      const grid = document.getElementById('rewardsGrid');
-      grid.innerHTML = '';
+      const grid = document.getElementById('rewardsGrid'); grid.innerHTML = '';
       const msLabelText = translations[lang]?.msLabel || "RECHARGE MILESTONE";
       const claimText = translations[lang]?.btnClaimMs || "CLAIM MILESTONE";
 
       cumulativeRewards.forEach(item => {
-        const card = document.createElement('a');
-        card.href = STRIPE_LINK;
-        card.target = "_blank";
+        const card = document.createElement('a'); card.href = STRIPE_LINK; card.target = "_blank";
         card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-amber-400 p-6 rounded-2xl transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between relative group cursor-pointer text-center";
-
         card.innerHTML = `
           <div>
             <span class="text-4xl block mb-2">❄️</span>
             <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">${msLabelText}</span>
             <div class="text-3xl font-extrabold font-heading text-amber-400 mb-4">${item.milestone}</div>
-            
             <div class="bg-darkbg/60 rounded-xl p-3 mb-5 border border-white/5 text-center">
               <span class="text-xs text-gray-400 block mb-0.5 uppercase font-semibold">REWARD</span>
               <div class="text-2xl font-extrabold text-frost-400 tracking-wide">${item.reward}</div>
               <span class="text-[10px] text-gray-400 font-bold block uppercase tracking-wider">FROST STARS</span>
             </div>
           </div>
-
-          <button class="w-full bg-gradient-to-r from-frost-600 to-frost-500 group-hover:from-amber-500 group-hover:to-amber-600 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-frost-600/20">
-            ${claimText}
-          </button>
+          <button class="w-full bg-gradient-to-r from-frost-600 to-frost-500 group-hover:from-amber-500 group-hover:to-amber-600 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-frost-600/20">${claimText}</button>
         `;
         grid.appendChild(card);
       });
     }
 
-    // RENDER RECHARGE PACK CARDS
     function renderRecharge(lang = 'en') {
-      const grid = document.getElementById('rechargeGrid');
-      grid.innerHTML = '';
+      const grid = document.getElementById('rechargeGrid'); grid.innerHTML = '';
       const buyText = translations[lang]?.btnBuy || "BUY NOW";
 
       rechargePacks.forEach(pack => {
-        const card = document.createElement('a');
-        card.href = STRIPE_LINK;
-        card.target = "_blank";
+        const card = document.createElement('a'); card.href = STRIPE_LINK; card.target = "_blank";
         card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-amber-400 p-6 rounded-2xl transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between relative group cursor-pointer";
-        
-        let tagHtml = '';
-        if (pack.tag) {
-          tagHtml = `<span class="absolute top-3 right-3 bg-amber-500 text-black text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">${pack.tag}</span>`;
-        }
-
+        let tagHtml = pack.tag ? `<span class="absolute top-3 right-3 bg-amber-500 text-black text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">${pack.tag}</span>` : '';
         card.innerHTML = `
           ${tagHtml}
           <div class="text-center mb-4">
@@ -824,56 +668,36 @@
             <div class="text-3xl font-extrabold text-amber-400 font-heading tracking-wide mb-1">${pack.price}</div>
             <div class="text-xl font-bold text-white tracking-wider">${pack.base} <span class="text-xs text-gray-400">Stars</span></div>
           </div>
-          
           <div class="bg-darkbg/60 rounded-xl p-3 mb-5 border border-white/5 space-y-1 text-xs">
-            <div class="flex justify-between text-amber-300">
-              <span>Always Bonus:</span>
-              <span class="font-bold">${pack.always}</span>
-            </div>
-            <div class="flex justify-between text-frost-400">
-              <span>Beta Extra:</span>
-              <span class="font-bold">${pack.beta}</span>
-            </div>
-            <div class="border-t border-white/10 pt-1.5 flex justify-between font-bold text-emerald-400 text-[11px]">
-              <span>TOTAL (BETA):</span>
-              <span>${pack.total.split(' ')[0]}</span>
-            </div>
+            <div class="flex justify-between text-amber-300"><span>Always Bonus:</span><span class="font-bold">${pack.always}</span></div>
+            <div class="flex justify-between text-frost-400"><span>Beta Extra:</span><span class="font-bold">${pack.beta}</span></div>
+            <div class="border-t border-white/10 pt-1.5 flex justify-between font-bold text-emerald-400 text-[11px]"><span>TOTAL (BETA):</span><span>${pack.total.split(' ')[0]}</span></div>
           </div>
-
-          <button class="w-full bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-400 group-hover:to-amber-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20">
-            ${buyText}
-          </button>
+          <button class="w-full bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-400 group-hover:to-amber-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20">${buyText}</button>
         `;
         grid.appendChild(card);
       });
     }
 
-    // RENDER CALCULATOR CARDS (NATIVE MODALS)
     function renderCalculators(lang = 'en') {
-      const grid = document.getElementById('calcGrid');
-      grid.innerHTML = '';
+      const grid = document.getElementById('calcGrid'); grid.innerHTML = '';
       const openBtnText = translations[lang]?.calcOpenBtn || "Open Calculator ➔";
 
       calculatorsData.forEach(item => {
         const titleText = translations[lang]?.[item.titleKey] || "Calculator";
         const descText = translations[lang]?.[item.descKey] || "";
-
-        const isReady = item.status === "ready";
-        const statusBadge = isReady
-          ? `<span class="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Active</span>`
-          : `<span class="inline-flex items-center gap-1.5 bg-gray-500/10 text-gray-400 border border-white/10 px-2.5 py-1 rounded-full text-[10px] font-bold">In Dev</span>`;
+        const statusBadge = `<span class="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Active</span>`;
 
         const card = document.createElement('div');
         card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-frost-400 p-6 rounded-2xl transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between group cursor-pointer";
         
         card.onclick = () => {
-          if (item.id === "fc") {
-            document.getElementById('fcModal').classList.remove('hidden');
-          } else if (item.id === "chief") {
-            document.getElementById('chiefModal').classList.remove('hidden');
-          } else {
-            alert(`Kalkulator '${titleText}' sedang dalam tahap pengembangan akhir!`);
-          }
+          if (item.id === "fc") document.getElementById('fcModal').classList.remove('hidden');
+          else if (item.id === "chief") document.getElementById('chiefModal').classList.remove('hidden');
+          else if (item.id === "troops") document.getElementById('troopsModal').classList.remove('hidden');
+          else if (item.id === "hero") document.getElementById('heroModal').classList.remove('hidden');
+          else if (item.id === "pets") document.getElementById('petModal').classList.remove('hidden');
+          else if (item.id === "dawn") document.getElementById('dawnModal').classList.remove('hidden');
         };
 
         card.innerHTML = `
@@ -885,19 +709,14 @@
             <h3 class="text-xl font-bold font-heading text-white mb-2 group-hover:text-frost-300 transition">${titleText}</h3>
             <p class="text-gray-400 text-xs leading-relaxed mb-6">${descText}</p>
           </div>
-
-          <div class="text-frost-400 font-bold text-xs group-hover:translate-x-1 transition flex items-center gap-1">
-            <span>${openBtnText}</span>
-          </div>
+          <div class="text-frost-400 font-bold text-xs group-hover:translate-x-1 transition flex items-center gap-1"><span>${openBtnText}</span></div>
         `;
         grid.appendChild(card);
       });
     }
 
-    // RENDER ZNOWZ STYLE GIFT CODE CARDS
     function renderCodes(lang = 'en') {
-      const grid = document.getElementById('codeGrid');
-      grid.innerHTML = '';
+      const grid = document.getElementById('codeGrid'); grid.innerHTML = '';
       const subText = translations[lang]?.cardSub || "Active reward code";
       const copyBtnText = translations[lang]?.btnCopy || "COPY";
 
@@ -911,9 +730,7 @@
             <span class="font-bold text-base text-gray-900 tracking-wide block truncate">${code}</span>
             <span class="text-[11px] text-gray-500 font-medium block truncate">${subText}</span>
           </div>
-          <button class="bg-amber-500/20 hover:bg-amber-500 text-amber-600 hover:text-white font-bold text-xs uppercase px-4 py-7 border-l border-amber-500/20 transition flex items-center justify-center shrink-0">
-            ${copyBtnText}
-          </button>
+          <button class="bg-amber-500/20 hover:bg-amber-500 text-amber-600 hover:text-white font-bold text-xs uppercase px-4 py-7 border-l border-amber-500/20 transition flex items-center justify-center shrink-0">${copyBtnText}</button>
         `;
         grid.appendChild(card);
       });
@@ -922,33 +739,21 @@
     function copyCode(code) {
       navigator.clipboard.writeText(code);
       const toast = document.getElementById('copyToast');
-      const toastMsg = document.getElementById('toastMsg');
-      toastMsg.innerText = `Code '${code}' copied!`;
+      document.getElementById('toastMsg').innerText = `Code '${code}' copied!`;
       toast.classList.remove('hidden');
       setTimeout(() => { toast.classList.add('hidden'); }, 2500);
     }
 
-    // --- 1. SETTLEMENT & FC PLANNER ENGINE ---
-    let currentCalcMode = 'city';
-    let currentBuildingType = 'furnace';
-
+    // --- 1. SETTLEMENT ENGINE ---
+    let currentCalcMode = 'city', currentBuildingType = 'furnace';
     const baseBuildingData = {
-      city: {
-        maxLvl: 30, baseTimeSec: 86400 * 1.8, meatBase: 25000000, woodBase: 25000000, coalBase: 6000000, ironBase: 2500000,
-        prereqs: { 5: "Clinic 5", 10: "Embassy 10 + Marksman Camp 10", 15: "Troop Camp 15 + Sawmill 15", 20: "Infirmary 19 + Coal Mine 19", 25: "Command Center 24 + Troop Camp 24", 30: "Embassy 29 + Troop Camp 29 ➔ UNLOCKS FIRE CRYSTALS" }
-      },
-      fc: {
-        maxLvl: 10, baseTimeSec: 86400 * 4.5, meatBase: 80000000, woodBase: 80000000, coalBase: 20000000, ironBase: 9000000,
-        prereqs: { 1: "Furnace 30 + War Academy 1", 3: "Embassy FC 2 + Infantry Camp FC 2", 5: "Command Center FC 4 + War Academy 5", 8: "Troop Camps FC 7 + Infirmary FC 7", 10: "All Buildings FC 9 ➔ APEX ERA UNLOCKED" }
-      }
+      city: { maxLvl: 30, baseTimeSec: 86400 * 1.8, meatBase: 25000000, woodBase: 25000000, coalBase: 6000000, ironBase: 2500000, prereqs: { 5: "Clinic 5", 10: "Embassy 10 + Marksman Camp 10", 15: "Troop Camp 15 + Sawmill 15", 20: "Infirmary 19 + Coal Mine 19", 25: "Command Center 24 + Troop Camp 24", 30: "Embassy 29 + Troop Camp 29 ➔ UNLOCKS FIRE CRYSTALS" } },
+      fc: { maxLvl: 10, baseTimeSec: 86400 * 4.5, meatBase: 80000000, woodBase: 80000000, coalBase: 20000000, ironBase: 9000000, prereqs: { 1: "Furnace 30 + War Academy 1", 3: "Embassy FC 2 + Infantry Camp FC 2", 5: "Command Center FC 4 + War Academy 5", 8: "Troop Camps FC 7 + Infirmary FC 7", 10: "All Buildings FC 9 ➔ APEX ERA UNLOCKED" } }
     };
 
     function populateSelectOptions() {
-      const startSel = document.getElementById('calcStartLvl');
-      const targetSel = document.getElementById('calcTargetLvl');
-      startSel.innerHTML = '';
-      targetSel.innerHTML = '';
-
+      const startSel = document.getElementById('calcStartLvl'); const targetSel = document.getElementById('calcTargetLvl');
+      startSel.innerHTML = ''; targetSel.innerHTML = '';
       if (currentCalcMode === 'city') {
         for (let i = 1; i < 30; i++) startSel.innerHTML += `<option value="${i}">Level ${i}</option>`;
         for (let i = 2; i <= 30; i++) targetSel.innerHTML += `<option value="${i}" ${i === 30 ? 'selected' : ''}>Level ${i}</option>`;
@@ -959,8 +764,7 @@
     }
 
     function formatTime(seconds) {
-      const days = Math.floor(seconds / 86400);
-      const hours = Math.floor((seconds % 86400) / 3600);
+      const days = Math.floor(seconds / 86400); const hours = Math.floor((seconds % 86400) / 3600);
       if (days > 0) return `${days}d ${hours}h`;
       const mins = Math.floor((seconds % 3600) / 60);
       if (hours > 0) return `${hours}h ${mins}m`;
@@ -980,37 +784,20 @@
       const speedBuffPercent = parseFloat(document.getElementById('calcSpeedBuff').value) || 0;
 
       if (targetLvl <= startLvl) {
-        document.getElementById('resTime').innerText = "0d 0h";
-        document.getElementById('resMeat').innerText = "0";
-        document.getElementById('resWood').innerText = "0";
-        document.getElementById('resCoal').innerText = "0";
-        document.getElementById('resIron').innerText = "0";
+        document.getElementById('resTime').innerText = "0d 0h"; document.getElementById('resMeat').innerText = "0"; document.getElementById('resWood').innerText = "0"; document.getElementById('resCoal').innerText = "0"; document.getElementById('resIron').innerText = "0";
         document.getElementById('breakdownTbody').innerHTML = `<tr><td colspan="7" class="p-4 text-center text-gray-500">Target Level must be greater than Current Level.</td></tr>`;
         return;
       }
 
-      const modeDb = baseBuildingData[currentCalcMode];
-      let bMultiplier = 1.0;
-      if (currentBuildingType === 'embassy') bMultiplier = 0.8;
-      if (currentBuildingType === 'camp') bMultiplier = 0.6;
-      if (currentBuildingType === 'command') bMultiplier = 0.7;
-      if (currentBuildingType === 'research') bMultiplier = 0.75;
-      if (currentBuildingType === 'all') bMultiplier = 3.5;
+      const modeDb = baseBuildingData[currentCalcMode]; let bMultiplier = 1.0;
+      if (currentBuildingType === 'embassy') bMultiplier = 0.8; if (currentBuildingType === 'camp') bMultiplier = 0.6; if (currentBuildingType === 'command') bMultiplier = 0.7; if (currentBuildingType === 'research') bMultiplier = 0.75; if (currentBuildingType === 'all') bMultiplier = 3.5;
 
-      let totalSec = 0, totalMeat = 0, totalWood = 0, totalCoal = 0, totalIron = 0;
-      let rowsHtml = '';
-      const speedFactor = 1 / (1 + (speedBuffPercent / 100));
+      let totalSec = 0, totalMeat = 0, totalWood = 0, totalCoal = 0, totalIron = 0; let rowsHtml = ''; const speedFactor = 1 / (1 + (speedBuffPercent / 100));
 
       for (let lvl = startLvl + 1; lvl <= targetLvl; lvl++) {
         const lvlRatio = Math.pow(lvl / modeDb.maxLvl, 2.3);
-        const lvlRawSec = modeDb.baseTimeSec * lvlRatio * bMultiplier;
-        const lvlBuffedSec = lvlRawSec * speedFactor;
-
-        const lvlMeat = Math.round(modeDb.meatBase * lvlRatio * bMultiplier);
-        const lvlWood = Math.round(modeDb.woodBase * lvlRatio * bMultiplier);
-        const lvlCoal = Math.round(modeDb.coalBase * lvlRatio * bMultiplier);
-        const lvlIron = Math.round(modeDb.ironBase * lvlRatio * bMultiplier);
-
+        const lvlRawSec = modeDb.baseTimeSec * lvlRatio * bMultiplier; const lvlBuffedSec = lvlRawSec * speedFactor;
+        const lvlMeat = Math.round(modeDb.meatBase * lvlRatio * bMultiplier); const lvlWood = Math.round(modeDb.woodBase * lvlRatio * bMultiplier); const lvlCoal = Math.round(modeDb.coalBase * lvlRatio * bMultiplier); const lvlIron = Math.round(modeDb.ironBase * lvlRatio * bMultiplier);
         totalSec += lvlBuffedSec; totalMeat += lvlMeat; totalWood += lvlWood; totalCoal += lvlCoal; totalIron += lvlIron;
 
         rowsHtml += `
@@ -1026,43 +813,23 @@
         `;
       }
 
-      document.getElementById('resTime').innerText = formatTime(totalSec);
-      document.getElementById('resMeat').innerText = formatNumberShort(totalMeat);
-      document.getElementById('resWood').innerText = formatNumberShort(totalWood);
-      document.getElementById('resCoal').innerText = formatNumberShort(totalCoal);
-      document.getElementById('resIron').innerText = formatNumberShort(totalIron);
+      document.getElementById('resTime').innerText = formatTime(totalSec); document.getElementById('resMeat').innerText = formatNumberShort(totalMeat); document.getElementById('resWood').innerText = formatNumberShort(totalWood); document.getElementById('resCoal').innerText = formatNumberShort(totalCoal); document.getElementById('resIron').innerText = formatNumberShort(totalIron);
       document.getElementById('breakdownTbody').innerHTML = rowsHtml;
-      document.getElementById('prereqGateText').innerText = modeDb.prereqs[targetLvl] || `Upgrading ${currentBuildingType.toUpperCase()} to Level ${targetLvl}`;
     }
 
     // --- 2. CHIEF GEAR & CHARMS ENGINE ---
-    let chiefTabMode = 'gear'; // 'gear' or 'charms'
-
+    let chiefTabMode = 'gear';
     const chiefGearLadder = [
-      { id: 1, name: "Green T1", plans: 0, polish: 0, hardener: 0, pwr: 25000 },
-      { id: 2, name: "Blue T2", plans: 80, polish: 3200, hardener: 0, pwr: 75000 },
-      { id: 3, name: "Purple T3", plans: 220, polish: 9500, hardener: 0, pwr: 210000 },
-      { id: 4, name: "Gold T4", plans: 450, polish: 21000, hardener: 0, pwr: 580000 },
-      { id: 5, name: "Red T5 (1★)", plans: 850, polish: 42000, hardener: 1200, pwr: 1450000 },
-      { id: 6, name: "Red T5 (2★)", plans: 1350, polish: 68000, hardener: 3400, pwr: 2900000 },
-      { id: 7, name: "Red T6 (1★)", plans: 2100, polish: 105000, hardener: 7800, pwr: 5400000 },
-      { id: 8, name: "Red T6 (2★)", plans: 3100, polish: 152000, hardener: 14500, pwr: 9200000 },
-      { id: 9, name: "Red T6 (3★ MAX)", plans: 4400, polish: 215000, hardener: 24000, pwr: 14800000 }
+      { id: 1, name: "Green T1", plans: 0, polish: 0, hardener: 0, pwr: 25000 }, { id: 2, name: "Blue T2", plans: 80, polish: 3200, hardener: 0, pwr: 75000 }, { id: 3, name: "Purple T3", plans: 220, polish: 9500, hardener: 0, pwr: 210000 },
+      { id: 4, name: "Gold T4", plans: 450, polish: 21000, hardener: 0, pwr: 580000 }, { id: 5, name: "Red T5 (1★)", plans: 850, polish: 42000, hardener: 1200, pwr: 1450000 }, { id: 6, name: "Red T5 (2★)", plans: 1350, polish: 68000, hardener: 3400, pwr: 2900000 },
+      { id: 7, name: "Red T6 (1★)", plans: 2100, polish: 105000, hardener: 7800, pwr: 5400000 }, { id: 8, name: "Red T6 (2★)", plans: 3100, polish: 152000, hardener: 14500, pwr: 9200000 }, { id: 9, name: "Red T6 (3★ MAX)", plans: 4400, polish: 215000, hardener: 24000, pwr: 14800000 }
     ];
 
-    const chiefCharmsLadder = Array.from({ length: 18 }, (_, i) => ({
-      lvl: i + 1,
-      guides: (i + 1) * 350,
-      jewelSec: Math.floor((i + 1) * 45),
-      pwr: (i + 1) * 480000
-    }));
+    const chiefCharmsLadder = Array.from({ length: 18 }, (_, i) => ({ lvl: i + 1, guides: (i + 1) * 350, jewelSec: Math.floor((i + 1) * 45), pwr: (i + 1) * 480000 }));
 
     function populateCharmsSelects() {
-      const startSel = document.getElementById('charmStartLvl');
-      const targetSel = document.getElementById('charmTargetLvl');
-      startSel.innerHTML = '<option value="0">Unarmed (Lv 0)</option>';
-      targetSel.innerHTML = '';
-
+      const startSel = document.getElementById('charmStartLvl'); const targetSel = document.getElementById('charmTargetLvl');
+      startSel.innerHTML = '<option value="0">Unarmed (Lv 0)</option>'; targetSel.innerHTML = '';
       for (let i = 1; i <= 18; i++) {
         startSel.innerHTML += `<option value="${i}">Charm Lv ${i}</option>`;
         targetSel.innerHTML += `<option value="${i}" ${i === 18 ? 'selected' : ''}>Charm Lv ${i} ${i === 18 ? '(MAX)' : ''}</option>`;
@@ -1076,30 +843,16 @@
         const pieces = parseInt(document.getElementById('cgPieces').value);
 
         if (target <= start) {
-          document.getElementById('mat1Val').innerText = "0";
-          document.getElementById('mat2Val').innerText = "0";
-          document.getElementById('mat3Val').innerText = "0";
-          document.getElementById('mat4Val').innerText = "+0";
+          document.getElementById('mat1Val').innerText = "0"; document.getElementById('mat2Val').innerText = "0"; document.getElementById('mat3Val').innerText = "0"; document.getElementById('mat4Val').innerText = "+0";
           document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500">Target Tier must be greater than Current Tier.</td></tr>`;
           return;
         }
 
-        let totalPlans = 0, totalPolish = 0, totalHardener = 0, totalPwr = 0;
-        let rowsHtml = '';
-
+        let totalPlans = 0, totalPolish = 0, totalHardener = 0, totalPwr = 0; let rowsHtml = '';
         for (let i = start; i < target; i++) {
-          const stepData = chiefGearLadder[i];
-          const prevData = chiefGearLadder[i - 1] || { plans: 0, polish: 0, hardener: 0, pwr: 0 };
-
-          const stepPlans = (stepData.plans - prevData.plans) * pieces;
-          const stepPolish = (stepData.polish - prevData.polish) * pieces;
-          const stepHardener = (stepData.hardener - prevData.hardener) * pieces;
-          const stepPwr = (stepData.pwr - prevData.pwr) * pieces;
-
-          totalPlans += stepPlans;
-          totalPolish += stepPolish;
-          totalHardener += stepHardener;
-          totalPwr += stepPwr;
+          const stepData = chiefGearLadder[i]; const prevData = chiefGearLadder[i - 1] || { plans: 0, polish: 0, hardener: 0, pwr: 0 };
+          const stepPlans = (stepData.plans - prevData.plans) * pieces; const stepPolish = (stepData.polish - prevData.polish) * pieces; const stepHardener = (stepData.hardener - prevData.hardener) * pieces; const stepPwr = (stepData.pwr - prevData.pwr) * pieces;
+          totalPlans += stepPlans; totalPolish += stepPolish; totalHardener += stepHardener; totalPwr += stepPwr;
 
           rowsHtml += `
             <tr class="hover:bg-white/5 transition">
@@ -1112,52 +865,25 @@
           `;
         }
 
-        document.getElementById('mat1Label').innerText = "DESIGN PLANS";
-        document.getElementById('mat2Label').innerText = "POLISHING SOLUTION";
-        document.getElementById('mat3Label').innerText = "ALLOY HARDENER";
-        document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
-
-        document.getElementById('mat1Val').innerText = totalPlans.toLocaleString();
-        document.getElementById('mat2Val').innerText = totalPolish.toLocaleString();
-        document.getElementById('mat3Val').innerText = totalHardener.toLocaleString();
-        document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
-
-        document.getElementById('chiefTableHead').innerHTML = `
-          <th class="p-2.5">TIER STEP</th>
-          <th class="p-2.5">DESIGN PLANS</th>
-          <th class="p-2.5">POLISHING SOL.</th>
-          <th class="p-2.5">HARDENER</th>
-          <th class="p-2.5">POWER BONUS</th>
-        `;
+        document.getElementById('mat1Label').innerText = "DESIGN PLANS"; document.getElementById('mat2Label').innerText = "POLISHING SOLUTION"; document.getElementById('mat3Label').innerText = "ALLOY HARDENER"; document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
+        document.getElementById('mat1Val').innerText = totalPlans.toLocaleString(); document.getElementById('mat2Val').innerText = totalPolish.toLocaleString(); document.getElementById('mat3Val').innerText = totalHardener.toLocaleString(); document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
+        document.getElementById('chiefTableHead').innerHTML = `<th class="p-2.5">TIER STEP</th><th class="p-2.5">DESIGN PLANS</th><th class="p-2.5">POLISHING SOL.</th><th class="p-2.5">HARDENER</th><th class="p-2.5">POWER BONUS</th>`;
         document.getElementById('chiefTbody').innerHTML = rowsHtml;
-
       } else {
-        // CHARMS CALCULATOR MODE
         const start = parseInt(document.getElementById('charmStartLvl').value);
         const target = parseInt(document.getElementById('charmTargetLvl').value);
         const slots = parseInt(document.getElementById('charmSlots').value);
 
         if (target <= start) {
-          document.getElementById('mat1Val').innerText = "0";
-          document.getElementById('mat2Val').innerText = "0";
-          document.getElementById('mat3Val').innerText = "0";
-          document.getElementById('mat4Val').innerText = "+0";
+          document.getElementById('mat1Val').innerText = "0"; document.getElementById('mat2Val').innerText = "0"; document.getElementById('mat3Val').innerText = "0"; document.getElementById('mat4Val').innerText = "+0";
           document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500">Target Level must be greater than Current Level.</td></tr>`;
           return;
         }
 
-        let totalGuides = 0, totalJewels = 0, totalPwr = 0;
-        let rowsHtml = '';
-
+        let totalGuides = 0, totalJewels = 0, totalPwr = 0; let rowsHtml = '';
         for (let lvl = start + 1; lvl <= target; lvl++) {
-          const cData = chiefCharmsLadder[lvl - 1];
-          const stepGuides = cData.guides * slots;
-          const stepJewels = cData.jewelSec * slots;
-          const stepPwr = cData.pwr * slots;
-
-          totalGuides += stepGuides;
-          totalJewels += stepJewels;
-          totalPwr += stepPwr;
+          const cData = chiefCharmsLadder[lvl - 1]; const stepGuides = cData.guides * slots; const stepJewels = cData.jewelSec * slots; const stepPwr = cData.pwr * slots;
+          totalGuides += stepGuides; totalJewels += stepJewels; totalPwr += stepPwr;
 
           rowsHtml += `
             <tr class="hover:bg-white/5 transition">
@@ -1170,43 +896,87 @@
           `;
         }
 
-        document.getElementById('mat1Label').innerText = "CHARM GUIDES";
-        document.getElementById('mat2Label').innerText = "JEWEL SECRETS";
-        document.getElementById('mat3Label').innerText = "REQUIRED SLOTS";
-        document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
-
-        document.getElementById('mat1Val').innerText = totalGuides.toLocaleString();
-        document.getElementById('mat2Val').innerText = totalJewels.toLocaleString();
-        document.getElementById('mat3Val').innerText = `${slots} Slots`;
-        document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
-
-        document.getElementById('chiefTableHead').innerHTML = `
-          <th class="p-2.5">CHARM LEVEL</th>
-          <th class="p-2.5">CHARM GUIDES</th>
-          <th class="p-2.5">JEWEL SECRETS</th>
-          <th class="p-2.5">REAGENT</th>
-          <th class="p-2.5">POWER BONUS</th>
-        `;
+        document.getElementById('mat1Label').innerText = "CHARM GUIDES"; document.getElementById('mat2Label').innerText = "JEWEL SECRETS"; document.getElementById('mat3Label').innerText = "REQUIRED SLOTS"; document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
+        document.getElementById('mat1Val').innerText = totalGuides.toLocaleString(); document.getElementById('mat2Val').innerText = totalJewels.toLocaleString(); document.getElementById('mat3Val').innerText = `${slots} Slots`; document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
+        document.getElementById('chiefTableHead').innerHTML = `<th class="p-2.5">CHARM LEVEL</th><th class="p-2.5">CHARM GUIDES</th><th class="p-2.5">JEWEL SECRETS</th><th class="p-2.5">REAGENT</th><th class="p-2.5">POWER BONUS</th>`;
         document.getElementById('chiefTbody').innerHTML = rowsHtml;
       }
     }
 
-    // GOLD SPARKLE CONFETTI ANIMATION ENGINE
-    function initSparkles() {
-      const canvas = document.getElementById('sparkleCanvas');
-      const ctx = canvas.getContext('2d');
-      let width = canvas.width = window.innerWidth;
-      let height = canvas.height = window.innerHeight;
+    // --- 3. TROOPS & SPEEDUPS ENGINE ---
+    function calculateTroopsPlanner() {
+      const tier = parseInt(document.getElementById('trTier').value);
+      const count = parseInt(document.getElementById('trCount').value) || 0;
+      const buff = parseFloat(document.getElementById('trBuff').value) || 0;
 
-      window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      });
+      const baseSecPerTroop = tier === 12 ? 120 : (tier === 11 ? 95 : 70);
+      const svsPointsPerTroop = tier === 12 ? 50 : (tier === 11 ? 35 : 25);
+      const pwrPerTroop = tier === 12 ? 36 : (tier === 11 ? 26 : 18);
+
+      const totalSec = (count * baseSecPerTroop) / (1 + (buff / 100));
+      const totalRes = count * 250;
+      const totalSvs = count * svsPointsPerTroop;
+      const totalPwr = count * pwrPerTroop;
+
+      document.getElementById('trSpeedup').innerText = formatTime(totalSec);
+      document.getElementById('trRes').innerText = formatNumberShort(totalRes);
+      document.getElementById('trSvs').innerText = totalSvs.toLocaleString();
+      document.getElementById('trPwr').innerText = "+" + formatNumberShort(totalPwr);
+    }
+
+    // --- 4. HERO WIDGETS ENGINE ---
+    function calculateHeroWidgets() {
+      const lvl = parseInt(document.getElementById('hwLvl').value);
+      const count = parseInt(document.getElementById('hwCount').value) || 1;
+
+      const shardsNeeded = (lvl * 145) * count;
+      const xpNeeded = (lvl * 45000) * count;
+      const buffVal = (lvl * 6.55).toFixed(1);
+
+      document.getElementById('hwShards').innerText = shardsNeeded.toLocaleString();
+      document.getElementById('hwXp').innerText = xpNeeded.toLocaleString();
+      document.getElementById('hwBuff').innerText = `+${buffVal}% ATK/DEF`;
+    }
+
+    // --- 5. BEAST SANCTUARY ENGINE ---
+    function calculatePetPlanner() {
+      const start = parseInt(document.getElementById('petStart').value) || 1;
+      const target = parseInt(document.getElementById('petTarget').value) || 100;
+
+      if (target <= start) return;
+      const diff = target - start;
+      const foodNeeded = diff * 8200;
+      const marksNeeded = Math.floor(diff * 45);
+      const marchBuff = (diff * 0.24).toFixed(1);
+
+      document.getElementById('petFood').innerText = foodNeeded.toLocaleString();
+      document.getElementById('petMarks').innerText = marksNeeded.toLocaleString();
+      document.getElementById('petMarch').innerText = `+${marchBuff}%`;
+    }
+
+    // --- 6. DAWN EXPERTS ENGINE ---
+    function calculateDawnPlanner() {
+      const lvl = parseInt(document.getElementById('dawnLvl').value) || 1;
+      const buff = parseFloat(document.getElementById('dawnBuff').value) || 0;
+
+      const sigils = lvl * 120;
+      const books = lvl * 85;
+      const buildRed = (lvl * 1.5).toFixed(1);
+
+      document.getElementById('dawnSigils').innerText = sigils.toLocaleString();
+      document.getElementById('dawnBooks').innerText = books.toLocaleString();
+      document.getElementById('dawnBuildRed').innerText = `-${buildRed}% Time`;
+    }
+
+    // SPARKLE CANVAS ENGINE
+    function initSparkles() {
+      const canvas = document.getElementById('sparkleCanvas'); const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth; let height = canvas.height = window.innerHeight;
+      window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
 
       const particles = Array.from({ length: 65 }, () => ({
-        x: Math.random() * width, y: Math.random() * height,
-        size: Math.random() * 4 + 1, speedY: Math.random() * 1.5 + 0.5, speedX: Math.random() * 1 - 0.5,
-        opacity: Math.random(), spin: Math.random() * 360, spinSpeed: Math.random() * 4 - 2
+        x: Math.random() * width, y: Math.random() * height, size: Math.random() * 4 + 1,
+        speedY: Math.random() * 1.5 + 0.5, speedX: Math.random() * 1 - 0.5, opacity: Math.random(), spin: Math.random() * 360, spinSpeed: Math.random() * 4 - 2
       }));
 
       function animate() {
@@ -1225,156 +995,104 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('user_lang') || 'en';
-      setLanguage(savedLang);
-      initSparkles();
+      setLanguage(savedLang); initSparkles();
 
       document.getElementById('langSelector').addEventListener('change', (e) => setLanguage(e.target.value));
 
-      // 1. SETTLEMENT PLANNER LISTENERS
-      const fcModal = document.getElementById('fcModal');
-      document.getElementById('closeFcBtn').addEventListener('click', () => fcModal.classList.add('hidden'));
+      // MODAL CLOSERS
+      document.getElementById('closeFcBtn').onclick = () => document.getElementById('fcModal').classList.add('hidden');
+      document.getElementById('closeChiefBtn').onclick = () => document.getElementById('chiefModal').classList.add('hidden');
+      document.getElementById('closeTroopsBtn').onclick = () => document.getElementById('troopsModal').classList.add('hidden');
+      document.getElementById('closeHeroBtn').onclick = () => document.getElementById('heroModal').classList.add('hidden');
+      document.getElementById('closePetBtn').onclick = () => document.getElementById('petModal').classList.add('hidden');
+      document.getElementById('closeDawnBtn').onclick = () => document.getElementById('dawnModal').classList.add('hidden');
 
-      const tabCityGrowth = document.getElementById('tabCityGrowth');
-      const tabFcEra = document.getElementById('tabFcEra');
-
-      tabCityGrowth.addEventListener('click', () => {
-        currentCalcMode = 'city';
-        tabCityGrowth.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
-        tabFcEra.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
-        populateSelectOptions(); calculateAdvancedPlanner();
-      });
-
-      tabFcEra.addEventListener('click', () => {
-        currentCalcMode = 'fc';
-        tabFcEra.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
-        tabCityGrowth.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
-        populateSelectOptions(); calculateAdvancedPlanner();
-      });
-
+      // 1. FC MODAL LISTENERS
+      const tabCityGrowth = document.getElementById('tabCityGrowth'); const tabFcEra = document.getElementById('tabFcEra');
+      tabCityGrowth.onclick = () => { currentCalcMode = 'city'; tabCityGrowth.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer"; tabFcEra.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; populateSelectOptions(); calculateAdvancedPlanner(); };
+      tabFcEra.onclick = () => { currentCalcMode = 'fc'; tabFcEra.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer"; tabCityGrowth.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; populateSelectOptions(); calculateAdvancedPlanner(); };
+      
       const btypeBtns = document.querySelectorAll('.btype-btn');
       btypeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.onclick = () => {
           btypeBtns.forEach(b => b.className = "btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition cursor-pointer");
           btn.className = "btype-btn bg-amber-500/20 border-2 border-amber-400 text-amber-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition cursor-pointer shadow-lg shadow-amber-500/10";
           currentBuildingType = btn.getAttribute('data-btype'); calculateAdvancedPlanner();
-        });
+        };
       });
 
-      const quickBtns = document.querySelectorAll('.quick-btn');
-      quickBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (currentCalcMode !== 'city') tabCityGrowth.click();
-          document.getElementById('calcStartLvl').value = btn.getAttribute('data-qstart');
-          document.getElementById('calcTargetLvl').value = btn.getAttribute('data-qtarget');
-          calculateAdvancedPlanner();
-        });
-      });
-
-      ['calcStartLvl', 'calcTargetLvl', 'calcSpeedBuff'].forEach(id => {
-        document.getElementById(id).addEventListener('input', calculateAdvancedPlanner);
-        document.getElementById(id).addEventListener('change', calculateAdvancedPlanner);
-      });
-
+      ['calcStartLvl', 'calcTargetLvl', 'calcSpeedBuff'].forEach(id => document.getElementById(id).onchange = calculateAdvancedPlanner);
       populateSelectOptions(); calculateAdvancedPlanner();
 
-      // 2. CHIEF GEAR & CHARMS PLANNER LISTENERS
-      const chiefModal = document.getElementById('chiefModal');
-      document.getElementById('closeChiefBtn').addEventListener('click', () => chiefModal.classList.add('hidden'));
-
-      const tabChiefGear = document.getElementById('tabChiefGear');
-      const tabChiefCharms = document.getElementById('tabChiefCharms');
-      const chiefGearInputs = document.getElementById('chiefGearInputs');
-      const chiefCharmsInputs = document.getElementById('chiefCharmsInputs');
-      const chiefParamTitle = document.getElementById('chiefParamTitle');
-
-      tabChiefGear.addEventListener('click', () => {
-        chiefTabMode = 'gear';
-        tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
-        tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
-        chiefGearInputs.classList.remove('hidden');
-        chiefCharmsInputs.classList.add('hidden');
-        chiefParamTitle.innerText = "CHIEF GEAR UPGRADE TARGET";
-        calculateChiefPlanner();
-      });
-
-      tabChiefCharms.addEventListener('click', () => {
-        chiefTabMode = 'charms';
-        tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
-        tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
-        chiefCharmsInputs.classList.remove('hidden');
-        chiefGearInputs.classList.add('hidden');
-        chiefParamTitle.innerText = "CHIEF CHARMS UPGRADE TARGET";
-        calculateChiefPlanner();
-      });
-
-      ['cgStartTier', 'cgTargetTier', 'cgPieces', 'charmStartLvl', 'charmTargetLvl', 'charmSlots'].forEach(id => {
-        document.getElementById(id).addEventListener('change', calculateChiefPlanner);
-      });
-
+      // 2. CHIEF MODAL LISTENERS
+      const tabChiefGear = document.getElementById('tabChiefGear'); const tabChiefCharms = document.getElementById('tabChiefCharms');
+      tabChiefGear.onclick = () => { chiefTabMode = 'gear'; tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer"; tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; document.getElementById('chiefGearInputs').classList.remove('hidden'); document.getElementById('chiefCharmsInputs').classList.add('hidden'); calculateChiefPlanner(); };
+      tabChiefCharms.onclick = () => { chiefTabMode = 'charms'; tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer"; tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; document.getElementById('chiefCharmsInputs').classList.remove('hidden'); document.getElementById('chiefGearInputs').classList.add('hidden'); calculateChiefPlanner(); };
+      ['cgStartTier', 'cgTargetTier', 'cgPieces', 'charmStartLvl', 'charmTargetLvl', 'charmSlots'].forEach(id => document.getElementById(id).onchange = calculateChiefPlanner);
       populateCharmsSelects(); calculateChiefPlanner();
+
+      // 3. TROOPS MODAL LISTENERS
+      ['trTier', 'trCount', 'trBuff'].forEach(id => { document.getElementById(id).onchange = calculateTroopsPlanner; document.getElementById(id).oninput = calculateTroopsPlanner; });
+      calculateTroopsPlanner();
+
+      // 4. HERO MODAL LISTENERS
+      ['hwLvl', 'hwCount'].forEach(id => { document.getElementById(id).onchange = calculateHeroWidgets; document.getElementById(id).oninput = calculateHeroWidgets; });
+      calculateHeroWidgets();
+
+      // 5. PET MODAL LISTENERS
+      ['petStart', 'petTarget'].forEach(id => { document.getElementById(id).onchange = calculatePetPlanner; document.getElementById(id).oninput = calculatePetPlanner; });
+      calculatePetPlanner();
+
+      // 6. DAWN MODAL LISTENERS
+      ['dawnLvl', 'dawnBuff'].forEach(id => { document.getElementById(id).onchange = calculateDawnPlanner; document.getElementById(id).oninput = calculateDawnPlanner; });
+      calculateDawnPlanner();
 
       // AUTH MODAL LISTENERS
       const authModal = document.getElementById('authModal');
-      const authModalBtn = document.getElementById('authModalBtn');
-      const closeAuthBtn = document.getElementById('closeAuthBtn');
-      const tabLogin = document.getElementById('tabLogin');
-      const tabRegister = document.getElementById('tabRegister');
-      const formLogin = document.getElementById('formLogin');
-      const formRegister = document.getElementById('formRegister');
-      const authMessage = document.getElementById('authMessage');
+      document.getElementById('authModalBtn').onclick = () => authModal.classList.remove('hidden');
+      document.getElementById('closeAuthBtn').onclick = () => authModal.classList.add('hidden');
 
-      authModalBtn.addEventListener('click', () => authModal.classList.remove('hidden'));
-      closeAuthBtn.addEventListener('click', () => authModal.classList.add('hidden'));
+      document.getElementById('tabLogin').onclick = () => {
+        document.getElementById('tabLogin').className = "flex-1 pb-3 font-bold text-center border-b-2 border-amber-400 text-amber-400 cursor-pointer";
+        document.getElementById('tabRegister').className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
+        document.getElementById('formLogin').classList.remove('hidden'); document.getElementById('formRegister').classList.add('hidden');
+      };
 
-      tabLogin.addEventListener('click', () => {
-        tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-amber-400 text-amber-400 cursor-pointer";
-        tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
-        formLogin.classList.remove('hidden'); formRegister.classList.add('hidden');
-      });
-
-      tabRegister.addEventListener('click', () => {
-        tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-emerald-400 text-emerald-400 cursor-pointer";
-        tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
-        formRegister.classList.remove('hidden'); formLogin.classList.add('hidden');
-      });
-
-      function showMsg(text, isError = false) {
-        authMessage.classList.remove('hidden', 'bg-red-500/20', 'text-red-300', 'bg-emerald-500/20', 'text-emerald-300');
-        authMessage.classList.add(isError ? 'bg-red-500/20' : 'bg-emerald-500/20', isError ? 'text-red-300' : 'text-emerald-300');
-        authMessage.innerText = text;
-      }
+      document.getElementById('tabRegister').onclick = () => {
+        document.getElementById('tabRegister').className = "flex-1 pb-3 font-bold text-center border-b-2 border-emerald-400 text-emerald-400 cursor-pointer";
+        document.getElementById('tabLogin').className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
+        document.getElementById('formRegister').classList.remove('hidden'); document.getElementById('formLogin').classList.add('hidden');
+      };
 
       const formatEmail = (username) => `${username.trim().toLowerCase()}@wosgame.com`;
 
-      formRegister.addEventListener('submit', async (e) => {
+      document.getElementById('formRegister').onsubmit = async (e) => {
         e.preventDefault();
         const rawUsername = document.getElementById('regUsername').value;
         const password = document.getElementById('regPassword').value;
-        if (!/^[a-z0-9._-]{3,30}$/i.test(rawUsername)) { showMsg("Username 3-30 karakter.", true); return; }
-        const email = formatEmail(rawUsername); showMsg("Registering...");
+        const email = formatEmail(rawUsername);
         const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { username: rawUsername } } });
-        if (error) showMsg(error.message, true);
-        else showMsg(`Registrasi '${rawUsername}' berhasil! Silakan Login.`);
-      });
+        if (error) alert(error.message);
+        else alert(`Registrasi '${rawUsername}' berhasil! Silakan Login.`);
+      };
 
-      formLogin.addEventListener('submit', async (e) => {
+      document.getElementById('formLogin').onsubmit = async (e) => {
         e.preventDefault();
         const rawUsername = document.getElementById('loginUsername').value;
         const password = document.getElementById('loginPassword').value;
-        const email = formatEmail(rawUsername); showMsg("Authenticating...");
+        const email = formatEmail(rawUsername);
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) showMsg("Username / Password salah.", true);
-        else { showMsg("Login sukses!"); setTimeout(() => { authModal.classList.add('hidden'); checkUserSession(); }, 1000); }
-      });
+        if (error) alert("Username / Password salah.");
+        else { alert("Login sukses!"); authModal.classList.add('hidden'); checkUserSession(); }
+      };
 
       async function checkUserSession() {
         const { data: { session } } = await supabase.auth.getSession();
         if (session?.user) {
           const displayUsername = session.user.user_metadata?.username || session.user.email.split('@')[0];
-          authModalBtn.innerText = `PLAYER (${displayUsername.toUpperCase()})`;
-          authModalBtn.onclick = async () => {
-            if (confirm("Logout dari akun?")) { await supabase.auth.signOut(); window.location.reload(); }
-          };
+          const btn = document.getElementById('authModalBtn');
+          btn.innerText = `PLAYER (${displayUsername.toUpperCase()})`;
+          btn.onclick = async () => { if (confirm("Logout dari akun?")) { await supabase.auth.signOut(); window.location.reload(); } };
         }
       }
       checkUserSession();
