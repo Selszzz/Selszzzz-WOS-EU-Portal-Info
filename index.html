@@ -282,7 +282,7 @@
     </div>
   </section>
 
-  <!-- ADVANCED SETTLEMENT & FIRE CRYSTAL PLANNER MODAL (FULL COMPLEX EDITION) -->
+  <!-- 1. ADVANCED SETTLEMENT & FIRE CRYSTAL PLANNER MODAL -->
   <div id="fcModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
     <div class="bg-darkcard border border-amber-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
       
@@ -299,7 +299,7 @@
           <button id="closeFcBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
-        <!-- MODE TABS (1. CITY GROWTH vs 2. FIRE CRYSTAL ERA) -->
+        <!-- MODE TABS -->
         <div class="flex bg-darkbg p-1.5 rounded-2xl border border-white/10 mb-5">
           <button id="tabCityGrowth" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2">
             <span>🏰</span> City Growth (Levels 1-30)
@@ -431,6 +431,147 @@
     </div>
   </div>
 
+  <!-- 2. CHIEF GEAR & CHARMS PLANNER MODAL (NATIVE SUITE) -->
+  <div id="chiefModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-darkcard border border-frost-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
+      
+      <!-- HEADER -->
+      <div>
+        <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-frost-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white flex items-center gap-2">
+              <span>CHIEF GEAR & CHARMS PLANNER</span>
+            </h3>
+            <p class="text-xs text-gray-400">Endgame Ladder up to Red T6 (3★) · Chief Charms (Lv 1-18) · Design Plans & Guides</p>
+          </div>
+          <button id="closeChiefBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
+        </div>
+
+        <!-- MODE TABS (1. CHIEF GEAR vs 2. CHIEF CHARMS) -->
+        <div class="flex bg-darkbg p-1.5 rounded-2xl border border-white/10 mb-5">
+          <button id="tabChiefGear" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2">
+            <span>🛡️</span> Chief Gear Tier Ladder (T1 ➔ Red T6)
+          </button>
+          <button id="tabChiefCharms" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2">
+            <span>💎</span> Chief Charms (Level 1-18)
+          </button>
+        </div>
+
+        <!-- 1. CHIEF GEAR / CHARMS INPUT PARAMETERS -->
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2" id="chiefParamTitle">CHIEF GEAR UPGRADE TARGET</label>
+          
+          <div id="chiefGearInputs" class="grid sm:grid-cols-3 gap-3">
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT GEAR TIER</label>
+              <select id="cgStartTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
+                <option value="1">Green T1</option>
+                <option value="2">Blue T2</option>
+                <option value="3">Purple T3</option>
+                <option value="4">Gold T4</option>
+                <option value="5">Red T5 (1★)</option>
+                <option value="6">Red T5 (2★)</option>
+                <option value="7">Red T6 (1★)</option>
+                <option value="8">Red T6 (2★)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET GEAR TIER</label>
+              <select id="cgTargetTier" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
+                <option value="2">Blue T2</option>
+                <option value="3">Purple T3</option>
+                <option value="4">Gold T4</option>
+                <option value="5">Red T5 (1★)</option>
+                <option value="6">Red T5 (2★)</option>
+                <option value="7">Red T6 (1★)</option>
+                <option value="8">Red T6 (2★)</option>
+                <option value="9" selected>Red T6 (3★ MAX)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-400 mb-1">EQUIPPED GEAR PIECES</label>
+              <select id="cgPieces" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
+                <option value="1">1 Piece</option>
+                <option value="2">2 Pieces</option>
+                <option value="4">4 Pieces</option>
+                <option value="6" selected>Full Set (6 Pieces)</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="chiefCharmsInputs" class="grid sm:grid-cols-3 gap-3 hidden">
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT CHARM LEVEL</label>
+              <select id="charmStartLvl" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET CHARM LEVEL</label>
+              <select id="charmTargetLvl" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-400 mb-1">SLOTS TO UPGRADE</label>
+              <select id="charmSlots" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-frost-400 cursor-pointer">
+                <option value="1">1 Slot</option>
+                <option value="3">3 Slots</option>
+                <option value="6" selected>All 6 Slots</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOTAL MATERIALS NEEDED SUMMARY BANNER -->
+        <div class="mb-5">
+          <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TOTAL CHIEF MATERIALS & REAGENTS REQUIRED</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
+              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat1Label">DESIGN PLANS</span>
+              <span id="mat1Val" class="text-xl font-extrabold text-amber-400 font-heading">4,200</span>
+            </div>
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
+              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat2Label">POLISHING SOLUTION</span>
+              <span id="mat2Val" class="text-xl font-extrabold text-frost-300 font-heading">185,000</span>
+            </div>
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
+              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat3Label">ALLOY HARDENER</span>
+              <span id="mat3Val" class="text-xl font-extrabold text-emerald-400 font-heading">26,400</span>
+            </div>
+            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center">
+              <span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat4Label">POWER RATING GAIN</span>
+              <span id="mat4Val" class="text-xl font-extrabold text-white font-heading">+14.2M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIER-BY-TIER UPGRADE BREAKDOWN TABLE -->
+      <div class="flex-1 overflow-hidden flex flex-col">
+        <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TIER / LEVEL BREAKDOWN SCHEDULE</span>
+        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56 sm:max-h-64">
+          <table class="w-full text-left text-xs text-gray-300">
+            <thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase border-b border-white/10 sticky top-0">
+              <tr id="chiefTableHead">
+                <th class="p-2.5">TIER STEP</th>
+                <th class="p-2.5">DESIGN PLANS</th>
+                <th class="p-2.5">POLISHING SOL.</th>
+                <th class="p-2.5">HARDENER</th>
+                <th class="p-2.5">POWER BONUS</th>
+              </tr>
+            </thead>
+            <tbody id="chiefTbody" class="divide-y divide-white/5 font-mono">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION -->
   <div id="copyToast" class="fixed bottom-6 right-6 z-50 hidden bg-amber-600 text-white font-bold px-5 py-3 rounded-xl shadow-2xl border border-amber-400 flex items-center gap-3 transition">
     <span>📋</span>
@@ -497,7 +638,7 @@
         icon: "🛡️",
         titleKey: "calcChiefTitle",
         descKey: "calcChiefDesc",
-        status: "coming"
+        status: "ready"
       },
       {
         id: "troops",
@@ -572,137 +713,39 @@
     // KAMUS TERJEMAHAN 8 BAHASA LENGKAP
     const translations = {
       en: {
-        navServer: "Server",
-        navRewards: "Rewards",
-        navRecharge: "Recharge",
-        navCalc: "Calculator",
-        navCodes: "Gift Codes",
-        navSupport: "Support",
-        dlRegBtn: "▶ DOWNLOAD",
-        heroBadge: "⚡ Whiteout Survival Private Server",
-        heroTitle1: "SURVIVE FASTER.",
-        heroTitle2: "RULE THE SNOW.",
-        heroDesc: "Join the Selszzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.",
-        btnDownload: "▶ DOWNLOAD / REGISTER",
-        btnDiscord: "◉ JOIN DISCORD",
-        statCurrentState: "CURRENT STATE",
-        statOnline: "ONLINE NOW",
-        statInterval: "INTERVAL",
-        statIntervalVal: "48 HOURS",
-        rechargeBadge: "RECHARGE STORE",
-        rechargeTitle: "FROST STARS PACKS",
-        rechargeNotice: "⭐ IMPORTANT: ALL BETA PURCHASES CREDITED AGAIN!\nAll Frost Stars purchased during this beta testing period—including the full 25% extra bonus—will be credited a second time to your account when the official version of WOS Europe launches!",
-        btnBuy: "BUY NOW",
-        rewardsBadge: "PUBLIC BETA RECHARGE",
-        rewardsTitle: "ACCUMULATED FROST STAR REWARDS",
-        rewardsSub: "Reach each accumulated recharge milestone during public beta to receive the listed Frost Star reward.",
-        msLabel: "RECHARGE MILESTONE",
-        btnClaimMs: "CLAIM MILESTONE",
-        summaryTag: "ACCUMULATED MILESTONES",
-        summaryTitle: "TOTAL CUMULATIVE REWARDS",
-        calcBadge: "SURVIVOR TOOLKIT",
-        calcTitle: "CALCULATOR SUITE",
-        calcSub: "Accurate Survivor Planners & Resource Projections built natively for WOS EU Portal.",
-        calcOpenBtn: "Open Calculator ➔",
-        calcFcTitle: "Fire Crystals & Buildings",
-        calcFcDesc: "FC1 to FC10+ progression, Settlement Building (Lv 1-30), prerequisites, and speedup planners.",
-        calcChiefTitle: "Chief Gear & Charms",
-        calcChiefDesc: "Full endgame ladder up to Red T6 (3★) and Chief Charms up to Level 18 with sub-levels, guides, and Jewel Secrets.",
-        calcTroopTitle: "Troops & Speedups",
-        calcTroopDesc: "T1 to T12 Exalted training, promotion differential engine, speedup bag inventory converter, and SvS points.",
-        calcHeroTitle: "Hero Widgets & Gear",
-        calcHeroDesc: "Hero Gear Enhancement (Lv 0-100), Mastery Forging (1-20), and Exclusive Widgets up to 15 heroes (Apex Arena).",
-        calcPetTitle: "Beast Sanctuary",
-        calcPetDesc: "All 15 Sanctuary Beasts (including Shelldragon), Lv 1-150 progression, Beast Food, Potions/Serums, and Beast Marks.",
-        calcDawnTitle: "Dawn Experts",
-        calcDawnDesc: "All 11 Experts (including Gareth & Justus), Expert Sigils, Books of Knowledge, Affinity XP, and learning speedup times.",
-        codesBadge: "ACTIVE CODES",
-        codesTitle: "CLAIM YOUR FREE REWARDS",
-        codesSub: "Copy a code, open your profile in game and redeem it from Settings → Gift Code.",
-        cardSub: "Active reward code",
-        btnCopy: "COPY",
-        supportBadge: "◉ COMMUNITY",
-        supportTitle: "NEVER SURVIVE ALONE",
-        supportDesc: "Join announcements, find an alliance, report a bug or get direct help from the Selszzzz support team.",
-        btnJoinSupport: "◉ JOIN DISCORD",
-        supportSubTopics: "Announcements · Codes · Events · Alliances",
-        supportStatus: "COMMUNITY ONLINE",
-        tabLogin: "LOGIN",
-        tabRegister: "REGISTER",
-        lblUsername: "USERNAME",
-        lblPassword: "PASSWORD",
-        btnSubmitLogin: "MASUK GAME",
-        btnSubmitRegister: "BUAT AKUN BARU"
+        navServer: "Server", navRewards: "Rewards", navRecharge: "Recharge", navCalc: "Calculator", navCodes: "Gift Codes", navSupport: "Support", dlRegBtn: "▶ DOWNLOAD",
+        heroBadge: "⚡ Whiteout Survival Private Server", heroTitle1: "SURVIVE FASTER.", heroTitle2: "RULE THE SNOW.", heroDesc: "Join the Selszzz Whiteout Survival private server for faster progression, huge daily rewards, active gift codes and new states every 2 days.",
+        btnDownload: "▶ DOWNLOAD / REGISTER", btnDiscord: "◉ JOIN DISCORD", statCurrentState: "CURRENT STATE", statOnline: "ONLINE NOW", statInterval: "INTERVAL", statIntervalVal: "48 HOURS",
+        rechargeBadge: "RECHARGE STORE", rechargeTitle: "FROST STARS PACKS", rechargeNotice: "⭐ IMPORTANT: ALL BETA PURCHASES CREDITED AGAIN!\nAll Frost Stars purchased during this beta testing period—including the full 25% extra bonus—will be credited a second time to your account when the official version of WOS Europe launches!",
+        btnBuy: "BUY NOW", rewardsBadge: "PUBLIC BETA RECHARGE", rewardsTitle: "ACCUMULATED FROST STAR REWARDS", rewardsSub: "Reach each accumulated recharge milestone during public beta to receive the listed Frost Star reward.", msLabel: "RECHARGE MILESTONE", btnClaimMs: "CLAIM MILESTONE", summaryTag: "ACCUMULATED MILESTONES", summaryTitle: "TOTAL CUMULATIVE REWARDS",
+        calcBadge: "SURVIVOR TOOLKIT", calcTitle: "CALCULATOR SUITE", calcSub: "Accurate Survivor Planners & Resource Projections built natively for WOS EU Portal.", calcOpenBtn: "Open Calculator ➔",
+        calcFcTitle: "Fire Crystals & Buildings", calcFcDesc: "FC1 to FC10+ progression, Settlement Building (Lv 1-30), prerequisites, and speedup planners.",
+        calcChiefTitle: "Chief Gear & Charms", calcChiefDesc: "Full endgame ladder up to Red T6 (3★) and Chief Charms up to Level 18 with sub-levels, guides, and Jewel Secrets.",
+        calcTroopTitle: "Troops & Speedups", calcTroopDesc: "T1 to T12 Exalted training, promotion differential engine, speedup bag inventory converter, and SvS points.",
+        calcHeroTitle: "Hero Widgets & Gear", calcHeroDesc: "Hero Gear Enhancement (Lv 0-100), Mastery Forging (1-20), and Exclusive Widgets up to 15 heroes (Apex Arena).",
+        calcPetTitle: "Beast Sanctuary", calcPetDesc: "All 15 Sanctuary Beasts (including Shelldragon), Lv 1-150 progression, Beast Food, Potions/Serums, and Beast Marks.",
+        calcDawnTitle: "Dawn Experts", calcDawnDesc: "All 11 Experts (including Gareth & Justus), Expert Sigils, Books of Knowledge, Affinity XP, and learning speedup times.",
+        codesBadge: "ACTIVE CODES", codesTitle: "CLAIM YOUR FREE REWARDS", codesSub: "Copy a code, open your profile in game and redeem it from Settings → Gift Code.", cardSub: "Active reward code", btnCopy: "COPY",
+        supportBadge: "◉ COMMUNITY", supportTitle: "NEVER SURVIVE ALONE", supportDesc: "Join announcements, find an alliance, report a bug or get direct help from the Selszzzz support team.", btnJoinSupport: "◉ JOIN DISCORD", supportSubTopics: "Announcements · Codes · Events · Alliances", supportStatus: "COMMUNITY ONLINE",
+        tabLogin: "LOGIN", tabRegister: "REGISTER", lblUsername: "USERNAME", lblPassword: "PASSWORD", btnSubmitLogin: "MASUK GAME", btnSubmitRegister: "BUAT AKUN BARU"
       },
       id: {
-        navServer: "Server",
-        navRewards: "Hadiah",
-        navRecharge: "Top Up",
-        navCalc: "Kalkulator",
-        navCodes: "Kode Hadiah",
-        navSupport: "Dukungan",
-        dlRegBtn: "▶ UNDUH",
-        heroBadge: "⚡ Server Privat Whiteout Survival",
-        heroTitle1: "BERTAHAN LEBIH CEPAT.",
-        heroTitle2: "KUASAI SALJU.",
-        heroDesc: "Bergabunglah di server privat Selszzz Whiteout Survival untuk progres lebih cepat, klaim hadiah harian melimpah, dan State baru tiap 2 hari.",
-        btnDownload: "▶ UNDUH / DAFTAR",
-        btnDiscord: "◉ GABUNG DISCORD",
-        statCurrentState: "STATE SAAT INI",
-        statOnline: "PEMAIN ONLINE",
-        statInterval: "INTERVAL",
-        statIntervalVal: "48 JAM",
-        rechargeBadge: "TOKO TOP UP",
-        rechargeTitle: "PAKET FROST STARS",
-        rechargeNotice: "⭐ PENTING: SEMUA PEMBELIAN BETA DIKREDITKAN KEMBALI!\nSemua Frost Stars yang dibeli selama masa beta test ini—termasuk total bonus ekstra 25%—akan dikreditkan ulang ke akun kamu saat versi resmi WOS Europe dirilis!",
-        btnBuy: "BELI SEKARANG",
-        rewardsBadge: "HADIAH RECHARGE BETA",
-        rewardsTitle: "AKUMULASI HADIAH FROST STAR",
-        rewardsSub: "Capai tiap milestone akumulasi recharge selama beta untuk menerima hadiah Frost Star berikut.",
-        msLabel: "MILESTONE RECHARGE",
-        btnClaimMs: "KLAIM MILESTONE",
-        summaryTag: "AKUMULASI MILESTONE",
-        summaryTitle: "TOTAL HADIAH AKUMULATIF",
-        calcBadge: "ALAT BANTU SURVIVOR",
-        calcTitle: "SUITE KALKULATOR",
-        calcSub: "Perencanaan Survivor & Proyeksi Sumber Daya Akurat yang dibangun khusus untuk WOS EU Portal.",
-        calcOpenBtn: "Buka Kalkulator ➔",
-        calcFcTitle: "Kristal Api & Bangunan",
-        calcFcDesc: "Progresi FC1 hingga FC10+, Bangunan Kota (Lv 1-30), syarat Furnace, dan kalkulator speedup.",
-        calcChiefTitle: "Chief Gear & Charms",
-        calcChiefDesc: "Endgame lengkap hingga Red T6 (3★) dan Chief Charms hingga Level 18 beserta sub-level & Jewel Secrets.",
-        calcTroopTitle: "Pasukan & Speedup",
-        calcTroopDesc: "Pelatihan T1 hingga T12 Exalted, diferensial promosi, konverter tas speedup, dan poin SvS.",
-        calcHeroTitle: "Hero Widgets & Gear",
-        calcHeroDesc: "Penguatan Hero Gear (Lv 0-100), Mastery Forging (1-20), dan Exclusive Widgets hingga 15 hero.",
-        calcPetTitle: "Suaka Binatang (Beast Sanctuary)",
-        calcPetDesc: "15 Sanctuary Beasts (termasuk Shelldragon), progresi Lv 1-150, Makanan, Ramuan/Serum, dan Beast Marks.",
-        calcDawnTitle: "Pakar Fajar (Dawn Experts)",
-        calcDawnDesc: "11 Experts (termasuk Gareth & Justus), Expert Sigils, Books of Knowledge, XP Afinitas, dan percepatan waktu.",
-        codesBadge: "KODE AKTIF",
-        codesTitle: "KLAIM HADIAH GRATIS KAMU",
-        codesSub: "Salin kode, buka profil di game dan tukarkan dari Pengaturan → Kode Hadiah.",
-        cardSub: "Kode hadiah aktif",
-        btnCopy: "SALIN",
-        supportBadge: "◉ KOMUNITAS",
-        supportTitle: "TIDAK BERJUANG SENDIRIAN",
-        supportDesc: "Bergabunglah untuk pengumuman, cari aliansi, laporkan bug, atau dapatkan bantuan langsung dari tim Selszzzz.",
-        btnJoinSupport: "◉ GABUNG DISCORD",
-        supportSubTopics: "Pengumuman · Kode · Event · Aliansi",
-        supportStatus: "KOMUNITAS ONLINE",
-        tabLogin: "MASUK",
-        tabRegister: "DAFTAR",
-        lblUsername: "NAMA PENGGUNA",
-        lblPassword: "KATA SANDI",
-        btnSubmitLogin: "MASUK GAME",
-        btnSubmitRegister: "BUAT AKUN BARU"
-      },
-      zh: { navServer: "服务器", navRewards: "奖励", navRecharge: "充值", navCalc: "计算器", navCodes: "礼包码", navSupport: "支持", dlRegBtn: "▶ 下载", heroBadge: "⚡ 无尽冬日 私服", heroTitle1: "加速生存。", heroTitle2: "主宰冰雪。", heroDesc: "加入 Selszzz 无尽冬日私服，体验极速升级、每日豪礼、最新兑换码，每2天开启全新 State。", btnDownload: "▶ 下载 / 注册", btnDiscord: "◉ 加入 DISCORD", statCurrentState: "当前 STATE", statOnline: "在线玩家", statInterval: "更新间隔", statIntervalVal: "48 小时", rechargeBadge: "充值商城", rechargeTitle: "FROST STARS 礼包", rechargeNotice: "⭐ 重要说明：所有 Beta 测试充值将双倍返还！\n在 Beta 测试期间购买的所有 Frost Stars（包括 25% 的额外赠送）将在 WOS Europe 正式服上线时再次发放至您的账号！", btnBuy: "立即购买", rewardsBadge: "BETA 充值奖励", rewardsTitle: "FROST STAR 累计充值奖励", rewardsSub: "在公测期间达到指定的累计充值目标，即可领取相对应的 Frost Star 奖励。", msLabel: "充值目标", btnClaimMs: "领取目标奖励", summaryTag: "累计目标", summaryTitle: "累计总奖励", calcBadge: "生存者工具包", calcTitle: "计算器套件", calcSub: "精准的生存规划与资源计算器。", calcOpenBtn: "打开计算器 ➔", calcFcTitle: "火晶与建筑", calcFcDesc: "FC1 至 FC10+ 升级、城镇建筑 (Lv 1-30)、熔炉前置条件与加速计算。", calcChiefTitle: "领主装备与护符", calcChiefDesc: "终极装备升级至 Red T6 (3★) 与领主护符至 Lv 18，含 Jewel Secrets。", calcTroopTitle: "部队与加速", calcTroopDesc: "T1 至 T12 进阶训练、晋升差额引擎、背包加速转换器与 SvS 积分。", calcHeroTitle: "英雄装备与专属", calcHeroDesc: "英雄装备强化(0-100)、精炼(1-20)与多达15位英雄的专属装备。", calcPetTitle: "巨兽圣域", calcPetDesc: "15种圣域巨兽、Lv 1-150 升级、巨兽食物、血清与印记。", calcDawnTitle: "黎明专家", calcDawnDesc: "11位专家、专家印记、知识之书、亲密度XP与学习加速计算。", codesBadge: "有效礼包码", codesTitle: "领取免费奖励", codesSub: "复制礼包码，在游戏中打开个人资料，通过设置 → 礼包码兑换。", cardSub: "有效奖励兑换码", btnCopy: "复制", supportBadge: "◉ 社区", supportTitle: "绝不孤军奋战", supportDesc: "获取最新公告、寻找联盟、反馈 Bug 或直接联系 Selszzzz 团队。", btnJoinSupport: "◉ 加入 DISCORD", supportSubTopics: "公告 · 兑换码 · 活动 · 联盟", supportStatus: "社区在线", tabLogin: "登录", tabRegister: "注册", lblUsername: "用户名", lblPassword: "密码", btnSubmitLogin: "进入游戏", btnSubmitRegister: "创建新账号" },
-      th: { navServer: "เซิร์ฟเวอร์", navRewards: "รางวัล", navRecharge: "เติมเงิน", navCalc: "เครื่องคิดเลข", navCodes: "โค้ดของขวัญ", navSupport: "ช่วยเหลือ", dlRegBtn: "▶ ดาวน์โหลด", heroBadge: "⚡ เซิร์ฟเวอร์ส่วนตัว Whiteout Survival", heroTitle1: "รอดชีวิตเร็วขึ้น.", heroTitle2: "ครองหิมะ.", heroDesc: "เข้าร่วมเซิร์ฟเวอร์ส่วนตัว Selszzz Whiteout Survival เพื่อการพัฒนาที่เร็วขึ้น รับของขวัญรายวันมากมาย และ State ใหม่ทุก 2 วัน", btnDownload: "▶ ดาวน์โหลด / ลงทะเบียน", btnDiscord: "◉ เข้าร่วม DISCORD", statCurrentState: "STATE ปัจจุบัน", statOnline: "ออนไลน์ขณะนี้", statInterval: "ระยะเวลา", statIntervalVal: "48 ชั่วโมง", rechargeBadge: "ร้านค้าเติมเงิน", rechargeTitle: "แพ็กเกจ FROST STARS", rechargeNotice: "⭐ สำคัญ: การซื้อช่วง BETA จะได้รับคืนอีกครั้ง!\nFrost Stars ทั้งหมดที่ซื้อในช่วงทดสอบ Beta รวมถึงโบนัสพิเศษ 25% จะถูกส่งเข้าบัญชีของคุณอีกครั้งเมื่อ WOS Europe เปิดตัวอย่างเป็นทางการ!", btnBuy: "ซื้อเลย", rewardsBadge: "รางวัลเติมเงิน BETA", rewardsTitle: "รางวัลสะสม FROST STAR", rewardsSub: "สะสมยอดเติมเงินในช่วง Beta ถึงเป้าหมายที่กำหนดเพื่อรับรางวัล Frost Star", msLabel: "เป้าหมายการเติมเงิน", btnClaimMs: "รับรางวัลเป้าหมาย", summaryTag: "เป้าหมายสะสม", summaryTitle: "รางวัลสะสมทั้งหมด", calcBadge: "เครื่องมือผู้รอดชีวิต", calcTitle: "ระบบคำนวณทรัพยากร", calcSub: "วางแผนการพัฒนาและคำนวณทรัพยากรที่แม่นยำสำหรับเซิร์ฟเวอร์ส่วนตัว", calcOpenBtn: "เปิดเครื่องคิดเลข ➔", calcFcTitle: "คริสตัลเพลิง & อาคาร", calcFcDesc: "การอัปเกรด FC1 ถึง FC10+, อาคารเมือง (Lv 1-30), เงื่อนไขเตาเผา และการเร่งความเร็ว", calcChiefTitle: "อุปกรณ์ผู้นำ & เครื่องราง", calcChiefDesc: "คำนวณอุปกรณ์ระดับ Red T6 (3★) และเครื่องรางผู้นำถึง Level 18", calcTroopTitle: "ทหาร & เร่งความเร็ว", calcTroopDesc: "การฝึกทหาร T1 ถึง T12, ระบบแปลงเร่งความเร็วในกระเป๋า และคะแนน SvS", calcHeroTitle: "อุปกรณ์ฮีโร่ & อาวุธประจำตัว", calcHeroDesc: "การตีบวกอุปกรณ์ฮีโร่ (Lv 0-100) และอาวุธประจำตัวฮีโร่สูงสุด 15 ตัว", calcPetTitle: "วิหารสัตว์ร้าย (Beast Sanctuary)", calcPetDesc: "คำนวณสัตว์ร้าย 15 ตัว (รวม Shelldragon), เลเวล 1-150, อาหาร และเซรั่ม", calcDawnTitle: "ผู้เชี่ยวชาญแห่งรุ่งอรุณ", calcDawnDesc: "ผู้เชี่ยวชาญ 11 คน, ตราผู้เชี่ยวชาญ, หนังสือความรู้ และเวลาเร่งการเรียนรู้", codesBadge: "โค้ดที่ใช้งานได้", codesTitle: "รับรางวัลฟรีของคุณ", codesSub: "คัดลอกโค้ด เปิดโปรไฟล์ในเกม และรับรางวัลได้ที่ การตั้งค่า → โค้ดของขวัญ", cardSub: "โค้ดรางวัลใช้งานได้", btnCopy: "คัดลอก", supportBadge: "◉ ชุมชน", supportTitle: "ไม่ต้องเอาชีวิตรอดคนเดียว", supportDesc: "รับข่าวสาร ค้นหากิลด์ รายงานบั๊ก หรือขอความช่วยเหลือจากทีมงาน Selszzzz", btnJoinSupport: "◉ เข้าร่วม DISCORD", supportSubTopics: "ประกาศ · โค้ด · กิจกรรม · พันธมิตร", supportStatus: "ชุมชนออนไลน์", tabLogin: "เข้าสู่ระบบ", tabRegister: "ลงทะเบียน", lblUsername: "ชื่อผู้ใช้", lblPassword: "รหัสผ่าน", btnSubmitLogin: "เข้าสู่เกม", btnSubmitRegister: "สร้างบัญชีใหม่" },
-      ar: { navServer: "السيرفر", navRewards: "المكافآت", navRecharge: "الشحن", navCalc: "الحاسبة", navCodes: "أكواد الهدية", navSupport: "الدعم", dlRegBtn: "▶ تحميل", heroBadge: "⚡ سيرفر خاص Whiteout Survival", heroTitle1: "البقاء بشكل أسرع.", heroTitle2: "احكم الجليد.", heroDesc: "انضم إلى سيرفر Selszzz الخاص لتطوير أسرع ومكافآت يومية ومراحل جديدة كل يومين.", btnDownload: "▶ تحميل / تسجيل", btnDiscord: "◉ الانضمام لـ DISCORD", statCurrentState: "المرحلة الحالية", statOnline: "المتواجدون الآن", statInterval: "الفترة", statIntervalVal: "48 ساعة", rechargeBadge: "متجر الشحن", rechargeTitle: "حزم FROST STARS", rechargeNotice: "⭐ هام: سيتم إعادة إضافة جميع مشتريات النسخة التجريبية!\nجميع Frost Stars المشتراة خلال فترة الاختبار التجريبي—بما في ذلك مكافأة 25% الإضافية—ستضاف مرة ثانية إلى حسابك عند إطلاق WOS Europe الرسمي!", btnBuy: "اشتر الآن", rewardsBadge: "مكافآت الشحن التجريبي", rewardsTitle: "مكافآت FROST STAR التراكمية", rewardsSub: "وصل إلى كل مرحلة شحن تراكمية خلال الفترة التجريبية للحصول على مكافآت Frost Star المدرجة.", msLabel: "مرحلة الشحن", btnClaimMs: "طالب بالمرحلة", summaryTag: "المراحل التراكمية", summaryTitle: "إجمالي المكافآت التراكمية", calcBadge: "أدوات الناجين", calcTitle: "مجموعة الحاسبات", calcSub: "حاسبات دقيقة لتخطيط الموارد والتطوير للسيرفر الخاص.", calcOpenBtn: "افتح الحاسبة ➔", calcFcTitle: "بلورات النار والمباني", calcFcDesc: "تطوير FC1 إلى FC10+ ومباني المدينة (Lv 1-30) ومتطلبات الفرن والمسرعات.", calcChiefTitle: "عتاد القائد والتمائم", calcChiefDesc: "ترقية عتاد القائد حتى Red T6 (3★) والتمائم حتى المستوى 18.", calcTroopTitle: "القوات والمسرعات", calcTroopDesc: "تدريب القوات T1 إلى T12 وتحويل مسرعات الحقيبة ونقاط SvS.", calcHeroTitle: "عتاد البطل وأدواته", calcHeroDesc: "تعزيز عتاد البطل (Lv 0-100) والعتاد الحصري لـ 15 بطلاً.", calcPetTitle: "محمية الوحوش", calcPetDesc: "جميع وحوش المحمية الـ 15 وترقيتها من 1-150 والأطعمة والأمصال.", calcDawnTitle: "خبراء الفجر", calcDawnDesc: "جميع الخبراء الـ 11 وأختام الخبراء وكتب المعرفة ومسرعات التعلم.", codesBadge: "الأكواد النشطة", codesTitle: "احصل على مكافآتك المجانية", codesSub: "انسخ الكود، افتح ملفك الشخصي في اللعبة واستبدله من الإعدادات ← كود الهدية.", cardSub: "كود مكافأة نشط", btnCopy: "نسخ", supportBadge: "◉ المجتمع", supportTitle: "لا تقاتل بمفردك أبداً", supportDesc: "انضم للإعلانات، اعثر على تحالف، أبلغ عن مشكلة أو احصل على مساعدة مباشرة من فريق Selszzzz.", btnJoinSupport: "◉ الانضمام لـ DISCORD", supportSubTopics: "إعلانات · أكواد · فعاليات · تحالفات", supportStatus: "المجتمع متصل", tabLogin: "دخول", tabRegister: "تسجيل", lblUsername: "اسم المستخدم", lblPassword: "كلمة المرور", btnSubmitLogin: "دخول اللعبة", btnSubmitRegister: "إنشاء حساب" },
-      ru: { navServer: "Сервер", navRewards: "Награды", navRecharge: "Пополнение", navCalc: "Калькулятор", navCodes: "Промокоды", navSupport: "Поддержка", dlRegBtn: "▶ СКАЧАТЬ", heroBadge: "⚡ Приватный сервер Whiteout Survival", heroTitle1: "ВЫЖИВАЙ БЫСТРЕЕ.", heroTitle2: "ПРАВЬ СНЕГАМИ.", heroDesc: "Присоединяйтесь к приватному серверу Selszzz Whiteout Survival для быстрого прогресса, огромных наград и новых State каждые 2 дня.", btnDownload: "▶ СКАЧАТЬ / РЕГИСТРАЦИЯ", btnDiscord: "◉ DISCORD СЕРВЕР", statCurrentState: "ТЕКУЩИЙ STATE", statOnline: "ОНЛАЙН СЕЙЧАС", statInterval: "ИНТЕРВАЛ", statIntervalVal: "48 ЧАСОВ", rechargeBadge: "МАГАЗИН ПОПОЛНЕНИЯ", rechargeTitle: "НАБОРЫ FROST STARS", rechargeNotice: "⭐ ВАЖНО: ВСЕ ПОКУПКИ В БЕТА-ТЕСТЕ БУДУТ НАЧИСЛЕНЫ ПОВТОРНО!\nВсе Frost Stars, купленные во время бета-теста (включая 25% бонус), будут повторно начислены на ваш аккаунт при официальном запуске WOS Europe!", btnBuy: "КУПИТЬ", rewardsBadge: "НАГРАДЫ БЕТА-ПОПОЛНЕНИЯ", rewardsTitle: "НАКОПИТЕЛЬНЫЕ НАГРАДЫ FROST STAR", rewardsSub: "Достигайте этапов накопительного пополнения в бета-тесте для получения указанных наград Frost Star.", msLabel: "ЭТАП ПОПОЛНЕНИЯ", btnClaimMs: "ПОЛУЧИТЬ ЭТАП", summaryTag: "НАКОПИТЕЛЬНЫЕ ЭТАПЫ", summaryTitle: "ОБЩИЕ НАКОПИТЕЛЬНЫЕ НАГРАДЫ", calcBadge: "НАБОР ВЫЖИВШЕГО", calcTitle: "КАЛЬКУЛЯТОРЫ", calcSub: "Точный расчет ресурсов и планирование прокачки для приватного сервера.", calcOpenBtn: "Открыть калькулятор ➔", calcFcTitle: "Огненные кристаллы и Здания", calcFcDesc: "Прокачка FC1-FC10+, Городские здания (Lv 1-30), требования Печи и ускорения.", calcChiefTitle: "Снаряжение Вождя и Талисманы", calcChiefDesc: "Прокачка снаряжения до Red T6 (3★) и талисманов вождя до 18 уровня.", calcTroopTitle: "Войска и Ускорения", calcTroopDesc: "Тренировка T1-T12 Exalted, конвертер ускорений из инвентаря и очки SvS.", calcHeroTitle: "Снаряжение и Виджеты Героев", calcHeroDesc: "Улучшение снаряжения героев (Lv 0-100), ковка мастерства и виджеты.", calcPetTitle: "Заповедник Зверей", calcPetDesc: "Все 15 зверей (включая Shelldragon), прокачка 1-150 ур., еда и сыворотки.", calcDawnTitle: "Эксперты Рассвета", calcDawnDesc: "Все 11 экспертов, печати, книги знаний, опыт и время ускорений.", codesBadge: "АКТИВНЫЕ КОДЫ", codesTitle: "ПОЛУЧИТЕ БЕСПЛАТНЫЕ НАГРАДЫ", codesSub: "Скопируйте код, откройте профиль в игре и активируйте в Настройки → Подарочный код.", cardSub: "Активный промокод", btnCopy: "КОПИРОВАТЬ", supportBadge: "◉ СООБЩЕСТВО", supportTitle: "ВЫЖИВАЙТЕ ВМЕСТЕ", supportDesc: "Следите за анонсами, находите альянсы, сообщайте об ошибках и получайте помощь от команды Selszzzz.", btnJoinSupport: "◉ DISCORD СЕРВЕР", supportSubTopics: "Анонсы · Коды · Ивенты · Альянсы", supportStatus: "СООБЩЕСТВО В СЕТИ", tabLogin: "ВХОД", tabRegister: "РЕГИСТРАЦИЯ", lblUsername: "ИМЯ ПОЛЬЗОВАТЕЛЯ", lblPassword: "ПАРОЛЬ", btnSubmitLogin: "ВОЙТИ В ИГРУ", btnSubmitRegister: "СОЗДАТЬ АККАУНТ" },
-      ko: { navServer: "서버", navRewards: "보상", navRecharge: "충전", navCalc: "계산기", navCodes: "기프트 코드", navSupport: "지원", dlRegBtn: "▶ 다운로드", heroBadge: "⚡ 화이트아웃 서바이버 프라이빗 서버", heroTitle1: "더 빠른 생존.", heroTitle2: "설원을 지배하라.", heroDesc: "Selszzz 프라이빗 서버에서 빠르고 강력한 성장과 일일 보상, 2일마다 열리는 신규 State를 경험하세요.", btnDownload: "▶ 다운로드 / 회원가입", btnDiscord: "◉ 디스코드 참여", statCurrentState: "현재 STATE", statOnline: "동시 접속자", statInterval: "주기", statIntervalVal: "48시간", rechargeBadge: "충전 상점", rechargeTitle: "FROST STARS 패키지", rechargeNotice: "⭐ 중요: 베타 기간 구매 내역 재지급 안내!\n베타 테스트 기간 동안 구매한 모든 Frost Stars(25% 보너스 포함)는 WOS Europe 정식 오픈 시 계정으로 다시 지급됩니다!", btnBuy: "구매하기", rewardsBadge: "베타 충전 보상", rewardsTitle: "FROST STAR 누적 충전 보상", rewardsSub: "베타 테스트 기간 동안 누적 충전 목표를 달성하고 보상 Frost Star를 받으세요.", msLabel: "충전 마일스톤", btnClaimMs: "마일스톤 수령", summaryTag: "누적 마일스톤", summaryTitle: "총 누적 보상", calcBadge: "생존자 툴킷", calcTitle: "계산기 수트", calcSub: "프라이빗 서버를 위한 정확한 자원 계산 및 성장 플래너.", calcOpenBtn: "계산기 열기 ➔", calcFcTitle: "파이어 크리스탈 & 건물", calcFcDesc: "FC1 ~ FC10+ 성장, 도시 건물 (Lv 1-30), 용광로 요구사항 및 가속 계산.", calcChiefTitle: "영주 장비 & 보석", calcChiefDesc: "Red T6 (3★) 영주 장비 및 18레벨 영주 보석 계산기.", calcTroopTitle: "병사 & 가속", calcTroopDesc: "T1 ~ T12 Exalted 훈련 계산, 가속 아이템 전환기 및 SvS 점수.", calcHeroTitle: "영웅 장비 & 전용 장비", calcHeroDesc: "영웅 장비 강화 (Lv 0-100) 및 최대 15명 영웅의 전용 장비 계산.", calcPetTitle: "야수 성역", calcPetDesc: "15종 야수 (쉘드래곤 포함), 1-150 레벨 성장, 먹이 및 혈청 계산.", calcDawnTitle: "새벽의 전문가", calcDawnDesc: "11명의 전문가, 인장, 지식의 서 및 학습 가속 시간 계산.", codesBadge: "활성 코드", codesTitle: "무료 보상 수령하기", codesSub: "코드를 복사한 후 게임 내 프로필 > 설정 > 기프트 코드에서 입력하세요.", cardSub: "사용 가능한 보상 코드", btnCopy: "복사", supportBadge: "◉ 커뮤니티", supportTitle: "함께 생존하세요", supportDesc: "공지사항 확인, 연맹 찾기, 버그 제보 및 Selszzzz 팀의 실시간 지원을 받아보세요.", btnJoinSupport: "◉ 디스코드 참여", supportSubTopics: "공지사항 · 코드 · 이벤트 · 연맹", supportStatus: "커뮤니티 온라인", tabLogin: "로그인", tabRegister: "회원가입", lblUsername: "사용자 이름", lblPassword: "비밀번호", btnSubmitLogin: "게임 시작", btnSubmitRegister: "계정 생성" },
-      ja: { navServer: "サーバー", navRewards: "報酬", navRecharge: "チャージ", navCalc: "計算機", navCodes: "ギフトコード", navSupport: "サポート", dlRegBtn: "▶ ダウンロード", heroBadge: "⚡ ホワイトアウト・サバイバル プライベートサーバー", heroTitle1: "より速く生き残れ。", heroTitle2: "雪原を支配せよ。", heroDesc: "Selszzzプライベートサーバーで高速育成、豪華な daily 報酬、2日ごとの新Stateオープンを楽しもう。", btnDownload: "▶ ダウンロード / 登録", btnDiscord: "◉ DISCORD に参加", statCurrentState: "現在の STATE", statOnline: "オンライン人数", statInterval: "更新間隔", statIntervalVal: "48時間", rechargeBadge: "チャージショップ", rechargeTitle: "FROST STARS パック", rechargeNotice: "⭐ 重要：ベータテスト購入分の再付与について\nベータテスト期間中に購入されたすべての Frost Stars（25%のボーナス分を含む）は、WOS Europe の正式サービス開始時に再度アカウントへ付与されます！", btnBuy: "購入する", rewardsBadge: "ベータチャージ特典", rewardsTitle: "FROST STAR 累計チャージ報酬", rewardsSub: "ベータテスト期間中に各累計チャージ目標を達成し、対象の Frost Star 報酬を受け取りましょう。", msLabel: "チャージ目標", btnClaimMs: "目標報酬を獲得", summaryTag: "累計目標", summaryTitle: "累計獲得報酬合計", calcBadge: "サバイバーツールキット", calcTitle: "計算機 suite", calcSub: "プライベートサーバー用の正確な資源計算＆育成プランナー。", calcOpenBtn: "計算機を開く ➔", calcFcTitle: "火晶＆建築", calcFcDesc: "FC1〜FC10+育成、都市建築 (Lv 1-30)、大溶鉱炉の前提, 加速計算。", calcChiefTitle: "领主装備＆護符", calcChiefDesc: "Red T6 (3★) までの領主装備および Lv 18 までの領主護符計算機。", calcTroopTitle: "兵士＆加速", calcTroopDesc: "T1〜T12 Exalted 訓練計算、バッグ内加速変換、SvS ポイント計算。", calcHeroTitle: "英雄装備＆専属装備", calcHeroDesc: "英雄装備強化 (Lv 0-100) および最大15名の英雄の専属装備計算。", calcPetTitle: "野獣の聖域", calcPetDesc: "15種の野獣 (シェルドラゴン含む)、Lv 1-150育成、餌＆ชิรัม計算。", calcDawnTitle: "夜明けの専門家", calcDawnDesc: "11名の専門家、印章、知識の書、学習加速時間の計算。", codesBadge: "利用可能なコード", codesTitle: "無料報酬を受け取る", codesSub: "コードをコピーし、ゲーム内の profile > 設定 > ギフトコードから引き換えてください。", cardSub: "有効な特典コード", btnCopy: "コピー", supportBadge: "◉ コミュニティ", supportTitle: "共に生き残ろう", supportDesc: "お知らせ、同盟検索、バグ報告、Selszzzz サポートチームからの直接サポートを受けられます。", btnJoinSupport: "◉ DISCORD に参加", supportSubTopics: "お知らせ · コード · イベント · 同盟", supportStatus: "コミュニティ オンライン", tabLogin: "ログイン", tabRegister: "新規登録", lblUsername: "ユーザー名", lblPassword: "パスワード", btnSubmitLogin: "ゲームを始める", btnSubmitRegister: "アカウント作成" }
+        navServer: "Server", navRewards: "Hadiah", navRecharge: "Top Up", navCalc: "Kalkulator", navCodes: "Kode Hadiah", navSupport: "Dukungan", dlRegBtn: "▶ UNDUH",
+        heroBadge: "⚡ Server Privat Whiteout Survival", heroTitle1: "BERTAHAN LEBIH CEPAT.", heroTitle2: "KUASAI SALJU.", heroDesc: "Bergabunglah di server privat Selszzz Whiteout Survival untuk progres lebih cepat, klaim hadiah harian melimpah, dan State baru tiap 2 hari.",
+        btnDownload: "▶ UNDUH / DAFTAR", btnDiscord: "◉ GABUNG DISCORD", statCurrentState: "STATE SAAT INI", statOnline: "PEMAIN ONLINE", statInterval: "INTERVAL", statIntervalVal: "48 JAM",
+        rechargeBadge: "TOKO TOP UP", rechargeTitle: "PAKET FROST STARS", rechargeNotice: "⭐ PENTING: SEMUA PEMBELIAN BETA DIKREDITKAN KEMBALI!\nSemua Frost Stars yang dibeli selama masa beta test ini—termasuk total bonus ekstra 25%—akan dikreditkan ulang ke akun kamu saat versi resmi WOS Europe dirilis!",
+        btnBuy: "BELI SEKARANG", rewardsBadge: "HADIAH RECHARGE BETA", rewardsTitle: "AKUMULASI HADIAH FROST STAR", rewardsSub: "Capai tiap milestone akumulasi recharge selama beta untuk menerima hadiah Frost Star berikut.", msLabel: "MILESTONE RECHARGE", btnClaimMs: "KLAIM MILESTONE", summaryTag: "AKUMULASI MILESTONE", summaryTitle: "TOTAL HADIAH AKUMULATIF",
+        calcBadge: "ALAT BANTU SURVIVOR", calcTitle: "SUITE KALKULATOR", calcSub: "Perencanaan Survivor & Proyeksi Sumber Daya Akurat yang dibangun khusus untuk WOS EU Portal.", calcOpenBtn: "Buka Kalkulator ➔",
+        calcFcTitle: "Kristal Api & Bangunan", calcFcDesc: "Progresi FC1 hingga FC10+, Bangunan Kota (Lv 1-30), syarat Furnace, dan kalkulator speedup.",
+        calcChiefTitle: "Chief Gear & Charms", calcChiefDesc: "Endgame lengkap hingga Red T6 (3★) dan Chief Charms hingga Level 18 beserta sub-level & Jewel Secrets.",
+        calcTroopTitle: "Pasukan & Speedup", calcTroopDesc: "Pelatihan T1 hingga T12 Exalted, diferensial promosi, konverter tas speedup, dan poin SvS.",
+        calcHeroTitle: "Hero Widgets & Gear", calcHeroDesc: "Penguatan Hero Gear (Lv 0-100), Mastery Forging (1-20), dan Exclusive Widgets hingga 15 hero.",
+        calcPetTitle: "Suaka Binatang (Beast Sanctuary)", calcPetDesc: "15 Sanctuary Beasts (termasuk Shelldragon), progresi Lv 1-150, Makanan, Ramuan/Serum, dan Beast Marks.",
+        calcDawnTitle: "Pakar Fajar (Dawn Experts)", calcDawnDesc: "11 Experts (termasuk Gareth & Justus), Expert Sigils, Books of Knowledge, XP Afinitas, dan percepatan waktu.",
+        codesBadge: "KODE AKTIF", codesTitle: "KLAIM HADIAH GRATIS KAMU", codesSub: "Salin kode, buka profil di game dan tukarkan dari Pengaturan → Kode Hadiah.", cardSub: "Kode hadiah aktif", btnCopy: "SALIN",
+        supportBadge: "◉ KOMUNITAS", supportTitle: "TIDAK BERJUANG SENDIRIAN", supportDesc: "Bergabunglah untuk pengumuman, cari aliansi, laporkan bug, atau dapatkan bantuan langsung dari tim Selszzzz.", btnJoinSupport: "◉ GABUNG DISCORD", supportSubTopics: "Pengumuman · Kode · Event · Aliansi", supportStatus: "KOMUNITAS ONLINE",
+        tabLogin: "MASUK", tabRegister: "DAFTAR", lblUsername: "NAMA PENGGUNA", lblPassword: "KATA SANDI", btnSubmitLogin: "MASUK GAME", btnSubmitRegister: "BUAT AKUN BARU"
+      }
     };
 
     function setLanguage(lang) {
@@ -826,6 +869,8 @@
         card.onclick = () => {
           if (item.id === "fc") {
             document.getElementById('fcModal').classList.remove('hidden');
+          } else if (item.id === "chief") {
+            document.getElementById('chiefModal').classList.remove('hidden');
           } else {
             alert(`Kalkulator '${titleText}' sedang dalam tahap pengembangan akhir!`);
           }
@@ -883,42 +928,18 @@
       setTimeout(() => { toast.classList.add('hidden'); }, 2500);
     }
 
-    // ADVANCED SETTLEMENT & FIRE CRYSTAL PLANNER ENGINE DATA
-    let currentCalcMode = 'city'; // 'city' (1-30) or 'fc' (FC1-10)
+    // --- 1. SETTLEMENT & FC PLANNER ENGINE ---
+    let currentCalcMode = 'city';
     let currentBuildingType = 'furnace';
 
-    // Mock Database for City Growth (1-30) & FC Era (1-10)
     const baseBuildingData = {
       city: {
-        maxLvl: 30,
-        baseTimeSec: 86400 * 1.8,
-        meatBase: 25000000,
-        woodBase: 25000000,
-        coalBase: 6000000,
-        ironBase: 2500000,
-        prereqs: {
-          5: "Clinic 5",
-          10: "Embassy 10 + Marksman Camp 10",
-          15: "Troop Camp 15 + Sawmill 15",
-          20: "Infirmary 19 + Coal Mine 19",
-          25: "Command Center 24 + Troop Camp 24",
-          30: "Embassy 29 + Troop Camp 29 ➔ UNLOCKS FIRE CRYSTALS"
-        }
+        maxLvl: 30, baseTimeSec: 86400 * 1.8, meatBase: 25000000, woodBase: 25000000, coalBase: 6000000, ironBase: 2500000,
+        prereqs: { 5: "Clinic 5", 10: "Embassy 10 + Marksman Camp 10", 15: "Troop Camp 15 + Sawmill 15", 20: "Infirmary 19 + Coal Mine 19", 25: "Command Center 24 + Troop Camp 24", 30: "Embassy 29 + Troop Camp 29 ➔ UNLOCKS FIRE CRYSTALS" }
       },
       fc: {
-        maxLvl: 10,
-        baseTimeSec: 86400 * 4.5,
-        meatBase: 80000000,
-        woodBase: 80000000,
-        coalBase: 20000000,
-        ironBase: 9000000,
-        prereqs: {
-          1: "Furnace 30 + War Academy 1",
-          3: "Embassy FC 2 + Infantry Camp FC 2",
-          5: "Command Center FC 4 + War Academy 5",
-          8: "Troop Camps FC 7 + Infirmary FC 7",
-          10: "All Buildings FC 9 ➔ APEX ERA UNLOCKED"
-        }
+        maxLvl: 10, baseTimeSec: 86400 * 4.5, meatBase: 80000000, woodBase: 80000000, coalBase: 20000000, ironBase: 9000000,
+        prereqs: { 1: "Furnace 30 + War Academy 1", 3: "Embassy FC 2 + Infantry Camp FC 2", 5: "Command Center FC 4 + War Academy 5", 8: "Troop Camps FC 7 + Infirmary FC 7", 10: "All Buildings FC 9 ➔ APEX ERA UNLOCKED" }
       }
     };
 
@@ -929,19 +950,11 @@
       targetSel.innerHTML = '';
 
       if (currentCalcMode === 'city') {
-        for (let i = 1; i < 30; i++) {
-          startSel.innerHTML += `<option value="${i}">Level ${i}</option>`;
-        }
-        for (let i = 2; i <= 30; i++) {
-          targetSel.innerHTML += `<option value="${i}" ${i === 30 ? 'selected' : ''}>Level ${i}</option>`;
-        }
+        for (let i = 1; i < 30; i++) startSel.innerHTML += `<option value="${i}">Level ${i}</option>`;
+        for (let i = 2; i <= 30; i++) targetSel.innerHTML += `<option value="${i}" ${i === 30 ? 'selected' : ''}>Level ${i}</option>`;
       } else {
-        for (let i = 0; i < 10; i++) {
-          startSel.innerHTML += `<option value="${i}">FC ${i === 0 ? '0 (Lv 30)' : i}</option>`;
-        }
-        for (let i = 1; i <= 10; i++) {
-          targetSel.innerHTML += `<option value="${i}" ${i === 5 ? 'selected' : ''}>FC ${i}</option>`;
-        }
+        for (let i = 0; i < 10; i++) startSel.innerHTML += `<option value="${i}">FC ${i === 0 ? '0 (Lv 30)' : i}</option>`;
+        for (let i = 1; i <= 10; i++) targetSel.innerHTML += `<option value="${i}" ${i === 5 ? 'selected' : ''}>FC ${i}</option>`;
       }
     }
 
@@ -984,18 +997,12 @@
       if (currentBuildingType === 'research') bMultiplier = 0.75;
       if (currentBuildingType === 'all') bMultiplier = 3.5;
 
-      let totalSec = 0;
-      let totalMeat = 0;
-      let totalWood = 0;
-      let totalCoal = 0;
-      let totalIron = 0;
-
+      let totalSec = 0, totalMeat = 0, totalWood = 0, totalCoal = 0, totalIron = 0;
       let rowsHtml = '';
       const speedFactor = 1 / (1 + (speedBuffPercent / 100));
 
       for (let lvl = startLvl + 1; lvl <= targetLvl; lvl++) {
         const lvlRatio = Math.pow(lvl / modeDb.maxLvl, 2.3);
-
         const lvlRawSec = modeDb.baseTimeSec * lvlRatio * bMultiplier;
         const lvlBuffedSec = lvlRawSec * speedFactor;
 
@@ -1004,13 +1011,7 @@
         const lvlCoal = Math.round(modeDb.coalBase * lvlRatio * bMultiplier);
         const lvlIron = Math.round(modeDb.ironBase * lvlRatio * bMultiplier);
 
-        totalSec += lvlBuffedSec;
-        totalMeat += lvlMeat;
-        totalWood += lvlWood;
-        totalCoal += lvlCoal;
-        totalIron += lvlIron;
-
-        const gate = modeDb.prereqs[lvl] || "-";
+        totalSec += lvlBuffedSec; totalMeat += lvlMeat; totalWood += lvlWood; totalCoal += lvlCoal; totalIron += lvlIron;
 
         rowsHtml += `
           <tr class="hover:bg-white/5 transition">
@@ -1020,24 +1021,174 @@
             <td class="p-2.5 text-gray-300">${formatNumberShort(lvlWood)}</td>
             <td class="p-2.5 text-amber-300">${formatNumberShort(lvlCoal)}</td>
             <td class="p-2.5 text-frost-300">${formatNumberShort(lvlIron)}</td>
-            <td class="p-2.5 text-[11px] text-gray-400 italic">${gate}</td>
+            <td class="p-2.5 text-[11px] text-gray-400 italic">${modeDb.prereqs[lvl] || "-"}</td>
           </tr>
         `;
       }
 
-      // Update Top Summaries
       document.getElementById('resTime').innerText = formatTime(totalSec);
       document.getElementById('resMeat').innerText = formatNumberShort(totalMeat);
       document.getElementById('resWood').innerText = formatNumberShort(totalWood);
       document.getElementById('resCoal').innerText = formatNumberShort(totalCoal);
       document.getElementById('resIron').innerText = formatNumberShort(totalIron);
-
-      // Update Breakdown Table
       document.getElementById('breakdownTbody').innerHTML = rowsHtml;
+      document.getElementById('prereqGateText').innerText = modeDb.prereqs[targetLvl] || `Upgrading ${currentBuildingType.toUpperCase()} to Level ${targetLvl}`;
+    }
 
-      // Update Prerequisite Gate Text
-      const targetGate = modeDb.prereqs[targetLvl] || `Upgrading ${currentBuildingType.toUpperCase()} to Level ${targetLvl}`;
-      document.getElementById('prereqGateText').innerText = targetGate;
+    // --- 2. CHIEF GEAR & CHARMS ENGINE ---
+    let chiefTabMode = 'gear'; // 'gear' or 'charms'
+
+    const chiefGearLadder = [
+      { id: 1, name: "Green T1", plans: 0, polish: 0, hardener: 0, pwr: 25000 },
+      { id: 2, name: "Blue T2", plans: 80, polish: 3200, hardener: 0, pwr: 75000 },
+      { id: 3, name: "Purple T3", plans: 220, polish: 9500, hardener: 0, pwr: 210000 },
+      { id: 4, name: "Gold T4", plans: 450, polish: 21000, hardener: 0, pwr: 580000 },
+      { id: 5, name: "Red T5 (1★)", plans: 850, polish: 42000, hardener: 1200, pwr: 1450000 },
+      { id: 6, name: "Red T5 (2★)", plans: 1350, polish: 68000, hardener: 3400, pwr: 2900000 },
+      { id: 7, name: "Red T6 (1★)", plans: 2100, polish: 105000, hardener: 7800, pwr: 5400000 },
+      { id: 8, name: "Red T6 (2★)", plans: 3100, polish: 152000, hardener: 14500, pwr: 9200000 },
+      { id: 9, name: "Red T6 (3★ MAX)", plans: 4400, polish: 215000, hardener: 24000, pwr: 14800000 }
+    ];
+
+    const chiefCharmsLadder = Array.from({ length: 18 }, (_, i) => ({
+      lvl: i + 1,
+      guides: (i + 1) * 350,
+      jewelSec: Math.floor((i + 1) * 45),
+      pwr: (i + 1) * 480000
+    }));
+
+    function populateCharmsSelects() {
+      const startSel = document.getElementById('charmStartLvl');
+      const targetSel = document.getElementById('charmTargetLvl');
+      startSel.innerHTML = '<option value="0">Unarmed (Lv 0)</option>';
+      targetSel.innerHTML = '';
+
+      for (let i = 1; i <= 18; i++) {
+        startSel.innerHTML += `<option value="${i}">Charm Lv ${i}</option>`;
+        targetSel.innerHTML += `<option value="${i}" ${i === 18 ? 'selected' : ''}>Charm Lv ${i} ${i === 18 ? '(MAX)' : ''}</option>`;
+      }
+    }
+
+    function calculateChiefPlanner() {
+      if (chiefTabMode === 'gear') {
+        const start = parseInt(document.getElementById('cgStartTier').value);
+        const target = parseInt(document.getElementById('cgTargetTier').value);
+        const pieces = parseInt(document.getElementById('cgPieces').value);
+
+        if (target <= start) {
+          document.getElementById('mat1Val').innerText = "0";
+          document.getElementById('mat2Val').innerText = "0";
+          document.getElementById('mat3Val').innerText = "0";
+          document.getElementById('mat4Val').innerText = "+0";
+          document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500">Target Tier must be greater than Current Tier.</td></tr>`;
+          return;
+        }
+
+        let totalPlans = 0, totalPolish = 0, totalHardener = 0, totalPwr = 0;
+        let rowsHtml = '';
+
+        for (let i = start; i < target; i++) {
+          const stepData = chiefGearLadder[i];
+          const prevData = chiefGearLadder[i - 1] || { plans: 0, polish: 0, hardener: 0, pwr: 0 };
+
+          const stepPlans = (stepData.plans - prevData.plans) * pieces;
+          const stepPolish = (stepData.polish - prevData.polish) * pieces;
+          const stepHardener = (stepData.hardener - prevData.hardener) * pieces;
+          const stepPwr = (stepData.pwr - prevData.pwr) * pieces;
+
+          totalPlans += stepPlans;
+          totalPolish += stepPolish;
+          totalHardener += stepHardener;
+          totalPwr += stepPwr;
+
+          rowsHtml += `
+            <tr class="hover:bg-white/5 transition">
+              <td class="p-2.5 font-bold text-frost-300">${chiefGearLadder[i - 1].name} ➔ ${stepData.name}</td>
+              <td class="p-2.5 text-amber-300 font-bold">${stepPlans.toLocaleString()}</td>
+              <td class="p-2.5 text-frost-300">${stepPolish.toLocaleString()}</td>
+              <td class="p-2.5 text-emerald-300">${stepHardener.toLocaleString()}</td>
+              <td class="p-2.5 text-gray-300 font-bold">+${formatNumberShort(stepPwr)}</td>
+            </tr>
+          `;
+        }
+
+        document.getElementById('mat1Label').innerText = "DESIGN PLANS";
+        document.getElementById('mat2Label').innerText = "POLISHING SOLUTION";
+        document.getElementById('mat3Label').innerText = "ALLOY HARDENER";
+        document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
+
+        document.getElementById('mat1Val').innerText = totalPlans.toLocaleString();
+        document.getElementById('mat2Val').innerText = totalPolish.toLocaleString();
+        document.getElementById('mat3Val').innerText = totalHardener.toLocaleString();
+        document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
+
+        document.getElementById('chiefTableHead').innerHTML = `
+          <th class="p-2.5">TIER STEP</th>
+          <th class="p-2.5">DESIGN PLANS</th>
+          <th class="p-2.5">POLISHING SOL.</th>
+          <th class="p-2.5">HARDENER</th>
+          <th class="p-2.5">POWER BONUS</th>
+        `;
+        document.getElementById('chiefTbody').innerHTML = rowsHtml;
+
+      } else {
+        // CHARMS CALCULATOR MODE
+        const start = parseInt(document.getElementById('charmStartLvl').value);
+        const target = parseInt(document.getElementById('charmTargetLvl').value);
+        const slots = parseInt(document.getElementById('charmSlots').value);
+
+        if (target <= start) {
+          document.getElementById('mat1Val').innerText = "0";
+          document.getElementById('mat2Val').innerText = "0";
+          document.getElementById('mat3Val').innerText = "0";
+          document.getElementById('mat4Val').innerText = "+0";
+          document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500">Target Level must be greater than Current Level.</td></tr>`;
+          return;
+        }
+
+        let totalGuides = 0, totalJewels = 0, totalPwr = 0;
+        let rowsHtml = '';
+
+        for (let lvl = start + 1; lvl <= target; lvl++) {
+          const cData = chiefCharmsLadder[lvl - 1];
+          const stepGuides = cData.guides * slots;
+          const stepJewels = cData.jewelSec * slots;
+          const stepPwr = cData.pwr * slots;
+
+          totalGuides += stepGuides;
+          totalJewels += stepJewels;
+          totalPwr += stepPwr;
+
+          rowsHtml += `
+            <tr class="hover:bg-white/5 transition">
+              <td class="p-2.5 font-bold text-amber-400">Charm Level ${lvl}</td>
+              <td class="p-2.5 text-frost-300 font-bold">${stepGuides.toLocaleString()}</td>
+              <td class="p-2.5 text-emerald-300">${stepJewels.toLocaleString()}</td>
+              <td class="p-2.5 text-gray-400">-</td>
+              <td class="p-2.5 text-amber-300 font-bold">+${formatNumberShort(stepPwr)}</td>
+            </tr>
+          `;
+        }
+
+        document.getElementById('mat1Label').innerText = "CHARM GUIDES";
+        document.getElementById('mat2Label').innerText = "JEWEL SECRETS";
+        document.getElementById('mat3Label').innerText = "REQUIRED SLOTS";
+        document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
+
+        document.getElementById('mat1Val').innerText = totalGuides.toLocaleString();
+        document.getElementById('mat2Val').innerText = totalJewels.toLocaleString();
+        document.getElementById('mat3Val').innerText = `${slots} Slots`;
+        document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
+
+        document.getElementById('chiefTableHead').innerHTML = `
+          <th class="p-2.5">CHARM LEVEL</th>
+          <th class="p-2.5">CHARM GUIDES</th>
+          <th class="p-2.5">JEWEL SECRETS</th>
+          <th class="p-2.5">REAGENT</th>
+          <th class="p-2.5">POWER BONUS</th>
+        `;
+        document.getElementById('chiefTbody').innerHTML = rowsHtml;
+      }
     }
 
     // GOLD SPARKLE CONFETTI ANIMATION ENGINE
@@ -1053,46 +1204,20 @@
       });
 
       const particles = Array.from({ length: 65 }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: Math.random() * 4 + 1,
-        speedY: Math.random() * 1.5 + 0.5,
-        speedX: Math.random() * 1 - 0.5,
-        opacity: Math.random(),
-        spin: Math.random() * 360,
-        spinSpeed: Math.random() * 4 - 2
+        x: Math.random() * width, y: Math.random() * height,
+        size: Math.random() * 4 + 1, speedY: Math.random() * 1.5 + 0.5, speedX: Math.random() * 1 - 0.5,
+        opacity: Math.random(), spin: Math.random() * 360, spinSpeed: Math.random() * 4 - 2
       }));
 
       function animate() {
         ctx.clearRect(0, 0, width, height);
-
         particles.forEach(p => {
-          p.y += p.speedY;
-          p.x += p.speedX;
-          p.spin += p.spinSpeed;
-
-          if (p.y > height) {
-            p.y = -10;
-            p.x = Math.random() * width;
-          }
-
-          ctx.save();
-          ctx.translate(p.x, p.y);
-          ctx.rotate((p.spin * Math.PI) / 180);
-          ctx.fillStyle = `rgba(251, 191, 36, ${p.opacity})`;
-          ctx.shadowBlur = 8;
-          ctx.shadowColor = '#f59e0b';
-
-          ctx.beginPath();
-          ctx.moveTo(0, -p.size);
-          ctx.lineTo(p.size / 2, 0);
-          ctx.lineTo(0, p.size);
-          ctx.lineTo(-p.size / 2, 0);
-          ctx.closePath();
-          ctx.fill();
-          ctx.restore();
+          p.y += p.speedY; p.x += p.speedX; p.spin += p.spinSpeed;
+          if (p.y > height) { p.y = -10; p.x = Math.random() * width; }
+          ctx.save(); ctx.translate(p.x, p.y); ctx.rotate((p.spin * Math.PI) / 180);
+          ctx.fillStyle = `rgba(251, 191, 36, ${p.opacity})`; ctx.shadowBlur = 8; ctx.shadowColor = '#f59e0b';
+          ctx.beginPath(); ctx.moveTo(0, -p.size); ctx.lineTo(p.size / 2, 0); ctx.lineTo(0, p.size); ctx.lineTo(-p.size / 2, 0); ctx.closePath(); ctx.fill(); ctx.restore();
         });
-
         requestAnimationFrame(animate);
       }
       animate();
@@ -1103,14 +1228,11 @@
       setLanguage(savedLang);
       initSparkles();
 
-      document.getElementById('langSelector').addEventListener('change', (e) => {
-        setLanguage(e.target.value);
-      });
+      document.getElementById('langSelector').addEventListener('change', (e) => setLanguage(e.target.value));
 
-      // ADVANCED PLANNER EVENT LISTENERS
+      // 1. SETTLEMENT PLANNER LISTENERS
       const fcModal = document.getElementById('fcModal');
-      const closeFcBtn = document.getElementById('closeFcBtn');
-      closeFcBtn.addEventListener('click', () => fcModal.classList.add('hidden'));
+      document.getElementById('closeFcBtn').addEventListener('click', () => fcModal.classList.add('hidden'));
 
       const tabCityGrowth = document.getElementById('tabCityGrowth');
       const tabFcEra = document.getElementById('tabFcEra');
@@ -1119,42 +1241,31 @@
         currentCalcMode = 'city';
         tabCityGrowth.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
         tabFcEra.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
-        populateSelectOptions();
-        calculateAdvancedPlanner();
+        populateSelectOptions(); calculateAdvancedPlanner();
       });
 
       tabFcEra.addEventListener('click', () => {
         currentCalcMode = 'fc';
         tabFcEra.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
         tabCityGrowth.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
-        populateSelectOptions();
-        calculateAdvancedPlanner();
+        populateSelectOptions(); calculateAdvancedPlanner();
       });
 
-      // BUILDING SELECTOR BUTTONS
       const btypeBtns = document.querySelectorAll('.btype-btn');
       btypeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          btypeBtns.forEach(b => {
-            b.className = "btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition cursor-pointer";
-          });
+          btypeBtns.forEach(b => b.className = "btype-btn bg-darkbg border border-white/10 hover:border-frost-400 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition cursor-pointer");
           btn.className = "btype-btn bg-amber-500/20 border-2 border-amber-400 text-amber-300 p-2.5 rounded-xl text-xs font-bold flex flex-col items-center gap-1 transition cursor-pointer shadow-lg shadow-amber-500/10";
-          currentBuildingType = btn.getAttribute('data-btype');
-          calculateAdvancedPlanner();
+          currentBuildingType = btn.getAttribute('data-btype'); calculateAdvancedPlanner();
         });
       });
 
-      // QUICK JUMP PRESET BUTTONS
       const quickBtns = document.querySelectorAll('.quick-btn');
       quickBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          const qstart = btn.getAttribute('data-qstart');
-          const qtarget = btn.getAttribute('data-qtarget');
-          if (currentCalcMode !== 'city') {
-            tabCityGrowth.click();
-          }
-          document.getElementById('calcStartLvl').value = qstart;
-          document.getElementById('calcTargetLvl').value = qtarget;
+          if (currentCalcMode !== 'city') tabCityGrowth.click();
+          document.getElementById('calcStartLvl').value = btn.getAttribute('data-qstart');
+          document.getElementById('calcTargetLvl').value = btn.getAttribute('data-qtarget');
           calculateAdvancedPlanner();
         });
       });
@@ -1164,8 +1275,43 @@
         document.getElementById(id).addEventListener('change', calculateAdvancedPlanner);
       });
 
-      populateSelectOptions();
-      calculateAdvancedPlanner();
+      populateSelectOptions(); calculateAdvancedPlanner();
+
+      // 2. CHIEF GEAR & CHARMS PLANNER LISTENERS
+      const chiefModal = document.getElementById('chiefModal');
+      document.getElementById('closeChiefBtn').addEventListener('click', () => chiefModal.classList.add('hidden'));
+
+      const tabChiefGear = document.getElementById('tabChiefGear');
+      const tabChiefCharms = document.getElementById('tabChiefCharms');
+      const chiefGearInputs = document.getElementById('chiefGearInputs');
+      const chiefCharmsInputs = document.getElementById('chiefCharmsInputs');
+      const chiefParamTitle = document.getElementById('chiefParamTitle');
+
+      tabChiefGear.addEventListener('click', () => {
+        chiefTabMode = 'gear';
+        tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
+        tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
+        chiefGearInputs.classList.remove('hidden');
+        chiefCharmsInputs.classList.add('hidden');
+        chiefParamTitle.innerText = "CHIEF GEAR UPGRADE TARGET";
+        calculateChiefPlanner();
+      });
+
+      tabChiefCharms.addEventListener('click', () => {
+        chiefTabMode = 'charms';
+        tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer flex items-center justify-center gap-2";
+        tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer flex items-center justify-center gap-2";
+        chiefCharmsInputs.classList.remove('hidden');
+        chiefGearInputs.classList.add('hidden');
+        chiefParamTitle.innerText = "CHIEF CHARMS UPGRADE TARGET";
+        calculateChiefPlanner();
+      });
+
+      ['cgStartTier', 'cgTargetTier', 'cgPieces', 'charmStartLvl', 'charmTargetLvl', 'charmSlots'].forEach(id => {
+        document.getElementById(id).addEventListener('change', calculateChiefPlanner);
+      });
+
+      populateCharmsSelects(); calculateChiefPlanner();
 
       // AUTH MODAL LISTENERS
       const authModal = document.getElementById('authModal');
@@ -1183,15 +1329,13 @@
       tabLogin.addEventListener('click', () => {
         tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-amber-400 text-amber-400 cursor-pointer";
         tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
-        formLogin.classList.remove('hidden');
-        formRegister.classList.add('hidden');
+        formLogin.classList.remove('hidden'); formRegister.classList.add('hidden');
       });
 
       tabRegister.addEventListener('click', () => {
         tabRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-emerald-400 text-emerald-400 cursor-pointer";
         tabLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-gray-400 hover:text-white cursor-pointer";
-        formRegister.classList.remove('hidden');
-        formLogin.classList.add('hidden');
+        formRegister.classList.remove('hidden'); formLogin.classList.add('hidden');
       });
 
       function showMsg(text, isError = false) {
@@ -1206,47 +1350,21 @@
         e.preventDefault();
         const rawUsername = document.getElementById('regUsername').value;
         const password = document.getElementById('regPassword').value;
-
-        if (!/^[a-z0-9._-]{3,30}$/i.test(rawUsername)) {
-          showMsg("Username 3-30 karakter.", true);
-          return;
-        }
-
-        const email = formatEmail(rawUsername);
-        showMsg("Registering...");
-
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { data: { username: rawUsername } }
-        });
-
-        if (error) {
-          showMsg(error.message, true);
-        } else {
-          showMsg(`Registrasi '${rawUsername}' berhasil! Silakan Login.`);
-        }
+        if (!/^[a-z0-9._-]{3,30}$/i.test(rawUsername)) { showMsg("Username 3-30 karakter.", true); return; }
+        const email = formatEmail(rawUsername); showMsg("Registering...");
+        const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { username: rawUsername } } });
+        if (error) showMsg(error.message, true);
+        else showMsg(`Registrasi '${rawUsername}' berhasil! Silakan Login.`);
       });
 
       formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
         const rawUsername = document.getElementById('loginUsername').value;
         const password = document.getElementById('loginPassword').value;
-
-        const email = formatEmail(rawUsername);
-        showMsg("Authenticating...");
-
+        const email = formatEmail(rawUsername); showMsg("Authenticating...");
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-
-        if (error) {
-          showMsg("Username / Password salah.", true);
-        } else {
-          showMsg("Login sukses!");
-          setTimeout(() => {
-            authModal.classList.add('hidden');
-            checkUserSession();
-          }, 1000);
-        }
+        if (error) showMsg("Username / Password salah.", true);
+        else { showMsg("Login sukses!"); setTimeout(() => { authModal.classList.add('hidden'); checkUserSession(); }, 1000); }
       });
 
       async function checkUserSession() {
@@ -1255,10 +1373,7 @@
           const displayUsername = session.user.user_metadata?.username || session.user.email.split('@')[0];
           authModalBtn.innerText = `PLAYER (${displayUsername.toUpperCase()})`;
           authModalBtn.onclick = async () => {
-            if (confirm("Logout dari akun?")) {
-              await supabase.auth.signOut();
-              window.location.reload();
-            }
+            if (confirm("Logout dari akun?")) { await supabase.auth.signOut(); window.location.reload(); }
           };
         }
       }
