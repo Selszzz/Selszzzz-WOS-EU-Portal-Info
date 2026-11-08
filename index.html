@@ -203,7 +203,7 @@
         CALCULATOR SUITE
       </h2>
       <p class="text-gray-400 text-sm sm:text-base" data-i18n="calcSub">
-        Accurate Survivor Planners & Resource Projections for Whiteout Survival Private Server.
+        Accurate Survivor Planners & Resource Projections built natively for WOS EU Portal.
       </p>
     </div>
 
@@ -276,6 +276,86 @@
     </div>
   </section>
 
+  <!-- FIRE CRYSTALS CALCULATOR MODAL -->
+  <div id="fcModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4 overflow-y-auto">
+    <div class="bg-darkcard border border-amber-500/40 rounded-3xl p-6 sm:p-8 w-full max-w-2xl shadow-2xl relative my-8">
+      <button id="closeFcBtn" type="button" class="absolute top-5 right-5 text-gray-400 hover:text-white font-bold text-xl cursor-pointer">✕</button>
+
+      <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+        <span class="text-3xl">🔥</span>
+        <div>
+          <h3 class="text-2xl font-extrabold font-heading text-white">FIRE CRYSTALS CALCULATOR</h3>
+          <p class="text-xs text-amber-400 font-semibold">Native WOS EU Calculator Tool</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1.5 uppercase">Starting Furnace Level</label>
+          <select id="fcStart" class="w-full bg-darkbg border border-frost-500/30 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400">
+            <option value="30">Furnace Lv 30 (FC 0)</option>
+            <option value="31">FC 1</option>
+            <option value="32">FC 2</option>
+            <option value="33">FC 3</option>
+            <option value="34">FC 4</option>
+            <option value="35">FC 5</option>
+            <option value="36">FC 6</option>
+            <option value="37">FC 7</option>
+            <option value="38">FC 8</option>
+            <option value="39">FC 9</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1.5 uppercase">Target Furnace Level</label>
+          <select id="fcTarget" class="w-full bg-darkbg border border-amber-500/40 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400">
+            <option value="31">FC 1</option>
+            <option value="32">FC 2</option>
+            <option value="33">FC 3</option>
+            <option value="34">FC 4</option>
+            <option value="35" selected>FC 5</option>
+            <option value="36">FC 6</option>
+            <option value="37">FC 7</option>
+            <option value="38">FC 8</option>
+            <option value="39">FC 9</option>
+            <option value="40">FC 10</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-6 bg-darkbg/80 border border-white/10 p-4 rounded-2xl space-y-3">
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider">Include Sub-Buildings</div>
+        <div class="grid grid-cols-2 gap-3 text-xs text-gray-300 font-semibold">
+          <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="incCamps" checked class="accent-amber-500"> 3x Troop Camps</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="incEmbassy" checked class="accent-amber-500"> Embassy</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="incCommand" checked class="accent-amber-500"> Command Center</label>
+          <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="incInfirmary" checked class="accent-amber-500"> Infirmary</label>
+        </div>
+      </div>
+
+      <!-- RESULTS BOX -->
+      <div class="bg-gradient-to-r from-amber-950/40 via-darkbg to-amber-950/40 border border-amber-500/40 p-5 rounded-2xl text-center space-y-4">
+        <div>
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">TOTAL FIRE CRYSTALS NEEDED</span>
+          <div id="fcTotalRes" class="text-4xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500">
+            3,450
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 border-t border-white/10 pt-3 text-xs">
+          <div>
+            <span class="text-gray-400 block">Normal Fire Crystals</span>
+            <span id="fcNormalRes" class="font-bold text-white text-base">3,450</span>
+          </div>
+          <div>
+            <span class="text-gray-400 block">Refined Fire Crystals</span>
+            <span id="fcRefinedRes" class="font-bold text-frost-400 text-base">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION -->
   <div id="copyToast" class="fixed bottom-6 right-6 z-50 hidden bg-amber-600 text-white font-bold px-5 py-3 rounded-xl shadow-2xl border border-amber-400 flex items-center gap-3 transition">
     <span>📋</span>
@@ -328,49 +408,49 @@
 
     const STRIPE_LINK = "https://buy.stripe.com/3cI4gAeaJbL1aRt5kS24000";
 
-    // CALCULATORS LIST DATA
+    // NATIVE CALCULATORS LIST DATA
     const calculatorsData = [
       {
         id: "fc",
         icon: "🔥",
         titleKey: "calcFcTitle",
         descKey: "calcFcDesc",
-        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-fire-crystals.html"
+        status: "ready"
       },
       {
         id: "chief",
         icon: "🛡️",
         titleKey: "calcChiefTitle",
         descKey: "calcChiefDesc",
-        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-chief-gear.html"
+        status: "coming"
       },
       {
         id: "troops",
         icon: "🏹",
         titleKey: "calcTroopTitle",
         descKey: "calcTroopDesc",
-        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-troops.html"
+        status: "coming"
       },
       {
         id: "hero",
         icon: "⚔️",
         titleKey: "calcHeroTitle",
         descKey: "calcHeroDesc",
-        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-hero-gear.html"
+        status: "coming"
       },
       {
         id: "pets",
         icon: "🐾",
         titleKey: "calcPetTitle",
         descKey: "calcPetDesc",
-        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-pets.html"
+        status: "coming"
       },
       {
         id: "dawn",
         icon: "📜",
         titleKey: "calcDawnTitle",
         descKey: "calcDawnDesc",
-        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-dawn-academy.html"
+        status: "coming"
       }
     ];
 
@@ -447,7 +527,7 @@
         summaryTitle: "TOTAL CUMULATIVE REWARDS",
         calcBadge: "SURVIVOR TOOLKIT",
         calcTitle: "CALCULATOR SUITE",
-        calcSub: "Accurate Survivor Planners & Resource Projections for Whiteout Survival Private Server.",
+        calcSub: "Accurate Survivor Planners & Resource Projections built natively for WOS EU Portal.",
         calcOpenBtn: "Open Calculator ➔",
         calcFcTitle: "Fire Crystals",
         calcFcDesc: "FC1 to FC10+ progression, War Academy, Furnace prerequisites, sub-nodes, and settlement bundles.",
@@ -510,7 +590,7 @@
         summaryTitle: "TOTAL HADIAH AKUMULATIF",
         calcBadge: "ALAT BANTU SURVIVOR",
         calcTitle: "SUITE KALKULATOR",
-        calcSub: "Perencanaan Survivor & Proyeksi Sumber Daya Akurat untuk Private Server.",
+        calcSub: "Perencanaan Survivor & Proyeksi Sumber Daya Akurat yang dibangun khusus untuk WOS EU Portal.",
         calcOpenBtn: "Buka Kalkulator ➔",
         calcFcTitle: "Kristal Api (Fire Crystals)",
         calcFcDesc: "Progresi FC1 hingga FC10+, War Academy, syarat Furnace, sub-node, dan paket settlement.",
@@ -1022,7 +1102,7 @@
       });
     }
 
-    // RENDER CALCULATOR CARDS
+    // RENDER CALCULATOR CARDS (NATIVE MODALS)
     function renderCalculators(lang = 'en') {
       const grid = document.getElementById('calcGrid');
       grid.innerHTML = '';
@@ -1032,19 +1112,27 @@
         const titleText = translations[lang]?.[item.titleKey] || "Calculator";
         const descText = translations[lang]?.[item.descKey] || "";
 
-        const card = document.createElement('a');
-        card.href = item.link;
-        card.target = "_blank";
+        const isReady = item.status === "ready";
+        const statusBadge = isReady
+          ? `<span class="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Active</span>`
+          : `<span class="inline-flex items-center gap-1.5 bg-gray-500/10 text-gray-400 border border-white/10 px-2.5 py-1 rounded-full text-[10px] font-bold">In Dev</span>`;
+
+        const card = document.createElement('div');
         card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-frost-400 p-6 rounded-2xl transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between group cursor-pointer";
+        
+        card.onclick = () => {
+          if (item.id === "fc") {
+            document.getElementById('fcModal').classList.remove('hidden');
+          } else {
+            alert(`Kalkulator '${titleText}' sedang dalam tahap pengembangan akhir!`);
+          }
+        };
 
         card.innerHTML = `
           <div>
             <div class="flex justify-between items-center mb-4">
               <span class="text-3xl">${item.icon}</span>
-              <span class="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full text-[10px] font-bold">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span>Ready</span>
-              </span>
+              ${statusBadge}
             </div>
             <h3 class="text-xl font-bold font-heading text-white mb-2 group-hover:text-frost-300 transition">${titleText}</h3>
             <p class="text-gray-400 text-xs leading-relaxed mb-6">${descText}</p>
@@ -1090,6 +1178,57 @@
       toastMsg.innerText = `Code '${code}' copied!`;
       toast.classList.remove('hidden');
       setTimeout(() => { toast.classList.add('hidden'); }, 2500);
+    }
+
+    // FIRE CRYSTALS CALCULATOR LOGIC ENGINE
+    const fcCostsPerLevel = {
+      31: { fc: 600, refined: 0 },
+      32: { fc: 750, refined: 0 },
+      33: { fc: 900, refined: 0 },
+      34: { fc: 1050, refined: 0 },
+      35: { fc: 1200, refined: 0 },
+      36: { fc: 1500, refined: 100 },
+      37: { fc: 1800, refined: 150 },
+      38: { fc: 2200, refined: 200 },
+      39: { fc: 2600, refined: 250 },
+      40: { fc: 3100, refined: 300 }
+    };
+
+    function calculateFC() {
+      const start = parseInt(document.getElementById('fcStart').value);
+      const target = parseInt(document.getElementById('fcTarget').value);
+      
+      const incCamps = document.getElementById('incCamps').checked;
+      const incEmbassy = document.getElementById('incEmbassy').checked;
+      const incCommand = document.getElementById('incCommand').checked;
+      const incInfirmary = document.getElementById('incInfirmary').checked;
+
+      if (target <= start) {
+        document.getElementById('fcTotalRes').innerText = "0";
+        document.getElementById('fcNormalRes').innerText = "0";
+        document.getElementById('fcRefinedRes').innerText = "0";
+        return;
+      }
+
+      let totalFc = 0;
+      let totalRefined = 0;
+
+      for (let lvl = start + 1; lvl <= target; lvl++) {
+        const data = fcCostsPerLevel[lvl] || { fc: 500, refined: 0 };
+        let multiplier = 1.0; // Base Furnace
+
+        if (incCamps) multiplier += 0.45; // 3x camps
+        if (incEmbassy) multiplier += 0.15;
+        if (incCommand) multiplier += 0.15;
+        if (incInfirmary) multiplier += 0.15;
+
+        totalFc += Math.round(data.fc * multiplier);
+        totalRefined += Math.round(data.refined * multiplier);
+      }
+
+      document.getElementById('fcTotalRes').innerText = (totalFc + totalRefined).toLocaleString();
+      document.getElementById('fcNormalRes').innerText = totalFc.toLocaleString();
+      document.getElementById('fcRefinedRes').innerText = totalRefined.toLocaleString();
     }
 
     // GOLD SPARKLE CONFETTI ANIMATION ENGINE
@@ -1158,6 +1297,16 @@
       document.getElementById('langSelector').addEventListener('change', (e) => {
         setLanguage(e.target.value);
       });
+
+      // FC MODAL EVENT LISTENERS
+      const fcModal = document.getElementById('fcModal');
+      const closeFcBtn = document.getElementById('closeFcBtn');
+      closeFcBtn.addEventListener('click', () => fcModal.classList.add('hidden'));
+
+      ['fcStart', 'fcTarget', 'incCamps', 'incEmbassy', 'incCommand', 'incInfirmary'].forEach(id => {
+        document.getElementById(id).addEventListener('change', calculateFC);
+      });
+      calculateFC();
 
       // AUTH MODAL LISTENERS
       const authModal = document.getElementById('authModal');
