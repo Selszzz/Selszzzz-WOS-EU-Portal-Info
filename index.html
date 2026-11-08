@@ -324,46 +324,57 @@
         <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
           <div>
             <span class="text-frost-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">CHIEF GEAR & CHARMS PLANNER</h3>
-            <p class="text-xs text-gray-400">Endgame Ladder up to Red T6 (3★) · Chief Charms (Lv 1-18)</p>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">CHIEF GEAR & CHARMS</h3>
+            <p class="text-xs text-gray-400">Lunar Amber · Hardened Alloy · Polishing Solutions · Design Plans & Charms</p>
           </div>
           <button id="closeChiefBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
         <div class="flex bg-darkbg p-1.5 rounded-2xl border border-white/10 mb-5">
-          <button id="tabChiefGear" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer">🛡️ Chief Gear Tier Ladder (T1 ➔ Red T6)</button>
-          <button id="tabChiefCharms" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer">💎 Chief Charms (Level 1-18)</button>
+          <button id="tabChiefGear" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer">🛡️ Chief Gear (Up to Red T6 3★)</button>
+          <button id="tabChiefCharms" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer">🔮 Chief Charms (18 Sockets / Lv 1-18)</button>
         </div>
 
         <div class="mb-5">
-          <label class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2" id="chiefParamTitle">CHIEF GEAR UPGRADE TARGET</label>
-          <div id="chiefGearInputs" class="grid sm:grid-cols-3 gap-3">
-            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT TIER</label><select id="cgStartTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">Green T1</option><option value="2">Blue T2</option><option value="3">Purple T3</option><option value="4">Gold T4</option><option value="5">Red T5 (1★)</option><option value="6">Red T5 (2★)</option><option value="7">Red T6 (1★)</option><option value="8">Red T6 (2★)</option></select></div>
-            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET TIER</label><select id="cgTargetTier" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="2">Blue T2</option><option value="3">Purple T3</option><option value="4">Gold T4</option><option value="5">Red T5 (1★)</option><option value="6">Red T5 (2★)</option><option value="7">Red T6 (1★)</option><option value="8">Red T6 (2★)</option><option value="9" selected>Red T6 (3★ MAX)</option></select></div>
-            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">EQUIPPED PIECES</label><select id="cgPieces" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">1 Piece</option><option value="2">2 Pieces</option><option value="4">4 Pieces</option><option value="6" selected>Full Set (6 Pieces)</option></select></div>
+          <label class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">1. CHIEF GEAR SCOPE & TARGET QUALITY</label>
+          <div id="chiefGearInputs" class="grid sm:grid-cols-3 gap-3 mb-3">
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">GEAR SLOTS</label><select id="cgPieces" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="6" selected>6 Pieces (Full Chief Set)</option><option value="4">4 Pieces</option><option value="2">2 Pieces</option><option value="1">1 Piece</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT QUALITY TIER</label><select id="cgStartTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="0">Level 0 (Uncrafted)</option><option value="1">Green (Rare T1)</option><option value="2">Green T2</option><option value="3">Blue (Epic T1)</option><option value="4">Blue T2</option><option value="5">Purple (Mythic T1)</option><option value="6">Purple T2</option><option value="7">Gold (Dominator T1)</option><option value="8">Gold T2</option><option value="9">Gold T3</option><option value="10">Red T1 (Lunar T1)</option><option value="11">Red T2</option><option value="12">Red T3</option><option value="13">Red T4</option><option value="14">Red T5</option><option value="15">Red T6 (1★)</option><option value="16">Red T6 (2★)</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET QUALITY TIER</label><select id="cgTargetTier" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="17" selected>Red T6 (3★ Max)</option><option value="16">Red T6 (2★)</option><option value="15">Red T6 (1★)</option><option value="14">Red T5</option><option value="10">Red T1 (Lunar T1)</option><option value="7">Gold (Dominator T1)</option><option value="5">Purple (Mythic T1)</option></select></div>
           </div>
+
+          <div id="quickJumpsGear" class="flex flex-wrap gap-2 items-center">
+            <span class="text-[11px] text-gray-400 font-bold uppercase mr-1">Quick Jump:</span>
+            <button class="qj-btn bg-darkbg hover:bg-white/10 border border-white/10 text-xs px-2.5 py-1 rounded-lg text-gray-300" data-s="0" data-t="5">Base ➔ Purple (Mythic)</button>
+            <button class="qj-btn bg-darkbg hover:bg-white/10 border border-white/10 text-xs px-2.5 py-1 rounded-lg text-gray-300" data-s="5" data-t="9">Purple ➔ Gold T3 (Dominator)</button>
+            <button class="qj-btn bg-darkbg hover:bg-white/10 border border-white/10 text-xs px-2.5 py-1 rounded-lg text-gray-300" data-s="9" data-t="14">Gold T3 ➔ Red T5 (Lunar Era)</button>
+            <button class="qj-btn bg-darkbg hover:bg-white/10 border border-white/10 text-xs px-2.5 py-1 rounded-lg text-gray-300" data-s="14" data-t="17">Red T5 ➔ Red T6 (3★ Max)</button>
+            <button class="qj-btn bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs px-2.5 py-1 rounded-lg font-bold" data-s="0" data-t="17">Complete Journey (0 ➔ Red T6 3★)</button>
+          </div>
+
           <div id="chiefCharmsInputs" class="grid sm:grid-cols-3 gap-3 hidden">
             <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT LEVEL</label><select id="charmStartLvl" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></select></div>
             <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET LEVEL</label><select id="charmTargetLvl" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"></select></div>
-            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">SLOTS</label><select id="charmSlots" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">1 Slot</option><option value="3">3 Slots</option><option value="6" selected>All 6 Slots</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">SOCKETS</label><select id="charmSlots" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="18" selected>18 Sockets (Full Set)</option><option value="6">6 Sockets</option><option value="1">1 Socket</option></select></div>
           </div>
         </div>
 
         <div class="mb-5">
-          <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TOTAL CHIEF MATERIALS REQUIRED</span>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat1Label">DESIGN PLANS</span><span id="mat1Val" class="text-xl font-extrabold text-amber-400">4,200</span></div>
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat2Label">POLISHING SOLUTION</span><span id="mat2Val" class="text-xl font-extrabold text-frost-300">185,000</span></div>
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat3Label">ALLOY HARDENER</span><span id="mat3Val" class="text-xl font-extrabold text-emerald-400">26,400</span></div>
-            <div class="bg-darkbg/90 border border-white/10 p-3.5 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat4Label">POWER GAIN</span><span id="mat4Val" class="text-xl font-extrabold text-white">+14.2M</span></div>
+          <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TOTAL CHIEF GEAR REQUIREMENTS</span>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat1Label">LUNAR AMBER</span><span id="mat1Val" class="text-lg font-extrabold text-amber-400">4.140</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat2Label">HARDENED ALLOY</span><span id="mat2Val" class="text-lg font-extrabold text-white">969.540</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat3Label">POLISHING SOLUTION</span><span id="mat3Val" class="text-lg font-extrabold text-frost-300">117.810</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase" id="mat4Label">DESIGN PLANS</span><span id="mat4Val" class="text-lg font-extrabold text-purple-300">21.690</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">PIECES COUNT</span><span id="mat5Val" class="text-lg font-extrabold text-emerald-400">6x</span></div>
           </div>
         </div>
       </div>
 
       <div class="flex-1 overflow-hidden flex flex-col">
-        <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TIER / LEVEL BREAKDOWN SCHEDULE</span>
+        <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TIER-BY-TIER MATERIALS BREAKDOWN</span>
         <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56">
-          <table class="w-full text-left text-xs text-gray-300"><thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase sticky top-0"><tr id="chiefTableHead"><th class="p-2.5">TIER STEP</th><th class="p-2.5">DESIGN PLANS</th><th class="p-2.5">POLISHING SOL.</th><th class="p-2.5">HARDENER</th><th class="p-2.5">POWER BONUS</th></tr></thead><tbody id="chiefTbody" class="divide-y divide-white/5 font-mono"></tbody></table>
+          <table class="w-full text-left text-xs text-gray-300"><thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase sticky top-0"><tr id="chiefTableHead"><th class="p-2.5">TIER STAGE</th><th class="p-2.5">LUNAR AMBER</th><th class="p-2.5">HARDENED ALLOY</th><th class="p-2.5">POLISHING SOLUTION</th><th class="p-2.5">DESIGN PLANS</th><th class="p-2.5">MILESTONE PERK</th></tr></thead><tbody id="chiefTbody" class="divide-y divide-white/5 font-mono"></tbody></table>
         </div>
       </div>
     </div>
@@ -376,55 +387,117 @@
         <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
           <div>
             <span class="text-emerald-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">TROOPS & SPEEDUPS PLANNER</h3>
-            <p class="text-xs text-gray-400">T1 to T12 Exalted Training · Promotion Differential · SvS Points Engine</p>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">TROOPS & SPEEDUP PLANNER</h3>
+            <p class="text-xs text-gray-400">T1 to T12 Exalted Recruits · Promotion Engine · SvS Point Projections</p>
           </div>
           <button id="closeTroopsBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
-        <div class="grid sm:grid-cols-3 gap-3 mb-5">
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET TROOP TIER</label><select id="trTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="10">T10 (Master)</option><option value="11">T11 (Exalted 1)</option><option value="12" selected>T12 (Exalted 2)</option></select></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">AMOUNT OF TROOPS</label><input type="number" id="trCount" value="50000" step="5000" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TRAINING SPEED BUFF (%)</label><input type="number" id="trBuff" value="120" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-emerald-400 tracking-wider uppercase mb-2">1. TRAINING MODE</label>
+          <div class="flex bg-darkbg p-1.5 rounded-2xl border border-white/10">
+            <button id="trModeFresh" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-purple-600 text-white shadow-md cursor-pointer">⚔️ Fresh Training (Scratch)</button>
+            <button id="trModePromo" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer">🏅 Promotion (Upgrade Lower Tier)</button>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-emerald-400 tracking-wider uppercase mb-2">2. TROOP TIER & COUNT</label>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET TROOP TIER</label><select id="trTier" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">Tier 1</option><option value="2">Tier 2</option><option value="3">Tier 3</option><option value="4">Tier 4</option><option value="5">Tier 5</option><option value="6">Tier 6</option><option value="7">Tier 7</option><option value="8">Tier 8</option><option value="9">Tier 9</option><option value="10">Tier 10</option><option value="11">T11 (Helios FC)</option><option value="12" selected>T12 (Exalted)</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">NUMBER OF TROOPS</label><input type="number" id="trCount" value="10000" step="1000" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TOTAL TRAINING SPEED (%)</label><input type="number" id="trBuff" value="120" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-emerald-400 tracking-wider uppercase mb-2">3. BAG SPEEDUPS INVENTORY (OPTIONAL)</label>
+          <div class="grid grid-cols-4 gap-2">
+            <div><label class="block text-[10px] text-gray-400 text-center font-bold mb-1">1-Hour</label><input type="number" id="sp1h" value="0" class="w-full bg-darkbg border border-white/10 rounded-xl px-2 py-1.5 text-white text-xs text-center"></div>
+            <div><label class="block text-[10px] text-gray-400 text-center font-bold mb-1">3-Hour</label><input type="number" id="sp3h" value="0" class="w-full bg-darkbg border border-white/10 rounded-xl px-2 py-1.5 text-white text-xs text-center"></div>
+            <div><label class="block text-[10px] text-gray-400 text-center font-bold mb-1">8-Hour</label><input type="number" id="sp8h" value="0" class="w-full bg-darkbg border border-white/10 rounded-xl px-2 py-1.5 text-white text-xs text-center"></div>
+            <div><label class="block text-[10px] text-gray-400 text-center font-bold mb-1">24-Hour</label><input type="number" id="sp24h" value="0" class="w-full bg-darkbg border border-white/10 rounded-xl px-2 py-1.5 text-white text-xs text-center"></div>
+          </div>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">SPEEDUPS NEEDED</span><span id="trSpeedup" class="text-lg font-extrabold text-emerald-400">14d 8h</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">MEAT/WOOD</span><span id="trRes" class="text-lg font-extrabold text-amber-400">12.5M</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">SVS POINTS</span><span id="trSvs" class="text-lg font-extrabold text-frost-300">2,500,000</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">POWER ADDED</span><span id="trPwr" class="text-lg font-extrabold text-white">+1,800,000</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">TOTAL SVS POINTS</span><span id="trSvs" class="text-lg font-extrabold text-purple-300">500.000</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">TOTAL MEAT</span><span id="trMeat" class="text-lg font-extrabold text-amber-400">22.50M</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">TOTAL WOOD</span><span id="trWood" class="text-lg font-extrabold text-white">22.50M</span></div>
+          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">TOTAL IRON</span><span id="trIron" class="text-lg font-extrabold text-frost-300">8.20M</span></div>
         </div>
       </div>
-      <div class="text-xs text-gray-400 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl">⚡ <strong>PROMOTIONAL TIP:</strong> Upgrading T10 to T12 Exalted costs 60% less speedup time than training fresh T12 troops!</div>
+
+      <div class="border border-white/10 rounded-xl overflow-hidden bg-darkbg/60">
+        <table class="w-full text-left text-xs text-gray-300">
+          <thead class="bg-darkbg text-[10px] font-bold text-gray-400 uppercase">
+            <tr><th class="p-2.5">METRIC / STATUS</th><th class="p-2.5">VALUE / STATUS</th><th class="p-2.5">NOTES</th></tr>
+          </thead>
+          <tbody class="divide-y divide-white/5 font-mono">
+            <tr><td class="p-2.5 font-bold text-white">Speedup Coverage</td><td id="resCoverage" class="p-2.5 text-rose-400 font-bold">Short by 11d 7h 27m</td><td class="p-2.5 text-gray-400">More speedups or alliance help needed.</td></tr>
+            <tr><td class="p-2.5 font-bold text-white">Bag Speedup Troop Capacity</td><td id="resCap" class="p-2.5 text-emerald-400 font-bold">0 Troops</td><td class="p-2.5 text-gray-400">Troops trainable with current bag inventory alone.</td></tr>
+            <tr><td class="p-2.5 font-bold text-white">Per-Unit Training Time</td><td id="resUnitTime" class="p-2.5 text-amber-300 font-bold">97.73 seconds</td><td class="p-2.5 text-gray-400">Scaled down with your 120% Total Speed (Base: 215s).</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
-  <!-- MODAL 4: HERO WIDGETS & GEAR PLANNER -->
+  <!-- MODAL 4: HERO GEAR & WIDGETS PLANNER -->
   <div id="heroModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
     <div class="bg-darkcard border border-purple-500/40 rounded-3xl p-5 sm:p-8 w-full max-w-4xl shadow-2xl relative my-6 max-h-[92vh] flex flex-col justify-between">
       <div>
         <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
           <div>
             <span class="text-purple-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">HERO WIDGETS & GEAR PLANNER</h3>
-            <p class="text-xs text-gray-400">Hero Gear Enhancement (Lv 0-100) · Exclusive Widgets (Lv 1-10/15)</p>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">HERO GEAR & WIDGETS</h3>
+            <p class="text-xs text-gray-400">Red Gear Ascension & Gates · Mastery 1-20 Incremental Sacrifices · Mithril Costs</p>
           </div>
           <button id="closeHeroBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
-        <div class="grid sm:grid-cols-3 gap-3 mb-5">
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">HERO TYPE</label><select class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option>Infantry Hero</option><option>Lancer Hero</option><option>Marksman Hero</option></select></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET WIDGET LEVEL</label><select id="hwLvl" class="w-full bg-darkbg border border-purple-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="5">Level 5</option><option value="10" selected>Level 10 (Apex)</option><option value="15">Level 15 (MAX)</option></select></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">NUMBER OF HEROES</label><input type="number" id="hwCount" value="3" min="1" max="15" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+        <div class="flex bg-darkbg p-1.5 rounded-2xl border border-white/10 mb-5">
+          <button id="tabHeroGear" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer">⚔️ Hero Gear, Ascending & Mastery</button>
+          <button id="tabHeroWidgets" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer">⭐ Exclusive Hero Widgets</button>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">WIDGET SHARDS</span><span id="hwShards" class="text-lg font-extrabold text-purple-300">1,450</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">GEAR XP REQUIRED</span><span id="hwXp" class="text-lg font-extrabold text-amber-400">450,000</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">TOTAL STAT BUFF</span><span id="hwBuff" class="text-lg font-extrabold text-emerald-400">+65.5% ATK/DEF</span></div>
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-purple-400 tracking-wider uppercase mb-1">1. HERO GEAR SCOPE</label>
+          <div class="mb-3">
+            <select id="hgPieces" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="4" selected>4 Pieces (1 Full Hero Set)</option><option value="8">8 Pieces (2 Hero Sets)</option><option value="12">12 Pieces (3 Hero Sets)</option></select>
+          </div>
+
+          <label class="block text-xs font-bold text-purple-400 tracking-wider uppercase mb-1">2. RED GEAR ASCENSION & LEVEL GATES (MITHRIL + SACRIFICES)</label>
+          <div class="grid sm:grid-cols-2 gap-3 mb-2">
+            <div><label class="block text-[10px] text-gray-400 mb-1 font-bold">CURRENT MILESTONE</label><select id="hgStartLvl" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="0">Base (Pre-Red Ascension)</option><option value="1">Red Lv 20 Checkpoint</option><option value="2">Red Lv 40 Checkpoint</option><option value="3">Red Lv 60 Checkpoint</option><option value="4">Red Lv 80 Checkpoint</option></select></div>
+            <div><label class="block text-[10px] text-gray-400 mb-1 font-bold">TARGET MILESTONE</label><select id="hgTargetLvl" class="w-full bg-darkbg border border-purple-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="5" selected>Level 99 ➔ 100 Final Cap</option><option value="4">Red Lv 80 Checkpoint</option><option value="3">Red Lv 60 Checkpoint</option><option value="2">Red Lv 40 Checkpoint</option><option value="1">Red Lv 20 Checkpoint</option></select></div>
+          </div>
+
+          <label class="block text-xs font-bold text-purple-400 tracking-wider uppercase mb-1">3. MASTERY FORGING (LEVELS 1 TO 20: INCREMENTAL SACRIFICES AFTER LV 10)</label>
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <div><label class="block text-[10px] text-gray-400 mb-1 font-bold">CURRENT MASTERY LEVEL</label><select id="hmStart" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="0">Level 0 (None)</option><option value="10">Mastery Lv 10</option><option value="15">Mastery Lv 15</option></select></div>
+            <div><label class="block text-[10px] text-gray-400 mb-1 font-bold">TARGET MASTERY LEVEL</label><select id="hmTarget" class="w-full bg-darkbg border border-purple-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="20" selected>Mastery Lv. 20</option><option value="15">Mastery Lv. 15</option><option value="10">Mastery Lv. 10</option></select></div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <span class="block text-xs font-bold text-purple-400 tracking-wider uppercase mb-2">TOTAL HERO GEAR MATERIALS</span>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">TOTAL SACRIFICES</span><span id="hmTotalSac" class="text-base font-extrabold text-rose-400">360 Pieces</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">RED GATE SACRIFICES</span><span id="hmRedSac" class="text-base font-extrabold text-rose-300">140 Pieces</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">MASTERY SACRIFICES</span><span id="hmMastSac" class="text-base font-extrabold text-amber-400">220 Pieces</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">MITHRIL</span><span id="hmMithril" class="text-base font-extrabold text-frost-400">600</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">ESSENCE STONES</span><span id="hmStones" class="text-base font-extrabold text-emerald-400">8.400</span></div>
+          </div>
         </div>
       </div>
-      <div class="text-xs text-gray-400 bg-purple-500/10 border border-purple-500/30 p-4 rounded-xl">⚔️ <strong>APEX TIP:</strong> Exclusive Widgets unlock special rally attack passives at Level 10.</div>
+
+      <div class="flex-1 overflow-hidden flex flex-col">
+        <span class="block text-xs font-bold text-purple-400 tracking-wider uppercase mb-2">COMPREHENSIVE COST & SACRIFICES BREAKDOWN</span>
+        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56">
+          <table class="w-full text-left text-xs text-gray-300"><thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase sticky top-0"><tr><th class="p-2.5">PHASE / LEVEL</th><th class="p-2.5">MITHRIL</th><th class="p-2.5">ESSENCE STONES</th><th class="p-2.5">MYTHIC SACRIFICES</th><th class="p-2.5">MILESTONE PERK / GATE REQUIREMENTS</th></tr></thead><tbody id="heroTbody" class="divide-y divide-white/5 font-mono"></tbody></table>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -435,25 +508,58 @@
         <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
           <div>
             <span class="text-amber-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">BEAST SANCTUARY PLANNER</h3>
-            <p class="text-xs text-gray-400">All 15 Beasts (Shelldragon, Snow Leopard) · Lv 1-150 · Beast Marks</p>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">BEAST SANCTUARY & PETS</h3>
+            <p class="text-xs text-gray-400">Exact In-Game Roster (15 Beasts) · Level 1 to 150 Progression</p>
           </div>
           <button id="closePetBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
-        <div class="grid sm:grid-cols-3 gap-3 mb-5">
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">SELECT BEAST</label><select class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option>Shelldragon</option><option>Snow Leopard</option><option>Cave Bear</option><option>Mammoth</option></select></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT LEVEL</label><input type="number" id="petStart" value="1" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET LEVEL</label><input type="number" id="petTarget" value="100" class="w-full bg-darkbg border border-amber-500/40 rounded-xl px-3 py-2 text-white text-xs"></div>
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">1. SELECT TARGET SANCTUARY BEAST</label>
+          <div class="grid grid-cols-2 sm:grid-cols-6 gap-2" id="petSelectorGrid">
+            <button data-pet="Cave Hyena" class="pet-btn bg-emerald-500/20 border-2 border-emerald-400 text-emerald-300 p-2 rounded-xl text-[11px] font-bold text-center">RARE<br>Cave Hyena</button>
+            <button data-pet="Arctic Wolf" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">RARE<br>Arctic Wolf</button>
+            <button data-pet="Musk Ox" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">RARE<br>Musk Ox</button>
+            <button data-pet="Giant Tapir" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">RARE<br>Giant Tapir</button>
+            <button data-pet="Titan Roc" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">EPIC<br>Titan Roc</button>
+            <button data-pet="Giant Elk" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">EPIC<br>Giant Elk</button>
+            <button data-pet="Snow Leopard" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">EPIC<br>Snow Leopard</button>
+            <button data-pet="Cave Lion" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SSR<br>Cave Lion</button>
+            <button data-pet="Snow Ape" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SSR<br>Snow Ape</button>
+            <button data-pet="Iron Rhino" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SSR<br>Iron Rhino</button>
+            <button data-pet="Saber-tooth Tiger" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SSR<br>Saber Tiger</button>
+            <button data-pet="Frost Gorilla" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SSR<br>Frost Gorilla</button>
+            <button data-pet="Mammoth" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SSR<br>Mammoth</button>
+            <button data-pet="Frostscale Chameleon" class="pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SSR<br>Chameleon</button>
+            <button data-pet="Shelldragon" class="pet-btn bg-purple-500/20 border-2 border-purple-400 text-purple-300 p-2 rounded-xl text-[11px] font-bold text-center">UR<br>Shelldragon</button>
+          </div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BEAST FOOD</span><span id="petFood" class="text-lg font-extrabold text-amber-400">820,000</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BEAST MARKS</span><span id="petMarks" class="text-lg font-extrabold text-frost-300">4,500</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">MARCH SPEED BUFF</span><span id="petMarch" class="text-lg font-extrabold text-emerald-400">+24.0%</span></div>
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">2. LEVEL MILESTONES & BEAST COUNT</label>
+          <div class="grid sm:grid-cols-3 gap-3 mb-3">
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT BEAST LEVEL</label><select id="petStart" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1">Level 1</option><option value="40">Level 40</option><option value="70">Level 70</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET BEAST LEVEL</label><select id="petTarget" class="w-full bg-darkbg border border-amber-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="100" selected>Level 100</option><option value="150">Level 150 (Cap)</option><option value="70">Level 70</option><option value="40">Level 40</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">BEASTS UPGRADING</label><select id="petCount" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1" selected>1 Beast (Single Focus)</option><option value="5">5 Beasts (Full Team)</option></select></div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <span class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">TOTAL BEAST UPKEEP & MATERIALS</span>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BEAST FOOD</span><span id="petFood" class="text-xl font-extrabold text-amber-400">18.315.000</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">POTIONS / SERUMS</span><span id="petSerums" class="text-xl font-extrabold text-frost-300">2.700</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BEAST MARKS</span><span id="petMarks" class="text-xl font-extrabold text-emerald-400">1.350</span></div>
+          </div>
         </div>
       </div>
-      <div class="text-xs text-gray-400 bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl">🐾 <strong>BEAST TIP:</strong> Upgrading Shelldragon to Level 80 unlocks maximum rally march capacity bonus.</div>
+
+      <div class="flex-1 overflow-hidden flex flex-col">
+        <span class="block text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">STEP-BY-STEP LEVEL MILESTONE BREAKDOWN</span>
+        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56">
+          <table class="w-full text-left text-xs text-gray-300"><thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase sticky top-0"><tr><th class="p-2.5">LEVEL RANGE</th><th class="p-2.5">BEAST FOOD</th><th class="p-2.5">POTIONS / SERUMS</th><th class="p-2.5">BEAST MARKS</th><th class="p-2.5">BREAKTHROUGH MILESTONE</th></tr></thead><tbody id="petTbody" class="divide-y divide-white/5 font-mono"></tbody></table>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -464,25 +570,55 @@
         <div class="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
           <div>
             <span class="text-frost-400 text-[10px] font-extrabold tracking-widest uppercase block">SURVIVOR TOOLKIT</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">DAWN EXPERTS PLANNER</h3>
-            <p class="text-xs text-gray-400">All 11 Experts (Gareth & Justus) · Expert Sigils · Books of Knowledge</p>
+            <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white">DAWN ACADEMY EXPERTS</h3>
+            <p class="text-xs text-gray-400">Complete Official Roster (11 Experts) · Relationship Milestones & Book Budgets</p>
           </div>
           <button id="closeDawnBtn" type="button" class="text-gray-400 hover:text-white font-bold text-2xl cursor-pointer p-1">✕</button>
         </div>
 
-        <div class="grid sm:grid-cols-3 gap-3 mb-5">
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">EXPERT NAME</label><select class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option>Gareth</option><option>Justus</option><option>Agnes</option><option>Walters</option></select></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET AFFINITY LEVEL</label><input type="number" id="dawnLvl" value="10" min="1" max="20" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"></div>
-          <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">LEARNING BUFF (%)</label><input type="number" id="dawnBuff" value="50" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"></div>
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">1. SELECT TARGET DAWN EXPERT</label>
+          <div class="grid grid-cols-2 sm:grid-cols-6 gap-2" id="expertSelectorGrid">
+            <button data-exp="Cyrilla" class="exp-btn bg-frost-500/20 border-2 border-frost-400 text-frost-300 p-2 rounded-xl text-[11px] font-bold text-center">BEAR HUNT<br>Cyrilla</button>
+            <button data-exp="Agnes" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">CITY ECONOMY<br>Agnes</button>
+            <button data-exp="Holger" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">ARENA MASTER<br>Holger</button>
+            <button data-exp="Romulus" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">MILITARY LEAD<br>Romulus</button>
+            <button data-exp="Baldur" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">ALLIANCE EVENTS<br>Baldur</button>
+            <button data-exp="Fabion" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">FOUNDRY BATTLE<br>Fabion</button>
+            <button data-exp="Volaria" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">SVS / BATTLE<br>Volaria</button>
+            <button data-exp="Renna" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">TRADE ROUTE<br>Renna</button>
+            <button data-exp="Kathy" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">FROSTFIRE MINE<br>Kathy</button>
+            <button data-exp="Gareth" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">TROOP DEFENSE<br>Gareth</button>
+            <button data-exp="Justus" class="exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center">CHESTS & TREK<br>Justus</button>
+          </div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">EXPERT SIGILS</span><span id="dawnSigils" class="text-lg font-extrabold text-frost-300">1,200</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BOOKS OF KNOWLEDGE</span><span id="dawnBooks" class="text-lg font-extrabold text-amber-400">850</span></div>
-          <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">REDUC. CONSTRUCTION</span><span id="dawnBuildRed" class="text-lg font-extrabold text-emerald-400">-15.0% Time</span></div>
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">2. RELATIONSHIP MILESTONES & SCOPE</label>
+          <div class="grid sm:grid-cols-3 gap-3 mb-3">
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">CURRENT RELATIONSHIP</label><select id="dawnStart" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="0">Level 0</option><option value="40">Level 40</option><option value="80">Level 80</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">TARGET RELATIONSHIP</label><select id="dawnTarget" class="w-full bg-darkbg border border-frost-500/40 rounded-xl px-3 py-2 text-white text-xs"><option value="100" selected>Level 100</option><option value="80">Level 80</option><option value="40">Level 40</option></select></div>
+            <div><label class="block text-[11px] font-semibold text-gray-400 mb-1">EXPERTS UPGRADING</label><select id="dawnCount" class="w-full bg-darkbg border border-white/10 rounded-xl px-3 py-2 text-white text-xs"><option value="1" selected>1 Expert (Single Target)</option><option value="11">All 11 Experts</option></select></div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">TOTAL EXPERT MATERIALS & TIME NEEDED</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">EXPERT SIGILS</span><span id="dawnSigils" class="text-xl font-extrabold text-frost-300">375</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">BOOKS OF KNOWLEDGE</span><span id="dawnBooks" class="text-xl font-extrabold text-amber-400">44.800</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">AFFINITY POINTS</span><span id="dawnAffinity" class="text-xl font-extrabold text-rose-400">118.500</span></div>
+            <div class="bg-darkbg/90 border border-white/10 p-3 rounded-xl text-center"><span class="text-[10px] text-gray-400 font-bold block uppercase">EST. LEARNING TIME</span><span id="dawnTime" class="text-xl font-extrabold text-emerald-400">33d 14h</span></div>
+          </div>
         </div>
       </div>
-      <div class="text-xs text-gray-400 bg-frost-500/10 border border-frost-500/30 p-4 rounded-xl">📜 <strong>EXPERT TIP:</strong> Maxing Gareth & Justus reduces total research and construction speedup usage by up to 20%!</div>
+
+      <div class="flex-1 overflow-hidden flex flex-col">
+        <span class="block text-xs font-bold text-frost-400 tracking-wider uppercase mb-2">STEP-BY-STEP LEVEL BREAKDOWN</span>
+        <div class="flex-1 overflow-y-auto custom-scroll border border-white/10 rounded-xl bg-darkbg/60 max-h-56">
+          <table class="w-full text-left text-xs text-gray-300"><thead class="bg-darkbg text-[11px] font-bold text-gray-400 uppercase sticky top-0"><tr><th class="p-2.5">RELATIONSHIP LEVEL</th><th class="p-2.5">EXPERT SIGILS</th><th class="p-2.5">BOOKS OF KNOWLEDGE</th><th class="p-2.5">AFFINITY XP</th><th class="p-2.5">SKILLS / BENEFITS UNLOCKED</th></tr></thead><tbody id="dawnTbody" class="divide-y divide-white/5 font-mono"></tbody></table>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -536,7 +672,6 @@
 
     const STRIPE_LINK = "https://buy.stripe.com/3cI4gAeaJbL1aRt5kS24000";
 
-    // 6 NATIVE CALCULATORS DATA ALL ACTIVE READY
     const calculatorsData = [
       { id: "fc", icon: "🔥", titleKey: "calcFcTitle", descKey: "calcFcDesc", status: "ready" },
       { id: "chief", icon: "🛡️", titleKey: "calcChiefTitle", descKey: "calcChiefDesc", status: "ready" },
@@ -564,7 +699,6 @@
       { milestone: "$1,200", reward: "+250,000" }, { milestone: "$1,500", reward: "+290,000" }
     ];
 
-    // UPDATED GIFT CODES LIST WITH "MKSGBNAP"
     const giftCodes = [
       "MKSGBNAP", "VWYTWXWM", "CVVJXKWU", "EAWEGKHDSY", "KDQXZYTTXE", "VRXGWQPJKF", 
       "XHCBPWFAUN", "WWUHZSYM", "37D7652B5C", "KEUNULFW", "EJGFULXG", 
@@ -773,15 +907,15 @@
 
     function formatTime(seconds) {
       const days = Math.floor(seconds / 86400); const hours = Math.floor((seconds % 86400) / 3600);
-      if (days > 0) return `${days}d ${hours}h`;
       const mins = Math.floor((seconds % 3600) / 60);
+      if (days > 0) return `${days}d ${hours}h ${mins}m`;
       if (hours > 0) return `${hours}h ${mins}m`;
       return `${mins}m ${Math.floor(seconds % 60)}s`;
     }
 
     function formatNumberShort(num) {
       if (num >= 1000000000) return (num / 1000000000).toFixed(2) + 'B';
-      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000000) return (num / 1000000).toFixed(2) + 'M';
       if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
       return num.toLocaleString();
     }
@@ -828,16 +962,31 @@
     // --- 2. CHIEF GEAR & CHARMS ENGINE ---
     let chiefTabMode = 'gear';
     const chiefGearLadder = [
-      { id: 1, name: "Green T1", plans: 0, polish: 0, hardener: 0, pwr: 25000 }, { id: 2, name: "Blue T2", plans: 80, polish: 3200, hardener: 0, pwr: 75000 }, { id: 3, name: "Purple T3", plans: 220, polish: 9500, hardener: 0, pwr: 210000 },
-      { id: 4, name: "Gold T4", plans: 450, polish: 21000, hardener: 0, pwr: 580000 }, { id: 5, name: "Red T5 (1★)", plans: 850, polish: 42000, hardener: 1200, pwr: 1450000 }, { id: 6, name: "Red T5 (2★)", plans: 1350, polish: 68000, hardener: 3400, pwr: 2900000 },
-      { id: 7, name: "Red T6 (1★)", plans: 2100, polish: 105000, hardener: 7800, pwr: 5400000 }, { id: 8, name: "Red T6 (2★)", plans: 3100, polish: 152000, hardener: 14500, pwr: 9200000 }, { id: 9, name: "Red T6 (3★ MAX)", plans: 4400, polish: 215000, hardener: 24000, pwr: 14800000 }
+      { id: 0, name: "Uncrafted", amber: 0, alloy: 0, polish: 0, plans: 0, perk: "Basic Chief Gear Unlock" },
+      { id: 1, name: "Green (Rare T1)", amber: 0, alloy: 720, polish: 90, plans: 0, perk: "Basic Chief Gear Unlock" },
+      { id: 2, name: "Green T2", amber: 0, alloy: 1440, polish: 180, plans: 0, perk: "Troop Attack Boost" },
+      { id: 3, name: "Blue (Epic T1)", amber: 0, alloy: 2880, polish: 360, plans: 30, perk: "Tier Expansion" },
+      { id: 4, name: "Blue T2", amber: 0, alloy: 4500, polish: 540, plans: 60, perk: "Troop Defense Boost" },
+      { id: 5, name: "Purple (Mythic T1)", amber: 0, alloy: 7200, polish: 900, plans: 120, perk: "Lethality Unlock" },
+      { id: 6, name: "Purple T2", amber: 0, alloy: 10800, polish: 1320, plans: 210, perk: "Squad Health Boost" },
+      { id: 7, name: "Gold (Dominator T1)", amber: 0, alloy: 15600, polish: 1920, plans: 330, perk: "Dominator Aura" },
+      { id: 8, name: "Gold T2", amber: 0, alloy: 21600, polish: 2700, plans: 480, perk: "High-Tier PvP Combat" },
+      { id: 9, name: "Gold T3", amber: 0, alloy: 28800, polish: 3600, plans: 660, perk: "Pre-Lunar Master Tier" },
+      { id: 10, name: "Red T1 (Lunar T1)", amber: 90, alloy: 39000, polish: 4800, plans: 900, perk: "🔥 Unlocks Lunar Amber" },
+      { id: 11, name: "Red T2", amber: 150, alloy: 51000, polish: 6300, plans: 1200, perk: "Sovereign Stat Expansion" },
+      { id: 12, name: "Red T3", amber: 240, alloy: 66000, polish: 8100, plans: 1560, perk: "Major Rally Lethality Buff" },
+      { id: 13, name: "Red T4", amber: 360, alloy: 84000, polish: 10200, plans: 1980, perk: "Apex Battle Scaling" },
+      { id: 14, name: "Red T5", amber: 510, alloy: 108000, polish: 1320, plans: 2520, perk: "High Sovereign Tier" },
+      { id: 15, name: "Red T6 (1★)", amber: 690, alloy: 138000, polish: 16800, plans: 3120, perk: "⚡ Red Tier 6 (1-Star Awakening)" },
+      { id: 16, name: "Red T6 (2★)", amber: 900, alloy: 174000, polish: 21000, plans: 3840, perk: "⚡ Red Tier 6 (2-Star Refinement)" },
+      { id: 17, name: "Red T6 (3★ Max)", amber: 1200, alloy: 216000, polish: 25800, plans: 4680, perk: "👑 Absolute Endgame Cap" }
     ];
 
-    const chiefCharmsLadder = Array.from({ length: 18 }, (_, i) => ({ lvl: i + 1, guides: (i + 1) * 350, jewelSec: Math.floor((i + 1) * 45), pwr: (i + 1) * 480000 }));
+    const chiefCharmsLadder = Array.from({ length: 18 }, (_, i) => ({ lvl: i + 1, guides: (i + 1) * 350, jewelSec: Math.floor((i + 1) * 45), perk: `Socket Lv.${i+1} Stats Expansion` }));
 
     function populateCharmsSelects() {
       const startSel = document.getElementById('charmStartLvl'); const targetSel = document.getElementById('charmTargetLvl');
-      startSel.innerHTML = '<option value="0">Unarmed (Lv 0)</option>'; targetSel.innerHTML = '';
+      startSel.innerHTML = '<option value="0">Level 0 (Unarmed)</option>'; targetSel.innerHTML = '';
       for (let i = 1; i <= 18; i++) {
         startSel.innerHTML += `<option value="${i}">Charm Lv ${i}</option>`;
         targetSel.innerHTML += `<option value="${i}" ${i === 18 ? 'selected' : ''}>Charm Lv ${i} ${i === 18 ? '(MAX)' : ''}</option>`;
@@ -851,31 +1000,32 @@
         const pieces = parseInt(document.getElementById('cgPieces').value);
 
         if (target <= start) {
-          document.getElementById('mat1Val').innerText = "0"; document.getElementById('mat2Val').innerText = "0"; document.getElementById('mat3Val').innerText = "0"; document.getElementById('mat4Val').innerText = "+0";
-          document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500">Target Tier must be greater than Current Tier.</td></tr>`;
+          document.getElementById('mat1Val').innerText = "0"; document.getElementById('mat2Val').innerText = "0"; document.getElementById('mat3Val').innerText = "0"; document.getElementById('mat4Val').innerText = "0"; document.getElementById('mat5Val').innerText = `${pieces}x`;
+          document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-500">Target Tier must be greater than Current Tier.</td></tr>`;
           return;
         }
 
-        let totalPlans = 0, totalPolish = 0, totalHardener = 0, totalPwr = 0; let rowsHtml = '';
-        for (let i = start; i < target; i++) {
-          const stepData = chiefGearLadder[i]; const prevData = chiefGearLadder[i - 1] || { plans: 0, polish: 0, hardener: 0, pwr: 0 };
-          const stepPlans = (stepData.plans - prevData.plans) * pieces; const stepPolish = (stepData.polish - prevData.polish) * pieces; const stepHardener = (stepData.hardener - prevData.hardener) * pieces; const stepPwr = (stepData.pwr - prevData.pwr) * pieces;
-          totalPlans += stepPlans; totalPolish += stepPolish; totalHardener += stepHardener; totalPwr += stepPwr;
+        let totalAmber = 0, totalAlloy = 0, totalPolish = 0, totalPlans = 0; let rowsHtml = '';
+        for (let i = start + 1; i <= target; i++) {
+          const stepData = chiefGearLadder[i];
+          const stepAmber = stepData.amber * pieces; const stepAlloy = stepData.alloy * pieces; const stepPolish = stepData.polish * pieces; const stepPlans = stepData.plans * pieces;
+          totalAmber += stepAmber; totalAlloy += stepAlloy; totalPolish += stepPolish; totalPlans += stepPlans;
 
           rowsHtml += `
             <tr class="hover:bg-white/5 transition">
               <td class="p-2.5 font-bold text-frost-300">${chiefGearLadder[i - 1].name} ➔ ${stepData.name}</td>
-              <td class="p-2.5 text-amber-300 font-bold">${stepPlans.toLocaleString()}</td>
+              <td class="p-2.5 text-amber-300 font-bold">${stepAmber > 0 ? stepAmber.toLocaleString() : '—'}</td>
+              <td class="p-2.5 text-white">${stepAlloy.toLocaleString()}</td>
               <td class="p-2.5 text-frost-300">${stepPolish.toLocaleString()}</td>
-              <td class="p-2.5 text-emerald-300">${stepHardener.toLocaleString()}</td>
-              <td class="p-2.5 text-gray-300 font-bold">+${formatNumberShort(stepPwr)}</td>
+              <td class="p-2.5 text-purple-300">${stepPlans.toLocaleString()}</td>
+              <td class="p-2.5 text-gray-300 font-bold">${stepData.perk}</td>
             </tr>
           `;
         }
 
-        document.getElementById('mat1Label').innerText = "DESIGN PLANS"; document.getElementById('mat2Label').innerText = "POLISHING SOLUTION"; document.getElementById('mat3Label').innerText = "ALLOY HARDENER"; document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
-        document.getElementById('mat1Val').innerText = totalPlans.toLocaleString(); document.getElementById('mat2Val').innerText = totalPolish.toLocaleString(); document.getElementById('mat3Val').innerText = totalHardener.toLocaleString(); document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
-        document.getElementById('chiefTableHead').innerHTML = `<th class="p-2.5">TIER STEP</th><th class="p-2.5">DESIGN PLANS</th><th class="p-2.5">POLISHING SOL.</th><th class="p-2.5">HARDENER</th><th class="p-2.5">POWER BONUS</th>`;
+        document.getElementById('mat1Label').innerText = "LUNAR AMBER"; document.getElementById('mat2Label').innerText = "HARDENED ALLOY"; document.getElementById('mat3Label').innerText = "POLISHING SOLUTION"; document.getElementById('mat4Label').innerText = "DESIGN PLANS"; document.getElementById('mat5Val').innerText = `${pieces}x`;
+        document.getElementById('mat1Val').innerText = totalAmber.toLocaleString(); document.getElementById('mat2Val').innerText = totalAlloy.toLocaleString(); document.getElementById('mat3Val').innerText = totalPolish.toLocaleString(); document.getElementById('mat4Val').innerText = totalPlans.toLocaleString();
+        document.getElementById('chiefTableHead').innerHTML = `<th class="p-2.5">TIER STAGE</th><th class="p-2.5">LUNAR AMBER</th><th class="p-2.5">HARDENED ALLOY</th><th class="p-2.5">POLISHING SOLUTION</th><th class="p-2.5">DESIGN PLANS</th><th class="p-2.5">MILESTONE PERK</th>`;
         document.getElementById('chiefTbody').innerHTML = rowsHtml;
       } else {
         const start = parseInt(document.getElementById('charmStartLvl').value);
@@ -883,97 +1033,217 @@
         const slots = parseInt(document.getElementById('charmSlots').value);
 
         if (target <= start) {
-          document.getElementById('mat1Val').innerText = "0"; document.getElementById('mat2Val').innerText = "0"; document.getElementById('mat3Val').innerText = "0"; document.getElementById('mat4Val').innerText = "+0";
-          document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="5" class="p-4 text-center text-gray-500">Target Level must be greater than Current Level.</td></tr>`;
+          document.getElementById('mat1Val').innerText = "0"; document.getElementById('mat2Val').innerText = "0"; document.getElementById('mat3Val').innerText = "0"; document.getElementById('mat4Val').innerText = "0"; document.getElementById('mat5Val').innerText = `${slots}x`;
+          document.getElementById('chiefTbody').innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-500">Target Level must be greater than Current Level.</td></tr>`;
           return;
         }
 
-        let totalGuides = 0, totalJewels = 0, totalPwr = 0; let rowsHtml = '';
+        let totalGuides = 0, totalJewels = 0; let rowsHtml = '';
         for (let lvl = start + 1; lvl <= target; lvl++) {
-          const cData = chiefCharmsLadder[lvl - 1]; const stepGuides = cData.guides * slots; const stepJewels = cData.jewelSec * slots; const stepPwr = cData.pwr * slots;
-          totalGuides += stepGuides; totalJewels += stepJewels; totalPwr += stepPwr;
+          const cData = chiefCharmsLadder[lvl - 1]; const stepGuides = cData.guides * slots; const stepJewels = cData.jewelSec * slots;
+          totalGuides += stepGuides; totalJewels += stepJewels;
 
           rowsHtml += `
             <tr class="hover:bg-white/5 transition">
               <td class="p-2.5 font-bold text-amber-400">Charm Level ${lvl}</td>
+              <td class="p-2.5 text-gray-400">—</td>
+              <td class="p-2.5 text-gray-400">—</td>
               <td class="p-2.5 text-frost-300 font-bold">${stepGuides.toLocaleString()}</td>
               <td class="p-2.5 text-emerald-300">${stepJewels.toLocaleString()}</td>
-              <td class="p-2.5 text-gray-400">-</td>
-              <td class="p-2.5 text-amber-300 font-bold">+${formatNumberShort(stepPwr)}</td>
+              <td class="p-2.5 text-gray-300 font-bold">${cData.perk}</td>
             </tr>
           `;
         }
 
-        document.getElementById('mat1Label').innerText = "CHARM GUIDES"; document.getElementById('mat2Label').innerText = "JEWEL SECRETS"; document.getElementById('mat3Label').innerText = "REQUIRED SLOTS"; document.getElementById('mat4Label').innerText = "POWER RATING GAIN";
-        document.getElementById('mat1Val').innerText = totalGuides.toLocaleString(); document.getElementById('mat2Val').innerText = totalJewels.toLocaleString(); document.getElementById('mat3Val').innerText = `${slots} Slots`; document.getElementById('mat4Val').innerText = "+" + formatNumberShort(totalPwr);
-        document.getElementById('chiefTableHead').innerHTML = `<th class="p-2.5">CHARM LEVEL</th><th class="p-2.5">CHARM GUIDES</th><th class="p-2.5">JEWEL SECRETS</th><th class="p-2.5">REAGENT</th><th class="p-2.5">POWER BONUS</th>`;
+        document.getElementById('mat1Label').innerText = "CHARM GUIDES"; document.getElementById('mat2Label').innerText = "JEWEL SECRETS"; document.getElementById('mat3Label').innerText = "SOCKETS"; document.getElementById('mat4Label').innerText = "STATUS"; document.getElementById('mat5Val').innerText = `${slots}x`;
+        document.getElementById('mat1Val').innerText = totalGuides.toLocaleString(); document.getElementById('mat2Val').innerText = totalJewels.toLocaleString(); document.getElementById('mat3Val').innerText = `${slots} Sockets`; document.getElementById('mat4Val').innerText = "Active";
+        document.getElementById('chiefTableHead').innerHTML = `<th class="p-2.5">CHARM LEVEL</th><th class="p-2.5">REAGENT 1</th><th class="p-2.5">REAGENT 2</th><th class="p-2.5">CHARM GUIDES</th><th class="p-2.5">JEWEL SECRETS</th><th class="p-2.5">MILESTONE PERK</th>`;
         document.getElementById('chiefTbody').innerHTML = rowsHtml;
       }
     }
 
     // --- 3. TROOPS & SPEEDUPS ENGINE ---
+    let troopMode = 'fresh';
     function calculateTroopsPlanner() {
       const tier = parseInt(document.getElementById('trTier').value);
       const count = parseInt(document.getElementById('trCount').value) || 0;
       const buff = parseFloat(document.getElementById('trBuff').value) || 0;
 
-      const baseSecPerTroop = tier === 12 ? 120 : (tier === 11 ? 95 : 70);
-      const svsPointsPerTroop = tier === 12 ? 50 : (tier === 11 ? 35 : 25);
-      const pwrPerTroop = tier === 12 ? 36 : (tier === 11 ? 26 : 18);
+      const sp1 = parseInt(document.getElementById('sp1h').value) || 0;
+      const sp3 = parseInt(document.getElementById('sp3h').value) || 0;
+      const sp8 = parseInt(document.getElementById('sp8h').value) || 0;
+      const sp24 = parseInt(document.getElementById('sp24h').value) || 0;
 
-      const totalSec = (count * baseSecPerTroop) / (1 + (buff / 100));
-      const totalRes = count * 250;
-      const totalSvs = count * svsPointsPerTroop;
-      const totalPwr = count * pwrPerTroop;
+      const totalInventorySec = (sp1 * 3600) + (sp3 * 3 * 3600) + (sp8 * 8 * 3600) + (sp24 * 24 * 3600);
 
-      document.getElementById('trSpeedup').innerText = formatTime(totalSec);
-      document.getElementById('trRes').innerText = formatNumberShort(totalRes);
+      const baseSecPerTroop = tier === 12 ? 215 : (tier === 11 ? 160 : (tier === 10 ? 120 : tier * 10));
+      const mult = troopMode === 'promo' ? 0.4 : 1.0;
+      const actualUnitSec = (baseSecPerTroop * mult) / (1 + (buff / 100));
+
+      const totalSecNeeded = actualUnitSec * count;
+      const totalSvs = count * (tier === 12 ? 50 : (tier === 11 ? 35 : 25));
+
+      const totalMeat = count * (tier * 2250);
+      const totalWood = count * (tier * 2250);
+      const totalIron = count * (tier * 820);
+
       document.getElementById('trSvs').innerText = totalSvs.toLocaleString();
-      document.getElementById('trPwr').innerText = "+" + formatNumberShort(totalPwr);
+      document.getElementById('trMeat').innerText = formatNumberShort(totalMeat);
+      document.getElementById('trWood').innerText = formatNumberShort(totalWood);
+      document.getElementById('trIron').innerText = formatNumberShort(totalIron);
+
+      document.getElementById('resUnitTime').innerText = `${actualUnitSec.toFixed(2)} seconds`;
+
+      const trainableWithBag = actualUnitSec > 0 ? Math.floor(totalInventorySec / actualUnitSec) : 0;
+      document.getElementById('resCap').innerText = `${trainableWithBag.toLocaleString()} Troops`;
+
+      const diffSec = totalSecNeeded - totalInventorySec;
+      if (diffSec <= 0) {
+        document.getElementById('resCoverage').innerText = "100% Fully Covered!";
+        document.getElementById('resCoverage').className = "p-2.5 text-emerald-400 font-bold";
+      } else {
+        document.getElementById('resCoverage').innerText = `Short by ${formatTime(diffSec)}`;
+        document.getElementById('resCoverage').className = "p-2.5 text-rose-400 font-bold";
+      }
     }
 
-    // --- 4. HERO WIDGETS ENGINE ---
-    function calculateHeroWidgets() {
-      const lvl = parseInt(document.getElementById('hwLvl').value);
-      const count = parseInt(document.getElementById('hwCount').value) || 1;
+    // --- 4. HERO GEAR & WIDGETS ENGINE ---
+    const heroBreakdownLadder = [
+      { level: "Mythic Lv 100 ➔ Red Ascension", mithril: 0, stones: 0, sac: 8, perk: "Ascend to Red / Legendary Tier (Unlocks Mithril Era)" },
+      { level: "Level 19 ➔ 20 Checkpoint", mithril: 40, stones: 0, sac: 12, perk: "+20% Attack / Defense Expedition Buff" },
+      { level: "Level 39 ➔ 40 Checkpoint", mithril: 80, stones: 0, sac: 20, perk: "+7.5% Hero Health / Lethality Exploration Buff" },
+      { level: "Level 59 ➔ 60 Checkpoint", mithril: 120, stones: 0, sac: 20, perk: "+15% Combat Health & Defense Buff" },
+      { level: "Level 79 ➔ 80 Checkpoint", mithril: 160, stones: 0, sac: 40, perk: "+35% Lethality & Expedition Command Power" },
+      { level: "Level 99 ➔ 100 Final Cap", mithril: 200, stones: 0, sac: 40, perk: "👑 +50% Attack / Defense Max Empowerment" },
+      { level: "Mastery Lv. 1", mithril: 0, stones: 40, sac: 0, perk: "+1.5% Base Stat Boost" },
+      { level: "Mastery Lv. 2", mithril: 0, stones: 80, sac: 0, perk: "Stat Expansion Tier 2" },
+      { level: "Mastery Lv. 10", mithril: 0, stones: 400, sac: 0, perk: "⭐ Unlocks Red Ascension Prerequisite" },
+      { level: "Mastery Lv. 11", mithril: 0, stones: 440, sac: 4, perk: "⚡ Mastery Lv 11: Requires 1x Mythic Gear" },
+      { level: "Mastery Lv. 15", mithril: 0, stones: 600, sac: 20, perk: "⚡ Mastery Lv 15: Requires 5x Mythic Gear" },
+      { level: "Mastery Lv. 20", mithril: 0, stones: 800, sac: 40, perk: "👑 Mastery Lv 20 Cap: Requires 10x Mythic Gear" }
+    ];
 
-      const shardsNeeded = (lvl * 145) * count;
-      const xpNeeded = (lvl * 45000) * count;
-      const buffVal = (lvl * 6.55).toFixed(1);
+    function calculateHeroPlanner() {
+      const pieces = parseInt(document.getElementById('hgPieces').value);
+      const startMilestone = parseInt(document.getElementById('hgStartLvl').value);
+      const targetMilestone = parseInt(document.getElementById('hgTargetLvl').value);
 
-      document.getElementById('hwShards').innerText = shardsNeeded.toLocaleString();
-      document.getElementById('hwXp').innerText = xpNeeded.toLocaleString();
-      document.getElementById('hwBuff').innerText = `+${buffVal}% ATK/DEF`;
+      const mStart = parseInt(document.getElementById('hmStart').value);
+      const mTarget = parseInt(document.getElementById('hmTarget').value);
+
+      const redGateSac = (targetMilestone - startMilestone) * 28 * (pieces / 4);
+      const masterySac = (mTarget - mStart) * 22 * (pieces / 4);
+      const totalSac = redGateSac + masterySac;
+      const mithril = (targetMilestone - startMilestone) * 120 * (pieces / 4);
+      const stones = (mTarget - mStart) * 420 * (pieces / 4);
+
+      document.getElementById('hmTotalSac').innerText = `${Math.round(totalSac)} Pieces`;
+      document.getElementById('hmRedSac').innerText = `${Math.round(redGateSac)} Pieces`;
+      document.getElementById('hmMastSac').innerText = `${Math.round(masterySac)} Pieces`;
+      document.getElementById('hmMithril').innerText = Math.round(mithril).toLocaleString();
+      document.getElementById('hmStones').innerText = Math.round(stones).toLocaleString();
+
+      let rowsHtml = '';
+      heroBreakdownLadder.forEach(item => {
+        rowsHtml += `
+          <tr class="hover:bg-white/5 transition">
+            <td class="p-2.5 font-bold text-rose-400">${item.level}</td>
+            <td class="p-2.5 text-frost-300">${item.mithril > 0 ? (item.mithril * (pieces/4)) : '—'}</td>
+            <td class="p-2.5 text-emerald-300">${item.stones > 0 ? (item.stones * (pieces/4)) : '—'}</td>
+            <td class="p-2.5 text-rose-300 font-bold">${item.sac > 0 ? (item.sac * (pieces/4)) + ' Mythic Gear' : '—'}</td>
+            <td class="p-2.5 text-gray-300">${item.perk}</td>
+          </tr>
+        `;
+      });
+      document.getElementById('heroTbody').innerHTML = rowsHtml;
     }
 
     // --- 5. BEAST SANCTUARY ENGINE ---
+    const petBreakdownLadder = [
+      { range: "Lv. 1 ➔ Lv. 10", food: 45000, serum: 20, marks: 10, perk: "Unlocks Skill Tier 1" },
+      { range: "Lv. 10 ➔ Lv. 20", food: 110000, serum: 40, marks: 20, perk: "Stat Node Expansion" },
+      { range: "Lv. 20 ➔ Lv. 30", food: 230000, serum: 70, marks: 35, perk: "Unlocks Skill Tier 2" },
+      { range: "Lv. 30 ➔ Lv. 40", food: 440000, serum: 110, marks: 55, perk: "Stat Node Expansion" },
+      { range: "Lv. 40 ➔ Lv. 50", food: 780000, serum: 160, marks: 80, perk: "Unlocks Skill Tier 3" },
+      { range: "Lv. 50 ➔ Lv. 60", food: 1280000, serum: 230, marks: 115, perk: "Mid-Game Combat Peak" },
+      { range: "Lv. 60 ➔ Lv. 70", food: 1980000, serum: 320, marks: 160, perk: "Unlocks Skill Tier 4" },
+      { range: "Lv. 70 ➔ Lv. 80", food: 2950000, serum: 430, marks: 215, perk: "High-Tier Stat Scaling" },
+      { range: "Lv. 80 ➔ Lv. 90", food: 4300000, serum: 570, marks: 285, perk: "Unlocks Skill Tier 5 (Max Skill)" },
+      { range: "Lv. 90 ➔ Lv. 100", food: 6200000, serum: 750, marks: 375, perk: "Level 100 Standard Cap" }
+    ];
+
     function calculatePetPlanner() {
-      const start = parseInt(document.getElementById('petStart').value) || 1;
-      const target = parseInt(document.getElementById('petTarget').value) || 100;
+      const count = parseInt(document.getElementById('petCount').value);
+      const start = parseInt(document.getElementById('petStart').value);
+      const target = parseInt(document.getElementById('petTarget').value);
 
-      if (target <= start) return;
-      const diff = target - start;
-      const foodNeeded = diff * 8200;
-      const marksNeeded = Math.floor(diff * 45);
-      const marchBuff = (diff * 0.24).toFixed(1);
+      const mult = (target - start) / 100 * count;
+      const food = 18315000 * mult;
+      const serums = 2700 * mult;
+      const marks = 1350 * mult;
 
-      document.getElementById('petFood').innerText = foodNeeded.toLocaleString();
-      document.getElementById('petMarks').innerText = marksNeeded.toLocaleString();
-      document.getElementById('petMarch').innerText = `+${marchBuff}%`;
+      document.getElementById('petFood').innerText = Math.round(food).toLocaleString();
+      document.getElementById('petSerums').innerText = Math.round(serums).toLocaleString();
+      document.getElementById('petMarks').innerText = Math.round(marks).toLocaleString();
+
+      let rowsHtml = '';
+      petBreakdownLadder.forEach(item => {
+        rowsHtml += `
+          <tr class="hover:bg-white/5 transition">
+            <td class="p-2.5 font-bold text-amber-400">${item.range}</td>
+            <td class="p-2.5 text-emerald-300 font-bold">${(item.food * count).toLocaleString()}</td>
+            <td class="p-2.5 text-frost-300">${item.serum * count}</td>
+            <td class="p-2.5 text-amber-300">${item.marks * count}</td>
+            <td class="p-2.5 text-gray-300">${item.perk}</td>
+          </tr>
+        `;
+      });
+      document.getElementById('petTbody').innerHTML = rowsHtml;
     }
 
     // --- 6. DAWN EXPERTS ENGINE ---
+    const expertBreakdownLadder = [
+      { range: "Lv. 0 ➔ Lv. 10", sigils: 15, books: 800, xp: 1000, perk: "Unlocks Active Skill 1" },
+      { range: "Lv. 10 ➔ Lv. 20", sigils: 20, books: 1200, xp: 2200, perk: "Affinity Milestone 2" },
+      { range: "Lv. 20 ➔ Lv. 30", sigils: 25, books: 1800, xp: 3800, perk: "Unlocks Skill 1 Upgrade" },
+      { range: "Lv. 30 ➔ Lv. 40", sigils: 30, books: 2400, xp: 5800, perk: "Unlocks Active Skill 2" },
+      { range: "Lv. 40 ➔ Lv. 50", sigils: 35, books: 3200, xp: 8200, perk: "Key Mid-Game Breakpoint" },
+      { range: "Lv. 50 ➔ Lv. 60", sigils: 40, books: 4200, xp: 11000, perk: "Unlocks Active Skill 3" },
+      { range: "Lv. 60 ➔ Lv. 70", sigils: 45, books: 5400, xp: 14500, perk: "Skill 2 & 3 Amplification" },
+      { range: "Lv. 70 ➔ Lv. 80", sigils: 50, books: 6800, xp: 18500, perk: "Unlocks Active Skill 4" },
+      { range: "Lv. 80 ➔ Lv. 90", sigils: 55, books: 8500, xp: 23500, perk: "High-Tier Passive Scaling" },
+      { range: "Lv. 90 ➔ Lv. 100", sigils: 60, books: 10500, xp: 30000, perk: "👑 Full Expert Master Cap" }
+    ];
+
     function calculateDawnPlanner() {
-      const lvl = parseInt(document.getElementById('dawnLvl').value) || 1;
-      const buff = parseFloat(document.getElementById('dawnBuff').value) || 0;
+      const count = parseInt(document.getElementById('dawnCount').value);
+      const start = parseInt(document.getElementById('dawnStart').value);
+      const target = parseInt(document.getElementById('dawnTarget').value);
 
-      const sigils = lvl * 120;
-      const books = lvl * 85;
-      const buildRed = (lvl * 1.5).toFixed(1);
+      const mult = (target - start) / 100 * count;
+      const sigils = 375 * mult;
+      const books = 44800 * mult;
+      const affinity = 118500 * mult;
+      const days = Math.round(33.6 * mult);
 
-      document.getElementById('dawnSigils').innerText = sigils.toLocaleString();
-      document.getElementById('dawnBooks').innerText = books.toLocaleString();
-      document.getElementById('dawnBuildRed').innerText = `-${buildRed}% Time`;
+      document.getElementById('dawnSigils').innerText = Math.round(sigils).toLocaleString();
+      document.getElementById('dawnBooks').innerText = Math.round(books).toLocaleString();
+      document.getElementById('dawnAffinity').innerText = Math.round(affinity).toLocaleString();
+      document.getElementById('dawnTime').innerText = `${days}d 14h`;
+
+      let rowsHtml = '';
+      expertBreakdownLadder.forEach(item => {
+        rowsHtml += `
+          <tr class="hover:bg-white/5 transition">
+            <td class="p-2.5 font-bold text-frost-300">${item.range}</td>
+            <td class="p-2.5 text-frost-400 font-bold">${item.sigils * count}</td>
+            <td class="p-2.5 text-amber-300">${(item.books * count).toLocaleString()}</td>
+            <td class="p-2.5 text-rose-300">${(item.xp * count).toLocaleString()}</td>
+            <td class="p-2.5 text-gray-300">${item.perk}</td>
+          </tr>
+        `;
+      });
+      document.getElementById('dawnTbody').innerHTML = rowsHtml;
     }
 
     // SPARKLE CANVAS ENGINE
@@ -1034,25 +1304,51 @@
 
       // 2. CHIEF MODAL LISTENERS
       const tabChiefGear = document.getElementById('tabChiefGear'); const tabChiefCharms = document.getElementById('tabChiefCharms');
-      tabChiefGear.onclick = () => { chiefTabMode = 'gear'; tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer"; tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; document.getElementById('chiefGearInputs').classList.remove('hidden'); document.getElementById('chiefCharmsInputs').classList.add('hidden'); calculateChiefPlanner(); };
-      tabChiefCharms.onclick = () => { chiefTabMode = 'charms'; tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer"; tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; document.getElementById('chiefCharmsInputs').classList.remove('hidden'); document.getElementById('chiefGearInputs').classList.add('hidden'); calculateChiefPlanner(); };
+      tabChiefGear.onclick = () => { chiefTabMode = 'gear'; tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-frost-600 text-white shadow-md cursor-pointer"; tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; document.getElementById('chiefGearInputs').classList.remove('hidden'); document.getElementById('quickJumpsGear').classList.remove('hidden'); document.getElementById('chiefCharmsInputs').classList.add('hidden'); calculateChiefPlanner(); };
+      tabChiefCharms.onclick = () => { chiefTabMode = 'charms'; tabChiefCharms.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer"; tabChiefGear.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; document.getElementById('chiefCharmsInputs').classList.remove('hidden'); document.getElementById('chiefGearInputs').classList.add('hidden'); document.getElementById('quickJumpsGear').classList.add('hidden'); calculateChiefPlanner(); };
       ['cgStartTier', 'cgTargetTier', 'cgPieces', 'charmStartLvl', 'charmTargetLvl', 'charmSlots'].forEach(id => document.getElementById(id).onchange = calculateChiefPlanner);
+
+      document.querySelectorAll('.qj-btn').forEach(btn => {
+        btn.onclick = () => {
+          document.getElementById('cgStartTier').value = btn.getAttribute('data-s');
+          document.getElementById('cgTargetTier').value = btn.getAttribute('data-t');
+          calculateChiefPlanner();
+        };
+      });
+
       populateCharmsSelects(); calculateChiefPlanner();
 
       // 3. TROOPS MODAL LISTENERS
-      ['trTier', 'trCount', 'trBuff'].forEach(id => { document.getElementById(id).onchange = calculateTroopsPlanner; document.getElementById(id).oninput = calculateTroopsPlanner; });
+      const trModeFresh = document.getElementById('trModeFresh'); const trModePromo = document.getElementById('trModePromo');
+      trModeFresh.onclick = () => { troopMode = 'fresh'; trModeFresh.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-purple-600 text-white shadow-md cursor-pointer"; trModePromo.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; calculateTroopsPlanner(); };
+      trModePromo.onclick = () => { troopMode = 'promo'; trModePromo.className = "flex-1 py-2 rounded-xl text-xs font-bold transition bg-amber-500 text-white shadow-md cursor-pointer"; trModeFresh.className = "flex-1 py-2 rounded-xl text-xs font-bold transition text-gray-400 hover:text-white cursor-pointer"; calculateTroopsPlanner(); };
+      ['trTier', 'trCount', 'trBuff', 'sp1h', 'sp3h', 'sp8h', 'sp24h'].forEach(id => { document.getElementById(id).onchange = calculateTroopsPlanner; document.getElementById(id).oninput = calculateTroopsPlanner; });
       calculateTroopsPlanner();
 
       // 4. HERO MODAL LISTENERS
-      ['hwLvl', 'hwCount'].forEach(id => { document.getElementById(id).onchange = calculateHeroWidgets; document.getElementById(id).oninput = calculateHeroWidgets; });
-      calculateHeroWidgets();
+      ['hgPieces', 'hgStartLvl', 'hgTargetLvl', 'hmStart', 'hmTarget'].forEach(id => document.getElementById(id).onchange = calculateHeroPlanner);
+      calculateHeroPlanner();
 
       // 5. PET MODAL LISTENERS
-      ['petStart', 'petTarget'].forEach(id => { document.getElementById(id).onchange = calculatePetPlanner; document.getElementById(id).oninput = calculatePetPlanner; });
+      document.querySelectorAll('.pet-btn').forEach(btn => {
+        btn.onclick = () => {
+          document.querySelectorAll('.pet-btn').forEach(b => b.className = "pet-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center cursor-pointer");
+          btn.className = "pet-btn bg-emerald-500/20 border-2 border-emerald-400 text-emerald-300 p-2 rounded-xl text-[11px] font-bold text-center cursor-pointer shadow-lg shadow-emerald-500/10";
+          calculatePetPlanner();
+        };
+      });
+      ['petStart', 'petTarget', 'petCount'].forEach(id => document.getElementById(id).onchange = calculatePetPlanner);
       calculatePetPlanner();
 
       // 6. DAWN MODAL LISTENERS
-      ['dawnLvl', 'dawnBuff'].forEach(id => { document.getElementById(id).onchange = calculateDawnPlanner; document.getElementById(id).oninput = calculateDawnPlanner; });
+      document.querySelectorAll('.exp-btn').forEach(btn => {
+        btn.onclick = () => {
+          document.querySelectorAll('.exp-btn').forEach(b => b.className = "exp-btn bg-darkbg border border-white/10 text-gray-300 p-2 rounded-xl text-[11px] font-bold text-center cursor-pointer");
+          btn.className = "exp-btn bg-frost-500/20 border-2 border-frost-400 text-frost-300 p-2 rounded-xl text-[11px] font-bold text-center cursor-pointer shadow-lg shadow-frost-500/10";
+          calculateDawnPlanner();
+        };
+      });
+      ['dawnStart', 'dawnTarget', 'dawnCount'].forEach(id => document.getElementById(id).onchange = calculateDawnPlanner);
       calculateDawnPlanner();
 
       // AUTH MODAL LISTENERS
