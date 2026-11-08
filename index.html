@@ -69,8 +69,9 @@
 
       <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
         <a href="#servers" class="hover:text-frost-400 transition" data-i18n="navServer">Server</a>
-        <a href="#rewards" class="hover:text-frost-400 font-bold transition" data-i18n="navRewards">Rewards</a>
+        <a href="#rewards" class="hover:text-frost-400 transition" data-i18n="navRewards">Rewards</a>
         <a href="#recharge" class="hover:text-amber-400 text-amber-400 font-bold transition" data-i18n="navRecharge">Recharge</a>
+        <a href="#calculators" class="hover:text-frost-400 transition" data-i18n="navCalc">Calculator</a>
         <a href="#codes" class="hover:text-frost-400 transition" data-i18n="navCodes">Gift Codes</a>
         <a href="#support" class="hover:text-frost-400 transition" data-i18n="navSupport">Support</a>
       </div>
@@ -194,7 +195,25 @@
     </div>
   </section>
 
-  <!-- 3. GIFT CODES SECTION -->
+  <!-- 3. CALCULATOR SUITE SECTION -->
+  <section id="calculators" class="max-w-7xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-frost-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="calcBadge">SURVIVOR TOOLKIT</span>
+      <h2 class="text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-wide mb-3" data-i18n="calcTitle">
+        CALCULATOR SUITE
+      </h2>
+      <p class="text-gray-400 text-sm sm:text-base" data-i18n="calcSub">
+        Accurate Survivor Planners & Resource Projections for Whiteout Survival Private Server.
+      </p>
+    </div>
+
+    <!-- CALCULATOR CARDS GRID -->
+    <div id="calcGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Generated via JS -->
+    </div>
+  </section>
+
+  <!-- 4. GIFT CODES SECTION -->
   <section id="codes" class="max-w-6xl mx-auto px-4 lg:px-8 py-20 border-t border-white/10 pt-24 relative z-10">
     <div class="text-center max-w-2xl mx-auto mb-12">
       <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="codesBadge">ACTIVE CODES</span>
@@ -212,7 +231,7 @@
     </div>
   </section>
 
-  <!-- 4. SUPPORT / COMMUNITY SECTION (ZNOWZ UI WITH DEPTH EFFECT) -->
+  <!-- 5. SUPPORT / COMMUNITY SECTION (ZNOWZ UI WITH DEPTH EFFECT) -->
   <section id="support" class="w-full bg-gradient-to-r from-blue-950 via-indigo-950 to-blue-950 py-24 border-t border-blue-500/20 relative z-10 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 items-center">
       
@@ -309,6 +328,52 @@
 
     const STRIPE_LINK = "https://buy.stripe.com/3cI4gAeaJbL1aRt5kS24000";
 
+    // CALCULATORS LIST DATA
+    const calculatorsData = [
+      {
+        id: "fc",
+        icon: "🔥",
+        titleKey: "calcFcTitle",
+        descKey: "calcFcDesc",
+        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-fire-crystals.html"
+      },
+      {
+        id: "chief",
+        icon: "🛡️",
+        titleKey: "calcChiefTitle",
+        descKey: "calcChiefDesc",
+        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-chief-gear.html"
+      },
+      {
+        id: "troops",
+        icon: "🏹",
+        titleKey: "calcTroopTitle",
+        descKey: "calcTroopDesc",
+        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-troops.html"
+      },
+      {
+        id: "hero",
+        icon: "⚔️",
+        titleKey: "calcHeroTitle",
+        descKey: "calcHeroDesc",
+        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-hero-gear.html"
+      },
+      {
+        id: "pets",
+        icon: "🐾",
+        titleKey: "calcPetTitle",
+        descKey: "calcPetDesc",
+        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-pets.html"
+      },
+      {
+        id: "dawn",
+        icon: "📜",
+        titleKey: "calcDawnTitle",
+        descKey: "calcDawnDesc",
+        link: "https://eu1-guide.github.io/BETA-GUIDE/calc-dawn-academy.html"
+      }
+    ];
+
     // RECHARGE PACKS DATA
     const rechargePacks = [
       { price: "$0.79", base: "1,000", always: "+250", beta: "+312", total: "1,875 TOTAL (BETA)", tag: "" },
@@ -355,6 +420,7 @@
         navServer: "Server",
         navRewards: "Rewards",
         navRecharge: "Recharge",
+        navCalc: "Calculator",
         navCodes: "Gift Codes",
         navSupport: "Support",
         dlRegBtn: "▶ DOWNLOAD",
@@ -379,6 +445,22 @@
         btnClaimMs: "CLAIM MILESTONE",
         summaryTag: "ACCUMULATED MILESTONES",
         summaryTitle: "TOTAL CUMULATIVE REWARDS",
+        calcBadge: "SURVIVOR TOOLKIT",
+        calcTitle: "CALCULATOR SUITE",
+        calcSub: "Accurate Survivor Planners & Resource Projections for Whiteout Survival Private Server.",
+        calcOpenBtn: "Open Calculator ➔",
+        calcFcTitle: "Fire Crystals",
+        calcFcDesc: "FC1 to FC10+ progression, War Academy, Furnace prerequisites, sub-nodes, and settlement bundles.",
+        calcChiefTitle: "Chief Gear & Charms",
+        calcChiefDesc: "Full endgame ladder up to Red T6 (3★) and Chief Charms up to Level 18 with sub-levels, guides, and Jewel Secrets.",
+        calcTroopTitle: "Troops & Speedups",
+        calcTroopDesc: "T1 to T12 Exalted training, promotion differential engine, speedup bag inventory converter, and SvS points.",
+        calcHeroTitle: "Hero Widgets & Gear",
+        calcHeroDesc: "Hero Gear Enhancement (Lv 0-100), Mastery Forging (1-20), and Exclusive Widgets up to 15 heroes (Apex Arena).",
+        calcPetTitle: "Beast Sanctuary",
+        calcPetDesc: "All 15 Sanctuary Beasts (including Shelldragon), Lv 1-150 progression, Beast Food, Potions/Serums, and Beast Marks.",
+        calcDawnTitle: "Dawn Experts",
+        calcDawnDesc: "All 11 Experts (including Gareth & Justus), Expert Sigils, Books of Knowledge, Affinity XP, and learning speedup times.",
         codesBadge: "ACTIVE CODES",
         codesTitle: "CLAIM YOUR FREE REWARDS",
         codesSub: "Copy a code, open your profile in game and redeem it from Settings → Gift Code.",
@@ -401,6 +483,7 @@
         navServer: "Server",
         navRewards: "Hadiah",
         navRecharge: "Top Up",
+        navCalc: "Kalkulator",
         navCodes: "Kode Hadiah",
         navSupport: "Dukungan",
         dlRegBtn: "▶ UNDUH",
@@ -425,6 +508,22 @@
         btnClaimMs: "KLAIM MILESTONE",
         summaryTag: "AKUMULASI MILESTONE",
         summaryTitle: "TOTAL HADIAH AKUMULATIF",
+        calcBadge: "ALAT BANTU SURVIVOR",
+        calcTitle: "SUITE KALKULATOR",
+        calcSub: "Perencanaan Survivor & Proyeksi Sumber Daya Akurat untuk Private Server.",
+        calcOpenBtn: "Buka Kalkulator ➔",
+        calcFcTitle: "Kristal Api (Fire Crystals)",
+        calcFcDesc: "Progresi FC1 hingga FC10+, War Academy, syarat Furnace, sub-node, dan paket settlement.",
+        calcChiefTitle: "Chief Gear & Charms",
+        calcChiefDesc: "Endgame lengkap hingga Red T6 (3★) dan Chief Charms hingga Level 18 beserta sub-level & Jewel Secrets.",
+        calcTroopTitle: "Pasukan & Speedup",
+        calcTroopDesc: "Pelatihan T1 hingga T12 Exalted, diferensial promosi, konverter tas speedup, dan poin SvS.",
+        calcHeroTitle: "Hero Widgets & Gear",
+        calcHeroDesc: "Penguatan Hero Gear (Lv 0-100), Mastery Forging (1-20), dan Exclusive Widgets hingga 15 hero.",
+        calcPetTitle: "Suaka Binatang (Beast Sanctuary)",
+        calcPetDesc: "15 Sanctuary Beasts (termasuk Shelldragon), progresi Lv 1-150, Makanan, Ramuan/Serum, dan Beast Marks.",
+        calcDawnTitle: "Pakar Fajar (Dawn Experts)",
+        calcDawnDesc: "11 Experts (termasuk Gareth & Justus), Expert Sigils, Books of Knowledge, XP Afinitas, dan percepatan waktu.",
         codesBadge: "KODE AKTIF",
         codesTitle: "KLAIM HADIAH GRATIS KAMU",
         codesSub: "Salin kode, buka profil di game dan tukarkan dari Pengaturan → Kode Hadiah.",
@@ -447,6 +546,7 @@
         navServer: "服务器",
         navRewards: "奖励",
         navRecharge: "充值",
+        navCalc: "计算器",
         navCodes: "礼包码",
         navSupport: "支持",
         dlRegBtn: "▶ 下载",
@@ -471,6 +571,22 @@
         btnClaimMs: "领取目标奖励",
         summaryTag: "累计目标",
         summaryTitle: "累计总奖励",
+        calcBadge: "生存者工具包",
+        calcTitle: "计算器套件",
+        calcSub: "精准的生存规划与资源计算器。",
+        calcOpenBtn: "打开计算器 ➔",
+        calcFcTitle: "火晶 (Fire Crystals)",
+        calcFcDesc: "FC1 至 FC10+ 升级、战争学院、熔炉前置条件、子节点与城邦礼包。",
+        calcChiefTitle: "领主装备与护符",
+        calcChiefDesc: "终极装备升级至 Red T6 (3★) 与领主护符至 Lv 18，含 Jewel Secrets。",
+        calcTroopTitle: "部队与加速",
+        calcTroopDesc: "T1 至 T12 进阶训练、晋升差额引擎、背包加速转换器与 SvS 积分。",
+        calcHeroTitle: "英雄装备与专属",
+        calcHeroDesc: "英雄装备强化(0-100)、精炼(1-20)与多达15位英雄的专属装备。",
+        calcPetTitle: "巨兽圣域",
+        calcPetDesc: "15种圣域巨兽、Lv 1-150 升级、巨兽食物、血清与印记。",
+        calcDawnTitle: "黎明专家",
+        calcDawnDesc: "11位专家、专家印记、知识之书、亲密度XP与学习加速计算。",
         codesBadge: "有效礼包码",
         codesTitle: "领取免费奖励",
         codesSub: "复制礼包码，在游戏中打开个人资料，通过设置 → 礼包码兑换。",
@@ -493,6 +609,7 @@
         navServer: "เซิร์ฟเวอร์",
         navRewards: "รางวัล",
         navRecharge: "เติมเงิน",
+        navCalc: "เครื่องคิดเลข",
         navCodes: "โค้ดของขวัญ",
         navSupport: "ช่วยเหลือ",
         dlRegBtn: "▶ ดาวน์โหลด",
@@ -517,6 +634,22 @@
         btnClaimMs: "รับรางวัลเป้าหมาย",
         summaryTag: "เป้าหมายสะสม",
         summaryTitle: "รางวัลสะสมทั้งหมด",
+        calcBadge: "เครื่องมือผู้รอดชีวิต",
+        calcTitle: "ระบบคำนวณทรัพยากร",
+        calcSub: "วางแผนการพัฒนาและคำนวณทรัพยากรที่แม่นยำสำหรับเซิร์ฟเวอร์ส่วนตัว",
+        calcOpenBtn: "เปิดเครื่องคิดเลข ➔",
+        calcFcTitle: "คริสตัลเพลิง (Fire Crystals)",
+        calcFcDesc: "การอัปเกรด FC1 ถึง FC10+, สถาบันสงคราม, เงื่อนไขเตาเผา และแพ็กเกจตั้งถิ่นฐาน",
+        calcChiefTitle: "อุปกรณ์ผู้นำ & เครื่องราง",
+        calcChiefDesc: "คำนวณอุปกรณ์ระดับ Red T6 (3★) และเครื่องรางผู้นำถึง Level 18",
+        calcTroopTitle: "ทหาร & เร่งความเร็ว",
+        calcTroopDesc: "การฝึกทหาร T1 ถึง T12, ระบบแปลงเร่งความเร็วในกระเป๋า และคะแนน SvS",
+        calcHeroTitle: "อุปกรณ์ฮีโร่ & อาวุธประจำตัว",
+        calcHeroDesc: "การตีบวกอุปกรณ์ฮีโร่ (Lv 0-100) และอาวุธประจำตัวฮีโร่สูงสุด 15 ตัว",
+        calcPetTitle: "วิหารสัตว์ร้าย (Beast Sanctuary)",
+        calcPetDesc: "คำนวณสัตว์ร้าย 15 ตัว (รวม Shelldragon), เลเวล 1-150, อาหาร และเซรั่ม",
+        calcDawnTitle: "ผู้เชี่ยวชาญแห่งรุ่งอรุณ",
+        calcDawnDesc: "ผู้เชี่ยวชาญ 11 คน, ตราผู้เชี่ยวชาญ, หนังสือความรู้ และเวลาเร่งการเรียนรู้",
         codesBadge: "โค้ดที่ใช้งานได้",
         codesTitle: "รับรางวัลฟรีของคุณ",
         codesSub: "คัดลอกโค้ด เปิดโปรไฟล์ในเกม และรับรางวัลได้ที่ การตั้งค่า → โค้ดของขวัญ",
@@ -539,6 +672,7 @@
         navServer: "السيرفر",
         navRewards: "المكافآت",
         navRecharge: "الشحن",
+        navCalc: "الحاسبة",
         navCodes: "أكواد الهدية",
         navSupport: "الدعم",
         dlRegBtn: "▶ تحميل",
@@ -563,6 +697,22 @@
         btnClaimMs: "طالب بالمرحلة",
         summaryTag: "المراحل التراكمية",
         summaryTitle: "إجمالي المكافآت التراكمية",
+        calcBadge: "أدوات الناجين",
+        calcTitle: "مجموعة الحاسبات",
+        calcSub: "حاسبات دقيقة لتخطيط الموارد والتطوير للسيرفر الخاص.",
+        calcOpenBtn: "افتح الحاسبة ➔",
+        calcFcTitle: "بلورات النار (Fire Crystals)",
+        calcFcDesc: "تطوير FC1 إلى FC10+ وأكاديمية الحرب ومتطلبات الفرن والحزم.",
+        calcChiefTitle: "عتاد القائد والتمائم",
+        calcChiefDesc: "ترقية عتاد القائد حتى Red T6 (3★) والتمائم حتى المستوى 18.",
+        calcTroopTitle: "القوات والمسرعات",
+        calcTroopDesc: "تدريب القوات T1 إلى T12 وتحويل مسرعات الحقيبة ونقاط SvS.",
+        calcHeroTitle: "عتاد البطل وأدواته",
+        calcHeroDesc: "تعزيز عتاد البطل (Lv 0-100) والعتاد الحصري لـ 15 بطلاً.",
+        calcPetTitle: "محمية الوحوش",
+        calcPetDesc: "جميع وحوش المحمية الـ 15 وترقيتها من 1-150 والأطعمة والأمصال.",
+        calcDawnTitle: "خبراء الفجر",
+        calcDawnDesc: "جميع الخبراء الـ 11 وأختام الخبراء وكتب المعرفة ومسرعات التعلم.",
         codesBadge: "الأكواد النشطة",
         codesTitle: "احصل على مكافآتك المجانية",
         codesSub: "انسخ الكود، افتح ملفك الشخصي في اللعبة واستبدله من الإعدادات ← كود الهدية.",
@@ -585,6 +735,7 @@
         navServer: "Сервер",
         navRewards: "Награды",
         navRecharge: "Пополнение",
+        navCalc: "Калькулятор",
         navCodes: "Промокоды",
         navSupport: "Поддержка",
         dlRegBtn: "▶ СКАЧАТЬ",
@@ -609,6 +760,22 @@
         btnClaimMs: "ПОЛУЧИТЬ ЭТАП",
         summaryTag: "НАКОПИТЕЛЬНЫЕ ЭТАПЫ",
         summaryTitle: "ОБЩИЕ НАКОПИТЕЛЬНЫЕ НАГРАДЫ",
+        calcBadge: "НАБОР ВЫЖИВШЕГО",
+        calcTitle: "КАЛЬКУЛЯТОРЫ",
+        calcSub: "Точный расчет ресурсов и планирование прокачки для приватного сервера.",
+        calcOpenBtn: "Открыть калькулятор ➔",
+        calcFcTitle: "Огненные кристаллы (FC)",
+        calcFcDesc: "Прокачка FC1-FC10+, Военная Академия, требования Печи и наборы.",
+        calcChiefTitle: "Снаряжение Вождя и Талисманы",
+        calcChiefDesc: "Прокачка снаряжения до Red T6 (3★) и талисманов вождя до 18 уровня.",
+        calcTroopTitle: "Войска и Ускорения",
+        calcTroopDesc: "Тренировка T1-T12 Exalted, конвертер ускорений из инвентаря и очки SvS.",
+        calcHeroTitle: "Снаряжение и Виджеты Героев",
+        calcHeroDesc: "Улучшение снаряжения героев (Lv 0-100), ковка мастерства и виджеты.",
+        calcPetTitle: "Заповедник Зверей",
+        calcPetDesc: "Все 15 зверей (включая Shelldragon), прокачка 1-150 ур., еда и сыворотки.",
+        calcDawnTitle: "Эксперты Рассвета",
+        calcDawnDesc: "Все 11 экспертов, печати, книги знаний, опыт и время ускорений.",
         codesBadge: "АКТИВНЫЕ КОДЫ",
         codesTitle: "ПОЛУЧИТЕ БЕСПЛАТНЫЕ НАГРАДЫ",
         codesSub: "Скопируйте код, откройте профиль в игре и активируйте в Настройки → Подарочный код.",
@@ -631,6 +798,7 @@
         navServer: "서버",
         navRewards: "보상",
         navRecharge: "충전",
+        navCalc: "계산기",
         navCodes: "기프트 코드",
         navSupport: "지원",
         dlRegBtn: "▶ 다운로드",
@@ -655,6 +823,22 @@
         btnClaimMs: "마일스톤 수령",
         summaryTag: "누적 마일스톤",
         summaryTitle: "총 누적 보상",
+        calcBadge: "생존자 툴킷",
+        calcTitle: "계산기 수트",
+        calcSub: "프라이빗 서버를 위한 정확한 자원 계산 및 성장 플래너.",
+        calcOpenBtn: "계산기 열기 ➔",
+        calcFcTitle: "파이어 크리스탈 (FC)",
+        calcFcDesc: "FC1 ~ FC10+ 성장, 전쟁 아카데미, 용광로 요구사항 및 패키지 계산.",
+        calcChiefTitle: "영주 장비 & 보석",
+        calcChiefDesc: "Red T6 (3★) 영주 장비 및 18레벨 영주 보석 계산기.",
+        calcTroopTitle: "병사 & 가속",
+        calcTroopDesc: "T1 ~ T12 Exalted 훈련 계산, 가속 아이템 전환기 및 SvS 점수.",
+        calcHeroTitle: "영웅 장비 & 전용 장비",
+        calcHeroDesc: "영웅 장비 강화 (Lv 0-100) 및 최대 15명 영웅의 전용 장비 계산.",
+        calcPetTitle: "야수 성역",
+        calcPetDesc: "15종 야수 (쉘드래곤 포함), 1-150 레벨 성장, 먹이 및 혈청 계산.",
+        calcDawnTitle: "새벽의 전문가",
+        calcDawnDesc: "11명의 전문가, 인장, 지식의 서 및 학습 가속 시간 계산.",
         codesBadge: "활성 코드",
         codesTitle: "무료 보상 수령하기",
         codesSub: "코드를 복사한 후 게임 내 프로필 > 설정 > 기프트 코드에서 입력하세요.",
@@ -677,6 +861,7 @@
         navServer: "サーバー",
         navRewards: "報酬",
         navRecharge: "チャージ",
+        navCalc: "計算機",
         navCodes: "ギフトコード",
         navSupport: "サポート",
         dlRegBtn: "▶ ダウンロード",
@@ -701,6 +886,22 @@
         btnClaimMs: "目標報酬を獲得",
         summaryTag: "累計目標",
         summaryTitle: "累計獲得報酬合計",
+        calcBadge: "サバイバーツールキット",
+        calcTitle: "計算機 suite",
+        calcSub: "プライベートサーバー用の正確な資源計算＆育成プランナー。",
+        calcOpenBtn: "計算機を開く ➔",
+        calcFcTitle: "火晶 (Fire Crystals)",
+        calcFcDesc: "FC1〜FC10+育成、戦争アカデミー、大溶鉱炉の前提, パック計算。",
+        calcChiefTitle: "领主装備＆護符",
+        calcChiefDesc: "Red T6 (3★) までの領主装備および Lv 18 までの領主護符計算機。",
+        calcTroopTitle: "兵士＆加速",
+        calcTroopDesc: "T1〜T12 Exalted 訓練計算、バッグ内加速変換、SvS ポイント計算。",
+        calcHeroTitle: "英雄装備＆専属装備",
+        calcHeroDesc: "英雄装備強化 (Lv 0-100) および最大15名の英雄の専属装備計算。",
+        calcPetTitle: "野獣の聖域",
+        calcPetDesc: "15種の野獣 (シェルドラゴン含む)、Lv 1-150育成、餌＆ชิรัม計算。",
+        calcDawnTitle: "夜明けの専門家",
+        calcDawnDesc: "11名の専門家、印章、知識の書、学習加速時間の計算。",
         codesBadge: "利用可能なコード",
         codesTitle: "無料報酬を受け取る",
         codesSub: "コードをコピーし、ゲーム内の profile > 設定 > ギフトコードから引き換えてください。",
@@ -735,6 +936,7 @@
       document.getElementById('langSelector').value = selected;
       renderRewards(selected);
       renderRecharge(selected);
+      renderCalculators(selected);
       renderCodes(selected);
     }
 
@@ -815,6 +1017,42 @@
           <button class="w-full bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-400 group-hover:to-amber-500 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20">
             ${buyText}
           </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // RENDER CALCULATOR CARDS
+    function renderCalculators(lang = 'en') {
+      const grid = document.getElementById('calcGrid');
+      grid.innerHTML = '';
+      const openBtnText = translations[lang]?.calcOpenBtn || "Open Calculator ➔";
+
+      calculatorsData.forEach(item => {
+        const titleText = translations[lang]?.[item.titleKey] || "Calculator";
+        const descText = translations[lang]?.[item.descKey] || "";
+
+        const card = document.createElement('a');
+        card.href = item.link;
+        card.target = "_blank";
+        card.className = "bg-darkcard hover:bg-darkcard/80 border border-frost-500/20 hover:border-frost-400 p-6 rounded-2xl transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between group cursor-pointer";
+
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-3xl">${item.icon}</span>
+              <span class="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>Ready</span>
+              </span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white mb-2 group-hover:text-frost-300 transition">${titleText}</h3>
+            <p class="text-gray-400 text-xs leading-relaxed mb-6">${descText}</p>
+          </div>
+
+          <div class="text-frost-400 font-bold text-xs group-hover:translate-x-1 transition flex items-center gap-1">
+            <span>${openBtnText}</span>
+          </div>
         `;
         grid.appendChild(card);
       });
