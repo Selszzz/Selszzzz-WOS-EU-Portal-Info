@@ -564,8 +564,9 @@
       { milestone: "$1,200", reward: "+250,000" }, { milestone: "$1,500", reward: "+290,000" }
     ];
 
+    // UPDATED GIFT CODES LIST WITH "MKSGBNAP"
     const giftCodes = [
-      "VWYTWXWM", "CVVJXKWU", "EAWEGKHDSY", "KDQXZYTTXE", "VRXGWQPJKF", 
+      "MKSGBNAP", "VWYTWXWM", "CVVJXKWU", "EAWEGKHDSY", "KDQXZYTTXE", "VRXGWQPJKF", 
       "XHCBPWFAUN", "WWUHZSYM", "37D7652B5C", "KEUNULFW", "EJGFULXG", 
       "LIONQUEEN", "DVXQDREBUS", "EUZYMLTD", "DMGNDZEXMV", "GAMQQLPQ", 
       "HWRGTWZE", "SERPENT10", "WLZBJLPX", "WCAHNEXZ", "JLSHYTCA", 
@@ -573,7 +574,7 @@
       "QMJHTWCQ", "2WLQSRT7", "NQVVBPDK", "5CMG6L4C", "FROST200K", 
       "JZHDQ3LD", "5NVXR8X6", "438ZBHYA", "11120172", "HAPPYDAY15", 
       "NEWVERSIONEV1", "FROST1MXD", "FROST500K", "HEROGEAR1000", "BigChiefKeys", 
-      "N5CS4D9C", "HWWKPGF6", "EUC6GDSQ", "MKSGBNAP"
+      "N5CS4D9C", "HWWKPGF6", "EUC6GDSQ"
     ];
 
     const translations = {
@@ -720,13 +721,20 @@
       const subText = translations[lang]?.cardSub || "Active reward code";
       const copyBtnText = translations[lang]?.btnCopy || "COPY";
 
-      giftCodes.forEach(code => {
+      giftCodes.forEach((code, idx) => {
         const card = document.createElement('div');
         card.className = "bg-white/95 hover:bg-white text-gray-900 rounded-2xl overflow-hidden shadow-xl flex justify-between items-center transition transform hover:-translate-y-1 cursor-pointer border border-white/20";
         card.onclick = () => copyCode(code);
+        
+        const isNew = idx === 0;
+        const tagHtml = isNew ? `<span class="bg-emerald-600 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded ml-2">NEW (3 DAYS)</span>` : '';
+
         card.innerHTML = `
           <div class="p-3.5 pl-4 overflow-hidden">
-            <span class="text-[9px] uppercase font-semibold text-gray-400 tracking-wider block mb-0.5">GIFT CODE</span>
+            <div class="flex items-center">
+              <span class="text-[9px] uppercase font-semibold text-gray-400 tracking-wider block">GIFT CODE</span>
+              ${tagHtml}
+            </div>
             <span class="font-bold text-base text-gray-900 tracking-wide block truncate">${code}</span>
             <span class="text-[11px] text-gray-500 font-medium block truncate">${subText}</span>
           </div>
